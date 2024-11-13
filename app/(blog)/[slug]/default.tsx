@@ -13,7 +13,7 @@ import { PortableText } from "@/app/(sanity)/lib/portabletext";
 import Link from "next/link";
 import Iframe from "react-iframe";
 
-import { BadgeBlogCategory } from "../_components/BadgeBlogCategory";
+import { BadgeBlogCategory } from "../_components/badge-blog-category";
 import { CTA } from "@/app/_components/cta";
 
 function getYoutubeNoCookieEmbedUrl(youtubeUrl: string) {

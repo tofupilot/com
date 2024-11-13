@@ -1,7 +1,7 @@
-import { urlForImage } from '@/app/(sanity)/lib/image';
-import Image from 'next/image';
-import Link from 'next/link';
-import { BadgeBlogCategory } from './BadgeBlogCategory';
+import { urlForImage } from "@/app/(sanity)/lib/image";
+import Image from "next/image";
+import Link from "next/link";
+import { BadgeBlogCategory } from "./badge-blog-category";
 
 export default function ListBlogPosts({ posts }: { posts: any }) {
   return (
@@ -19,7 +19,7 @@ export default function ListBlogPosts({ posts }: { posts: any }) {
                   className="relative aspect-[16/9]  hover:opacity-75 sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0 "
                 >
                   <Image
-                    src={post?.mainImage ? urlForImage(post.mainImage) : ''}
+                    src={post?.mainImage ? urlForImage(post.mainImage) : ""}
                     width={672}
                     height={336}
                     quality={100}
@@ -34,10 +34,10 @@ export default function ListBlogPosts({ posts }: { posts: any }) {
                       dateTime={new Date(post.publishedAt).toISOString()}
                       className="text-zinc-500"
                     >
-                      {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
+                      {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
                       })}
                     </time>
                     <BadgeBlogCategory categories={post.categories} />
