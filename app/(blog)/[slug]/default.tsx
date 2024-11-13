@@ -65,7 +65,7 @@ export default function Post(props: any) {
                     aria-hidden="true"
                   />
                   <Link
-                    href={"/blog"}
+                    href="/"
                     className="ml-4 text-sm font-medium text-zinc-500 hover:text-zinc-700 hover:dark:text-zinc-300"
                   >
                     Blog
@@ -166,7 +166,7 @@ export default function Post(props: any) {
 
       <CTA />
       <div className="flex justify-center pb-64">
-        <Button plain href="/blog">
+        <Button plain href="/">
           <ArrowLeftIcon />
           View all posts
         </Button>

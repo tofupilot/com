@@ -15,7 +15,7 @@ export default function ListBlogPosts({ posts }: { posts: any }) {
                 className="relative isolate flex flex-col gap-8 lg:flex-row"
               >
                 <Link
-                  href={`/blog/${post.slug.current}`}
+                  href={`/${post.slug.current}`}
                   className="relative aspect-[16/9]  hover:opacity-75 sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0 "
                 >
                   <Image
@@ -44,7 +44,7 @@ export default function ListBlogPosts({ posts }: { posts: any }) {
                   </div>
                   <div className="group relative max-w-xl">
                     <h3 className="mt-3 text-xl font-semibold leading-6 text-zinc-900 group-hover:text-zinc-600 dark:text-zinc-100 group-hover:dark:text-zinc-400">
-                      <Link href={`/blog/${post.slug.current}`}>
+                      <Link href={`/${post.slug.current}`}>
                         <span className="absolute inset-0" />
                         {post.title}
                       </Link>
