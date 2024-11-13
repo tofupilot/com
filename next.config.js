@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
-  assetPrefix: "/blogs-static",
+  basePath: "/blog",
   images: {
     remotePatterns: [
       {
