@@ -12,8 +12,9 @@ import { urlForImage } from "@/app/(sanity)/lib/image";
 import { PortableText } from "@/app/(sanity)/lib/portabletext";
 import Link from "next/link";
 import Iframe from "react-iframe";
-import { CTA } from "../../_components/CTA";
+
 import { BadgeBlogCategory } from "../_components/BadgeBlogCategory";
+import { CTA } from "@/app/_components/cta";
 
 function getYoutubeNoCookieEmbedUrl(youtubeUrl: string) {
   // Regular expression to match YouTube URLs and extract the video ID

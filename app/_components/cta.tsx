@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@/app/_components/catalyst/button";
-import { siteConfig } from "@/app/siteConfig";
 import Balancer from "react-wrap-balancer";
+import { siteConfig } from "../siteConfig";
 
 export function CTA() {
   return (
