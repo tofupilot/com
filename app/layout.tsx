@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+
+import "@/styles/tailwind.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,7 +25,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} min-h-screen scroll-auto antialiased selection:bg-indigo-100 selection:text-indigo-700 dark:bg-gray-950`}
       >
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
