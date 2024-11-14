@@ -40,5 +40,5 @@ venv/*
 # pycache
 __pycache__/
 
-
+.sanity
 
