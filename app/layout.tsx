@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
 import { Inter } from "next/font/google";
 
-import "@/styles/partials/table.css";
-import "@/styles/novel.css";
 import "@/styles/tailwind.css";
 
 import { siteConfig } from "./siteConfig";
