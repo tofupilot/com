@@ -27,7 +27,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} min-h-screen scroll-auto antialiased selection:bg-indigo-100 selection:text-indigo-700 dark:bg-gray-950`}
       >
-        <ThemeProvider>
+        <ThemeProvider defaultTheme="system" attribute="class">
           <Navigation />
           {children}
           <Footer />
