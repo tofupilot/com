@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 
 import "@/styles/tailwind.css";
+
 import { Navigation } from "./_components/navigation";
 import Footer from "./_components/footer";
 import { siteConfig } from "./siteConfig";
