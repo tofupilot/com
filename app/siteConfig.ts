@@ -1,14 +1,15 @@
+const url = "https://tofupilot.com";
 export const siteConfig = {
   name: "TofuPilot",
-  url: "https://tofupilot.com",
+  url,
   description: "Plug-and-play manufacturing test analytics.",
   baseLinks: {
-    home: "/",
-    about: "/about",
-    changelog: "/changelog",
-    blog: "/blog",
-    signup: "/auth/signup",
-    login: "/runs",
+    home: url,
+    about: `${url}/about`,
+    changelog: `${url}/changelog`,
+    blog: "/",
+    signup: `${url}/auth/signup`,
+    login: `${url}/runs`,
   },
 };
 

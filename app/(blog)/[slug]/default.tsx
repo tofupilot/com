@@ -13,8 +13,9 @@ import { PortableText } from "@/app/(sanity)/lib/portabletext";
 import Link from "next/link";
 import Iframe from "react-iframe";
 
-import { BadgeBlogCategory } from "../_components/badge-blog-category";
 import { CTA } from "@/app/_components/cta";
+import { BadgeBlogCategory } from "../_components/badge-blog-category";
+import { siteConfig } from "@/app/siteConfig";
 
 function getYoutubeNoCookieEmbedUrl(youtubeUrl: string) {
   // Regular expression to match YouTube URLs and extract the video ID
@@ -46,8 +47,8 @@ export default function Post(props: any) {
             <ol role="list" className="flex items-center space-x-4">
               <li>
                 <div>
-                  <Link
-                    href="/"
+                  <a
+                    href={siteConfig.baseLinks.home}
                     className="text-zinc-400 hover:text-zinc-500 dark:text-zinc-600"
                   >
                     <HomeIcon
@@ -55,7 +56,7 @@ export default function Post(props: any) {
                       aria-hidden="true"
                     />
                     <span className="sr-only">Home</span>
-                  </Link>
+                  </a>
                 </div>
               </li>
               <li key={"blog"}>
