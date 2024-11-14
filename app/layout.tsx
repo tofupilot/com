@@ -53,12 +53,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} min-h-screen scroll-auto antialiased selection:bg-indigo-100 selection:text-indigo-700 dark:bg-gray-950`}
+        className={`${inter.className} min-h-screen scroll-auto antialiased selection:bg-indigo-100 selection:text-indigo-700`}
       >
         <ThemeProvider defaultTheme="system" attribute="class">
-          <Navigation />
           {children}
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

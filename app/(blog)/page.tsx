@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default async function Page() {
   const posts = await getAllPosts();
   return (
-    <>
+    <main role="main" className="flex flex-col overflow-hidden">
       <ContainerLanding
         page="Blog"
         title="Insights and updates from across the team"
@@ -21,7 +21,7 @@ export default async function Page() {
       <div className="mb-64 py-12 sm:py-20">
         <ListBlogPosts posts={posts} />
       </div>
-    </>
+    </main>
   );
 }
 
