@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { Inter } from "next/font/google";
 
+import "@/styles/partials/table.css";
+import "@/styles/novel.css";
 import "@/styles/tailwind.css";
 
-import { Navigation } from "./_components/navigation";
-import Footer from "./_components/footer";
 import { siteConfig } from "./siteConfig";
 
 const inter = Inter({
@@ -53,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} min-h-screen scroll-auto antialiased selection:bg-indigo-100 selection:text-indigo-700`}
+        className={`${inter.className} min-h-screen scroll-auto antialiased selection:bg-indigo-100 selection:text-indigo-700 dark:bg-gray-950`}
       >
         <ThemeProvider defaultTheme="system" attribute="class">
           {children}
