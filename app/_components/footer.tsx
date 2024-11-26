@@ -7,7 +7,11 @@ import ThemeSwitch from "./theme-switch";
 const navigation = {
   product: [
     { name: "Docs", href: "https://docs.tofupilot.com", external: false },
-    { name: "Changelog", href: siteConfig.baseLinks.blog, external: false },
+    {
+      name: "Changelog",
+      href: siteConfig.baseLinks.changelog,
+      external: false,
+    },
     {
       name: "Status",
       href: "https://tofupilot.betteruptime.com/",

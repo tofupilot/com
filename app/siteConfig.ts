@@ -6,7 +6,7 @@ export const siteConfig = {
   baseLinks: {
     home: url,
     about: `${url}/about`,
-    changelog: `${url}/changelog`,
+    changelog: "/changelog",
     blog: "/",
     signup: `${url}/auth/signup`,
     login: `${url}/runs`,
