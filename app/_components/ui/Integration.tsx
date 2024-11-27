@@ -1,14 +1,14 @@
-import LogoApi from '@/public/home/logos/logo-api.svg';
-import LogoLabview from '@/public/home/logos/logo-labview.svg';
-import LogoMail from '@/public/home/logos/logo-mail.svg';
-import LogoOdoo from '@/public/home/logos/logo-odoo.svg';
-import LogoPython from '@/public/home/logos/logo-python.svg';
-import LogoSap from '@/public/home/logos/logo-sap.svg';
-import LogoSlack from '@/public/home/logos/logo-slack.svg';
-import LogoTeststand from '@/public/home/logos/logo-teststand.svg';
-import LogoTofuPilot from '@/public/home/logos/logo-tofupilot.svg';
-import Image from 'next/image';
-import { Badge } from '../Badge';
+import LogoApi from "@/public/home/logos/logo-api.svg";
+import LogoLabview from "@/public/home/logos/logo-labview.svg";
+import LogoMail from "@/public/home/logos/logo-mail.svg";
+import LogoOdoo from "@/public/home/logos/logo-odoo.svg";
+import LogoPython from "@/public/home/logos/logo-python.svg";
+import LogoSap from "@/public/home/logos/logo-sap.svg";
+import LogoSlack from "@/public/home/logos/logo-slack.svg";
+import LogoTeststand from "@/public/home/logos/logo-teststand.svg";
+import LogoTofuPilot from "@/public/home/logos/logo-tofupilot.svg";
+import Image from "next/image";
+import { Badge } from "../Badge";
 
 export default function Integrations() {
   return (

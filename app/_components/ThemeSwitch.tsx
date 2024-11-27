@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
 import {
   ComputerDesktopIcon,
   MoonIcon,
   SunIcon,
-} from '@heroicons/react/16/solid';
-import * as RadioGroupPrimitives from '@radix-ui/react-radio-group';
-import { useTheme } from 'next-themes';
-import React, { useEffect, useState } from 'react';
-import { cx, focusRing } from '../lib/utils';
+} from "@heroicons/react/16/solid";
+import * as RadioGroupPrimitives from "@radix-ui/react-radio-group";
+import { useTheme } from "next-themes";
+import React, { useEffect, useState } from "react";
+import { cx, focusRing } from "../_lib/utils";
 
 // Based on Tremor Raw RadioGroup [v0.0.0]
 
@@ -19,12 +19,12 @@ const RadioGroup = React.forwardRef<
   return (
     <RadioGroupPrimitives.Root
       ref={forwardedRef}
-      className={cx('grid gap-2', className)}
+      className={cx("grid gap-2", className)}
       {...props}
     />
   );
 });
-RadioGroup.displayName = 'RadioGroup';
+RadioGroup.displayName = "RadioGroup";
 
 const RadioGroupItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitives.Item>,
@@ -37,7 +37,7 @@ const RadioGroupItem = React.forwardRef<
     <RadioGroupPrimitives.Item
       ref={forwardedRef}
       className={cx(
-        'group relative flex size-8 appearance-none items-center justify-center outline-none',
+        "group relative flex size-8 appearance-none items-center justify-center outline-none",
         className
       )}
       {...props}
@@ -45,11 +45,11 @@ const RadioGroupItem = React.forwardRef<
       <div
         className={cx(
           // base
-          'flex size-full shrink-0 items-center justify-center rounded-lg text-gray-700 dark:text-gray-400',
+          "flex size-full shrink-0 items-center justify-center rounded-lg text-gray-700 dark:text-gray-400",
           // background color
-          'bg-transparent',
+          "bg-transparent",
           // checked
-          'group-data-[state=checked]:bg-indigo-50 group-data-[state=checked]:text-indigo-600 dark:group-data-[state=checked]:bg-indigo-500/20 dark:group-data-[state=checked]:text-indigo-300',
+          "group-data-[state=checked]:bg-indigo-50 group-data-[state=checked]:text-indigo-600 dark:group-data-[state=checked]:bg-indigo-500/20 dark:group-data-[state=checked]:text-indigo-300",
           // focus
           focusRing
         )}
@@ -59,7 +59,7 @@ const RadioGroupItem = React.forwardRef<
     </RadioGroupPrimitives.Item>
   );
 });
-RadioGroupItem.displayName = 'RadioGroupItem';
+RadioGroupItem.displayName = "RadioGroupItem";
 
 export { RadioGroup, RadioGroupItem };
 
@@ -78,7 +78,7 @@ const ThemeSwitch = () => {
   return (
     <RadioGroup
       value={theme}
-      onValueChange={value => {
+      onValueChange={(value) => {
         setTheme(value);
       }}
       className="flex gap-1"
