@@ -1,16 +1,15 @@
-const url = "https://tofupilot.com";
 export const siteConfig = {
   name: "TofuPilot",
-  url,
+  url: "https://tofupilot.com",
   description: "Plug-and-play manufacturing test analytics.",
   baseLinks: {
-    home: url,
-    about: `${url}/about`,
+    home: "/",
+    about: "/about",
     changelog: "/changelog",
-    blog: "/",
-    signup: `${url}/auth/signup`,
-    login: `${url}/runs`,
+    blog: "/blog",
+    signup: "/auth/signup",
+    login: "/runs",
   },
 };
 
-export type SiteConfig = typeof siteConfig;
+export type siteConfig = typeof siteConfig;
