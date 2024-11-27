@@ -6,14 +6,15 @@ export const siteConfig = {
     // internal
     home: "/",
     about: "/about",
-    blog: "/blog",
-    changelog: "/changelog",
     templates: "/templates",
     plugs: "/plugs",
+    guides: "/guides",
+    blog: "/blog",
+    changelog: "/changelog",
 
     // internal redirect
     docs: "/docs",
-    
+
     // external
     login: `${process.env.APP_URL} + /runs`,
     signup: `${process.env.APP_URL} + /auth/signup`,

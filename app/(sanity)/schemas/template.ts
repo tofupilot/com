@@ -60,6 +60,23 @@ export default defineType({
       validation: (Rule) => Rule.required().error("A framework is required"),
     }),
     defineField({
+      name: "usecase",
+      title: "Use Case",
+      type: "string",
+      options: {
+        list: [
+          { title: "Functional Testing", value: "Functional Testing" },
+          { title: "In-Circuit Testing", value: "In-Circuit Testing" },
+          {
+            title: "Environmental Stress Testing",
+            value: "Environmental Stress Testing",
+          },
+          { title: "Boundary Scan Testing", value: "Boundary Scan Testing" },
+          { title: "Burn-In Testing", value: "Burn-In Testing" },
+        ],
+      },
+    }),
+    defineField({
       name: "body",
       title: "Body",
       type: "blockContent",
@@ -86,6 +103,7 @@ export interface Template {
   author: Author;
   mainImage: Image;
   framework: Framework;
+  usecase: string;
   publishedAt: string; // ISO 8601 date string
   body: TypedObject[];
 }

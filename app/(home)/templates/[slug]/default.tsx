@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { notFound } from "next/navigation";
 
 import { Button } from "@/app/(home)/components/catalyst/button";
 import { ArrowLeftIcon } from "@heroicons/react/16/solid";
@@ -7,66 +6,85 @@ import { ArrowLeftIcon } from "@heroicons/react/16/solid";
 import { urlForImage } from "@/app/(sanity)/lib/image";
 import { PortableText } from "@/app/(sanity)/lib/portabletext";
 
+import { getAllTemplates } from "@/app/(sanity)/lib/client";
+import { Template } from "@/app/(sanity)/schemas/template";
 import { siteConfig } from "@/app/siteConfig";
+import clsx from "clsx";
+import { notFound } from "next/navigation";
 import {
   DescriptionDetails,
   DescriptionList,
   DescriptionTerm,
 } from "../../components/catalyst/description-list";
 import Cta from "../../components/Cta";
+import { TemplateGrid } from "../../components/ui/TemplateGrid";
 
-const products = [
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-];
-
-export default function Template(props: any) {
-  const { loading, template } = props;
+export async function TemplatePage({
+  loading,
+  template,
+}: {
+  loading: boolean;
+  template: Template;
+}) {
   const slug = template?.slug;
   if (!loading && !slug) {
     notFound();
   }
 
+  // TODO: move to template query with related field
+  const templates = await getAllTemplates();
+
+  const tabs = [
+    { name: "Templates", href: siteConfig.baseLinks.templates, current: false },
+    { name: "Plugs", href: siteConfig.baseLinks.plugs, current: false },
+    { name: "Guides", href: siteConfig.baseLinks.guides, current: false },
+    { name: "Blog", href: siteConfig.baseLinks.blog, current: true },
+    { name: "Changelog", href: siteConfig.baseLinks.changelog, current: false },
+  ];
+
   return (
     <>
+      {/* Test tabs */}
+      <div className="mt-24 mx-8">
+        <div className="sm:hidden">
+          <label htmlFor="tabs" className="sr-only">
+            Select a tab
+          </label>
+          {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
+          <select
+            id="tabs"
+            name="tabs"
+            defaultValue={tabs.find((tab) => tab.current).name}
+            className="block w-full rounded-md border-zinc-300 focus:border-indigo-500 focus:ring-indigo-500"
+          >
+            {tabs.map((tab) => (
+              <option key={tab.name}>{tab.name}</option>
+            ))}
+          </select>
+        </div>
+        <div className="hidden sm:block">
+          <div className="border-b border-zinc-200">
+            <nav aria-label="Tabs" className="-mb-px flex">
+              {tabs.map((tab) => (
+                <a
+                  key={tab.name}
+                  href={tab.href}
+                  aria-current={tab.current ? "page" : undefined}
+                  className={clsx(
+                    tab.current
+                      ? "border-indigo-500 text-indigo-600"
+                      : "border-transparent text-zinc-500 hover:border-zinc-300 hover:text-zinc-700",
+                    "w-1/4 border-b-2 px-1 py-4 text-center text-sm font-medium"
+                  )}
+                >
+                  {tab.name}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </div>
+      </div>
+
       {/* Navbar */}
       <div>
         <Button plain href={siteConfig.baseLinks.templates}>
@@ -118,25 +136,25 @@ export default function Template(props: any) {
                 {template.summary}
               </p>
 
-              <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2 h-11">
-                <Button>Deploy</Button>
+              <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
+                <Button className="h-11">Deploy</Button>
                 <Button outline>View Code</Button>
               </div>
 
               <div className="mt-8 border-zinc-200">
                 <DescriptionList>
                   <DescriptionTerm>Use Case</DescriptionTerm>
-                  <DescriptionDetails className="text-right">
-                    {template.framework.title}
+                  <DescriptionDetails className="sm:text-right">
+                    {template.usecase}
                   </DescriptionDetails>
 
                   <DescriptionTerm>Language</DescriptionTerm>
-                  <DescriptionDetails className="text-right">
-                    {template.framework.title}
+                  <DescriptionDetails className="sm:text-right">
+                    {template.framework.language}
                   </DescriptionDetails>
 
                   <DescriptionTerm>Framework</DescriptionTerm>
-                  <DescriptionDetails className="text-right">
+                  <DescriptionDetails className="sm:text-right">
                     {template.framework.title}
                   </DescriptionDetails>
                 </DescriptionList>
@@ -160,11 +178,9 @@ export default function Template(props: any) {
           </div>
         </div>
 
-        <section
-          aria-labelledby="related-products-heading"
-          className="bg-zinc-100 dark:bg-zinc-900"
-        >
-          <div className="mx-auto spx-4 py-12 sm:px-6 lg:max-w-7xl lg:px-8">
+        {/* Related Templates */}
+        <section aria-labelledby="related-templates-heading">
+          <div className="mx-auto px-4 py-12 sm:px-6 lg:max-w-7xl lg:px-8">
             <h2
               id="related-products-heading"
               className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white"
@@ -172,35 +188,8 @@ export default function Template(props: any) {
               Related Templates
             </h2>
 
-            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-              {products.map((product) => (
-                <div key={product.id} className="group relative">
-                  <img
-                    alt={product.imageAlt}
-                    src={product.imageSrc}
-                    className="aspect-square w-full rounded-md bg-zinc-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80"
-                  />
-                  <div className="mt-4 flex justify-between">
-                    <div>
-                      <h3 className="text-sm text-zinc-700">
-                        <a href={product.href}>
-                          <span
-                            aria-hidden="true"
-                            className="absolute inset-0"
-                          />
-                          {product.name}
-                        </a>
-                      </h3>
-                      <p className="mt-1 text-sm text-zinc-500">
-                        {product.color}
-                      </p>
-                    </div>
-                    <p className="text-sm font-medium text-zinc-900">
-                      {product.price}
-                    </p>
-                  </div>
-                </div>
-              ))}
+            <div className="mt-6">
+              <TemplateGrid templates={templates} />
             </div>
           </div>
         </section>

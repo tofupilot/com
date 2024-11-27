@@ -4,7 +4,7 @@ import {
 } from "@/app/(sanity)/lib/client";
 import { urlForImage } from "@/app/(sanity)/lib/image";
 import { notFound } from "next/navigation";
-import TemplatePage from "./default";
+import { TemplatePage } from "./default";
 
 export async function generateStaticParams() {
   return await getAllTemplatesSlug();
@@ -33,10 +33,8 @@ export default async function PostDefault({
 }: {
   params: { slug: string };
 }) {
-  const template = await getTemplateBySlug(params.slug);
-
-
-  return (<TemplatePage template={template} />);
+  const query = await getTemplateBySlug(params.slug);
+  return <TemplatePage template={query} />;
 }
 
 export const revalidate = 60;

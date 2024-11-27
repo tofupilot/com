@@ -1,14 +1,14 @@
 import { type SchemaTypeDefinition } from "sanity";
 
-import blockContent from "./schemas/blockContent";
-import postCategory from "./schemas/postCategory";
-import post from "./schemas/post";
 import author from "./schemas/author";
+import blockContent from "./schemas/blockContent";
+import framework from "./schemas/framework";
+import post from "./schemas/post";
+import postCategory from "./schemas/postCategory";
 import release from "./schemas/release";
 import releaseCategory from "./schemas/releaseHighlightCategory";
-import user from "./schemas/user";
 import template from "./schemas/template";
-import framework from "./schemas/framework";
+import user from "./schemas/user";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -17,14 +17,12 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     author,
     postCategory,
     blockContent,
+    user,
     // changelog
     release,
     releaseCategory,
     // templates
     template,
     framework,
-
-    // ?
-    user,
   ],
 };
