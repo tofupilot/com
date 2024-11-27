@@ -1,18 +1,24 @@
+import clsx from "clsx";
 import Balancer from "react-wrap-balancer";
 
 export function ContainerLanding({
   title,
   description,
+  wide = false,
   children,
 }: {
   title: string;
   description: string;
+  wide?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <main
       role="main"
-      className="mx-auto mt-36 max-w-3xl animate-slide-up-fade px-3"
+      className={clsx(
+        "mx-auto mt-36 animate-slide-up-fade px-3",
+        wide ? "max-w-7xl" : "max-w-3xl"
+      )}
       style={{
         animationDuration: "600ms",
         animationFillMode: "backwards",

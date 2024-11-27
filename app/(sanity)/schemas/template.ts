@@ -61,11 +61,6 @@ export default defineType({
       validation: (Rule) => Rule.required().error("A framework is required"),
     }),
     defineField({
-      name: "publishedAt",
-      title: "Published at",
-      type: "datetime",
-    }),
-    defineField({
       name: "body",
       title: "Body",
       type: "blockContent",

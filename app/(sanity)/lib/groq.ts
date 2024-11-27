@@ -197,7 +197,6 @@ export const templatesquery = groq`
 *[_type == "template"] | order(publishedAt desc, _createdAt desc) {
   _id,
   _createdAt,
-  publishedAt,
   mainImage {
     ...,
     "blurDataURL":asset->metadata.lqip,
@@ -243,7 +242,7 @@ export const templatequery = groq`
   author->,
   framework[]->{ title, color },
   "estReadingTime": round(length(pt::text(body)) / 5 / 180 ),
-  "related": *[_type == "post" && count(categories[@._ref in ^.^.categories[]._ref]) > 0 ] | order(publishedAt desc, _createdAt desc) [0...5] {
+  "related": *[_type == "post" && count(categories[@._ref in ^.^.categories[]._ref]) > 0 ] | order(_createdAt desc) [0...5] {
     title,
     slug,
     "date": coalesce(publishedAt,_createdAt),
