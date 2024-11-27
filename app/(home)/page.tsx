@@ -1,13 +1,13 @@
 import { Metadata } from 'next';
 
-import Benefits from './(home)/components/ui/Benefits';
-import Cta from './(home)/components/ui/Cta';
-import Features from './(home)/components/ui/Features';
-import Hero from './(home)/components/ui/Hero';
-import Infrastructure from './(home)/components/ui/Infrastructure';
-import Integrations from './(home)/components/ui/Integration';
-import LogoCloud from './(home)/components/ui/LogoCloud';
-import UserStories from './(home)/components/ui/UserStories';
+import Benefits from './components/ui/Benefits';
+import Cta from './components/ui/Cta';
+import Features from './components/ui/Features';
+import Hero from './components/ui/Hero';
+import Infrastructure from './components/ui/Infrastructure';
+import Integrations from './components/ui/Integration';
+import LogoCloud from './components/ui/LogoCloud';
+import UserStories from './components/ui/UserStories';
 
 export const metadata: Metadata = {
   title: 'Plug-and-play manufacturing test analytics',
