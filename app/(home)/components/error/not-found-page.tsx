@@ -17,7 +17,7 @@ export function NotFoundPage({ href }: { href: string }) {
         <p className="mt-6 text-base leading-7 text-gray-600 dark:text-gray-400">
           Sorry, we could not find the page you are looking for.
         </p>
-        <Button href={href} className="mt-10">
+        <Button plain href={href} className="mt-10">
           <ArrowLeftIcon />
           Go back home
         </Button>
