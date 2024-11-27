@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default function CompanyLogo() {
   return (
@@ -6,7 +6,7 @@ export default function CompanyLogo() {
       <Image
         alt=""
         className="h-8 w-auto"
-        src="/blog/icon.png"
+        src="/icon.png"
         width={40}
         height={40}
       />

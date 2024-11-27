@@ -1,54 +1,50 @@
-import { siteConfig } from "@/app/siteConfig";
-import { ArrowUpRightIcon } from "@heroicons/react/16/solid";
-import Link from "next/link";
-import CompanyLogo from "./company-logo";
-import ThemeSwitch from "./theme-switch";
+import { siteConfig } from '@/app/siteConfig';
+import { ArrowUpRightIcon } from '@heroicons/react/16/solid';
+import Link from 'next/link';
+import CompanyLogo from '../CompanyLogo';
+import ThemeSwitch from '../ThemeSwitch';
 
 const navigation = {
   product: [
-    { name: "Docs", href: "https://docs.tofupilot.com", external: false },
+    { name: 'Docs', href: '/docs', external: false },
+    { name: 'Changelog', href: siteConfig.baseLinks.blog, external: false },
     {
-      name: "Changelog",
-      href: siteConfig.baseLinks.changelog,
-      external: false,
-    },
-    {
-      name: "Status",
-      href: "https://tofupilot.betteruptime.com/",
+      name: 'Status',
+      href: 'https://tofupilot.betteruptime.com/',
       external: true,
     },
   ],
   company: [
-    { name: "About", href: siteConfig.baseLinks.about, external: false },
-    { name: "Blog", href: siteConfig.baseLinks.blog, external: false },
+    { name: 'About', href: siteConfig.baseLinks.about, external: false },
+    { name: 'Blog', href: siteConfig.baseLinks.blog, external: false },
     {
-      name: "Careers",
-      href: "https://www.linkedin.com/company/tofupilot/jobs/",
+      name: 'Careers',
+      href: 'https://www.linkedin.com/company/tofupilot/jobs/',
       external: true,
     },
   ],
   social: [
-    { name: "GitHub", href: "https://github.com/tofupilot", external: true },
+    { name: 'GitHub', href: 'https://github.com/tofupilot', external: true },
     {
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/company/tofupilot",
+      name: 'LinkedIn',
+      href: 'https://www.linkedin.com/company/tofupilot',
       external: true,
     },
     {
-      name: "YouTube",
-      href: "https://www.youtube.com/channel/UCLig2QTsAwTHjLoUGZNm3uQ",
+      name: 'YouTube',
+      href: 'https://www.youtube.com/channel/UCLig2QTsAwTHjLoUGZNm3uQ',
       external: true,
     },
   ],
   legal: [
     {
-      name: "Privacy",
-      href: "https://docs.tofupilot.com/legal/privacy-policy",
+      name: 'Privacy',
+      href: '/docs/legal/privacy-policy',
       external: false,
     },
     {
-      name: "Terms",
-      href: "https://docs.tofupilot.com/legal/terms-conditions",
+      name: 'Terms',
+      href: '/docs/legal/terms-conditions',
       external: false,
     },
   ],
@@ -81,13 +77,13 @@ export default function Footer() {
                   className="mt-6 space-y-4"
                   aria-label="Quick links Product"
                 >
-                  {navigation.product.map((item) => (
+                  {navigation.product.map(item => (
                     <li key={item.name} className="w-fit">
                       <Link
                         className="flex rounded-md text-sm text-gray-500 transition hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
                         href={item.href}
-                        target={item.external ? "_blank" : undefined}
-                        rel={item.external ? "noopener noreferrer" : undefined}
+                        target={item.external ? '_blank' : undefined}
+                        rel={item.external ? 'noopener noreferrer' : undefined}
                       >
                         <span>{item.name}</span>
                         {item.external && (
@@ -112,13 +108,13 @@ export default function Footer() {
                   className="mt-6 space-y-4"
                   aria-label="Quick links Company"
                 >
-                  {navigation.company.map((item) => (
+                  {navigation.company.map(item => (
                     <li key={item.name} className="w-fit">
                       <Link
                         className="flex rounded-md text-sm text-gray-500 transition hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
                         href={item.href}
-                        target={item.external ? "_blank" : undefined}
-                        rel={item.external ? "noopener noreferrer" : undefined}
+                        target={item.external ? '_blank' : undefined}
+                        rel={item.external ? 'noopener noreferrer' : undefined}
                       >
                         <span>{item.name}</span>
                         {item.external && (
@@ -145,13 +141,13 @@ export default function Footer() {
                   className="mt-6 space-y-4"
                   aria-label="Quick links Social"
                 >
-                  {navigation.social.map((item) => (
+                  {navigation.social.map(item => (
                     <li key={item.name} className="w-fit">
                       <Link
                         className="flex rounded-md text-sm text-gray-500 transition hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
                         href={item.href}
-                        target={item.external ? "_blank" : undefined}
-                        rel={item.external ? "noopener noreferrer" : undefined}
+                        target={item.external ? '_blank' : undefined}
+                        rel={item.external ? 'noopener noreferrer' : undefined}
                       >
                         <span>{item.name}</span>
                         {item.external && (
@@ -176,13 +172,13 @@ export default function Footer() {
                   className="mt-6 space-y-4"
                   aria-label="Quick links Legal"
                 >
-                  {navigation.legal.map((item) => (
+                  {navigation.legal.map(item => (
                     <li key={item.name} className="w-fit">
                       <Link
                         className="flex rounded-md text-sm text-gray-500 transition hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
                         href={item.href}
-                        target={item.external ? "_blank" : undefined}
-                        rel={item.external ? "noopener noreferrer" : undefined}
+                        target={item.external ? '_blank' : undefined}
+                        rel={item.external ? 'noopener noreferrer' : undefined}
                       >
                         <span>{item.name}</span>
                         {item.external && (

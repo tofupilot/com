@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { Button } from "@/app/_components/catalyst/button";
-import Balancer from "react-wrap-balancer";
-import { siteConfig } from "../siteConfig";
+import { Button } from '@/app/_components/catalyst/button';
+import { siteConfig } from '@/app/siteConfig';
+import Balancer from 'react-wrap-balancer';
 
-export function CTA() {
+export default function Cta() {
   return (
     <section
       aria-labelledby="cta-title"
@@ -55,7 +55,7 @@ export function CTA() {
               </Button>
             </div>
             <p className="mt-4 text-xs text-gray-600 sm:text-sm dark:text-gray-400">
-              Not sure where to start?{" "}
+              Not sure where to start?{' '}
               <a
                 target="_blank"
                 href="https://outlook.office.com/bookwithme/user/b07c0ff908f44c3bb2e1f33eef07fc64@tofupilot.com?anonymous&ep=plink"
