@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "The requested page could not be found.",
 };
 
-export function Page() {
+export default function Page() {
   return (
     <main
       role="main"
