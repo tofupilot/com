@@ -13,23 +13,50 @@ import {
   DescriptionList,
   DescriptionTerm,
 } from "../../components/catalyst/description-list";
+import Cta from "../../components/Cta";
 
-const product = {
-  name: "Application UI Icon Pack",
-  version: { name: "1.0", date: "June 5, 2021", datetime: "2021-06-05" },
-  price: "$220",
-  description:
-    "The Application UI Icon Pack comes with over 200 icons in 3 styles: outline, filled, and branded. This playful icon pack is tailored for complex application user interfaces with a friendly and legible look.",
-  highlights: [
-    "200+ SVG icons in 3 unique styles",
-    "Compatible with Figma, Sketch, and Adobe XD",
-    "Drawn on 24 x 24 pixel grid",
-  ],
-  imageSrc:
-    "https://tailwindui.com/plus/img/ecommerce-images/product-page-05-product-01.jpg",
-  imageAlt:
-    "Sample of 30 icons with friendly and fun details in outline, filled, and brand color styles.",
-};
+const products = [
+  {
+    id: 1,
+    name: "Basic Tee",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "$35",
+    color: "Black",
+  },
+  {
+    id: 1,
+    name: "Basic Tee",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "$35",
+    color: "Black",
+  },
+  {
+    id: 1,
+    name: "Basic Tee",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "$35",
+    color: "Black",
+  },
+  {
+    id: 1,
+    name: "Basic Tee",
+    href: "#",
+    imageSrc:
+      "https://tailwindui.com/plus/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    imageAlt: "Front of men's Basic Tee in black.",
+    price: "$35",
+    color: "Black",
+  },
+];
 
 export default function Template(props: any) {
   const { loading, template } = props;
@@ -132,6 +159,53 @@ export default function Template(props: any) {
             </article>
           </div>
         </div>
+
+        <section
+          aria-labelledby="related-products-heading"
+          className="bg-zinc-100 dark:bg-zinc-900"
+        >
+          <div className="mx-auto spx-4 py-12 sm:px-6 lg:max-w-7xl lg:px-8">
+            <h2
+              id="related-products-heading"
+              className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white"
+            >
+              Related Templates
+            </h2>
+
+            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+              {products.map((product) => (
+                <div key={product.id} className="group relative">
+                  <img
+                    alt={product.imageAlt}
+                    src={product.imageSrc}
+                    className="aspect-square w-full rounded-md bg-zinc-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80"
+                  />
+                  <div className="mt-4 flex justify-between">
+                    <div>
+                      <h3 className="text-sm text-zinc-700">
+                        <a href={product.href}>
+                          <span
+                            aria-hidden="true"
+                            className="absolute inset-0"
+                          />
+                          {product.name}
+                        </a>
+                      </h3>
+                      <p className="mt-1 text-sm text-zinc-500">
+                        {product.color}
+                      </p>
+                    </div>
+                    <p className="text-sm font-medium text-zinc-900">
+                      {product.price}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <Cta />
       </div>
     </>
   );
