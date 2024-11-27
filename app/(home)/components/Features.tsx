@@ -4,9 +4,9 @@ import {
   IconSitemap,
   IconStopwatch,
 } from "@tabler/icons-react";
-import { Badge } from "../Badge";
-import FeatureImageTabs from "../FeatureImageTabs";
-import FeatureImage from "../FeatureImage";
+import { Badge } from "./Badge";
+import FeatureImageTabs from "./FeatureImageTabs";
+import FeatureImage from "./FeatureImage";
 
 const features = [
   {

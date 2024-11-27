@@ -1,12 +1,12 @@
 import { siteConfig } from "@/app/siteConfig";
 import { ArrowUpRightIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
-import CompanyLogo from "../CompanyLogo";
-import ThemeSwitch from "../ThemeSwitch";
+import CompanyLogo from "./CompanyLogo";
+import ThemeSwitch from "./ThemeSwitch";
 
 const navigation = {
   product: [
-    { name: "Docs", href: "/docs", external: false },
+    { name: "Docs", href: siteConfig.baseLinks.docs, external: false },
     {
       name: "Changelog",
       href: siteConfig.baseLinks.changelog,

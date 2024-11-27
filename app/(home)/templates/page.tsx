@@ -1,7 +1,7 @@
 import { getAllTemplates } from "@/app/(sanity)/lib/client";
-import { ContainerLanding } from "@/app/(home)/components/container-landing";
 import { Metadata } from "next";
-import TemplateList from "./components/template-list";
+import TemplateList from "../components/ListTemplate";
+import { ContainerLanding } from "../components/ContainerLanding";
 
 export const metadata: Metadata = {
   title: "Templates › TofuPilot",
@@ -53,17 +53,15 @@ export default async function Page() {
   // get products
   const templates = await getAllTemplates();
   return (
-    <main role="main" className="flex flex-col overflow-hidden">
-      <ContainerLanding
-        page="Templates"
-        title="Find your Template"
-        description={metadata.description}
-      />
+    <ContainerLanding
+      title="Find your Template"
+      description="Jumpstart your test development process with pre-built solutions from TofuPilot and our community."
+    >
       <div className="mb-64 py-12 sm:py-20 max-w-7xl mx-auto">
         {/* Add filter list, disabled for now */}
         <TemplateList templates={templates} />
       </div>
-    </main>
+    </ContainerLanding>
   );
 }
 

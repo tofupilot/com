@@ -1,4 +1,4 @@
-import { Logos } from '../LogosCustomers';
+import { Logos } from './LogosCustomers';
 
 export default function LogoCloud() {
   return (

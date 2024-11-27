@@ -13,9 +13,8 @@ import { PortableText } from "@/app/(sanity)/lib/portabletext";
 import Link from "next/link";
 import Iframe from "react-iframe";
 
-import { CTA } from "@/app/_components/cta";
 import { siteConfig } from "@/app/siteConfig";
-import { BadgeTemplateCategory } from "@/app/_components/badge-template-category";
+import Cta from "../../components/Cta";
 
 function getYoutubeNoCookieEmbedUrl(youtubeUrl: string) {
   // Regular expression to match YouTube URLs and extract the video ID
@@ -165,7 +164,7 @@ export default function TemplatePage(props: any) {
         </div>
       </article>
 
-      <CTA />
+      <Cta />
       <div className="flex justify-center pb-64">
         <Button plain href="/">
           <ArrowLeftIcon />

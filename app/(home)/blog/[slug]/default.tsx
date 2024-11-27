@@ -15,7 +15,7 @@ import Iframe from "react-iframe";
 
 import { BadgeBlogCategory } from "../_components/badge-blog-category";
 import { siteConfig } from "@/app/siteConfig";
-import Cta from "@/app/(home)/components/ui/Cta";
+import Cta from "@/app/(home)/components/Cta";
 
 function getYoutubeNoCookieEmbedUrl(youtubeUrl: string) {
   // Regular expression to match YouTube URLs and extract the video ID

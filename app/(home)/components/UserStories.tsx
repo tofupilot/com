@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useRef } from 'react';
-import { Badge } from '../Badge';
+import { Badge } from './Badge';
 
 interface Card {
   id: number;

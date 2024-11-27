@@ -2,7 +2,7 @@ import { Button } from '@/app/(home)/components/catalyst/button';
 import { siteConfig } from '@/app/siteConfig';
 import { ChevronRightIcon, SparklesIcon } from '@heroicons/react/16/solid';
 import Balancer from 'react-wrap-balancer';
-import { ThemedImage } from '../ThemedImage';
+import { ThemedImage } from './ThemedImage';
 
 export default function Hero() {
   return (

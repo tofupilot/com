@@ -8,7 +8,7 @@ import LogoSlack from "@/public/home/logos/logo-slack.svg";
 import LogoTeststand from "@/public/home/logos/logo-teststand.svg";
 import LogoTofuPilot from "@/public/home/logos/logo-tofupilot.svg";
 import Image from "next/image";
-import { Badge } from "../Badge";
+import { Badge } from "./Badge";
 
 export default function Integrations() {
   return (

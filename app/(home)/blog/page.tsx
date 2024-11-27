@@ -1,7 +1,7 @@
-import { ContainerLanding } from "@/app/(home)/components/container-landing";
 import { getAllPosts } from "@/app/(sanity)/lib/client";
 import { Metadata } from "next";
 import ListBlogPosts from "./_components/list-blog-posts";
+import { ContainerLanding } from "../components/ContainerLanding";
 
 export const metadata: Metadata = {
   title: "Blog › TofuPilot",
@@ -12,16 +12,14 @@ export const metadata: Metadata = {
 export default async function Page() {
   const posts = await getAllPosts();
   return (
-    <main role="main" className="flex flex-col overflow-hidden">
-      <ContainerLanding
-        page="Blog"
-        title="Insights and updates from across the team"
-        description={metadata.description}
-      />
+    <ContainerLanding
+      title="Blog"
+      description="Insights and updates from across the team"
+    >
       <div className="mb-64 py-12 sm:py-20">
         <ListBlogPosts posts={posts} />
       </div>
-    </main>
+    </ContainerLanding>
   );
 }
 

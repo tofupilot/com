@@ -6,7 +6,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
 import React from "react";
 
-import CompanyLogo from "../CompanyLogo";
+import CompanyLogo from "./CompanyLogo";
 import { cx } from "@/app/(home)/lib/utils";
 import useScroll from "@/app/(home)/lib/use-scroll";
 

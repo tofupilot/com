@@ -11,11 +11,17 @@ export default defineType({
       name: "title",
       title: "Title",
       type: "string",
+      validation: (Rule) =>
+        Rule.required()
+          .error("A summary is required")
+          .max(150)
+          .warning("Summary should not exceed 150 characters."),
     }),
     defineField({
       name: "summary",
       title: "Summary",
-      type: "text",
+      type: "string",
+      validation: (Rule) => Rule.required().error("A title is required"),
     }),
     defineField({
       name: "slug",
@@ -25,6 +31,7 @@ export default defineType({
         source: "title",
         maxLength: 96,
       },
+      validation: (Rule) => Rule.required().error("A slug is required"),
     }),
     defineField({
       name: "author",
