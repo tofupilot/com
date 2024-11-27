@@ -1,7 +1,7 @@
 import { getAllTemplates } from "@/app/(sanity)/lib/client";
 import { Metadata } from "next";
-import TemplateList from "../components/ListTemplate";
 import { ContainerLanding } from "../components/ContainerLanding";
+import { TemplateGrid } from "../components/ui/TemplateGrid";
 
 export const metadata: Metadata = {
   title: "Templates › TofuPilot",
@@ -18,7 +18,7 @@ export default async function Page() {
       wide
     >
       <div className="mb-64 py-12 sm:py-20">
-        <TemplateList templates={templates} />
+        <TemplateGrid templates={templates} />
       </div>
     </ContainerLanding>
   );

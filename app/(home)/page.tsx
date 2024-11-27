@@ -21,9 +21,7 @@ export default function Page() {
       <Hero />
       <LogoCloud />
       <Features />
-      {/* <Testimonial />  Ecorobotix */}
       <Integrations />
-      {/* <Testimonial /> Christophe Ecorobotix */}
       <Benefits />
       <UserStories />
       <Infrastructure />
