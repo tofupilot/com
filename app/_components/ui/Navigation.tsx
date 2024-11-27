@@ -1,40 +1,41 @@
-'use client';
+"use client";
 
-import { Button } from '@/app/_components/catalyst/button';
-import { siteConfig } from '@/app/siteConfig';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/16/solid';
-import Link from 'next/link';
-import React from 'react';
-import useScroll from '../../lib/use-scroll';
-import { cx } from '../../lib/utils';
-import CompanyLogo from '../CompanyLogo';
+import { Button } from "@/app/_components/catalyst/button";
+import { siteConfig } from "@/app/siteConfig";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
+import Link from "next/link";
+import React from "react";
+
+import CompanyLogo from "../CompanyLogo";
+import { cx } from "@/app/_lib/utils";
+import useScroll from "@/app/_lib/use-scroll";
 
 export function Navigation() {
   const scrolled = useScroll(15);
   const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {
-    const mediaQuery: MediaQueryList = window.matchMedia('(min-width: 768px)');
+    const mediaQuery: MediaQueryList = window.matchMedia("(min-width: 768px)");
     const handleMediaQueryChange = () => {
       setOpen(false);
     };
 
-    mediaQuery.addEventListener('change', handleMediaQueryChange);
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
     handleMediaQueryChange();
 
     return () => {
-      mediaQuery.removeEventListener('change', handleMediaQueryChange);
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
 
   return (
     <header
       className={cx(
-        'ease-[cubic-bezier(0.16,1,0.3,1.03)] fixed inset-x-3 top-4 z-50 mx-auto flex max-w-6xl transform-gpu animate-slide-down-fade justify-center overflow-hidden rounded-xl border border-transparent px-3 py-3 transition-all duration-300 will-change-transform',
-        open === true ? 'h-[252px]' : 'h-16',
+        "ease-[cubic-bezier(0.16,1,0.3,1.03)] fixed inset-x-3 top-4 z-50 mx-auto flex max-w-6xl transform-gpu animate-slide-down-fade justify-center overflow-hidden rounded-xl border border-transparent px-3 py-3 transition-all duration-300 will-change-transform",
+        open === true ? "h-[252px]" : "h-16",
         scrolled || open === true
-          ? 'backdrop-blur-nav max-w-3xl border-gray-100 bg-white/95 shadow-xl shadow-black/5 dark:border-white/15 dark:bg-black/80'
-          : 'bg-white/0 dark:bg-gray-950/0'
+          ? "backdrop-blur-nav max-w-3xl border-gray-100 bg-white/95 shadow-xl shadow-black/5 dark:border-white/15 dark:bg-black/80"
+          : "bg-white/0 dark:bg-gray-950/0"
       )}
     >
       <div className="w-full md:my-auto">
@@ -104,8 +105,8 @@ export function Navigation() {
         </div>
         <nav
           className={cx(
-            'my-6 flex text-lg ease-in-out will-change-transform md:hidden',
-            open ? '' : 'hidden'
+            "my-6 flex text-lg ease-in-out will-change-transform md:hidden",
+            open ? "" : "hidden"
           )}
         >
           <ul className="space-y-4 font-medium">

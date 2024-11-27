@@ -3,33 +3,33 @@ import {
   IconLayersSubtract,
   IconSitemap,
   IconStopwatch,
-} from '@tabler/icons-react';
-import { Badge } from '../Badge';
-import FeatureImage from '../FeatureImage';
-import FeatureImageTabs from '../FeatureImageTabs';
+} from "@tabler/icons-react";
+import { Badge } from "../Badge";
+import FeatureImageTabs from "../FeatureImageTabs";
+import FeatureImage from "../FeatureImage";
 
 const features = [
   {
-    name: 'Cycle Time',
-    description: 'Reduce test time by identifying steps that slow down tests.',
+    name: "Cycle Time",
+    description: "Reduce test time by identifying steps that slow down tests.",
     icon: IconStopwatch,
   },
   {
-    name: 'Sub-Units',
+    name: "Sub-Units",
     description:
-      'Ensure traceability by tracking tests through assembly stages.',
+      "Ensure traceability by tracking tests through assembly stages.",
     icon: IconSitemap,
   },
   {
-    name: 'Test Reports',
+    name: "Test Reports",
     description:
-      'Automatically generate printable test reports for easy sharing.',
+      "Automatically generate printable test reports for easy sharing.",
     icon: IconFileCheck,
   },
   {
-    name: 'Revisions',
+    name: "Revisions",
     description:
-      'Easily manage and compare test results across unit revisions.',
+      "Easily manage and compare test results across unit revisions.",
     icon: IconLayersSubtract,
   },
 ];
@@ -74,7 +74,7 @@ export default function Features() {
         }
       />
       <dl className="mt-20 grid grid-cols-4 gap-10">
-        {features.map(item => (
+        {features.map((item) => (
           <div
             key={item.name}
             className="col-span-full sm:col-span-2 lg:col-span-1"
