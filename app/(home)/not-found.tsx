@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { NotFoundPage } from "./_components/error/not-found-page";
+import { NotFoundPage } from "./components/error/not-found-page";
 
 export default function Page() {
   return <NotFoundPage href="/" />;

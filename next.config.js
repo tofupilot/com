@@ -1,4 +1,4 @@
-const docsUrl = "https://tofupilot-docs.vercel.app";
+const docsUrl = process.env.DOCS_URL;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

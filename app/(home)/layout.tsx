@@ -4,9 +4,9 @@ import { Inter } from "next/font/google";
 
 import "@/styles/tailwind.css";
 
-import { siteConfig } from "./siteConfig";
-import { Navigation } from "./_components/ui/Navigation";
-import Footer from "./_components/ui/Footer";
+import { siteConfig } from "../siteConfig";
+import { Navigation } from "./components/ui/Navigation";
+import Footer from "./components/ui/Footer";
 
 const inter = Inter({
   subsets: ["latin"],

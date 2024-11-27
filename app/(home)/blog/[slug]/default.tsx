@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-import { Button } from "@/app/_components/catalyst/button";
+import { Button } from "@/app/(home)/components/catalyst/button";
 import {
   ArrowLeftIcon,
   ChevronRightIcon,
@@ -15,7 +15,7 @@ import Iframe from "react-iframe";
 
 import { BadgeBlogCategory } from "../_components/badge-blog-category";
 import { siteConfig } from "@/app/siteConfig";
-import Cta from "@/app/_components/ui/Cta";
+import Cta from "@/app/(home)/components/ui/Cta";
 
 function getYoutubeNoCookieEmbedUrl(youtubeUrl: string) {
   // Regular expression to match YouTube URLs and extract the video ID

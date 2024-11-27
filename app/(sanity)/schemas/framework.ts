@@ -1,9 +1,9 @@
-import { CatalystColor } from '@/app/(home)/components/catalyst/types'
-import { defineField, defineType } from 'sanity'
+import { CatalystColor } from '@/app/_components/catalyst/types'
+import { Id, defineField, defineType } from 'sanity'
 
 export default defineType({
-  name: 'releaseHighlightCategory',
-  title: 'Release Highlight Category',
+  name: 'framework',
+  title: 'Framework',
   type: 'document',
   fields: [
     defineField({
@@ -42,8 +42,8 @@ export default defineType({
   ]
 })
 
-export interface ReleaseHighlightCategory {
-  _id: string
+export interface Framework {
+  _id: Id
   title?: string
   color: CatalystColor
 }

@@ -8,7 +8,7 @@ import {
 import * as RadioGroupPrimitives from "@radix-ui/react-radio-group";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
-import { cx, focusRing } from "../_lib/utils";
+import { cx, focusRing } from "../lib/utils";
 
 // Based on Tremor Raw RadioGroup [v0.0.0]
 

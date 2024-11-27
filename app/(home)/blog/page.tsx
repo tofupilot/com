@@ -1,4 +1,4 @@
-import { ContainerLanding } from "@/app/_components/container-landing";
+import { ContainerLanding } from "@/app/(home)/components/container-landing";
 import { getAllPosts } from "@/app/(sanity)/lib/client";
 import { Metadata } from "next";
 import ListBlogPosts from "./_components/list-blog-posts";
