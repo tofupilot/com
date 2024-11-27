@@ -214,8 +214,10 @@ export const templatesquery = groq`
     name,
     role
   },
-  framework[]->{ title, color },
-}
+  framework-> {
+    title,
+    color,
+  },
 `;
 
 // Get single template
@@ -240,7 +242,10 @@ export const templatequery = groq`
     }
   },
   author->,
-  framework[]->{ title, color },
+  framework-> {
+    title,
+    color,
+  },
   "estReadingTime": round(length(pt::text(body)) / 5 / 180 ),
   "related": *[_type == "post" && count(categories[@._ref in ^.^.categories[]._ref]) > 0 ] | order(_createdAt desc) [0...5] {
     title,
