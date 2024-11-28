@@ -16,8 +16,8 @@ export const siteConfig = {
     docs: "/docs",
 
     // external
-    login: `${process.env.APP_URL} + /runs`,
-    signup: `${process.env.APP_URL} + /auth/signup`,
+    login: `${process.env.APP_URL}/runs`,
+    signup: `${process.env.APP_URL}/auth/signup`,
   },
 };
 

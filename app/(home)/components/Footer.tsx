@@ -18,25 +18,26 @@ const navigation = {
       external: true,
     },
   ],
+  resources: [
+    { name: "Templates", href: siteConfig.baseLinks.templates },
+    { name: "GitHub", href: "https://github.com/tofupilot", external: true },
+    {
+      name: "YouTube",
+      href: "https://www.youtube.com/channel/UCLig2QTsAwTHjLoUGZNm3uQ",
+      external: true,
+    },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/tofupilot",
+      external: true,
+    },
+  ],
   company: [
     { name: "About", href: siteConfig.baseLinks.about, external: false },
     { name: "Blog", href: siteConfig.baseLinks.blog, external: false },
     {
       name: "Careers",
       href: "https://www.linkedin.com/company/tofupilot/jobs/",
-      external: true,
-    },
-  ],
-  social: [
-    { name: "GitHub", href: "https://github.com/tofupilot", external: true },
-    {
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/company/tofupilot",
-      external: true,
-    },
-    {
-      name: "YouTube",
-      href: "https://www.youtube.com/channel/UCLig2QTsAwTHjLoUGZNm3uQ",
       external: true,
     },
   ],
@@ -105,6 +106,39 @@ export default function Footer() {
               </div>
               <div>
                 <h1 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-50">
+                  Resources
+                </h1>
+                <ul
+                  role="list"
+                  className="mt-6 space-y-4"
+                  aria-label="Quick links Social"
+                >
+                  {navigation.resources.map((item) => (
+                    <li key={item.name} className="w-fit">
+                      <Link
+                        className="flex rounded-md text-sm text-gray-500 transition hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                        href={item.href}
+                        target={item.external ? "_blank" : undefined}
+                        rel={item.external ? "noopener noreferrer" : undefined}
+                      >
+                        <span>{item.name}</span>
+                        {item.external && (
+                          <div className="ml-1 aspect-square size-3 rounded-full bg-gray-100 p-px dark:bg-gray-500/20">
+                            <ArrowUpRightIcon
+                              aria-hidden="true"
+                              className="size-full shrink-0 text-gray-900 dark:text-gray-300"
+                            />
+                          </div>
+                        )}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-8">
+              <div>
+                <h1 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-50">
                   Company
                 </h1>
                 <ul
@@ -123,39 +157,6 @@ export default function Footer() {
                         <span>{item.name}</span>
                         {item.external && (
                           <div className="ml-0.5 aspect-square size-3 rounded-full bg-gray-100 p-px dark:bg-gray-500/20">
-                            <ArrowUpRightIcon
-                              aria-hidden="true"
-                              className="size-full shrink-0 text-gray-900 dark:text-gray-300"
-                            />
-                          </div>
-                        )}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-8">
-              <div>
-                <h1 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-50">
-                  Social
-                </h1>
-                <ul
-                  role="list"
-                  className="mt-6 space-y-4"
-                  aria-label="Quick links Social"
-                >
-                  {navigation.social.map((item) => (
-                    <li key={item.name} className="w-fit">
-                      <Link
-                        className="flex rounded-md text-sm text-gray-500 transition hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                        href={item.href}
-                        target={item.external ? "_blank" : undefined}
-                        rel={item.external ? "noopener noreferrer" : undefined}
-                      >
-                        <span>{item.name}</span>
-                        {item.external && (
-                          <div className="ml-1 aspect-square size-3 rounded-full bg-gray-100 p-px dark:bg-gray-500/20">
                             <ArrowUpRightIcon
                               aria-hidden="true"
                               className="size-full shrink-0 text-gray-900 dark:text-gray-300"
