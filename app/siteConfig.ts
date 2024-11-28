@@ -6,6 +6,7 @@ export const siteConfig = {
     // internal
     home: "/",
     about: "/about",
+    pricing: "/pricing",
     templates: "/templates",
     plugs: "/plugs",
     guides: "/guides",

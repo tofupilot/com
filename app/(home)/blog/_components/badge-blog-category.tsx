@@ -1,5 +1,5 @@
-import { PostCategory } from '@/app/(sanity)/schemas/postCategory';
-import { Badge } from '@/app/(home)/components/catalyst/badge';
+import { PostCategory } from "@/app/(sanity)/schemas/postCategory";
+import { Badge } from "@/app/components/catalyst/badge";
 
 export function BadgeBlogCategory({
   categories,

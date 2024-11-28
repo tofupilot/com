@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { siteConfig } from '@/app/siteConfig';
-import Balancer from 'react-wrap-balancer';
-import { Button } from './catalyst/button';
+import { siteConfig } from "@/app/siteConfig";
+import Balancer from "react-wrap-balancer";
+import { Button } from "./catalyst/button";
 
 export default function Cta() {
   return (
@@ -47,7 +47,7 @@ export default function Cta() {
             </div>
             <div className="mt-10">
               <Button
-                color="indigo"
+                color="lime"
                 href={siteConfig.baseLinks.signup}
                 className="h-10"
               >
@@ -55,7 +55,7 @@ export default function Cta() {
               </Button>
             </div>
             <p className="mt-4 text-xs text-gray-600 sm:text-sm dark:text-gray-400">
-              Not sure where to start?{' '}
+              Not sure where to start?{" "}
               <a
                 target="_blank"
                 href="https://outlook.office.com/bookwithme/user/b07c0ff908f44c3bb2e1f33eef07fc64@tofupilot.com?anonymous&ep=plink"

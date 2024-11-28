@@ -8,7 +8,7 @@ import LogoSlack from "@/public/home/logos/logo-slack.svg";
 import LogoTeststand from "@/public/home/logos/logo-teststand.svg";
 import LogoTofuPilot from "@/public/home/logos/logo-tofupilot.svg";
 import Image from "next/image";
-import { Badge } from "./Badge";
+import { HeaderBadge } from "./HeaderBadge";
 
 export default function Integrations() {
   return (
@@ -16,7 +16,7 @@ export default function Integrations() {
       aria-labelledby="features-title"
       className="mx-auto mt-44 w-full max-w-6xl px-3"
     >
-      <Badge>Integration</Badge>
+      <HeaderBadge>Integration</HeaderBadge>
       <h2
         id="features-title"
         className="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-gray-50 dark:to-gray-300"

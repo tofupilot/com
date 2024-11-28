@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useRef } from 'react';
-import { Badge } from './Badge';
+import Image from "next/image";
+import { useRef } from "react";
+import { HeaderBadge } from "./HeaderBadge";
 
 interface Card {
   id: number;
@@ -15,37 +15,38 @@ interface Card {
 const cards: Card[] = [
   {
     id: 1,
-    category: 'Enchanted Tools',
+    category: "Enchanted Tools",
     title: (
       <>
         Creating <br /> next-generation <br /> robotic characters
       </>
     ),
-    staticSrc: '/home/card-enchanted-tools.png',
-    videoSrc: '/home/card-enchanted-tools.mp4',
+    staticSrc: "/home/card-enchanted-tools.png",
+    videoSrc: "/home/card-enchanted-tools.mp4",
   },
   {
     id: 2,
-    category: 'Enlightra',
+    category: "Enlightra",
     title: (
       <>
         Enabling <br /> extreme bandwidth <br /> data transmission
       </>
     ),
-    staticSrc: '/home/card-enlightra.png',
-    videoSrc: '/home/card-enlightra.mp4',
+    staticSrc: "/home/card-enlightra.png",
+    videoSrc: "/home/card-enlightra.mp4",
   },
 
   {
     id: 3,
-    category: 'Involi',
+    category: "Involi",
     title: (
       <>
-        Providing <br />real-time drone <br /> traffic surveillance
+        Providing <br />
+        real-time drone <br /> traffic surveillance
       </>
     ),
-    staticSrc: '/home/card-involi.png',
-    videoSrc: '/home/card-involi.mp4',
+    staticSrc: "/home/card-involi.png",
+    videoSrc: "/home/card-involi.mp4",
   },
 ];
 
@@ -72,7 +73,7 @@ export default function UserStories() {
       aria-labelledby="community-title"
       className="mx-auto mt-44 w-full max-w-6xl px-3"
     >
-      <Badge>Community</Badge>
+      <HeaderBadge>Community</HeaderBadge>
       <h2
         id="features-title"
         className="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-gray-50 dark:to-gray-300"
@@ -112,7 +113,7 @@ export default function UserStories() {
             />
             {/* Video */}
             <video
-              ref={el => {
+              ref={(el) => {
                 videoRefs.current[index] = el;
               }}
               className="absolute inset-0 -z-10 h-full w-full object-cover opacity-0 transition-opacity duration-300 hover:opacity-100"

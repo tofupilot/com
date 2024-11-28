@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-import { Button } from "@/app/(home)/components/catalyst/button";
 import {
   ArrowLeftIcon,
   ChevronRightIcon,
@@ -13,9 +12,10 @@ import { PortableText } from "@/app/(sanity)/lib/portabletext";
 import Link from "next/link";
 import Iframe from "react-iframe";
 
-import { BadgeBlogCategory } from "../_components/badge-blog-category";
+import { Button } from "@/app/components/catalyst/button";
+import Cta from "@/app/components/Cta";
 import { siteConfig } from "@/app/siteConfig";
-import Cta from "@/app/(home)/components/Cta";
+import { BadgeBlogCategory } from "../_components/badge-blog-category";
 
 function getYoutubeNoCookieEmbedUrl(youtubeUrl: string) {
   // Regular expression to match YouTube URLs and extract the video ID

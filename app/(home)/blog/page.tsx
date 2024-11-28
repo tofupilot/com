@@ -1,7 +1,7 @@
 import { getAllPosts } from "@/app/(sanity)/lib/client";
+import { ContainerLanding } from "@/app/components/ContainerLanding";
 import { Metadata } from "next";
 import ListBlogPosts from "./_components/list-blog-posts";
-import { ContainerLanding } from "../components/ContainerLanding";
 
 export const metadata: Metadata = {
   title: "Blog › TofuPilot",

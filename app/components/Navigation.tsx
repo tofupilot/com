@@ -5,10 +5,10 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
 import React from "react";
 
-import CompanyLogo from "./CompanyLogo";
-import { cx } from "@/app/lib/utils";
 import useScroll from "@/app/lib/use-scroll";
+import { cx } from "@/app/lib/utils";
 import { Button } from "./catalyst/button";
+import CompanyLogo from "./CompanyLogo";
 
 export function Navigation() {
   const scrolled = useScroll(15);
@@ -64,9 +64,9 @@ export function Navigation() {
               </a>
               <Link
                 className="px-2 py-1 text-gray-900 dark:text-gray-50"
-                href={siteConfig.baseLinks.changelog}
+                href={siteConfig.baseLinks.pricing}
               >
-                Changelog
+                Pricing
               </Link>
             </div>
           </nav>
@@ -75,7 +75,7 @@ export function Navigation() {
               Log in
             </Button>
             <Button
-              color="indigo"
+              color="lime"
               href={siteConfig.baseLinks.signup}
               className="h-10"
             >
@@ -84,7 +84,7 @@ export function Navigation() {
           </div>
           <div className="flex gap-x-2 md:hidden">
             <Button
-              color="indigo"
+              color="lime"
               href={siteConfig.baseLinks.signup}
               className="h-10"
             >

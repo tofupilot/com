@@ -1,18 +1,18 @@
-import React from 'react';
-import { Badge } from './Badge';
+import React from "react";
+import { HeaderBadge } from "./HeaderBadge";
 
 const stats = [
   {
-    name: 'Internal development savings',
-    value: '+$100k',
+    name: "Internal development savings",
+    value: "+$100k",
   },
   {
-    name: 'First-pass yield increase',
-    value: '+5%',
+    name: "First-pass yield increase",
+    value: "+5%",
   },
   {
-    name: 'Faster test cycle time',
-    value: '+20%',
+    name: "Faster test cycle time",
+    value: "+20%",
   },
 ];
 
@@ -22,7 +22,7 @@ export default function Benefits() {
       aria-labelledby="features-title"
       className="mx-auto mt-44 w-full max-w-6xl px-3"
     >
-      <Badge>Benefits</Badge>
+      <HeaderBadge>Benefits</HeaderBadge>
       <h2
         id="features-title"
         className="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-gray-50 dark:to-gray-300"

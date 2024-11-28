@@ -32,7 +32,7 @@ export default function Hero() {
         style={{ animationDuration: "1100ms" }}
       >
         <Button
-          color="indigo"
+          color="lime"
           href={siteConfig.baseLinks.signup}
           className="h-10"
         >
@@ -55,7 +55,7 @@ export default function Hero() {
             alt="A preview of the TofuPilot web app"
             width={2400}
             height={1600}
-            className="rounded-md shadow-2xl ring-1 ring-zinc-900/10 dark:shadow-indigo-600/40"
+            className="rounded-md shadow-2xl ring-1 ring-zinc-900/10 dark:shadow-lime-600/40"
           />
         </section>
       </div>

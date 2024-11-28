@@ -5,9 +5,9 @@ import { Inter } from "next/font/google";
 import "@/styles/tailwind.css";
 
 import { Analytics } from "@vercel/analytics/react";
-import { siteConfig } from "../siteConfig";
-import { Navigation } from "../components/Navigation";
 import Footer from "../components/Footer";
+import { Navigation } from "../components/Navigation";
+import { siteConfig } from "../siteConfig";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -56,7 +56,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} min-h-screen scroll-auto antialiased selection:bg-zinc-100 selection:text-zinc-700 dark:bg-zinc-950`}
       >
-        <ThemeProvider defaultTheme="system" attribute="class">
+        <ThemeProvider defaultTheme="dark" attribute="class">
           <Navigation />
           {children}
           <Footer />

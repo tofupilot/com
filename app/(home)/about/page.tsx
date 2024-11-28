@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Balancer from "react-wrap-balancer";
 
+import { HeaderBadge } from "@/app/components/HeaderBadge";
+import { Logos } from "@/app/components/LogosSupporters";
+import { Button } from "@/app/components/catalyst/button";
 import { siteConfig } from "@/app/siteConfig";
 import profilePictureCharlotte from "@/public/about/charlotte-evequoz.jpeg";
 import profilePictureFelix from "@/public/about/felix-berthier.png";
@@ -8,9 +11,6 @@ import profilePictureJulien from "@/public/about/julien-buteau.png";
 import { ArrowUpRightIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
 import { Metadata } from "next";
 import Link from "next/link";
-import { Logos } from "@/app/components/LogosSupporters";
-import { Badge } from "@/app/components/Badge";
-import { Button } from "@/app/components/catalyst/button";
 
 export const metadata: Metadata = {
   title: "About › TofuPilot",
@@ -53,17 +53,15 @@ export default async function About() {
           animationFillMode: "backwards",
         }}
       >
-        <Badge>About Tofupilot</Badge>
+        <HeaderBadge>About Tofupilot</HeaderBadge>
         <h1
           id="about-overview"
           className="mt-2 inline-block bg-gradient-to-br from-zinc-900 to-zinc-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-zinc-50 dark:to-zinc-300"
         >
           <Balancer>
-            We are robotics engineers,
+            We are test engineers, building
             <br />
-            building the test analytics
-            <br />
-            we always wanted
+            the analytics we always wanted
           </Balancer>
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-zinc-700 dark:text-zinc-400">
@@ -89,7 +87,7 @@ export default async function About() {
             <li key={person.name}>
               <Link href={person.linkedinUrl} target="_blank" rel="noreferrer">
                 <Image
-                  className="mx-auto h-36 w-36 rounded-full shadow-xl shadow-black/20 hover:opacity-75 dark:bg-zinc-950 dark:shadow-indigo-900/70"
+                  className="mx-auto h-36 w-36 rounded-full shadow-xl shadow-black/20 hover:opacity-75 dark:bg-zinc-950 dark:shadow-lime-900/70"
                   src={person.imageUrl}
                   width={224}
                   height={224}
@@ -152,10 +150,10 @@ export default async function About() {
         </ul>
 
         <Button
-          color="indigo"
+          color="lime"
           href="https://www.linkedin.com/company/tofupilot/jobs/"
           target="_blank"
-          className="mx-auto mt-20 h-10 w-full max-w-2xl shadow-xl shadow-indigo-500/20"
+          className="mx-auto mt-20 h-10 w-full max-w-2xl shadow-xl shadow-lime-500/20"
         >
           View Open Roles
           <ArrowUpRightIcon />
@@ -184,7 +182,7 @@ export default async function About() {
             <svg
               x="50%"
               y="50%"
-              className="overflow-visible fill-zinc-50 dark:fill-indigo-900/30"
+              className="overflow-visible fill-zinc-50 dark:fill-lime-900/30"
             >
               <path
                 d="M-300 0h201v201h-201Z M300 200h201v201h-201Z"
