@@ -18,23 +18,24 @@ const navigation = {
       external: true,
     },
   ],
-  resources: [
+  community: [
     { name: "Templates", href: siteConfig.baseLinks.templates },
+    { name: "Plugs", href: siteConfig.baseLinks.plugs },
     { name: "GitHub", href: "https://github.com/tofupilot", external: true },
     {
       name: "YouTube",
       href: "https://www.youtube.com/channel/UCLig2QTsAwTHjLoUGZNm3uQ",
       external: true,
     },
+  ],
+  company: [
+    { name: "About", href: siteConfig.baseLinks.about, external: false },
+    { name: "Blog", href: siteConfig.baseLinks.blog, external: false },
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/company/tofupilot",
       external: true,
     },
-  ],
-  company: [
-    { name: "About", href: siteConfig.baseLinks.about, external: false },
-    { name: "Blog", href: siteConfig.baseLinks.blog, external: false },
     {
       name: "Careers",
       href: "https://www.linkedin.com/company/tofupilot/jobs/",
@@ -106,14 +107,14 @@ export default function Footer() {
               </div>
               <div>
                 <h1 className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-50">
-                  Resources
+                  Community
                 </h1>
                 <ul
                   role="list"
                   className="mt-6 space-y-4"
                   aria-label="Quick links Social"
                 >
-                  {navigation.resources.map((item) => (
+                  {navigation.community.map((item) => (
                     <li key={item.name} className="w-fit">
                       <Link
                         className="flex rounded-md text-sm text-gray-500 transition hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"

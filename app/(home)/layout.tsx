@@ -6,8 +6,8 @@ import "@/styles/tailwind.css";
 
 import { Analytics } from "@vercel/analytics/react";
 import { siteConfig } from "../siteConfig";
-import Footer from "./components/Footer";
-import { Navigation } from "./components/Navigation";
+import { Navigation } from "../components/Navigation";
+import Footer from "../components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],

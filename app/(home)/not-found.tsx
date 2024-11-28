@@ -1,7 +1,7 @@
 import { ArrowLeftIcon } from "@heroicons/react/16/solid";
 import { Metadata } from "next";
 import { siteConfig } from "../siteConfig";
-import { Button } from "./components/catalyst/button";
+import { Button } from "../components/catalyst/button";
 
 export const metadata: Metadata = {
   title: "Not Found | TofuPilot",

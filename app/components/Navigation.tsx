@@ -1,14 +1,14 @@
 "use client";
 
-import { Button } from "@/app/(home)/components/catalyst/button";
 import { siteConfig } from "@/app/siteConfig";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
 import React from "react";
 
 import CompanyLogo from "./CompanyLogo";
-import { cx } from "@/app/(home)/lib/utils";
-import useScroll from "@/app/(home)/lib/use-scroll";
+import { cx } from "@/app/lib/utils";
+import useScroll from "@/app/lib/use-scroll";
+import { Button } from "./catalyst/button";
 
 export function Navigation() {
   const scrolled = useScroll(15);

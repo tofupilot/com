@@ -1,6 +1,6 @@
 // Tremor Card [v0.0.2]
 
-import { cx } from '@/app/(home)/lib/utils'
+import { cx } from '@/app/lib/utils'
 import { Slot } from '@radix-ui/react-slot'
 import React from 'react'
 
