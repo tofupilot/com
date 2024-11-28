@@ -84,10 +84,10 @@ const ThemeSwitch = () => {
       className="flex gap-1"
     >
       <RadioGroupItem
-        aria-label="Switch to System Mode"
-        icon={ComputerDesktopIcon}
-        value="system"
-        id="system"
+        aria-label="Switch to Dark Mode"
+        icon={MoonIcon}
+        value="dark"
+        id="dark"
       />
 
       <RadioGroupItem
@@ -98,10 +98,10 @@ const ThemeSwitch = () => {
       />
 
       <RadioGroupItem
-        aria-label="Switch to Dark Mode"
-        icon={MoonIcon}
-        value="dark"
-        id="dark"
+        aria-label="Switch to System Mode"
+        icon={ComputerDesktopIcon}
+        value="system"
+        id="system"
       />
     </RadioGroup>
   );
