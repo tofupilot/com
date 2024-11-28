@@ -6,10 +6,7 @@ import { ArrowLeftIcon } from "@heroicons/react/16/solid";
 import { urlForImage } from "@/app/(sanity)/lib/image";
 import { PortableText } from "@/app/(sanity)/lib/portabletext";
 
-import { getAllTemplates } from "@/app/(sanity)/lib/client";
-import { Template } from "@/app/(sanity)/schemas/template";
 import { siteConfig } from "@/app/siteConfig";
-import clsx from "clsx";
 import { notFound } from "next/navigation";
 import {
   DescriptionDetails,
@@ -17,74 +14,18 @@ import {
   DescriptionTerm,
 } from "../../components/catalyst/description-list";
 import Cta from "../../components/Cta";
-import { TemplateGrid } from "../../components/ui/TemplateGrid";
 
-export async function TemplatePage({
-  loading,
-  template,
-}: {
-  loading: boolean;
-  template: Template;
-}) {
+export function TemplatePage(props: any) {
+  const { loading, template } = props;
   const slug = template?.slug;
   if (!loading && !slug) {
     notFound();
   }
-
   // TODO: move to template query with related field
-  const templates = await getAllTemplates();
-
-  const tabs = [
-    { name: "Templates", href: siteConfig.baseLinks.templates, current: false },
-    { name: "Plugs", href: siteConfig.baseLinks.plugs, current: false },
-    { name: "Guides", href: siteConfig.baseLinks.guides, current: false },
-    { name: "Blog", href: siteConfig.baseLinks.blog, current: true },
-    { name: "Changelog", href: siteConfig.baseLinks.changelog, current: false },
-  ];
+  // const templates = await getAllTemplates();
 
   return (
     <>
-      {/* Test tabs */}
-      <div className="mt-24 mx-8">
-        <div className="sm:hidden">
-          <label htmlFor="tabs" className="sr-only">
-            Select a tab
-          </label>
-          {/* Use an "onChange" listener to redirect the user to the selected tab URL. */}
-          <select
-            id="tabs"
-            name="tabs"
-            defaultValue={tabs.find((tab) => tab.current).name}
-            className="block w-full rounded-md border-zinc-300 focus:border-indigo-500 focus:ring-indigo-500"
-          >
-            {tabs.map((tab) => (
-              <option key={tab.name}>{tab.name}</option>
-            ))}
-          </select>
-        </div>
-        <div className="hidden sm:block">
-          <div className="border-b border-zinc-200">
-            <nav aria-label="Tabs" className="-mb-px flex">
-              {tabs.map((tab) => (
-                <a
-                  key={tab.name}
-                  href={tab.href}
-                  aria-current={tab.current ? "page" : undefined}
-                  className={clsx(
-                    tab.current
-                      ? "border-indigo-500 text-indigo-600"
-                      : "border-transparent text-zinc-500 hover:border-zinc-300 hover:text-zinc-700",
-                    "w-1/4 border-b-2 px-1 py-4 text-center text-sm font-medium"
-                  )}
-                >
-                  {tab.name}
-                </a>
-              ))}
-            </nav>
-          </div>
-        </div>
-      </div>
-
       {/* Navbar */}
       <div>
         <Button plain href={siteConfig.baseLinks.templates}>
@@ -189,7 +130,7 @@ export async function TemplatePage({
             </h2>
 
             <div className="mt-6">
-              <TemplateGrid templates={templates} />
+              {/* <TemplateGrid templates={templates} /> */}
             </div>
           </div>
         </section>
