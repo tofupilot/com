@@ -1,40 +1,40 @@
-"use client"
-import { Badge } from "@/app/components/Badge"
-import { Button } from "@/app/components/Button"
-import { Label } from "@/app/components/Label"
-import { Switch } from "@/app/components/Switch"
-import { Tooltip } from "@/app/components/Tooltip"
-import { ArrowAnimated } from "@/app/components/ui/ArrowAnimated"
-import { Faqs } from "@/app/components/ui/Faqs"
-import Testimonial from "@/app/components/ui/Testimonial"
-import { cx } from "@/app/lib/utils"
+"use client";
+import { Badge } from "@/app/components/Badge";
+import { Button } from "@/app/components/Button";
+import { Label } from "@/app/components/Label";
+import { Switch } from "@/app/components/Switch";
+import { Tooltip } from "@/app/components/Tooltip";
+import { ArrowAnimated } from "@/app/components/ui/ArrowAnimated";
+import { Faqs } from "@/app/components/ui/Faqs";
+import Testimonial from "@/app/components/ui/Testimonial";
+import { cx } from "@/app/lib/utils";
 import {
   RiCheckLine,
   RiCloudLine,
   RiInformationLine,
   RiSubtractLine,
   RiUserLine,
-} from "@remixicon/react"
-import Link from "next/link"
-import React, { Fragment } from "react"
+} from "@remixicon/react";
+import Link from "next/link";
+import React, { Fragment } from "react";
 
-type FixedPrice = string
+type FixedPrice = string;
 
 interface VariablePrice {
-  monthly: string
-  annually: string
+  monthly: string;
+  annually: string;
 }
 
 interface Plan {
-  name: string
-  price: FixedPrice | VariablePrice
-  description: string
-  capacity: string[]
-  features: string[]
-  isStarter: boolean
-  isRecommended: boolean
-  buttonText: string
-  buttonLink: string
+  name: string;
+  price: FixedPrice | VariablePrice;
+  description: string;
+  capacity: string[];
+  features: string[];
+  isStarter: boolean;
+  isRecommended: boolean;
+  buttonText: string;
+  buttonLink: string;
 }
 
 const plans: Plan[] = [
@@ -55,9 +55,9 @@ const plans: Plan[] = [
     buttonLink: "#",
   },
   {
-    name: "Teams",
+    name: "Pro",
     price: { monthly: "$49", annually: "$39" },
-    description: "For small teams and start-ups that need a scalable database.",
+    description: "For small Pro and start-ups that need a scalable database.",
     capacity: ["Up to 100 users, 3 admins", "Up to 20 workspaces"],
     features: [
       "Unlimited requests",
@@ -66,15 +66,15 @@ const plans: Plan[] = [
       "Slack Connect",
     ],
     isStarter: false,
-    isRecommended: false,
+    isRecommended: true,
     buttonText: "Start 14-day trial",
     buttonLink: "#",
   },
   {
-    name: "Business",
+    name: "Enterprise",
     price: { monthly: "$99", annually: "$79" },
     description:
-      "For larger teams that need more advanced controls and features.",
+      "For larger Pro that need more advanced controls and features.",
     capacity: ["Up to 500 users, 10 admins", "Unlimited workspaces"],
     features: [
       "Unlimited requests",
@@ -84,136 +84,141 @@ const plans: Plan[] = [
       "Single Sign-On (SSO)",
     ],
     isStarter: false,
-    isRecommended: true,
+    isRecommended: false,
     buttonText: "Start 14-day trial",
     buttonLink: "#",
   },
-]
+];
 
 interface Feature {
-  name: string
-  plans: Record<string, boolean | string>
-  tooltip?: string
+  name: string;
+  plans: Record<string, boolean | string>;
+  tooltip?: string;
 }
 
 interface Section {
-  name: string
-  features: Feature[]
+  name: string;
+  features: Feature[];
 }
 
 const sections: Section[] = [
   {
-    name: "Workspace Features",
+    name: "Data Analytics",
     features: [
       {
-        name: "Email notifications & webhooks",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
-        plans: { Starter: true, Teams: true, Business: true },
-      },
-      {
-        name: "Workspaces",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
-        plans: { Starter: "5", Teams: "10", Business: "Unlimited" },
-      },
-      {
-        name: "Storage",
+        name: "Team Seats",
         tooltip:
           "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
         plans: {
-          Starter: "$0.65 per stored GB",
-          Teams: "$0.34 per stored GB",
-          Business: "Customized¹",
+          Starter: "1 seat included",
+          Pro: "1 seat included then $20 per seat",
+          Enterprise: "Custom",
         },
       },
       {
-        name: "Seats",
+        name: "First pass yield",
+        tooltip:
+          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        plans: { Starter: true, Pro: true, Enterprise: true },
+      },
+      {
+        name: "Process capability",
         tooltip:
           "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
         plans: {
-          Starter: "5 users",
-          Teams: "Up to 20 users",
-          Business: "Unlimited",
+          Starter: true,
+          Pro: true,
+          Enterprise: true,
+        },
+      },
+      {
+        name: "Test step analytics",
+        tooltip:
+          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        plans: {
+          Starter: true,
+          Pro: true,
+          Enterprise: true,
         },
       },
     ],
   },
   {
-    name: "Automation",
+    name: "Data Pipeline",
     features: [
       {
-        name: "Service accounts",
+        name: "Runs",
         tooltip:
           "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
-        plans: { Starter: true, Teams: true, Business: true },
-      },
-      {
-        name: "Admin API",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
-        plans: { Teams: true, Business: true },
-      },
-      {
-        name: "No-Code workflow builder",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
-        plans: { Starter: "Limited", Teams: "Standard", Business: "Enhanced" },
-      },
-    ],
-  },
-  {
-    name: "Analytics",
-    features: [
-      {
-        name: "Analytics retention",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
-        plans: { Starter: "7 days", Teams: "1 year", Business: "Unlimited" },
-      },
-      {
-        name: "Anomaly detection",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
-        plans: { Teams: true, Business: true },
-      },
-      {
-        name: "Custom report builder",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
-        plans: { Business: true },
-      },
-    ],
-  },
-  {
-    name: "Support",
-    features: [
-      {
-        name: "Slack",
         plans: {
-          Starter: "Community",
-          Teams: "Connect",
-          Business: "Dedicated agent",
+          Starter: "500 /month",
+          Pro: "1000 /month included, then $10 per 1000 runs",
+          Enterprise: "Custom",
         },
       },
       {
-        name: "Email",
-        plans: { Starter: "2-4 days", Teams: "1-2 days", Business: "Priority" },
+        name: "Attachments",
+        tooltip:
+          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        plans: {
+          Starter: "1GB per month",
+          Pro: "10 GB/month included, then $1 per 10GB",
+          Enterprise: "Custom",
+        },
+      },
+      {
+        name: "Stations",
+        tooltip:
+          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        plans: {
+          Starter: false,
+          Pro: "3 stations included, then $20 per station",
+          Enterprise: "Custom",
+        },
       },
     ],
   },
-]
+
+  {
+    name: "Integrations",
+    features: [
+      {
+        name: "Odoo",
+        tooltip:
+          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        plans: { Starter: false, Pro: "100$ / team", Enterprise: "Available" },
+      },
+      {
+        name: "Custom integration",
+        tooltip:
+          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        plans: { Starter: false, Pro: false, Enterprise: "Available" },
+      },
+    ],
+  },
+  {
+    name: "Security",
+    features: [
+      {
+        name: "Secure cloud hosting",
+        tooltip:
+          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        plans: { Starter: true, Pro: true, Enterprise: true },
+      },
+    ],
+  },
+];
 
 const isVariablePrice = (
-  price: FixedPrice | VariablePrice,
+  price: FixedPrice | VariablePrice
 ): price is VariablePrice => {
-  return (price as VariablePrice).monthly !== undefined
-}
+  return (price as VariablePrice).monthly !== undefined;
+};
 
 export default function Pricing() {
   const [billingFrequency, setBillingFrequency] = React.useState<
     "monthly" | "annually"
-  >("monthly")
+  >("monthly");
   return (
     <div className="px-3">
       <section
@@ -225,10 +230,10 @@ export default function Pricing() {
         }}
       >
         <Badge>Pricing</Badge>
-        <h1 className="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-gray-50 dark:to-gray-300">
-          Our plans scale with you
+        <h1 className="mt-2 inline-block bg-gradient-to-br from-zinc-900 to-zinc-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-zinc-50 dark:to-zinc-300">
+          Find a plan to power your tests.
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-gray-700 dark:text-gray-400">
+        <p className="mt-6 max-w-2xl text-lg text-zinc-700 dark:text-zinc-400">
           Plans that empower you and your team to ship without friction. Our
           flexible pricing models ensure that efficiency doesn&rsquo;t come at
           the cost of your budget.
@@ -247,7 +252,7 @@ export default function Pricing() {
         <div className="flex items-center justify-center gap-2">
           <Label
             htmlFor="switch"
-            className="text-base font-medium sm:text-sm dark:text-gray-400"
+            className="text-base font-medium sm:text-sm dark:text-zinc-400"
           >
             Monthly
           </Label>
@@ -256,13 +261,13 @@ export default function Pricing() {
             checked={billingFrequency === "annually"}
             onCheckedChange={() =>
               setBillingFrequency(
-                billingFrequency === "monthly" ? "annually" : "monthly",
+                billingFrequency === "monthly" ? "annually" : "monthly"
               )
             }
           />
           <Label
             htmlFor="switch"
-            className="text-base font-medium sm:text-sm dark:text-gray-400"
+            className="text-base font-medium sm:text-sm dark:text-zinc-400"
           >
             Yearly (-20%)
           </Label>
@@ -280,7 +285,7 @@ export default function Pricing() {
                       <div className="w-full border-t border-indigo-600 dark:border-indigo-400" />
                     </div>
                     <div className="relative flex justify-center">
-                      <span className="bg-white px-3 text-xs font-medium text-indigo-600 dark:bg-gray-950 dark:text-indigo-400">
+                      <span className="bg-white px-3 text-xs font-medium text-indigo-600 dark:bg-zinc-950 dark:text-indigo-400">
                         Most popular
                       </span>
                     </div>
@@ -288,27 +293,27 @@ export default function Pricing() {
                 </div>
               ) : (
                 <div className="flex h-4 items-center">
-                  <div className="h-px w-full bg-gray-200 dark:bg-gray-800" />
+                  <div className="h-px w-full bg-zinc-200 dark:bg-zinc-800" />
                 </div>
               )}
               <div className="mx-auto max-w-md">
-                <h2 className="mt-6 text-sm font-semibold text-gray-900 dark:text-gray-50">
+                <h2 className="mt-6 text-sm font-semibold text-zinc-900 dark:text-zinc-50">
                   {plan.name}
                 </h2>
                 <div className="mt-3 flex items-center gap-x-3">
-                  <span className="text-5xl font-semibold tabular-nums text-gray-900 dark:text-gray-50">
+                  <span className="text-5xl font-semibold tabular-nums text-zinc-900 dark:text-zinc-50">
                     {isVariablePrice(plan.price)
                       ? billingFrequency === "monthly"
                         ? plan.price.monthly
                         : plan.price.annually
                       : plan.price}
                   </span>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">
+                  <div className="text-xs text-zinc-600 dark:text-zinc-400">
                     per user <br /> per month
                   </div>
                 </div>
                 <div className="mt-6 flex flex-col justify-between">
-                  <p className="text-sm leading-6 text-gray-600 dark:text-gray-400">
+                  <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
                     {plan.description}
                   </p>
                   <div className="mt-6">
@@ -331,7 +336,7 @@ export default function Pricing() {
                 </div>
                 <ul
                   role="list"
-                  className="mt-8 text-sm text-gray-700 dark:text-gray-400"
+                  className="mt-8 text-sm text-zinc-700 dark:text-zinc-400"
                 >
                   {plan.capacity.map((feature, index) => (
                     <li
@@ -340,13 +345,13 @@ export default function Pricing() {
                     >
                       {index === 0 && (
                         <RiUserLine
-                          className="size-4 shrink-0 text-gray-500"
+                          className="size-4 shrink-0 text-zinc-500"
                           aria-hidden="true"
                         />
                       )}
                       {index === 1 && (
                         <RiCloudLine
-                          className="size-4 shrink-0 text-gray-500"
+                          className="size-4 shrink-0 text-zinc-500"
                           aria-hidden="true"
                         />
                       )}
@@ -356,7 +361,7 @@ export default function Pricing() {
                 </ul>
                 <ul
                   role="list"
-                  className="mt-4 text-sm text-gray-700 dark:text-gray-400"
+                  className="mt-4 text-sm text-zinc-700 dark:text-zinc-400"
                 >
                   {plan.features.map((feature) => (
                     <li
@@ -394,14 +399,14 @@ export default function Pricing() {
         <div className="mx-auto space-y-8 sm:max-w-md lg:hidden">
           {plans.map((plan) => (
             <div key={plan.name}>
-              <div className="rounded-xl bg-gray-400/5 p-6 ring-1 ring-inset ring-gray-200 dark:ring-gray-800">
+              <div className="rounded-xl bg-zinc-400/5 p-6 ring-1 ring-inset ring-zinc-200 dark:ring-zinc-800">
                 <h2
                   id={plan.name}
-                  className="text-base font-semibold leading-6 text-gray-900 dark:text-gray-50"
+                  className="text-base font-semibold leading-6 text-zinc-900 dark:text-zinc-50"
                 >
                   {plan.name}
                 </h2>
-                <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
+                <p className="text-sm font-normal text-zinc-600 dark:text-zinc-400">
                   {isVariablePrice(plan.price)
                     ? `${
                         billingFrequency === "monthly"
@@ -413,14 +418,14 @@ export default function Pricing() {
               </div>
               <ul
                 role="list"
-                className="mt-10 space-y-10 text-sm leading-6 text-gray-900 dark:text-gray-50"
+                className="mt-10 space-y-10 text-sm leading-6 text-zinc-900 dark:text-zinc-50"
               >
                 {sections.map((section) => (
                   <li key={section.name}>
                     <h3 className="font-semibold">{section.name}</h3>
                     <ul
                       role="list"
-                      className="mt-2 divide-y divide-gray-200 dark:divide-gray-800"
+                      className="mt-2 divide-y divide-zinc-200 dark:divide-zinc-800"
                     >
                       {section.features.map((feature) =>
                         feature.plans[plan.name] ? (
@@ -435,13 +440,13 @@ export default function Pricing() {
                             <span>
                               {feature.name}{" "}
                               {typeof feature.plans[plan.name] === "string" ? (
-                                <span className="text-sm leading-6 text-gray-600 dark:text-gray-400">
+                                <span className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
                                   ({feature.plans[plan.name]})
                                 </span>
                               ) : null}
                             </span>
                           </li>
-                        ) : null,
+                        ) : null
                       )}
                     </ul>
                   </li>
@@ -456,7 +461,7 @@ export default function Pricing() {
       <section className="mx-auto mt-20">
         <div className="mt-20 hidden sm:mt-28 lg:block">
           <div className="relative">
-            <div className="sticky top-0 z-20 h-28 w-full bg-white dark:bg-gray-950" />
+            <div className="sticky top-0 z-20 h-28 w-full bg-white dark:bg-zinc-950" />
             <table className="w-full table-fixed border-separate border-spacing-0 text-left">
               <caption className="sr-only">Pricing plan comparison</caption>
               <colgroup>
@@ -469,12 +474,12 @@ export default function Pricing() {
                 <tr>
                   <th
                     scope="col"
-                    className="border-b border-gray-100 bg-white pb-8 dark:border-gray-800 dark:bg-gray-950"
+                    className="border-b border-zinc-100 bg-white pb-8 dark:border-zinc-800 dark:bg-zinc-950"
                   >
-                    <div className="font-semibold leading-7 text-gray-900 dark:text-gray-50">
+                    <div className="font-semibold leading-7 text-zinc-900 dark:text-zinc-50">
                       Compare prices
                     </div>
-                    <div className="text-sm font-normal text-gray-600 dark:text-gray-400">
+                    <div className="text-sm font-normal text-zinc-600 dark:text-zinc-400">
                       Price per month (billed yearly)
                     </div>
                   </th>
@@ -482,19 +487,19 @@ export default function Pricing() {
                     <th
                       key={plan.name}
                       scope="col"
-                      className="border-b border-gray-100 bg-white px-6 pb-8 lg:px-8 dark:border-gray-800 dark:bg-gray-950"
+                      className="border-b border-zinc-100 bg-white px-6 pb-8 lg:px-8 dark:border-zinc-800 dark:bg-zinc-950"
                     >
                       <div
                         className={cx(
                           !plan.isStarter
                             ? "text-indigo-600 dark:text-indigo-400"
-                            : "text-gray-900 dark:text-gray-50",
-                          "font-semibold leading-7",
+                            : "text-zinc-900 dark:text-zinc-50",
+                          "font-semibold leading-7"
                         )}
                       >
                         {plan.name}
                       </div>
-                      <div className="text-sm font-normal text-gray-600 dark:text-gray-400">
+                      <div className="text-sm font-normal text-zinc-600 dark:text-zinc-400">
                         {isVariablePrice(plan.price)
                           ? `${
                               billingFrequency === "monthly"
@@ -516,7 +521,7 @@ export default function Pricing() {
                         colSpan={4}
                         className={cx(
                           sectionIdx === 0 ? "pt-14" : "pt-10",
-                          "border-b border-gray-100 pb-4 text-base font-semibold leading-6 text-gray-900 dark:border-gray-800 dark:text-gray-50",
+                          "border-b border-zinc-100 pb-4 text-base font-semibold leading-6 text-zinc-900 dark:border-zinc-800 dark:text-zinc-50"
                         )}
                       >
                         {section.name}
@@ -529,13 +534,13 @@ export default function Pricing() {
                       >
                         <th
                           scope="row"
-                          className="flex items-center gap-2 border-b border-gray-100 py-4 text-sm font-normal leading-6 text-gray-900 dark:border-gray-800 dark:text-gray-50"
+                          className="flex items-center gap-2 border-b border-zinc-100 py-4 text-sm font-normal leading-6 text-zinc-900 dark:border-zinc-800 dark:text-zinc-50"
                         >
                           <span>{feature.name}</span>
                           {feature.tooltip ? (
                             <Tooltip side="right" content={feature.tooltip}>
                               <RiInformationLine
-                                className="size-4 shrink-0 text-gray-700 dark:text-gray-400"
+                                className="size-4 shrink-0 text-zinc-700 dark:text-zinc-400"
                                 aria-hidden="true"
                               />
                             </Tooltip>
@@ -544,10 +549,10 @@ export default function Pricing() {
                         {plans.map((plan) => (
                           <td
                             key={plan.name}
-                            className="border-b border-gray-100 px-6 py-4 lg:px-8 dark:border-gray-800"
+                            className="border-b border-zinc-100 px-6 py-4 lg:px-8 dark:border-zinc-800"
                           >
                             {typeof feature.plans[plan.name] === "string" ? (
-                              <div className="text-sm leading-6 text-gray-600 dark:text-gray-400">
+                              <div className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
                                 {feature.plans[plan.name]}
                               </div>
                             ) : (
@@ -559,7 +564,7 @@ export default function Pricing() {
                                   />
                                 ) : (
                                   <RiSubtractLine
-                                    className="h-5 w-5 text-gray-400 dark:text-gray-600"
+                                    className="h-5 w-5 text-zinc-400 dark:text-zinc-600"
                                     aria-hidden="true"
                                   />
                                 )}
@@ -581,7 +586,7 @@ export default function Pricing() {
                 <tr>
                   <th
                     scope="row"
-                    className="pt-6 text-sm font-normal leading-6 text-gray-900 dark:text-gray-50"
+                    className="pt-6 text-sm font-normal leading-6 text-zinc-900 dark:text-zinc-50"
                   >
                     <span className="sr-only">Link to activate plan</span>
                   </th>
@@ -620,5 +625,5 @@ export default function Pricing() {
       </section>
       <Faqs />
     </div>
-  )
+  );
 }

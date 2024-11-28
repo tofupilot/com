@@ -1,9 +1,9 @@
 import { getLastFiveReleases } from "@/app/(sanity)/lib/client";
 import { Release, ReleaseHighlight } from "@/app/(sanity)/schemas/release";
 import { Metadata } from "next";
-import { CardRelease } from "./_components/CardRelease";
-import { CardReleaseHighlight } from "./_components/CardReleaseHighlight";
-import { ContainerLanding } from "../components/ContainerLanding";
+import { CardRelease } from "../../components/CardRelease";
+import { CardReleaseHighlight } from "../../components/CardReleaseHighlight";
+import { ContainerLanding } from "@/app/components/ContainerLanding";
 
 export const metadata: Metadata = {
   title: "Changelog › TofuPilot",

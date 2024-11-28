@@ -1,6 +1,6 @@
 import { urlForImage } from '@/app/(sanity)/lib/image';
 import { ReleaseHighlightCategory } from '@/app/(sanity)/schemas/releaseHighlightCategory';
-import { Badge } from '@/app/(home)/components/catalyst/badge';
+import { Badge } from '@/app/components/catalyst/badge';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 

@@ -1,5 +1,5 @@
 import { Release } from '@/app/(sanity)/schemas/release';
-import { Badge } from '@/app/(home)/components/catalyst/badge';
+import { Badge } from '@/app/components/catalyst/badge';
 import { PortableText } from '@portabletext/react';
 
 export function CardRelease({ release }: { release: Release }) {

@@ -1,7 +1,7 @@
 import { getAllTemplates } from "@/app/(sanity)/lib/client";
+import { ContainerLanding } from "@/app/components/ContainerLanding";
+import { TemplateGrid } from "@/app/components/ui/TemplateGrid";
 import { Metadata } from "next";
-import { ContainerLanding } from "../components/ContainerLanding";
-import { TemplateGrid } from "../components/ui/TemplateGrid";
 
 export const metadata: Metadata = {
   title: "Templates › TofuPilot",

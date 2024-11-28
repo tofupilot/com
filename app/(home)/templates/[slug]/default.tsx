@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { Button } from "@/app/(home)/components/catalyst/button";
 import { ArrowLeftIcon } from "@heroicons/react/16/solid";
 
 import { urlForImage } from "@/app/(sanity)/lib/image";
@@ -8,12 +7,10 @@ import { PortableText } from "@/app/(sanity)/lib/portabletext";
 
 import { siteConfig } from "@/app/siteConfig";
 import { notFound } from "next/navigation";
-import {
-  DescriptionDetails,
-  DescriptionList,
-  DescriptionTerm,
-} from "../../components/catalyst/description-list";
-import Cta from "../../components/Cta";
+
+import Cta from "@/app/components/Cta";
+import { Button } from "@/app/components/catalyst/button";
+import { DescriptionDetails, DescriptionList, DescriptionTerm } from "@/app/components/catalyst/description-list";
 
 export function TemplatePage(props: any) {
   const { loading, template } = props;

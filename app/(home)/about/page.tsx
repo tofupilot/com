@@ -8,9 +8,9 @@ import profilePictureJulien from "@/public/about/julien-buteau.png";
 import { ArrowUpRightIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
 import { Metadata } from "next";
 import Link from "next/link";
-import { Badge } from "../components/Badge";
-import { Button } from "../components/catalyst/button";
-import { Logos } from "../components/LogosSupporters";
+import { Logos } from "@/app/components/LogosSupporters";
+import { Badge } from "@/app/components/Badge";
+import { Button } from "@/app/components/catalyst/button";
 
 export const metadata: Metadata = {
   title: "About › TofuPilot",
