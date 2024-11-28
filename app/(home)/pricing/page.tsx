@@ -3,7 +3,6 @@ import { Badge } from "@/app/components/Badge";
 import { Button } from "@/app/components/Button";
 import { Label } from "@/app/components/Label";
 import { Switch } from "@/app/components/Switch";
-import { Tooltip } from "@/app/components/Tooltip";
 import { ArrowAnimated } from "@/app/components/ui/ArrowAnimated";
 import { Faqs } from "@/app/components/ui/Faqs";
 import Testimonial from "@/app/components/ui/Testimonial";
@@ -11,12 +10,12 @@ import { cx } from "@/app/lib/utils";
 import {
   RiCheckLine,
   RiCloudLine,
-  RiInformationLine,
   RiSubtractLine,
   RiUserLine,
 } from "@remixicon/react";
 import Link from "next/link";
 import React, { Fragment } from "react";
+import Balancer from "react-wrap-balancer";
 
 type FixedPrice = string;
 
@@ -107,24 +106,24 @@ const sections: Section[] = [
     features: [
       {
         name: "Team Seats",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: {
           Starter: "1 seat included",
-          Pro: "1 seat included then $20 per seat",
+          Pro: {
+            base: "1 seat included",
+            then: "then $50 per seat",
+          },
           Enterprise: "Custom",
         },
       },
       {
-        name: "First pass yield",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        name: "First-pass yield",
+        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: { Starter: true, Pro: true, Enterprise: true },
       },
       {
         name: "Process capability",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: {
           Starter: true,
           Pro: true,
@@ -133,8 +132,7 @@ const sections: Section[] = [
       },
       {
         name: "Test step analytics",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: {
           Starter: true,
           Pro: true,
@@ -148,31 +146,37 @@ const sections: Section[] = [
     features: [
       {
         name: "Runs",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: {
-          Starter: "500 /month",
-          Pro: "1000 /month included, then $10 per 1000 runs",
+          Starter: "500 runs /month",
+          Pro: {
+            base: "1000 runs /month included",
+            then: "then $10 per 1000 runs",
+          },
           Enterprise: "Custom",
         },
       },
       {
         name: "Attachments",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: {
           Starter: "1GB per month",
-          Pro: "10 GB/month included, then $1 per 10GB",
+          Pro: {
+            base: "10 GB/month",
+            then: "then $1 per 10GB",
+          },
           Enterprise: "Custom",
         },
       },
       {
         name: "Stations",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: {
           Starter: false,
-          Pro: "3 stations included, then $20 per station",
+          Pro: {
+            base: "3 stations",
+            then: "then $20 per station",
+          },
           Enterprise: "Custom",
         },
       },
@@ -184,14 +188,12 @@ const sections: Section[] = [
     features: [
       {
         name: "Odoo",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: { Starter: false, Pro: "100$ / team", Enterprise: "Available" },
       },
       {
         name: "Custom integration",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: { Starter: false, Pro: false, Enterprise: "Available" },
       },
     ],
@@ -201,9 +203,13 @@ const sections: Section[] = [
     features: [
       {
         name: "Secure cloud hosting",
-        tooltip:
-          "Consectetur qui culpa ipsum in ea irure duis culpa incididunt.",
+        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: { Starter: true, Pro: true, Enterprise: true },
+      },
+      {
+        name: "Self-hosting",
+        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
+        plans: { Starter: false, Pro: false, Enterprise: "Available" },
       },
     ],
   },
@@ -465,10 +471,10 @@ export default function Pricing() {
             <table className="w-full table-fixed border-separate border-spacing-0 text-left">
               <caption className="sr-only">Pricing plan comparison</caption>
               <colgroup>
-                <col className="w-2/5" />
-                <col className="w-1/5" />
-                <col className="w-1/5" />
-                <col className="w-1/5" />
+                <col className="w-1/4" />
+                <col className="w-1/4" />
+                <col className="w-1/4" />
+                <col className="w-1/4" />
               </colgroup>
               <thead className="sticky top-28">
                 <tr>
@@ -477,17 +483,14 @@ export default function Pricing() {
                     className="border-b border-zinc-100 bg-white pb-8 dark:border-zinc-800 dark:bg-zinc-950"
                   >
                     <div className="font-semibold leading-7 text-zinc-900 dark:text-zinc-50">
-                      Compare prices
-                    </div>
-                    <div className="text-sm font-normal text-zinc-600 dark:text-zinc-400">
-                      Price per month (billed yearly)
+                      Features
                     </div>
                   </th>
                   {plans.map((plan) => (
                     <th
                       key={plan.name}
                       scope="col"
-                      className="border-b border-zinc-100 bg-white px-6 pb-8 lg:px-8 dark:border-zinc-800 dark:bg-zinc-950"
+                      className="border-b border-zinc-100 bg-white px-6 pb-6 lg:px-8 dark:border-zinc-800 dark:bg-zinc-950"
                     >
                       <div
                         className={cx(
@@ -498,15 +501,6 @@ export default function Pricing() {
                         )}
                       >
                         {plan.name}
-                      </div>
-                      <div className="text-sm font-normal text-zinc-600 dark:text-zinc-400">
-                        {isVariablePrice(plan.price)
-                          ? `${
-                              billingFrequency === "monthly"
-                                ? plan.price.monthly
-                                : plan.price.annually
-                            } / per user`
-                          : plan.price}
                       </div>
                     </th>
                   ))}
@@ -534,26 +528,32 @@ export default function Pricing() {
                       >
                         <th
                           scope="row"
-                          className="flex items-center gap-2 border-b border-zinc-100 py-4 text-sm font-normal leading-6 text-zinc-900 dark:border-zinc-800 dark:text-zinc-50"
+                          className="border-b border-zinc-100 py-6 leading-6 dark:border-zinc-800"
                         >
-                          <span>{feature.name}</span>
-                          {feature.tooltip ? (
-                            <Tooltip side="right" content={feature.tooltip}>
-                              <RiInformationLine
-                                className="size-4 shrink-0 text-zinc-700 dark:text-zinc-400"
-                                aria-hidden="true"
-                              />
-                            </Tooltip>
-                          ) : null}
+                          <div className="text-sm font-bold text-zinc-900  dark:text-zinc-50">
+                            {feature.name}
+                          </div>
+                          <div className="text-sm font-normal mt-2 text-zinc-600 dark:text-zinc-400">
+                            <Balancer>{feature.tooltip}</Balancer>
+                          </div>
                         </th>
                         {plans.map((plan) => (
                           <td
                             key={plan.name}
-                            className="border-b border-zinc-100 px-6 py-4 lg:px-8 dark:border-zinc-800"
+                            className="border-b border-zinc-100 px-6 lg:px-8 dark:border-zinc-800"
                           >
                             {typeof feature.plans[plan.name] === "string" ? (
-                              <div className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                              <div className="text-sm leading-6 text-zinc-900 dark:text-zinc-50">
                                 {feature.plans[plan.name]}
+                              </div>
+                            ) : typeof feature.plans[plan.name] === "object" ? (
+                              <div className="text-sm leading-6">
+                                <div className=" text-zinc-900 dark:text-zinc-50">
+                                  {feature.plans[plan.name].base}
+                                </div>
+                                <div className="text-zinc-600 dark:text-zinc-400 mt-1">
+                                  then {feature.plans[plan.name].then}
+                                </div>
                               </div>
                             ) : (
                               <>
@@ -568,13 +568,6 @@ export default function Pricing() {
                                     aria-hidden="true"
                                   />
                                 )}
-
-                                <span className="sr-only">
-                                  {feature.plans[plan.name] === true
-                                    ? "Included"
-                                    : "Not included"}{" "}
-                                  in {plan.name}
-                                </span>
                               </>
                             )}
                           </td>
