@@ -1,5 +1,3 @@
-const docsUrl = process.env.DOCS_URL;
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
@@ -16,16 +14,16 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/docs',
-        destination: `${docsUrl}/docs`,
+        source: "/docs",
+        destination: `${process.env.NEXT_PUBLIC_DOCS_URL}/docs`,
       },
       {
-        source: '/docs/:path+',
-        destination: `${docsUrl}/docs/:path+`,
+        source: "/docs/:path+",
+        destination: `${process.env.NEXT_PUBLIC_DOCS_URL}/docs/:path+`,
       },
       {
-        source: '/docs-static/_next/:path+',
-        destination: `${docsUrl}/docs-static/_next/:path+`,
+        source: "/docs-static/_next/:path+",
+        destination: `${process.env.NEXT_PUBLIC_DOCS_URL}/docs-static/_next/:path+`,
       },
     ];
   },
