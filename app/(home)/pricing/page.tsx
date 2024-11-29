@@ -1,5 +1,6 @@
 import { Badge } from "@/app/components/catalyst/badge";
 import { Button } from "@/app/components/catalyst/button";
+import Cta from "@/app/components/Cta";
 import { HeaderBadge } from "@/app/components/HeaderBadge";
 import { Faqs } from "@/app/components/ui/pricing/Faqs";
 import Testimonial from "@/app/components/ui/pricing/Testimonial";
@@ -175,7 +176,7 @@ const sections: Section[] = [
         name: "Runs",
         tooltip: "Individual test run with unlimited steps and measurements.",
         plans: {
-          Lab: "500 runs /month included",
+          Lab: "100 runs /month included",
           Pro: ["1000 runs /month included", "then $10 per 1000 runs"],
           Enterprise: "Custom",
         },
@@ -468,7 +469,9 @@ export default function Pricing() {
                   <li key={section.name}>
                     <div className="flex items-center gap-x-3">
                       <section.icon aria-hidden="true" className="size-5" />
-                      <h3 className="text-sm leading-6 font-semibold">{section.name}</h3>
+                      <h3 className="text-sm leading-6 font-semibold">
+                        {section.name}
+                      </h3>
                     </div>
                     <ul
                       role="list"
@@ -576,7 +579,7 @@ export default function Pricing() {
                           "pt-14 border-b border-zinc-100 pb-4 text-base font-semibold leading-6 text-zinc-900 dark:border-zinc-800 dark:text-zinc-50"
                         )}
                       >
-                        <div className="flex items-center gap-x-2">
+                        <div className="flex items-center gap-x-3">
                           <section.icon aria-hidden="true" className="size-5" />
                           {section.name}
                         </div>
@@ -631,6 +634,7 @@ export default function Pricing() {
         </div>
       </section>
       <Faqs />
+      <Cta />
     </div>
   );
 }
