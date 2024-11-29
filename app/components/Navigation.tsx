@@ -44,14 +44,18 @@ export function Navigation() {
     >
       <div className="w-full md:my-auto">
         <div className="relative flex items-center justify-between">
+
+          {/* TofuPilot Logo */}
           <Link
             href={siteConfig.baseLinks.home}
             aria-label="TofuPilot Company Logo"
             className="flex"
           >
-            <span className="sr-only">Company logo</span>
+            <span className="sr-only">TofuPilot Logo</span>
             <CompanyLogo />
           </Link>
+
+          {/* Desktop Navigation */}
           <nav className="hidden md:absolute md:left-1/2 md:top-1/2 md:block md:-translate-x-1/2 md:-translate-y-1/2 md:transform">
             <div className="flex items-center gap-10 font-medium">
               <Link
@@ -68,12 +72,14 @@ export function Navigation() {
               </a>
               <Link
                 className="px-2 py-1 text-zinc-900 dark:text-zinc-50"
-                href={siteConfig.baseLinks.changelog}
+                href={siteConfig.baseLinks.pricing}
               >
-                Changelog
+                Pricing
               </Link>
             </div>
           </nav>
+
+          {/* Desktop Navigation */}
           <div className="hidden gap-3 md:flex">
             <Button outline href={siteConfig.baseLinks.login} className="h-10">
               Log in
@@ -87,19 +93,18 @@ export function Navigation() {
               <ChevronRightIcon />
             </Button>
           </div>
+
+          {/* Mobile Navigation */}
           <div className="flex gap-x-2 md:hidden">
-            <Button
-              color="lime"
-              href={siteConfig.baseLinks.signup}
-              className="h-10"
-            >
-              Start Building
+            <Button color="lime" href={siteConfig.baseLinks.signup}>
+              Start
               <ChevronRightIcon />
             </Button>
+            {/* Sandwich Menu */}
             <Button
               onClick={() => setOpen(!open)}
               color="light"
-              className="aspect-square p-2"
+              className="aspect-square"
             >
               {open ? (
                 <XMarkIcon aria-hidden="true" className="size-5" />
