@@ -3,7 +3,6 @@ import { Button } from "@/app/components/catalyst/button";
 import Cta from "@/app/components/Cta";
 import { HeaderBadge } from "@/app/components/HeaderBadge";
 import { Faqs } from "@/app/components/ui/pricing/Faqs";
-import Testimonial from "@/app/components/ui/pricing/Testimonial";
 import { cx } from "@/app/lib/utils";
 import { siteConfig } from "@/app/siteConfig";
 import {

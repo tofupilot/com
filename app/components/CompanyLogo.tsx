@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function CompanyLogo() {
   return (
@@ -10,7 +10,7 @@ export default function CompanyLogo() {
         width={40}
         height={40}
       />
-      <h1 className="ml-2.5 text-2xl font-bold">TofuPilot</h1>
+      <h1 className="ml-2.5 mt-0.5 text-2xl font-bold">TofuPilot</h1>
     </div>
   );
 }

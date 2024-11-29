@@ -44,7 +44,6 @@ export function Navigation() {
     >
       <div className="w-full md:my-auto">
         <div className="relative flex items-center justify-between">
-
           {/* TofuPilot Logo */}
           <Link
             href={siteConfig.baseLinks.home}
@@ -89,18 +88,17 @@ export function Navigation() {
               href={siteConfig.baseLinks.signup}
               className="h-10"
             >
-              Start Building
+              Sign up
               <ChevronRightIcon />
             </Button>
           </div>
 
           {/* Mobile Navigation */}
-          <div className="flex gap-x-2 md:hidden">
+          <div className="flex gap-x-3 md:hidden">
             <Button color="lime" href={siteConfig.baseLinks.signup}>
-              Start
+              Sign up
               <ChevronRightIcon />
             </Button>
-            {/* Sandwich Menu */}
             <Button
               onClick={() => setOpen(!open)}
               color="light"
@@ -128,7 +126,7 @@ export function Navigation() {
               <a href="/docs">Docs</a>
             </li>
             <li onClick={() => setOpen(false)}>
-              <Link href={siteConfig.baseLinks.changelog}>Changelog</Link>
+              <Link href={siteConfig.baseLinks.pricing}>Pricing</Link>
             </li>
             <li onClick={() => setOpen(false)}>
               <Link href={siteConfig.baseLinks.login}>Log in</Link>
