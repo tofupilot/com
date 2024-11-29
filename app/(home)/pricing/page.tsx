@@ -5,6 +5,7 @@ import { HeaderBadge } from "@/app/components/HeaderBadge";
 import { Faqs } from "@/app/components/ui/pricing/Faqs";
 import Testimonial from "@/app/components/ui/pricing/Testimonial";
 import { cx } from "@/app/lib/utils";
+import { siteConfig } from "@/app/siteConfig";
 import {
   ChevronRightIcon,
   CircleStackIcon,
@@ -39,7 +40,7 @@ const plans: Plan[] = [
     ],
     isRecommended: false,
     buttonText: "Start Building",
-    buttonLink: "#",
+    buttonLink: siteConfig.baseLinks.signup,
   },
   {
     name: "Pro",
@@ -53,7 +54,7 @@ const plans: Plan[] = [
     ],
     isRecommended: true,
     buttonText: "Upgrade now",
-    buttonLink: "#",
+    buttonLink: siteConfig.baseLinks.signup,
   },
   {
     name: "Enterprise",
@@ -68,7 +69,7 @@ const plans: Plan[] = [
     ],
     isRecommended: false,
     buttonText: "Request Trial",
-    buttonLink: "#",
+    buttonLink: siteConfig.baseLinks.signup,
   },
 ];
 
