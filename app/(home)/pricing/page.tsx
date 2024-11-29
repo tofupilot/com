@@ -1,10 +1,16 @@
 import { Badge } from "@/app/components/catalyst/badge";
 import { Button } from "@/app/components/catalyst/button";
 import { HeaderBadge } from "@/app/components/HeaderBadge";
-import { Faqs } from "@/app/components/ui/Faqs";
+import { Faqs } from "@/app/components/ui/pricing/Faqs";
 import Testimonial from "@/app/components/ui/Testimonial";
 import { cx } from "@/app/lib/utils";
-import { ChevronRightIcon } from "@heroicons/react/16/solid";
+import {
+  ChevronRightIcon,
+  CircleStackIcon,
+  CodeBracketSquareIcon,
+  EyeIcon,
+  GlobeAltIcon,
+} from "@heroicons/react/16/solid";
 import { RiCheckLine, RiSubtractLine } from "@remixicon/react";
 import { Fragment } from "react";
 import Balancer from "react-wrap-balancer";
@@ -85,15 +91,17 @@ interface Feature {
 interface Section {
   name: string;
   features: Feature[];
+  icon: any;
 }
 
 const sections: Section[] = [
   {
-    name: "Test Data Pipeline",
+    name: "Build",
+    icon: CodeBracketSquareIcon,
     features: [
       {
-        name: "Test Steps Analytics",
-        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
+        name: "OpenHTF Support",
+        tooltip: "One-line integration in scripts for real-time streaming.",
         plans: {
           Lab: true,
           Pro: true,
@@ -101,22 +109,82 @@ const sections: Section[] = [
         },
       },
       {
-        name: "First-pass Yield",
-        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
-        plans: { Lab: true, Pro: true, Enterprise: true },
-      },
-      {
-        name: "Process Capability",
-        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
+        name: "Python Client & REST API",
+        tooltip:
+          "Open-source Python client for easy integration in any script.",
         plans: {
           Lab: true,
           Pro: true,
           Enterprise: true,
+        },
+      },
+      {
+        name: "Test Sequences",
+        tooltip:
+          "Number of different test scripts that can be connected to your account.",
+        plans: {
+          Lab: "Unlimited",
+          Pro: "Unlimited",
+          Enterprise: "Unlimited",
+        },
+      },
+      {
+        name: "Test Steps & Measurements",
+        tooltip:
+          "Number of steps and measurements in each connected test script.",
+        plans: {
+          Lab: "Unlimited",
+          Pro: "Unlimited",
+          Enterprise: "Unlimited",
+        },
+      },
+      {
+        name: "Operator UI",
+        tooltip:
+          "Plug-and-play OpenHTF UI for production operators and technicians.",
+        plans: {
+          Lab: ["Included", "Available Q1 2025"],
+          Pro: ["Included", "Available Q1 2025"],
+          Enterprise: ["Included", "Available Q1 2025"],
+        },
+      },
+      {
+        name: "Team Seats",
+        tooltip: "Collaborate on your scripts with your development team.",
+        plans: {
+          Lab: "1 seat included",
+          Pro: ["1 seat included", "then $50 per seat"],
+          Enterprise: "Custom",
+        },
+      },
+    ],
+  },
+  {
+    name: "Deploy",
+    icon: GlobeAltIcon,
+    features: [
+      {
+        name: "Components & Revisions",
+        tooltip:
+          "Number of component revisions, each with a unique part number.",
+        plans: {
+          Lab: "Unlimited",
+          Pro: "Unlimited",
+          Enterprise: "Unlimited",
+        },
+      },
+      {
+        name: "Units & Sub-units",
+        tooltip: "Unique serial number created from a component revision.",
+        plans: {
+          Lab: "50 units /month",
+          Pro: "Unlimited",
+          Enterprise: "Unlimited",
         },
       },
       {
         name: "Runs",
-        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
+        tooltip: "Individual test run with unlimited steps and measurements.",
         plans: {
           Lab: "500 runs /month included",
           Pro: ["1000 runs /month included", "then $10 per 1000 runs"],
@@ -124,31 +192,19 @@ const sections: Section[] = [
         },
       },
       {
-        name: "Attachments",
-        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
+        name: "Runs Attachments",
+        tooltip:
+          "Securely upload any file format directly from Python test scripts.",
         plans: {
           Lab: "1 GB /month included",
           Pro: ["10 GB /month included", "then $1 per 10GB"],
           Enterprise: "Custom",
         },
       },
-    ],
-  },
-  {
-    name: "Collaborate & Deploy",
-    features: [
-      {
-        name: "Team Seats",
-        tooltip: "Collaborate on your projects with your team.",
-        plans: {
-          Lab: "1 seat included",
-          Pro: ["1 seat included", "then $50 per seat"],
-          Enterprise: "Custom",
-        },
-      },
       {
         name: "Factory Stations",
-        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
+        tooltip:
+          "Secure API keys for uploading test runs with restricted permissions.",
         plans: {
           Lab: false,
           Pro: ["3 stations included", "then $20 per station"],
@@ -158,36 +214,76 @@ const sections: Section[] = [
     ],
   },
   {
-    name: "MES Integrations",
+    name: "Monitor",
+    icon: EyeIcon,
     features: [
       {
-        name: "Odoo",
-        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
+        name: "Test Steps Analytics",
+        tooltip:
+          "Analytics and filters at test step level for yield, duration, and process capability.",
         plans: {
-          Lab: false,
-          Pro: "$100 per team",
-          Enterprise: "Available",
+          Lab: true,
+          Pro: true,
+          Enterprise: true,
         },
       },
       {
-        name: "Custom MES Integration",
-        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
-        plans: { Lab: false, Pro: false, Enterprise: "Available" },
+        name: "First-pass Yield",
+        tooltip:
+          "First, second, third, and last pass yield at test step level.",
+        plans: { Lab: true, Pro: true, Enterprise: true },
+      },
+      {
+        name: "Process Capability",
+        tooltip: "Real-time Cpk computation at the step level.",
+        plans: {
+          Lab: true,
+          Pro: true,
+          Enterprise: true,
+        },
+      },
+      {
+        name: "Control Chart & Histogram",
+        tooltip:
+          "Ready-made control chart and histogram with current and historical test limits.",
+        plans: {
+          Lab: true,
+          Pro: true,
+          Enterprise: true,
+        },
       },
     ],
   },
   {
-    name: "Security",
+    name: "Infrastructure",
+    icon: CircleStackIcon,
     features: [
       {
         name: "Secure Cloud",
-        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
+        tooltip:
+          "Secure cloud hosting, powered by AWS and managed by our team.",
         plans: { Lab: true, Pro: true, Enterprise: true },
       },
       {
         name: "Self-hosting",
-        tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
+        tooltip: "Option to self-host TofuPilot when cloud is not possible.",
         plans: { Lab: false, Pro: false, Enterprise: "Available" },
+      },
+      {
+        name: "Odoo Integration",
+        tooltip:
+          "Bidirectional serial and batch sync between Odoo MES and TofuPilot.",
+        plans: {
+          Lab: false,
+          Pro: ["$100 per team", "Available Q1 2025"],
+          Enterprise: ["Included", "Available Q1 2025"],
+        },
+      },
+      {
+        name: "Custom MES Integration",
+        tooltip:
+          "Custom MES integration development to suit your operational needs.",
+        plans: { Lab: false, Pro: false, Enterprise: "On-demand" },
       },
     ],
   },
@@ -476,10 +572,13 @@ export default function Pricing() {
                         colSpan={4}
                         className={cx(
                           sectionIdx === 0 ? "pt-14" : "pt-12",
-                          "pt-14 border-b border-zinc-100 pb-4 text-base font-semibold leading-6 text-zinc-900 dark:border-zinc-800 dark:text-zinc-50"
+                          "pt-14 border-b  border-zinc-100 pb-4 text-base font-semibold leading-6 text-zinc-900 dark:border-zinc-800 dark:text-zinc-50"
                         )}
                       >
-                        {section.name}
+                        <div className="flex items-center gap-x-2">
+                          <section.icon aria-hidden="true" className="size-5" />
+                          {section.name}
+                        </div>
                       </th>
                     </tr>
                     {section.features.map((feature) => (
@@ -525,45 +624,6 @@ export default function Pricing() {
                     ))}
                   </Fragment>
                 ))}
-                <tr>
-                  <th
-                    scope="row"
-                    className="pt-6 text-sm font-normal leading-6 text-zinc-900 dark:text-zinc-50"
-                  >
-                    <span className="sr-only">Link to activate plan</span>
-                  </th>
-                  {plans.map((plan, planIdx) => (
-                    <td key={plan.name} className="px-6 pt-6 lg:px-8">
-                      {planIdx === 0 ? (
-                        <Button
-                          href={plan.buttonLink}
-                          className="w-full justify-between"
-                        >
-                          {plan.buttonText}
-                          <ChevronRightIcon />
-                        </Button>
-                      ) : planIdx === 1 ? (
-                        <Button
-                          href={plan.buttonLink}
-                          color="lime"
-                          className="w-full justify-between"
-                        >
-                          {plan.buttonText}
-                          <ChevronRightIcon />
-                        </Button>
-                      ) : (
-                        <Button
-                          href={plan.buttonLink}
-                          color="white"
-                          className="w-full justify-between"
-                        >
-                          {plan.buttonText}
-                          <ChevronRightIcon />
-                        </Button>
-                      )}
-                    </td>
-                  ))}
-                </tr>
               </tbody>
             </table>
           </div>

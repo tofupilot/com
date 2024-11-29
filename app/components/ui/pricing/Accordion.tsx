@@ -1,9 +1,9 @@
 // Tremor Accordion [v0.0.1]
 
+import { cx } from "@/app/lib/utils"
 import * as AccordionPrimitives from "@radix-ui/react-accordion"
 import { RiAddLine } from "@remixicon/react"
 import React from "react"
-import { cx } from "../lib/utils"
 
 
 const Accordion = AccordionPrimitives.Root
@@ -24,7 +24,7 @@ const AccordionTrigger = React.forwardRef<
         // disabled
         "data-[disabled]:cursor-default data-[disabled]:text-zinc-400 dark:data-[disabled]:text-zinc-600",
         //focus
-        "focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-500",
+        "focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-lime      -500",
         className,
       )}
       {...props}
@@ -36,7 +36,7 @@ const AccordionTrigger = React.forwardRef<
           // base
           "size-5 shrink-0 transition-transform duration-150 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:-rotate-45",
           // text color
-          "text-zinc-400 dark:text-zinc-600",
+          "text-lime-600 dark:text-lime-400",
           // disabled
           "group-data-[disabled]:text-zinc-300 group-data-[disabled]:dark:text-zinc-700",
         )}
