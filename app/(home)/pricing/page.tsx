@@ -2,7 +2,7 @@ import { Badge } from "@/app/components/catalyst/badge";
 import { Button } from "@/app/components/catalyst/button";
 import { HeaderBadge } from "@/app/components/HeaderBadge";
 import { Faqs } from "@/app/components/ui/pricing/Faqs";
-import Testimonial from "@/app/components/ui/Testimonial";
+import Testimonial from "@/app/components/ui/pricing/Testimonial";
 import { cx } from "@/app/lib/utils";
 import {
   ChevronRightIcon,
@@ -15,16 +15,8 @@ import { RiCheckLine, RiSubtractLine } from "@remixicon/react";
 import { Fragment } from "react";
 import Balancer from "react-wrap-balancer";
 
-type FixedPrice = string;
-
-interface VariablePrice {
-  monthly: string;
-  annually: string;
-}
-
 interface Plan {
   name: string;
-  price: FixedPrice | VariablePrice;
   description: string;
   features: string[];
   isRecommended: boolean;
@@ -35,7 +27,6 @@ interface Plan {
 const plans: Plan[] = [
   {
     name: "Lab",
-    price: "$0",
     description: "Everything you need to kickstart your test project.",
     features: [
       "OpenHTF native support",
@@ -51,7 +42,6 @@ const plans: Plan[] = [
   },
   {
     name: "Pro",
-    price: { monthly: "$49", annually: "$39" },
     description: "Collaborate with your team for **$50 /month**, per member.",
     features: [
       "Secure team collaboration",
@@ -66,7 +56,6 @@ const plans: Plan[] = [
   },
   {
     name: "Enterprise",
-    price: { monthly: "$99", annually: "$79" },
     description:
       "For larger Pro that need more advanced controls and features.",
     features: [
@@ -143,9 +132,9 @@ const sections: Section[] = [
         tooltip:
           "Plug-and-play OpenHTF UI for production operators and technicians.",
         plans: {
-          Lab: ["Included", "Available Q1 2025"],
-          Pro: ["Included", "Available Q1 2025"],
-          Enterprise: ["Included", "Available Q1 2025"],
+          Lab: "Available Q1 2025",
+          Pro: "Available Q1 2025",
+          Enterprise: "Available Q1 2025",
         },
       },
       {
@@ -267,7 +256,7 @@ const sections: Section[] = [
       {
         name: "Self-hosting",
         tooltip: "Option to self-host TofuPilot when cloud is not possible.",
-        plans: { Lab: false, Pro: false, Enterprise: "Available" },
+        plans: { Lab: false, Pro: false, Enterprise: true },
       },
       {
         name: "Odoo Integration",
@@ -288,12 +277,6 @@ const sections: Section[] = [
     ],
   },
 ];
-
-const isVariablePrice = (
-  price: FixedPrice | VariablePrice
-): price is VariablePrice => {
-  return (price as VariablePrice).monthly !== undefined;
-};
 
 export default function Pricing() {
   return (
@@ -452,7 +435,7 @@ export default function Pricing() {
         className="mt-20 sm:mt-36 lg:hidden"
         aria-labelledby="pricing-details"
       >
-        <div className="mx-auto space-y-8 sm:max-w-md ">
+        <div className="mx-auto space-y-20 sm:max-w-md">
           {plans.map((plan) => (
             <div key={plan.name}>
               <div className="rounded-xl bg-zinc-400/5 p-6 ring-1 ring-inset ring-zinc-200 dark:ring-zinc-800">
@@ -462,10 +445,19 @@ export default function Pricing() {
                 >
                   {plan.name}
                 </h2>
-                <p className="text-sm font-normal text-zinc-600 dark:text-zinc-400">
-                  {isVariablePrice(plan.price)
-                    ? `${plan.price.monthly} / per user`
-                    : plan.price}
+                <p className="text-sm font-normal text-zinc-600 dark:text-zinc-400 mt-2">
+                  {plan.description.split(/(\*\*.*?\*\*)/).map((part, i) =>
+                    part.startsWith("**") && part.endsWith("**") ? (
+                      <strong
+                        key={i}
+                        className="font-semibold text-zinc-900 dark:text-zinc-50"
+                      >
+                        {part.slice(2, -2)}
+                      </strong>
+                    ) : (
+                      part
+                    )
+                  )}{" "}
                 </p>
               </div>
               <ul
@@ -474,7 +466,10 @@ export default function Pricing() {
               >
                 {sections.map((section) => (
                   <li key={section.name}>
-                    <h3 className="font-semibold">{section.name}</h3>
+                    <div className="flex items-center gap-x-3">
+                      <section.icon aria-hidden="true" className="size-5" />
+                      <h3 className="text-sm leading-6 font-semibold">{section.name}</h3>
+                    </div>
                     <ul
                       role="list"
                       className="mt-2 divide-y divide-zinc-200 dark:divide-zinc-800"
@@ -491,7 +486,13 @@ export default function Pricing() {
                             />
                             <span>
                               {feature.name}{" "}
-                              {typeof feature.plans[plan.name] === "string" ? (
+                              {Array.isArray(feature.plans[plan.name]) ? (
+                                <span className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                                  ({feature.plans[plan.name][0]},{" "}
+                                  {feature.plans[plan.name][1]})
+                                </span>
+                              ) : typeof feature.plans[plan.name] ===
+                                "string" ? (
                                 <span className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
                                   ({feature.plans[plan.name]})
                                 </span>
@@ -511,7 +512,7 @@ export default function Pricing() {
 
       {/* plan details (lg+) */}
       <section className="mx-auto mt-20">
-        <div className="mt-20 sm:mt-28">
+        <div className="mt-20 hidden sm:mt-28 lg:block">
           <div className="relative">
             <div className="sticky top-0 z-20 h-28 w-full bg-white dark:bg-zinc-950" />
             <table className="w-full table-fixed border-separate border-spacing-0 text-left">
@@ -572,7 +573,7 @@ export default function Pricing() {
                         colSpan={4}
                         className={cx(
                           sectionIdx === 0 ? "pt-14" : "pt-12",
-                          "pt-14 border-b  border-zinc-100 pb-4 text-base font-semibold leading-6 text-zinc-900 dark:border-zinc-800 dark:text-zinc-50"
+                          "pt-14 border-b border-zinc-100 pb-4 text-base font-semibold leading-6 text-zinc-900 dark:border-zinc-800 dark:text-zinc-50"
                         )}
                       >
                         <div className="flex items-center gap-x-2">
