@@ -27,7 +27,7 @@ const nextConfig = {
       },
       {
         source: "/api/:path+",
-        destination: `${process.env.NEXT_PUBLIC_APP_URL}/docs`,
+        destination: `${process.env.NEXT_PUBLIC_APP_URL}/api/:path+`,
       },
     ];
   },
