@@ -418,7 +418,7 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section
+      {/* <section
         id="testimonial"
         className="mx-auto mt-20 max-w-xl sm:mt-32 lg:max-w-6xl"
         aria-labelledby="testimonial"
@@ -429,7 +429,7 @@ export default function Pricing() {
           position="Test Manager, Enchanted Tools"
           imageSrc="/testimonials/juliette-lansoy.png"
         />
-      </section>
+      </section> */}
 
       {/* plan details (xs-lg)*/}
       <section
