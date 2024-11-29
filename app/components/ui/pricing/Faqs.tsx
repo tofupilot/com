@@ -11,7 +11,7 @@ const faqs = [
   {
     question: "How secure is TofuPilot?",
     answer:
-      "All TofuPilot plans include secure cloud hosting, powered by AWS. Our team manages infrastructure with end-to-end encryption, role-based access, and daily backups to protect your test data.",
+      "All TofuPilot plans include secure cloud hosting, powered by AWS. Our team manages infrastructure with end-to-end encryption, strict role-based access, and daily backups to protect your test data.",
   },
   {
     question: "Can TofuPilot be self-hosted?",
@@ -31,12 +31,12 @@ const faqs = [
   {
     question: "Can I export my data from TofuPilot?",
     answer:
-      "Yes, you can export data to spreadsheets or request a full extract from our team.",
+      "Yes, you can export data using our Python client or REST API or request a full extract from our team.",
   },
   {
     question: "What support is provided?",
     answer:
-      "Support levels vary by plan: Lab users get Discord support, Pro users get email support, and Enterprise users have a dedicated contact.",
+      "Support levels differ by plan: Lab users can access support through Discord, Pro users via email, and Enterprise users with a dedicated contact.",
   },
   {
     question: "Who is behind TofuPilot?",
@@ -46,12 +46,17 @@ const faqs = [
   {
     question: "What's the product roadmap?",
     answer:
-      "Our roadmap focuses on streamlining test development, enhancing analytics, and adding insights. Pro users can join update meetings.",
+      "Our roadmap is dedicated to streamlining your test development processes and improving analytics and insights. Pro users are invited to join roadmap update sessions with our team.",
   },
   {
     question: "When am I billed?",
     answer:
-      "Billing is monthly or annually, based on your plan. See account settings for details.",
+      "Pro plans are billed monthly based on selected options and last month's usage. Enterprise plans offer monthly or annual billing to suit your needs.",
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer:
+      "We accept payments from all major card providers for Pro plans, processed securely by our partner Paddle. Enterprise clients can request custom billing options.",
   },
   {
     question: "What happens if I downgrade or don't pay?",
