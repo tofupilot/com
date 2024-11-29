@@ -25,9 +25,14 @@ const nextConfig = {
         source: "/docs-static/_next/:path+",
         destination: `${process.env.NEXT_PUBLIC_DOCS_URL}/docs-static/_next/:path+`,
       },
+    ];
+  },
+  async redirects() {
+    return [
       {
-        source: "/api/:path+",
-        destination: `${process.env.NEXT_PUBLIC_APP_URL}/api/:path+`,
+        source: "/api/:path*",
+        destination: `${process.env.NEXT_PUBLIC_APP_URL}/api/:path*`,
+        "permanent": true
       },
     ];
   },
