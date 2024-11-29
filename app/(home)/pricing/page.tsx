@@ -46,7 +46,7 @@ const plans: Plan[] = [
   {
     name: "Pro",
     price: { monthly: "$49", annually: "$39" },
-    description: "Collaborate with your team for **$50/month**, per member.",
+    description: "Collaborate with your team for **$50 /month**, per member.",
     features: [
       "Secure team collaboration",
       "Deploy to manufacturing",
@@ -119,7 +119,7 @@ const sections: Section[] = [
         tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: {
           Lab: "500 runs /month included",
-          Pro: ["1000 runs /month included", "$10 per 1000 runs"],
+          Pro: ["1000 runs /month included", "then $10 per 1000 runs"],
           Enterprise: "Custom",
         },
       },
@@ -128,7 +128,7 @@ const sections: Section[] = [
         tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: {
           Lab: "1 GB /month included",
-          Pro: ["10 GB /month included", "$1 per 10GB"],
+          Pro: ["10 GB /month included", "then $1 per 10GB"],
           Enterprise: "Custom",
         },
       },
@@ -142,7 +142,7 @@ const sections: Section[] = [
         tooltip: "Collaborate on your projects with your team.",
         plans: {
           Lab: "1 seat included",
-          Pro: ["1 seat included", "$50 per seat"],
+          Pro: ["1 seat included", "then $50 per seat"],
           Enterprise: "Custom",
         },
       },
@@ -151,7 +151,7 @@ const sections: Section[] = [
         tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: {
           Lab: false,
-          Pro: ["3 stations included", "$20 per station"],
+          Pro: ["3 stations included", "then $20 per station"],
           Enterprise: "Custom",
         },
       },
@@ -215,9 +215,8 @@ export default function Pricing() {
           Find a plan to power your factory.
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-zinc-700 dark:text-zinc-400">
-          Plans that empower you and your team to ship without friction. Our
-          flexible pricing models ensure that efficiency doesn&rsquo;t come at
-          the cost of your budget.
+          From early-stage startups to growing enterprises, TofuPilot has you
+          covered.
         </p>
       </section>
       <section
@@ -507,7 +506,7 @@ export default function Pricing() {
                             {Array.isArray(feature.plans[plan.name]) ? (
                               <div className="text-sm leading-6">
                                 <div>{feature.plans[plan.name][0]}</div>
-                                <div className="text-zinc-600 dark:text-zinc-400">
+                                <div className="text-zinc-600 dark:text-zinc-400 mt-0.5">
                                   {feature.plans[plan.name][1]}
                                 </div>
                               </div>
