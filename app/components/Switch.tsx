@@ -10,35 +10,35 @@ const switchVariants = tv({
     root: [
       // base
       "group relative isolate inline-flex shrink-0 cursor-pointer items-center rounded-full p-0.5 shadow-inner outline-none ring-1 ring-inset transition-all",
-      "bg-gray-200 dark:bg-gray-950",
+      "bg-zinc-200 dark:bg-zinc-950",
       // ring color
-      "ring-black/5 dark:ring-gray-800",
+      "ring-black/5 dark:ring-zinc-800",
       // checked
-      "data-[state=checked]:bg-indigo-500 data-[state=checked]:dark:bg-indigo-500",
+      "data-[state=checked]:bg-lime-500 data-[state=checked]:dark:bg-lime-500",
       // disabled
       "data-[disabled]:cursor-default",
       // disabled checked
-      "data-[disabled]:data-[state=checked]:bg-indigo-200",
-      "data-[disabled]:data-[state=checked]:ring-gray-300",
+      "data-[disabled]:data-[state=checked]:bg-lime-200",
+      "data-[disabled]:data-[state=checked]:ring-zinc-300",
       // disabled checked dark
-      "data-[disabled]:data-[state=checked]:dark:ring-gray-900",
-      "data-[disabled]:data-[state=checked]:dark:bg-indigo-900",
+      "data-[disabled]:data-[state=checked]:dark:ring-zinc-900",
+      "data-[disabled]:data-[state=checked]:dark:bg-lime-900",
       // disabled unchecked
-      "data-[disabled]:data-[state=unchecked]:ring-gray-300",
-      "data-[disabled]:data-[state=unchecked]:bg-gray-100",
+      "data-[disabled]:data-[state=unchecked]:ring-zinc-300",
+      "data-[disabled]:data-[state=unchecked]:bg-zinc-100",
       // disabled unchecked dark
-      "data-[disabled]:data-[state=unchecked]:dark:ring-gray-700",
-      "data-[disabled]:data-[state=unchecked]:dark:bg-gray-800",
+      "data-[disabled]:data-[state=unchecked]:dark:ring-zinc-700",
+      "data-[disabled]:data-[state=unchecked]:dark:bg-zinc-800",
       focusRing,
     ],
     thumb: [
       // base
       "pointer-events-none relative inline-block transform appearance-none rounded-full border-none shadow-lg outline-none transition-all duration-150 ease-in-out focus:border-none focus:outline-none focus:outline-transparent",
       // background color
-      "bg-white dark:bg-gray-50",
+      "bg-white dark:bg-zinc-50",
       // disabled
       "group-data-[disabled]:shadow-none",
-      "group-data-[disabled]:bg-gray-50 group-data-[disabled]:dark:bg-gray-500",
+      "group-data-[disabled]:bg-zinc-50 group-data-[disabled]:dark:bg-zinc-500",
     ],
   },
   variants: {

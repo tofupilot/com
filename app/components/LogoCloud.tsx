@@ -8,10 +8,10 @@ export default function LogoCloud() {
       className="sm:mt-34 mt-24 flex animate-slide-up-fade flex-col items-center justify-center gap-y-6 text-center"
       style={{ animationDuration: "1500ms" }}
     >
-      <p className="text-lg font-medium tracking-tighter text-gray-800 dark:text-gray-200">
+      <p className="text-lg font-medium tracking-tighter text-zinc-800 dark:text-zinc-200">
         Powering fast-moving engineering teams at
       </p>
-      <div className="grid grid-cols-2 gap-10 gap-y-4 text-gray-900 md:grid-cols-4 md:gap-x-20 dark:text-gray-200">
+      <div className="grid grid-cols-2 gap-10 gap-y-4 text-zinc-900 md:grid-cols-4 md:gap-x-20 dark:text-zinc-200">
         <Logos.Ecorobotix className="w-32" />
         <Logos.EnchantedTools className="w-32" />
 

@@ -76,11 +76,11 @@ export default function UserStories() {
       <HeaderBadge>Community</HeaderBadge>
       <h2
         id="features-title"
-        className="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-gray-50 dark:to-gray-300"
+        className="mt-2 inline-block bg-gradient-to-br from-zinc-900 to-zinc-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-zinc-50 dark:to-zinc-300"
       >
         Trusted by top-level hardware teams
       </h2>
-      <p className="mt-6 max-w-3xl text-lg leading-7 text-gray-600 dark:text-gray-400">
+      <p className="mt-6 max-w-3xl text-lg leading-7 text-zinc-600 dark:text-zinc-400">
         TofuPilot helps manufacturing test teams worldwide improve testing
         efficiency and quality, from drones and medical devices to photonics
         sensors and beyond.
@@ -89,7 +89,7 @@ export default function UserStories() {
         {cards.map((post, index) => (
           <article
             key={post.id}
-            className="relative isolate flex flex-col items-start justify-start overflow-hidden rounded-3xl bg-gray-900 px-8 pb-[26rem] pt-8 shadow-xl shadow-black/40 backdrop-blur-sm sm:pb-48 lg:pb-[26rem] dark:shadow-indigo-900/30"
+            className="relative isolate flex flex-col items-start justify-start overflow-hidden rounded-3xl bg-zinc-900 px-8 pb-[26rem] pt-8 shadow-xl shadow-black/40 backdrop-blur-sm sm:pb-48 lg:pb-[26rem] dark:shadow-lime-900/30"
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={() => handleMouseLeave(index)}
           >

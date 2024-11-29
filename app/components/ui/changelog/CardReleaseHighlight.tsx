@@ -51,7 +51,7 @@ export function CardReleaseHighlight({
           src={mainImage || ''}
           alt={highlight.mainImage?.alt || 'Release Highlight'}
           quality={100}
-          className="w-full rounded-2xl bg-zinc-100 object-cover shadow-xl shadow-black/5 dark:shadow-indigo-900/30"
+          className="w-full rounded-2xl bg-zinc-100 object-cover shadow-xl shadow-black/5 dark:shadow-lime-900/30"
           width={1152}
           height={768}
         />

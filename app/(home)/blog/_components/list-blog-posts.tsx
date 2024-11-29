@@ -25,7 +25,7 @@ export default function ListBlogPosts({ posts }: { posts: any }) {
                     height={336}
                     quality={100}
                     alt=""
-                    className="absolute inset-0 h-full w-full rounded-2xl bg-zinc-50 object-cover shadow-xl shadow-black/20 dark:shadow-indigo-900/70"
+                    className="absolute inset-0 h-full w-full rounded-2xl bg-zinc-50 object-cover shadow-xl shadow-black/20 dark:shadow-lime-900/70"
                   />
                   <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-zinc-900/10" />
                 </Link>

@@ -93,7 +93,7 @@ export default function Post(props: any) {
 
           {/* Main Media */}
           <figure className="mt-10">
-            <div className="relative z-0 mx-auto my-4 aspect-video max-w-screen-lg overflow-hidden rounded-lg shadow-xl shadow-black/40 dark:bg-zinc-950 dark:shadow-indigo-900/30">
+            <div className="relative z-0 mx-auto my-4 aspect-video max-w-screen-lg overflow-hidden rounded-lg shadow-xl shadow-black/40 dark:bg-zinc-950 dark:shadow-lime-900/30">
               {post.mainVideo ? (
                 <Iframe
                   url={getYoutubeNoCookieEmbedUrl(post.mainVideo)}

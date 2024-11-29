@@ -45,7 +45,7 @@ const RadioGroupItem = React.forwardRef<
       <div
         className={cx(
           // base
-          "flex size-full shrink-0 items-center justify-center rounded-lg text-gray-700 dark:text-gray-400",
+          "flex size-full shrink-0 items-center justify-center rounded-lg text-zinc-700 dark:text-zinc-400",
           // background color
           "bg-transparent",
           // checked
