@@ -16,7 +16,7 @@ const ImageComponent = ({ value }: { value: any }) => {
         sizes="(max-width: 800px) 100vw, 800px"
         height={432}
         width={768}
-        className="aspect-video rounded-xl bg-zinc-50 object-cover shadow-xl shadow-black/40 dark:bg-zinc-950 dark:shadow-indigo-900/30"
+        className="aspect-video rounded-xl bg-zinc-50 object-cover shadow-xl shadow-black/40 dark:bg-zinc-950 dark:shadow-lime-900/30"
       />
       <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-zinc-500 dark:text-zinc-300">
         <InformationCircleIcon
@@ -31,7 +31,7 @@ const ImageComponent = ({ value }: { value: any }) => {
 
 const TestimonialComponent = ({ value }: { value: any }) => {
   return (
-    <figure className="border-l border-indigo-600 pl-9">
+    <figure className="border-l border-lime-600 pl-9">
       <p className="font-semibold text-zinc-900 dark:text-zinc-100">
         “{value.text}”
       </p>
@@ -74,7 +74,7 @@ const components = {
       <div className="text-center">{props.children}</div>
     ),
     highlight: (props: MarkProps) => (
-      <span className="font-bold text-indigo-500">{props.children}</span>
+      <span className="font-bold text-lime-500">{props.children}</span>
     ),
     link: ({ children, value }: any) => {
       const isExternal = value.href.startsWith('/');

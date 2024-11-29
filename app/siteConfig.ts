@@ -1,16 +1,25 @@
-const url = "https://tofupilot.com";
 export const siteConfig = {
   name: "TofuPilot",
-  url,
+  url: "https://tofupilot.com",
   description: "Plug-and-play manufacturing test analytics.",
   baseLinks: {
-    home: url,
-    about: `${url}/about`,
+    // internal
+    home: "/",
+    about: "/about",
+    pricing: "/pricing",
+    templates: "/templates",
+    plugs: "/plugs",
+    guides: "/guides",
+    blog: "/blog",
     changelog: "/changelog",
-    blog: "/",
-    signup: `${url}/auth/signup`,
-    login: `${url}/runs`,
+
+    // internal redirect
+    docs: "/docs",
+
+    // external
+    login: `${process.env.NEXT_PUBLIC_APP_URL}/runs`,
+    signup: `${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`,
   },
 };
 
-export type SiteConfig = typeof siteConfig;
+export type siteConfig = typeof siteConfig;

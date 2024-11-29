@@ -1,5 +1,5 @@
-import { createClient } from 'next-sanity';
-import { apiVersion, dataset, projectId, useCdn } from '../env';
+import { createClient } from "next-sanity";
+import { apiVersion, dataset, projectId, useCdn } from "../env";
 
 import {
   allauthorsquery,
@@ -14,7 +14,10 @@ import {
   postsbycatquery,
   releasequery,
   singlequery,
-} from './groq';
+  templatepathquery,
+  templatequery,
+  templatesquery,
+} from "./groq";
 
 export const client = createClient({
   apiVersion,
@@ -25,9 +28,20 @@ export const client = createClient({
 
 if (!projectId) {
   console.error(
-    'The Sanity Project ID is not set. Check your environment variables.'
+    "The Sanity Project ID is not set. Check your environment variables."
   );
 }
+
+export async function getSettings() {
+  if (client) {
+    return (await client.fetch(configQuery)) || [];
+  }
+  return [];
+}
+
+// ====== Blog ======
+
+// Posts
 
 export async function getAllPosts() {
   if (client) {
@@ -46,13 +60,6 @@ export async function getLastThreePosts() {
   return [];
 }
 
-export async function getSettings() {
-  if (client) {
-    return (await client.fetch(configQuery)) || [];
-  }
-  return [];
-}
-
 export async function getPostBySlug(slug: string) {
   if (client) {
     return (await client.fetch(singlequery, { slug })) || {};
@@ -67,7 +74,8 @@ export async function getAllPostsSlugs() {
   }
   return [];
 }
-// Author
+
+// Authors
 export async function getAllAuthorsSlugs() {
   if (client) {
     const slugs = (await client.fetch(authorsquery)) || [];
@@ -90,7 +98,7 @@ export async function getAllAuthors() {
   return [];
 }
 
-// Category
+// Categories
 
 export async function getAllCategories() {
   if (client) {
@@ -132,6 +140,9 @@ export async function getPaginatedPosts({
   return [];
 }
 
+
+// ====== Releases ======
+
 export async function getAllReleases() {
   if (client) {
     return (await client.fetch(releasequery)) || [];
@@ -149,3 +160,29 @@ export async function getLastFiveReleases() {
   }
   return [];
 }
+
+
+// ====== Templates ======
+
+export async function getAllTemplates() {
+  if (client) {
+    return (await client.fetch(templatesquery)) || [];
+  }
+  return [];
+}
+
+export async function getTemplateBySlug(slug: string) {
+  if (client) {
+    return (await client.fetch(templatequery, { slug })) || {};
+  }
+  return {};
+}
+
+export async function getAllTemplatesSlug() {
+  if (client) {
+    const slugs = (await client.fetch(templatepathquery)) || [];
+    return slugs.map((slug: string) => ({ slug }));
+  }
+  return [];
+}
+
