@@ -1,4 +1,4 @@
-import { CatalystColor } from '@/app/(home)/components/catalyst/types'
+import { CatalystColor } from '@/app/components/catalyst/types'
 import { Id, defineField, defineType } from 'sanity'
 
 export default defineType({
