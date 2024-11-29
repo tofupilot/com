@@ -282,7 +282,7 @@ export default function Pricing() {
                     {planIdx === 0 ? (
                       <Button
                         href={plan.buttonLink}
-                        className="w-full justify-between pr-12"
+                        className="w-full justify-between"
                       >
                         {plan.buttonText}
                         <ChevronRightIcon />
@@ -354,10 +354,10 @@ export default function Pricing() {
       {/* plan details (xs-lg)*/}
       <section
         id="pricing-details"
-        className="mt-20 sm:mt-36"
+        className="mt-20 sm:mt-36 lg:hidden"
         aria-labelledby="pricing-details"
       >
-        <div className="mx-auto space-y-8 sm:max-w-md lg:hidden">
+        <div className="mx-auto space-y-8 sm:max-w-md ">
           {plans.map((plan) => (
             <div key={plan.name}>
               <div className="rounded-xl bg-zinc-400/5 p-6 ring-1 ring-inset ring-zinc-200 dark:ring-zinc-800">
