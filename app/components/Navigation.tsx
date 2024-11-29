@@ -68,9 +68,9 @@ export function Navigation() {
               </a>
               <Link
                 className="px-2 py-1 text-zinc-900 dark:text-zinc-50"
-                href={siteConfig.baseLinks.pricing}
+                href={siteConfig.baseLinks.changelog}
               >
-                Pricing
+                Changelog
               </Link>
             </div>
           </nav>

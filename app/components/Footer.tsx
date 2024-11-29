@@ -6,7 +6,6 @@ import ThemeSwitch from "./ThemeSwitch";
 
 const navigation = {
   product: [
-    { name: "Docs", href: siteConfig.baseLinks.docs, external: false },
     {
       name: "Changelog",
       href: siteConfig.baseLinks.changelog,
@@ -18,9 +17,14 @@ const navigation = {
       external: true,
     },
   ],
-  community: [
-    { name: "Templates", href: siteConfig.baseLinks.templates },
-    { name: "Plugs", href: siteConfig.baseLinks.plugs },
+  resources: [
+    { name: "Docs", href: siteConfig.baseLinks.docs, external: false },
+    // {
+    //   name: "Templates",
+    //   href: siteConfig.baseLinks.templates,
+    //   external: false,
+    // },
+    // { name: "Plugs", href: siteConfig.baseLinks.plugs, external: false },
     { name: "GitHub", href: "https://github.com/tofupilot", external: true },
     {
       name: "YouTube",
@@ -107,14 +111,14 @@ export default function Footer() {
               </div>
               <div>
                 <h1 className="text-sm font-semibold leading-6 text-zinc-900 dark:text-zinc-50">
-                  Community
+                  Resources
                 </h1>
                 <ul
                   role="list"
                   className="mt-6 space-y-4"
                   aria-label="Quick links Social"
                 >
-                  {navigation.community.map((item) => (
+                  {navigation.resources.map((item) => (
                     <li key={item.name} className="w-fit">
                       <Link
                         className="flex rounded-md text-sm text-zinc-500 transition hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
