@@ -1,7 +1,11 @@
 "use client";
 
 import { siteConfig } from "@/app/siteConfig";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
+import {
+  Bars3Icon,
+  ChevronRightIcon,
+  XMarkIcon,
+} from "@heroicons/react/16/solid";
 import Link from "next/link";
 import React from "react";
 
@@ -79,7 +83,8 @@ export function Navigation() {
               href={siteConfig.baseLinks.signup}
               className="h-10"
             >
-              Sign up
+              Start Building
+              <ChevronRightIcon />
             </Button>
           </div>
           <div className="flex gap-x-2 md:hidden">
@@ -88,7 +93,8 @@ export function Navigation() {
               href={siteConfig.baseLinks.signup}
               className="h-10"
             >
-              Sign up
+              Start Building
+              <ChevronRightIcon />
             </Button>
             <Button
               onClick={() => setOpen(!open)}

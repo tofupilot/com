@@ -1,8 +1,8 @@
 import { getLastFiveReleases } from "@/app/(sanity)/lib/client";
 import { Release, ReleaseHighlight } from "@/app/(sanity)/schemas/release";
 import { Metadata } from "next";
-import { CardRelease } from "../../components/CardRelease";
-import { CardReleaseHighlight } from "../../components/CardReleaseHighlight";
+import { CardRelease } from "../../components/ui/changelog/CardRelease";
+import { CardReleaseHighlight } from "../../components/ui/changelog/CardReleaseHighlight";
 import { ContainerLanding } from "@/app/components/ContainerLanding";
 
 export const metadata: Metadata = {

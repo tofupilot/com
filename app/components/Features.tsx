@@ -43,12 +43,12 @@ export default function Features() {
       <HeaderBadge>Features</HeaderBadge>
       <h2
         id="code-example-title"
-        className="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-gray-50 dark:to-gray-300"
+        className="mt-2 inline-block bg-gradient-to-br from-zinc-900 to-zinc-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-zinc-50 dark:to-zinc-300"
       >
         Everything you need <br />
         to ramp up production testing
       </h2>
-      <p className="mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+      <p className="mt-6 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
         From test data collection to real-time analytics, TofuPilot offers
         powerful features to help your team improve manufacturing efficiency and
         quality.
@@ -80,17 +80,17 @@ export default function Features() {
             className="col-span-full sm:col-span-2 lg:col-span-1"
           >
             <dt>
-              <div className="w-fit rounded-lg p-2 shadow-md shadow-indigo-400/30 ring-1 ring-black/5 dark:shadow-indigo-600/30 dark:ring-white/5">
+              <div className="w-fit rounded-lg p-2 shadow-md shadow-lime-400/30 ring-1 ring-black/5 dark:shadow-lime-600/30 dark:ring-white/5">
                 <item.icon
                   aria-hidden="true"
-                  className="size-6 text-indigo-600 dark:text-indigo-400"
+                  className="size-6 text-lime-600 dark:text-lime-400"
                 />
               </div>
-              <p className="mt-6 font-semibold text-gray-900 dark:text-gray-50">
+              <p className="mt-6 font-semibold text-zinc-900 dark:text-zinc-50">
                 {item.name}
               </p>
             </dt>
-            <dd className="mt-2 leading-7 text-gray-600 dark:text-gray-400">
+            <dd className="mt-2 leading-7 text-zinc-600 dark:text-zinc-400">
               {item.description}
             </dd>
           </div>

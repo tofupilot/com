@@ -1,14 +1,11 @@
-"use client";
 import { Badge } from "@/app/components/catalyst/badge";
 import { Button } from "@/app/components/catalyst/button";
 import { HeaderBadge } from "@/app/components/HeaderBadge";
-import { ArrowAnimated } from "@/app/components/ui/ArrowAnimated";
 import { Faqs } from "@/app/components/ui/Faqs";
 import Testimonial from "@/app/components/ui/Testimonial";
 import { cx } from "@/app/lib/utils";
 import { ChevronRightIcon } from "@heroicons/react/16/solid";
 import { RiCheckLine, RiSubtractLine } from "@remixicon/react";
-import Link from "next/link";
 import { Fragment } from "react";
 import Balancer from "react-wrap-balancer";
 
@@ -24,7 +21,6 @@ interface Plan {
   price: FixedPrice | VariablePrice;
   description: string;
   features: string[];
-  isLab: boolean;
   isRecommended: boolean;
   buttonText: string;
   buttonLink: string;
@@ -43,7 +39,6 @@ const plans: Plan[] = [
       "Secure attachments upload",
       "Community support",
     ],
-    isLab: true,
     isRecommended: false,
     buttonText: "Start Building",
     buttonLink: "#",
@@ -59,7 +54,6 @@ const plans: Plan[] = [
       "Scales with you",
       "Email support",
     ],
-    isLab: false,
     isRecommended: true,
     buttonText: "Upgrade now",
     buttonLink: "#",
@@ -76,7 +70,6 @@ const plans: Plan[] = [
       "Custom billing",
       "Advanced support",
     ],
-    isLab: false,
     isRecommended: false,
     buttonText: "Request Trial",
     buttonLink: "#",
@@ -126,10 +119,7 @@ const sections: Section[] = [
         tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: {
           Lab: "500 runs /month included",
-          Pro: {
-            base: "1000 runs /month included",
-            then: "then $10 per 1000 runs",
-          },
+          Pro: ["1000 runs /month included", "$10 per 1000 runs"],
           Enterprise: "Custom",
         },
       },
@@ -138,10 +128,7 @@ const sections: Section[] = [
         tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: {
           Lab: "1 GB /month included",
-          Pro: {
-            base: "10 GB /month included",
-            then: "then $1 per 10GB",
-          },
+          Pro: ["10 GB /month included", "$1 per 10GB"],
           Enterprise: "Custom",
         },
       },
@@ -155,10 +142,7 @@ const sections: Section[] = [
         tooltip: "Collaborate on your projects with your team.",
         plans: {
           Lab: "1 seat included",
-          Pro: {
-            base: "1 seat included",
-            then: "then $50 per seat",
-          },
+          Pro: ["1 seat included", "$50 per seat"],
           Enterprise: "Custom",
         },
       },
@@ -167,10 +151,7 @@ const sections: Section[] = [
         tooltip: "Consectetur qui culpa ipsum in ea irure duis culpa.",
         plans: {
           Lab: false,
-          Pro: {
-            base: "3 stations included",
-            then: "then $20 per station",
-          },
+          Pro: ["3 stations included", "$20 per station"],
           Enterprise: "Custom",
         },
       },
@@ -281,42 +262,45 @@ export default function Pricing() {
                   {plan.isRecommended && <Badge color="lime">Popular</Badge>}
                 </div>
                 <div className="mt-4 flex flex-col justify-between">
-                  <p className="leading-6 text-zinc-600 dark:text-zinc-400">
+                  <div className="leading-6 text-zinc-600 dark:text-zinc-400">
                     <Balancer>
-                      <p>
-                        {plan.description
-                          .split(/(\*\*.*?\*\*)/)
-                          .map((part, i) =>
-                            part.startsWith("**") && part.endsWith("**") ? (
-                              <strong
-                                key={i}
-                                className="font-semibold text-zinc-900 dark:text-zinc-50"
-                              >
-                                {part.slice(2, -2)}
-                              </strong>
-                            ) : (
-                              part
-                            )
-                          )}
-                      </p>
+                      {plan.description.split(/(\*\*.*?\*\*)/).map((part, i) =>
+                        part.startsWith("**") && part.endsWith("**") ? (
+                          <strong
+                            key={i}
+                            className="font-semibold text-zinc-900 dark:text-zinc-50"
+                          >
+                            {part.slice(2, -2)}
+                          </strong>
+                        ) : (
+                          part
+                        )
+                      )}
                     </Balancer>
-                  </p>
-                  <div className="mt-6">
-                    {plan.isLab ? (
+                  </div>
+                  <div className="mt-6 pr-16">
+                    {planIdx === 0 ? (
                       <Button
-                        color="zinc"
-                        className="group"
                         href={plan.buttonLink}
+                        className="w-full justify-between pr-12"
                       >
                         {plan.buttonText}
-                        {/* <ArrowAnimated /> */}
+                        <ChevronRightIcon />
+                      </Button>
+                    ) : planIdx === 1 ? (
+                      <Button
+                        href={plan.buttonLink}
+                        color="lime"
+                        className="w-full justify-between"
+                      >
+                        {plan.buttonText}
                         <ChevronRightIcon />
                       </Button>
                     ) : (
                       <Button
-                        color="lime"
                         href={plan.buttonLink}
-                        className="group"
+                        color="white"
+                        className="w-full justify-between"
                       >
                         {plan.buttonText}
                         <ChevronRightIcon />
@@ -328,7 +312,7 @@ export default function Pricing() {
                   role="list"
                   className="mt-8 text-sm text-zinc-700 dark:text-zinc-400"
                 >
-                  {plan.isLab || (
+                  {planIdx === 0 || (
                     <li className="flex items-center py-1.5">
                       <span>
                         Everything in {plans[planIdx - 1].name}, plus:
@@ -359,7 +343,12 @@ export default function Pricing() {
         className="mx-auto mt-20 max-w-xl sm:mt-32 lg:max-w-6xl"
         aria-labelledby="testimonial"
       >
-        <Testimonial />
+        <Testimonial
+          quote="Thanks to this robust database solution, our organization has streamlined data management processes, leading to increased efficiency and accuracy in our operations."
+          name="Juliette Lansoy"
+          position="Test Manager, Enchanted Tools"
+          imageSrc="/testimonials/juliette-lansoy.png"
+        />
       </section>
 
       {/* plan details (xs-lg)*/}
@@ -448,14 +437,32 @@ export default function Pricing() {
                       Features
                     </div>
                   </th>
-                  {plans.map((plan) => (
+                  {plans.map((plan, planIdx) => (
                     <th
                       key={plan.name}
                       scope="col"
                       className="border-b border-zinc-100 bg-white pb-8 px-6 lg:px-8 dark:border-zinc-800 dark:bg-zinc-950"
                     >
-                      <div className="text-zinc-900 dark:text-zinc-50 font-semibold leading-7">
-                        {plan.name}
+                      <div
+                        key={plan.name}
+                        className="flex items-center justify-between"
+                      >
+                        <div className="text-zinc-900 dark:text-zinc-50 font-semibold leading-7">
+                          {plan.name}
+                        </div>
+                        {planIdx === 0 ? (
+                          <Button href={plan.buttonLink}>
+                            {plan.buttonText}
+                          </Button>
+                        ) : planIdx === 1 ? (
+                          <Button href={plan.buttonLink} color="lime">
+                            {plan.buttonText}
+                          </Button>
+                        ) : (
+                          <Button href={plan.buttonLink} color="white">
+                            {plan.buttonText}
+                          </Button>
+                        )}
                       </div>
                     </th>
                   ))}
@@ -488,35 +495,20 @@ export default function Pricing() {
                           <div className="text-sm font-bold text-zinc-900  dark:text-zinc-50">
                             {feature.name}
                           </div>
-                          <div className="text-sm font-normal mt-2 text-zinc-600 dark:text-zinc-400">
+                          <p className="text-sm font-normal mt-2 text-zinc-600 dark:text-zinc-400">
                             <Balancer>{feature.tooltip}</Balancer>
-                          </div>
+                          </p>
                         </th>
                         {plans.map((plan) => (
                           <td
                             key={plan.name}
-                            className="border-b border-zinc-100 px-6 lg:px-8 dark:border-zinc-800"
+                            className="border-b border-zinc-100 px-6 lg:px-8 dark:border-zinc-800 text-center"
                           >
-                            {typeof feature.plans[plan.name] === "object" &&
-                            feature.plans[plan.name] !== null ? (
+                            {Array.isArray(feature.plans[plan.name]) ? (
                               <div className="text-sm leading-6">
-                                <div>
-                                  {
-                                    (
-                                      feature.plans[plan.name] as {
-                                        base: string;
-                                      }
-                                    ).base
-                                  }
-                                </div>
+                                <div>{feature.plans[plan.name][0]}</div>
                                 <div className="text-zinc-600 dark:text-zinc-400">
-                                  {
-                                    (
-                                      feature.plans[plan.name] as {
-                                        then: string;
-                                      }
-                                    ).then
-                                  }
+                                  {feature.plans[plan.name][1]}
                                 </div>
                               </div>
                             ) : typeof feature.plans[plan.name] === "string" ? (
@@ -524,9 +516,9 @@ export default function Pricing() {
                                 {feature.plans[plan.name]}
                               </div>
                             ) : feature.plans[plan.name] === true ? (
-                              <RiCheckLine className="h-5 w-5 text-lime-600 dark:text-lime-400" />
+                              <RiCheckLine className="h-5 w-5 text-lime-600 dark:text-lime-400 mx-auto" />
                             ) : (
-                              <RiSubtractLine className="h-5 w-5 text-zinc-400 dark:text-zinc-600" />
+                              <RiSubtractLine className="h-5 w-5 text-zinc-400 dark:text-zinc-600 mx-auto" />
                             )}
                           </td>
                         ))}
@@ -541,29 +533,33 @@ export default function Pricing() {
                   >
                     <span className="sr-only">Link to activate plan</span>
                   </th>
-                  {plans.map((plan) => (
+                  {plans.map((plan, planIdx) => (
                     <td key={plan.name} className="px-6 pt-6 lg:px-8">
-                      {plan.isLab ? (
+                      {planIdx === 0 ? (
                         <Button
-                          variant="light"
-                          asChild
-                          className="group bg-transparent px-0 text-base hover:bg-transparent dark:bg-transparent hover:dark:bg-transparent"
+                          href={plan.buttonLink}
+                          className="w-full justify-between"
                         >
-                          <Link href={plan.buttonLink}>
-                            {plan.buttonText}
-                            <ArrowAnimated />
-                          </Link>
+                          {plan.buttonText}
+                          <ChevronRightIcon />
+                        </Button>
+                      ) : planIdx === 1 ? (
+                        <Button
+                          href={plan.buttonLink}
+                          color="lime"
+                          className="w-full justify-between"
+                        >
+                          {plan.buttonText}
+                          <ChevronRightIcon />
                         </Button>
                       ) : (
                         <Button
-                          variant="light"
-                          asChild
-                          className="group bg-transparent px-0 text-base text-lime-600 hover:bg-transparent dark:bg-transparent dark:text-lime-400 hover:dark:bg-transparent"
+                          href={plan.buttonLink}
+                          color="white"
+                          className="w-full justify-between"
                         >
-                          <Link href={plan.buttonLink}>
-                            {plan.buttonText}
-                            <ArrowAnimated />
-                          </Link>
+                          {plan.buttonText}
+                          <ChevronRightIcon />
                         </Button>
                       )}
                     </td>

@@ -54,25 +54,25 @@ export default function FeatureImageTabs({
         {tabs.map((tab, index) => (
           <Tabs.Trigger
             key={tab.label}
-            className="group relative flex flex-1 flex-col items-start justify-start rounded-xl p-6 text-left shadow-lg ring-1 ring-gray-200 dark:ring-white/5 dark:data-[state=active]:shadow-indigo-900/30"
+            className="group relative flex flex-1 flex-col items-start justify-start rounded-xl p-6 text-left shadow-lg ring-1 ring-zinc-200 dark:ring-white/5 dark:data-[state=active]:shadow-lime-900/30"
             value={`tab${index + 1}`}
           >
             <div className="absolute -left-[36px] top-1/2 hidden -rotate-90 group-data-[state=active]:flex">
               <Arrow
                 width={18}
                 height={8}
-                className="fill-gray-950 dark:fill-gray-900"
+                className="fill-zinc-950 dark:fill-zinc-900"
               />
             </div>
             <div className="flex items-center gap-4">
-              <div className="aspect-square w-fit rounded-lg bg-white p-2 text-gray-700 ring-1 ring-black/10 transition-all group-data-[state=active]:text-indigo-600 group-data-[state=active]:shadow-md group-data-[state=active]:shadow-indigo-500/20 dark:bg-gray-950 dark:text-gray-400 dark:ring-white/10 dark:group-data-[state=active]:text-indigo-400 dark:group-data-[state=active]:shadow-indigo-600/50">
+              <div className="aspect-square w-fit rounded-lg bg-white p-2 text-zinc-700 ring-1 ring-black/10 transition-all group-data-[state=active]:text-lime-600 group-data-[state=active]:shadow-md group-data-[state=active]:shadow-lime-500/20 dark:bg-zinc-950 dark:text-zinc-400 dark:ring-white/10 dark:group-data-[state=active]:text-lime-400 dark:group-data-[state=active]:shadow-lime-600/50">
                 <tab.icon aria-hidden="true" className="size-5" />
               </div>
-              <p className="font-semibold tracking-tight text-gray-700 transition-all group-data-[state=active]:text-indigo-600 sm:text-lg dark:text-gray-400 dark:group-data-[state=active]:text-indigo-400">
+              <p className="font-semibold tracking-tight text-zinc-700 transition-all group-data-[state=active]:text-lime-600 sm:text-lg dark:text-zinc-400 dark:group-data-[state=active]:text-lime-400">
                 {tab.label}
               </p>
             </div>
-            <p className="mt-4 leading-7 text-gray-600 dark:text-gray-400">
+            <p className="mt-4 leading-7 text-zinc-600 dark:text-zinc-400">
               {tab.description}
             </p>
           </Tabs.Trigger>
