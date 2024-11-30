@@ -46,7 +46,7 @@ export default async function About() {
           animationFillMode: "backwards",
         }}
       >
-        <HeaderBadge>About Tofupilot</HeaderBadge>
+        <HeaderBadge>About</HeaderBadge>
         <h1
           id="about-overview"
           className="mt-2 inline-block bg-gradient-to-br from-zinc-900 to-zinc-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-zinc-50 dark:to-zinc-300"
