@@ -1,8 +1,8 @@
 import { urlForImage } from "@/app/(sanity)/lib/image";
+import { siteConfig } from "@/app/siteConfig";
 import Image from "next/image";
 import Link from "next/link";
-import { BadgeBlogCategory } from "./badge-blog-category";
-import { siteConfig } from "@/app/siteConfig";
+import { BadgeBlogCategory } from "./BadgeBlogCategory";
 
 export default function ListBlogPosts({ posts }: { posts: any }) {
   return (
