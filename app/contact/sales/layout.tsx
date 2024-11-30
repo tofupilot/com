@@ -1,4 +1,4 @@
-import { defaultKeywords } from "../metadata";
+import { defaultKeywords } from "../../metadata";
 
 // TODO:
 export const metadata = {
