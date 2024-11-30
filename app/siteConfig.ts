@@ -15,6 +15,8 @@ export const siteConfig = {
 
     // internal redirect
     docs: "/docs",
+    selfhosting: "/docs/self-hosting",
+    offlineupload: "/docs/offline-upload",
 
     // external
     login: `${process.env.NEXT_PUBLIC_APP_URL}/runs`,

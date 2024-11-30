@@ -29,13 +29,13 @@ interface Plan {
 const plans: Plan[] = [
   {
     name: "Lab",
-    description: "Everything you need to kickstart your test project.",
+    description: "Everything you need to kickstart your hardware test project.",
     features: [
       "OpenHTF native support",
       "Python open-source client",
-      "Automatic test data pipeline",
+      "Upload attachments from scripts",
+      "Automated test data pipeline",
       "Real-time test step analytics",
-      "Secure attachments upload",
       "Community support",
     ],
     isRecommended: false,
@@ -48,8 +48,8 @@ const plans: Plan[] = [
     features: [
       "Secure team collaboration",
       "Deploy to manufacturing",
-      "MES integration",
       "Scales with you",
+      "MES integration (Q1 2025)",
       "Email support",
     ],
     isRecommended: true,
@@ -92,7 +92,8 @@ const sections: Section[] = [
     features: [
       {
         name: "OpenHTF Support",
-        tooltip: "One-line integration in scripts for real-time streaming.",
+        tooltip:
+          "One-line integration in test scripts for real-time streaming.",
         plans: {
           Lab: true,
           Pro: true,
@@ -102,7 +103,7 @@ const sections: Section[] = [
       {
         name: "Python Client & REST API",
         tooltip:
-          "Open-source Python client for easy integration in any script.",
+          "Open-source Python client for fast integration in any script.",
         plans: {
           Lab: true,
           Pro: true,
@@ -110,7 +111,7 @@ const sections: Section[] = [
         },
       },
       {
-        name: "Test Sequences",
+        name: "Test Procedures",
         tooltip:
           "Number of different test scripts that can be connected to your account.",
         plans: {
@@ -131,8 +132,7 @@ const sections: Section[] = [
       },
       {
         name: "Operator UI",
-        tooltip:
-          "Plug-and-play OpenHTF UI for production operators and technicians.",
+        tooltip: "Plug-and-play UI for production operators and technicians.",
         plans: {
           Lab: "Available Q1 2025",
           Pro: "Available Q1 2025",
@@ -141,7 +141,7 @@ const sections: Section[] = [
       },
       {
         name: "Team Seats",
-        tooltip: "Collaborate on your scripts with your development team.",
+        tooltip: "Collaborate on your projects with your team.",
         plans: {
           Lab: "1 seat included",
           Pro: ["1 seat included", "then $50 per seat"],
@@ -211,7 +211,7 @@ const sections: Section[] = [
       {
         name: "Test Steps Analytics",
         tooltip:
-          "Analytics and filters at test step level for yield, duration, and process capability.",
+          "Real-time tracking at the test step level for yield, duration, and process capability.",
         plans: {
           Lab: true,
           Pro: true,
@@ -221,7 +221,7 @@ const sections: Section[] = [
       {
         name: "First-pass Yield",
         tooltip:
-          "First, second, third, and last pass yield at test step level.",
+          "Real-time first, second, third, and last pass yield at test step level.",
         plans: { Lab: true, Pro: true, Enterprise: true },
       },
       {
@@ -236,7 +236,7 @@ const sections: Section[] = [
       {
         name: "Control Chart & Histogram",
         tooltip:
-          "Ready-made control chart and histogram with current and historical test limits.",
+          "Real-time control chart and histogram with current and historical test limits.",
         plans: {
           Lab: true,
           Pro: true,
@@ -252,18 +252,19 @@ const sections: Section[] = [
       {
         name: "Secure Cloud",
         tooltip:
-          "Secure cloud hosting, powered by AWS and managed by our team.",
+          "Secure cloud hosting managed by our team, and powered by AWS.",
         plans: { Lab: true, Pro: true, Enterprise: true },
       },
       {
         name: "Self-hosting",
-        tooltip: "Option to self-host TofuPilot when cloud is not possible.",
+        tooltip:
+          "Option to self-host TofuPilot if our secure cloud is not possible.",
         plans: { Lab: false, Pro: false, Enterprise: true },
       },
       {
         name: "Odoo Integration",
         tooltip:
-          "Bidirectional serial and batch sync between Odoo MES and TofuPilot.",
+          "Bidirectional serial and batch sync between Odoo Inventory and TofuPilot.",
         plans: {
           Lab: false,
           Pro: ["$100 per team", "Available Q1 2025"],
@@ -273,7 +274,7 @@ const sections: Section[] = [
       {
         name: "Custom MES Integration",
         tooltip:
-          "Custom MES integration development to suit your operational needs.",
+          "Custom integration development to suit your specific operational needs.",
         plans: { Lab: false, Pro: false, Enterprise: "On-demand" },
       },
     ],
