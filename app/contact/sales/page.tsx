@@ -24,47 +24,53 @@ const features = [
   {
     name: "Set up your Enterprise trial.",
     description:
-      " See for yourself how Vercel Enterprise speeds up your workflow & impact.",
+      "See for yourself how TofuPilot Enterprise speeds up your workflow & impact.",
     icon: ClockIcon,
   },
 ];
 
+const defaultMessage = `Hi TofuPilot,
+
+I'm looking to trial TofuPilot's enterprise product, learn about pricing, & discuss my organization's requirements with you. 
+
+Many thanks!`;
+
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY!);
 
 // Server Action to handle form submission
-async function handleContactSubmission(formData: FormData) {
-  "use server";
-  const email = formData.get("email");
-  const message = formData.get("message");
+// async function handleContactSubmission(formData: FormData) {
+//   "use server";
+//   const email = formData.get("email");
+//   const message = formData.get("message");
 
-  if (!email || !message) {
-    return { success: false, error: "Email and message are required." };
-  }
+//   if (!email || !message) {
+//     return { success: false, error: "Email and message are required." };
+//   }
 
-  try {
-    await sendgrid.send({
-      to: "support@example.com",
-      from: "home@tofupilot.com",
-      subject: "New Contact Request from TofuPilot",
-      text: message.toString(),
-      html: `<p><strong>From:</strong> ${email}</p><p>${message}</p>`,
-    });
+//   try {
+//     await sendgrid.send({
+//       to: "support@example.com",
+//       from: "home@tofupilot.com",
+//       subject: "New Contact Request from TofuPilot",
+//       text: message.toString(),
+//       html: `<p><strong>From:</strong> ${email}</p><p>${message}</p>`,
+//     });
 
-    return { success: true };
-  } catch (error) {
-    console.error("SendGrid error:", error.response?.body || error.message);
-    return { success: false, error: "Failed to send email." };
-  }
-}
+//     return { success: true };
+//   } catch (error) {
+//     console.error("SendGrid error:", error.response?.body || error.message);
+//     return { success: false, error: "Failed to send email." };
+//   }
+// }
 
 export default async function Page() {
   return (
     <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
       {/* Header */}
-      <div className="relative px-6 pt-24 lg:static lg:px-8 lg:py-32">
+      <div className="relative px-8 pt-24 lg:static lg:pl-0 lg:pr-14 lg:py-32">
         <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
           <h1 className="inline-block bg-gradient-to-t from-zinc-900 to-zinc-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-4xl dark:from-zinc-50 dark:to-zinc-300">
-            Let's talk about custom pricing for your needs.
+            Talk to our Sales team.
           </h1>
           <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
             {features.map((feature) => (
@@ -87,15 +93,15 @@ export default async function Page() {
       {/* Form */}
       <form
         method="POST"
-        action={async (formData) => {
-          const response = await handleContactSubmission(formData);
+        // action={async (formData) => {
+        //   const response = await handleContactSubmission(formData);
 
-          if (response.success) {
-            alert("Message sent successfully!");
-          } else {
-            alert(`Error: ${response.error}`);
-          }
-        }}
+        //   if (response.success) {
+        //     alert("Message sent successfully!");
+        //   } else {
+        //     alert(`Error: ${response.error}`);
+        //   }
+        // }}
         className="pb-24 pt-20 sm:pb-32 lg:py-24"
       >
         <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg bg-zinc-900/40 p-8 lg:p-10 rounded-md">
@@ -137,12 +143,9 @@ export default async function Page() {
                 <Textarea
                   id="message"
                   name="message"
+                  placeholder="Your company needs"
                   rows={10}
-                  defaultValue={`Hi TofuPilot,
-
-I'm looking to trial TofuPilot's enterprise product, learn about pricing, & discuss my organization's requirements with you. 
-
-Many thanks!`}
+                  // defaultValue={defaultMessage}
                 />
               </Field>
               <Button type="submit" color="lime" className="w-full">
