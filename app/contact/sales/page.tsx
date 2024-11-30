@@ -1,6 +1,8 @@
+"use server";
 import { Select } from "@/app/components/catalyst/select";
 import { siteConfig } from "@/app/siteConfig";
 import { ClockIcon, PhoneIcon } from "@heroicons/react/16/solid";
+import sendgrid from "@sendgrid/mail";
 import { Button } from "../../components/catalyst/button";
 import {
   Field,
@@ -27,34 +29,35 @@ const features = [
   },
 ];
 
-// sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+sendgrid.setApiKey(process.env.SENDGRID_API_KEY!);
 
 // Server Action to handle form submission
-// async function handleContactSubmission(formData: FormData) {
-//   const email = formData.get("email");
-//   const message = formData.get("message");
+async function handleContactSubmission(formData: FormData) {
+  "use server";
+  const email = formData.get("email");
+  const message = formData.get("message");
 
-//   if (!email || !message) {
-//     return { success: false, error: "Email and message are required." };
-//   }
+  if (!email || !message) {
+    return { success: false, error: "Email and message are required." };
+  }
 
-//   try {
-//     await sendgri.send({
-//       to: "your-email@example.com", // Replace with your email
-//       from: "noreply@tofupilot.com", // Replace with a verified SendGrid sender email
-//       subject: "New Contact Request from TofuPilot",
-//       text: message.toString(),
-//       html: `<p><strong>From:</strong> ${email}</p><p>${message}</p>`,
-//     });
+  try {
+    await sendgrid.send({
+      to: "support@example.com",
+      from: "home@tofupilot.com",
+      subject: "New Contact Request from TofuPilot",
+      text: message.toString(),
+      html: `<p><strong>From:</strong> ${email}</p><p>${message}</p>`,
+    });
 
-//     return { success: true };
-//   } catch (error) {
-//     console.error("SendGrid error:", error.response?.body || error.message);
-//     return { success: false, error: "Failed to send email." };
-//   }
-// }
+    return { success: true };
+  } catch (error) {
+    console.error("SendGrid error:", error.response?.body || error.message);
+    return { success: false, error: "Failed to send email." };
+  }
+}
 
-export default function Page() {
+export default async function Page() {
   return (
     <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
       {/* Header */}
@@ -82,7 +85,19 @@ export default function Page() {
         </div>
       </div>
       {/* Form */}
-      <form action="#" method="POST" className="pb-24 pt-20 sm:pb-32 lg:py-24">
+      <form
+        method="POST"
+        action={async (formData) => {
+          const response = await handleContactSubmission(formData);
+
+          if (response.success) {
+            alert("Message sent successfully!");
+          } else {
+            alert(`Error: ${response.error}`);
+          }
+        }}
+        className="pb-24 pt-20 sm:pb-32 lg:py-24"
+      >
         <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg bg-zinc-900/40 p-8 lg:p-10 rounded-md">
           <Fieldset>
             <FieldGroup>
