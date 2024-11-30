@@ -9,14 +9,7 @@ import profilePictureCharlotte from "@/public/about/charlotte-evequoz.jpeg";
 import profilePictureFelix from "@/public/about/felix-berthier.png";
 import profilePictureJulien from "@/public/about/julien-buteau.png";
 import { ArrowUpRightIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
-import { Metadata } from "next";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "About › TofuPilot",
-  description:
-    "TofuPilot is build by experienced manufacturing test engineers.",
-};
 
 const team = [
   {
@@ -53,7 +46,7 @@ export default async function About() {
           animationFillMode: "backwards",
         }}
       >
-        <HeaderBadge>About Tofupilot</HeaderBadge>
+        <HeaderBadge>About</HeaderBadge>
         <h1
           id="about-overview"
           className="mt-2 inline-block bg-gradient-to-br from-zinc-900 to-zinc-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-zinc-50 dark:to-zinc-300"

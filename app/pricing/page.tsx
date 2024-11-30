@@ -5,14 +5,15 @@ import { HeaderBadge } from "@/app/components/HeaderBadge";
 import { Faqs } from "@/app/components/ui/pricing/Faqs";
 import { cx } from "@/app/lib/utils";
 import { siteConfig } from "@/app/siteConfig";
+import { ChevronRightIcon } from "@heroicons/react/16/solid";
 import {
-  ChevronRightIcon,
-  CircleStackIcon,
-  CodeBracketSquareIcon,
-  EyeIcon,
-  GlobeAltIcon,
-} from "@heroicons/react/16/solid";
-import { RiCheckLine, RiSubtractLine } from "@remixicon/react";
+  IconBuildingFactory2,
+  IconCheck,
+  IconCode,
+  IconEye,
+  IconMinus,
+  IconServer,
+} from "@tabler/icons-react";
 import { Fragment } from "react";
 import Balancer from "react-wrap-balancer";
 
@@ -87,7 +88,7 @@ interface Section {
 const sections: Section[] = [
   {
     name: "Build",
-    icon: CodeBracketSquareIcon,
+    icon: IconCode,
     features: [
       {
         name: "OpenHTF Support",
@@ -151,7 +152,7 @@ const sections: Section[] = [
   },
   {
     name: "Deploy",
-    icon: GlobeAltIcon,
+    icon: IconBuildingFactory2,
     features: [
       {
         name: "Components & Revisions",
@@ -205,7 +206,7 @@ const sections: Section[] = [
   },
   {
     name: "Monitor",
-    icon: EyeIcon,
+    icon: IconEye,
     features: [
       {
         name: "Test Steps Analytics",
@@ -246,7 +247,7 @@ const sections: Section[] = [
   },
   {
     name: "Infrastructure",
-    icon: CircleStackIcon,
+    icon: IconServer,
     features: [
       {
         name: "Secure Cloud",
@@ -403,7 +404,7 @@ export default function Pricing() {
                       key={feature}
                       className="flex items-center gap-x-3 py-1.5"
                     >
-                      <RiCheckLine
+                      <IconCheck
                         className="size-4 shrink-0 text-lime-600 dark:text-lime-400"
                         aria-hidden="true"
                       />
@@ -483,7 +484,7 @@ export default function Pricing() {
                             key={feature.name}
                             className="flex gap-x-3 py-2.5"
                           >
-                            <RiCheckLine
+                            <IconCheck
                               className="size-5 flex-none text-lime-600 dark:text-lime-400"
                               aria-hidden="true"
                             />
@@ -579,7 +580,7 @@ export default function Pricing() {
                           "pt-14 border-b border-zinc-100 pb-4 text-base font-semibold leading-6 text-zinc-900 dark:border-zinc-800 dark:text-zinc-50"
                         )}
                       >
-                        <div className="flex items-center gap-x-3">
+                        <div className="flex items-center gap-x-2.5">
                           <section.icon aria-hidden="true" className="size-5" />
                           {section.name}
                         </div>
@@ -618,9 +619,9 @@ export default function Pricing() {
                                 {feature.plans[plan.name]}
                               </div>
                             ) : feature.plans[plan.name] === true ? (
-                              <RiCheckLine className="h-5 w-5 text-lime-600 dark:text-lime-400 mx-auto" />
+                              <IconCheck className="h-5 w-5 text-lime-600 dark:text-lime-400 mx-auto" />
                             ) : (
-                              <RiSubtractLine className="h-5 w-5 text-zinc-400 dark:text-zinc-600 mx-auto" />
+                              <IconMinus className="h-5 w-5 text-zinc-400 dark:text-zinc-600 mx-auto" />
                             )}
                           </td>
                         ))}

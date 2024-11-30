@@ -12,10 +12,10 @@ import { PortableText } from "@/app/(sanity)/lib/portabletext";
 import Link from "next/link";
 import Iframe from "react-iframe";
 
+import { BadgeBlogCategory } from "@/app/components/blog/BadgeBlogCategory";
 import { Button } from "@/app/components/catalyst/button";
 import Cta from "@/app/components/Cta";
 import { siteConfig } from "@/app/siteConfig";
-import { BadgeBlogCategory } from "../_components/badge-blog-category";
 
 function getYoutubeNoCookieEmbedUrl(youtubeUrl: string) {
   // Regular expression to match YouTube URLs and extract the video ID
