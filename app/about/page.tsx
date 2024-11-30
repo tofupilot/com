@@ -9,14 +9,7 @@ import profilePictureCharlotte from "@/public/about/charlotte-evequoz.jpeg";
 import profilePictureFelix from "@/public/about/felix-berthier.png";
 import profilePictureJulien from "@/public/about/julien-buteau.png";
 import { ArrowUpRightIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
-import { Metadata } from "next";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "About › TofuPilot",
-  description:
-    "TofuPilot is build by experienced manufacturing test engineers.",
-};
 
 const team = [
   {
