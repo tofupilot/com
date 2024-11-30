@@ -5,9 +5,9 @@ import { Inter } from "next/font/google";
 import "@/styles/tailwind.css";
 
 import { Analytics } from "@vercel/analytics/react";
-import Footer from "../components/Footer";
-import { Navigation } from "../components/Navigation";
-import { siteConfig } from "../siteConfig";
+import Footer from "./components/Footer";
+import { Navigation } from "./components/Navigation";
+import { siteConfig } from "./siteConfig";
 
 const inter = Inter({
   subsets: ["latin"],

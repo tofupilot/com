@@ -1,7 +1,6 @@
 import { ArrowLeftIcon } from "@heroicons/react/16/solid";
 import { Metadata } from "next";
-import { siteConfig } from "../siteConfig";
-import { Button } from "../components/catalyst/button";
+import { Button } from "./components/catalyst/button";
 
 export const metadata: Metadata = {
   title: "Not Found | TofuPilot",
@@ -24,7 +23,7 @@ export default function Page() {
         <p className="mt-6 text-base leading-7 text-zinc-600 dark:text-zinc-400">
           Sorry, we could not find the page you are looking for.
         </p>
-        <Button plain href={siteConfig.baseLinks.home} className="mt-10">
+        <Button color="lime" href={"/"} className="mt-10">
           <ArrowLeftIcon />
           Go back home
         </Button>
