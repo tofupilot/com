@@ -49,8 +49,8 @@ sendgrid.setApiKey(process.env.SENDGRID_API_KEY!);
 
 //   try {
 //     await sendgrid.send({
-//       to: "support@example.com",
-//       from: "home@tofupilot.com",
+//       to: "support@tofupilot.com",
+//       from: "hello@tofupilot.com",
 //       subject: "New Contact Request from TofuPilot",
 //       text: message.toString(),
 //       html: `<p><strong>From:</strong> ${email}</p><p>${message}</p>`,
