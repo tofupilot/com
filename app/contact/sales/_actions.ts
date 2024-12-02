@@ -7,7 +7,7 @@ sendgrid.setApiKey(process.env.SENDGRID_API_KEY!);
 
 // Server Action to handle form submission
 export async function handleContactSubmission(formData: FormData) {
-  const email = formData?.get("email")?.toString();
+  const email = formData.get("email")?.toString();
   const message = formData.get("message")?.toString();
 
   if (!email || !message) {
@@ -23,6 +23,7 @@ export async function handleContactSubmission(formData: FormData) {
       html: `<p><strong>From:</strong> ${email}</p><p>${message}</p>`,
     });
   } catch (error) {
-    return { error: getErrorMessage(error) };
+    console.error(getErrorMessage(error));
+    return { error: "Failed to send email" };
   }
 }

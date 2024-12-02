@@ -1,10 +1,12 @@
 "use client";
 
 import { Select } from "@/app/components/catalyst/select";
+import { ButtonSubmitForm } from "@/app/components/utils/button-submit-form";
+import { useAction } from "@/app/lib/hooks/useAction";
 import { siteConfig } from "@/app/siteConfig";
 import { ClockIcon, PhoneIcon } from "@heroicons/react/16/solid";
-import { Button } from "../../components/catalyst/button";
 import {
+  ErrorMessage,
   Field,
   FieldGroup,
   Fieldset,
@@ -14,7 +16,6 @@ import { Input } from "../../components/catalyst/input";
 import { Text, TextLink } from "../../components/catalyst/text";
 import { Textarea } from "../../components/catalyst/textarea";
 import { handleContactSubmission } from "./_actions";
-import { ButtonSubmitForm } from "@/app/components/utils/button-submit-form";
 
 const features = [
   {
@@ -38,6 +39,7 @@ I'm looking to trial TofuPilot's enterprise product, learn about pricing, & disc
 Many thanks!`;
 
 export default function Page() {
+  const { action, error } = useAction(handleContactSubmission);
   return (
     <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
       {/* Header */}
@@ -65,10 +67,7 @@ export default function Page() {
         </div>
       </div>
       {/* Form */}
-      <form
-        action={handleContactSubmission}
-        className="pb-24 pt-20 sm:pb-32 lg:py-24"
-      >
+      <form action={action} className="pb-24 pt-20 sm:pb-32 lg:py-24">
         <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg bg-zinc-900/40 p-8 lg:p-10 rounded-md">
           <Fieldset>
             <FieldGroup>
@@ -128,6 +127,7 @@ export default function Page() {
           </Fieldset>
         </div>
       </form>
+      {error && <ErrorMessage>{error}</ErrorMessage>}
     </div>
   );
 }
