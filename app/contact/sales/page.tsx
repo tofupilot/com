@@ -1,8 +1,8 @@
-"use server";
+"use client";
+
 import { Select } from "@/app/components/catalyst/select";
 import { siteConfig } from "@/app/siteConfig";
 import { ClockIcon, PhoneIcon } from "@heroicons/react/16/solid";
-import sendgrid from "@sendgrid/mail";
 import { Button } from "../../components/catalyst/button";
 import {
   Field,
@@ -13,6 +13,8 @@ import {
 import { Input } from "../../components/catalyst/input";
 import { Text, TextLink } from "../../components/catalyst/text";
 import { Textarea } from "../../components/catalyst/textarea";
+import { handleContactSubmission } from "./_actions";
+import { ButtonSubmitForm } from "@/app/components/utils/button-submit-form";
 
 const features = [
   {
@@ -35,35 +37,7 @@ I'm looking to trial TofuPilot's enterprise product, learn about pricing, & disc
 
 Many thanks!`;
 
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY!);
-
-// Server Action to handle form submission
-// async function handleContactSubmission(formData: FormData) {
-//   "use server";
-//   const email = formData.get("email");
-//   const message = formData.get("message");
-
-//   if (!email || !message) {
-//     return { success: false, error: "Email and message are required." };
-//   }
-
-//   try {
-//     await sendgrid.send({
-//       to: "support@tofupilot.com",
-//       from: "hello@tofupilot.com",
-//       subject: "New Contact Request from TofuPilot",
-//       text: message.toString(),
-//       html: `<p><strong>From:</strong> ${email}</p><p>${message}</p>`,
-//     });
-
-//     return { success: true };
-//   } catch (error) {
-//     console.error("SendGrid error:", error.response?.body || error.message);
-//     return { success: false, error: "Failed to send email." };
-//   }
-// }
-
-export default async function Page() {
+export default function Page() {
   return (
     <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
       {/* Header */}
@@ -92,16 +66,7 @@ export default async function Page() {
       </div>
       {/* Form */}
       <form
-        method="POST"
-        // action={async (formData) => {
-        //   const response = await handleContactSubmission(formData);
-
-        //   if (response.success) {
-        //     alert("Message sent successfully!");
-        //   } else {
-        //     alert(`Error: ${response.error}`);
-        //   }
-        // }}
+        action={handleContactSubmission}
         className="pb-24 pt-20 sm:pb-32 lg:py-24"
       >
         <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg bg-zinc-900/40 p-8 lg:p-10 rounded-md">
@@ -148,9 +113,9 @@ export default async function Page() {
                   // defaultValue={defaultMessage}
                 />
               </Field>
-              <Button type="submit" color="lime" className="w-full">
+              <ButtonSubmitForm color="lime" className="w-full">
                 Talk to TofuPilot
-              </Button>
+              </ButtonSubmitForm>
               <Text>
                 By clicking "Talk to TofuPilot", I acknowledge I have read and
                 understand the{" "}
