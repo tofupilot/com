@@ -36,7 +36,7 @@ export function Navigation() {
     <header
       className={cx(
         "ease-[cubic-bezier(0.16,1,0.3,1.03)] fixed inset-x-3 top-4 z-50 mx-auto flex max-w-6xl transform-gpu animate-slide-down-fade justify-center overflow-hidden rounded-xl border border-transparent px-3 py-3 transition-all duration-300 will-change-transform",
-        open === true ? "h-[252px]" : "h-16",
+        open === true ? "h-[252px]" : "h-auto",
         scrolled || open === true
           ? "backdrop-blur-nav max-w-3xl border-zinc-100 bg-white/95 shadow-xl shadow-black/5 dark:border-white/15 dark:bg-black/95"
           : "bg-white/0 dark:bg-zinc-950/0"
@@ -105,9 +105,9 @@ export function Navigation() {
               className="aspect-square"
             >
               {open ? (
-                <XMarkIcon aria-hidden="true" className="size-5" />
+                <XMarkIcon />
               ) : (
-                <Bars3Icon aria-hidden="true" className="size-5" />
+                <Bars3Icon />
               )}
             </Button>
           </div>

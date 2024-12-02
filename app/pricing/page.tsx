@@ -59,7 +59,7 @@ const plans: Plan[] = [
   {
     name: "Enterprise",
     description:
-      "For larger Pro that need more advanced controls and features.",
+      "For larger teams that need more advanced controls and features.",
     features: [
       "Self-hosting option",
       "Custom integrations",
