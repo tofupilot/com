@@ -3,7 +3,7 @@ import { ServerAction } from "../types";
 
 export function useAction(serverAction: ServerAction, onSuccess?: () => void) {
   const [error, setError] = useState("");
-  const action: ServerAction = async (formData) => {
+  const action = async (formData: FormData) => {
     const result = await serverAction(formData);
     if (result?.error) {
       setError(result.error);
@@ -11,7 +11,6 @@ export function useAction(serverAction: ServerAction, onSuccess?: () => void) {
     }
     setError("");
     onSuccess && onSuccess();
-    return result;
   };
   return { action, error };
 }
