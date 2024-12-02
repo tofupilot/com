@@ -80,6 +80,7 @@ export default function Page() {
                   autoComplete="email"
                   placeholder="Email address"
                 />
+                {error && <ErrorMessage>{error}</ErrorMessage>}
               </Field>
               <div className="hidden">
                 <Field>
@@ -127,7 +128,6 @@ export default function Page() {
           </Fieldset>
         </div>
       </form>
-      {error && <ErrorMessage>{error}</ErrorMessage>}
     </div>
   );
 }
