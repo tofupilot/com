@@ -15,6 +15,9 @@ import {
 import { Input } from "../../components/catalyst/input";
 import { Text, TextLink } from "../../components/catalyst/text";
 import { Textarea } from "../../components/catalyst/textarea";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { toast } from "sonner";
 import { handleContactSubmission } from "./_actions";
 
 const features = [
@@ -40,6 +43,28 @@ Many thanks!`;
 
 export default function Page() {
   const { action, error } = useAction(handleContactSubmission);
+  const [showFields, setShowFields] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!showFields) {
+      setShowFields(true); // Show additional fields on first click
+    } else {
+      setSubmitted(true); // Submit the form on the second click
+
+      const formData = new FormData(e.target);
+      const response = await action(formData);
+
+      if (response.error) {
+        toast.error(response.error);
+      } else {
+        toast.success("Email sent successfully!");
+        e.target.reset(); // Erase the form after submission
+      }
+    }
+  };
+
   return (
     <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
       {/* Header */}
@@ -67,7 +92,7 @@ export default function Page() {
         </div>
       </div>
       {/* Form */}
-      <form action={action} className="pb-24 pt-20 sm:pb-32 lg:py-24">
+      <form onSubmit={handleSubmit} className="pb-24 pt-20 sm:pb-32 lg:py-24">
         <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg bg-zinc-900/40 p-8 lg:p-10 rounded-md">
           <Fieldset>
             <FieldGroup>
@@ -82,27 +107,35 @@ export default function Page() {
                 />
                 {error && <ErrorMessage>{error}</ErrorMessage>}
               </Field>
-              <div className="hidden">
-                <Field>
-                  <Label>Your name</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="name"
-                    autoComplete="name"
-                    placeholder="Juliette Smith"
-                  />
-                </Field>
-                <Field>
-                  <Label>Company size</Label>
-                  <Select name="country">
-                    <option>1-100</option>
-                    <option>100-500</option>
-                    <option>500-1000</option>
-                    <option>1000+</option>
-                  </Select>
-                </Field>
-              </div>
+              {showFields && (
+                <Fieldset>
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Field>
+                      <Label>Your name</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        type="text"
+                        autoComplete="name"
+                        placeholder="Juliette Smith"
+                      />
+                    </Field>
+                    <Field>
+                      <Label>Company size</Label>
+                      <Select name="companySize">
+                        <option>1-100</option>
+                        <option>100-500</option>
+                        <option>500-1000</option>
+                        <option>1000+</option>
+                      </Select>
+                    </Field>
+                  </motion.div>
+                </Fieldset>
+              )}
               <Field>
                 <Label>How can we help?</Label>
                 <Textarea
@@ -110,7 +143,6 @@ export default function Page() {
                   name="message"
                   placeholder="Your company needs"
                   rows={10}
-                  // defaultValue={defaultMessage}
                 />
               </Field>
               <ButtonSubmitForm color="lime" className="w-full">
