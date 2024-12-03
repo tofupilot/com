@@ -1,3 +1,5 @@
+// app/contact/sales/_actions.ts
+
 "use server";
 
 import { getErrorMessage } from "@/app/lib/errors";
@@ -5,15 +7,21 @@ import sendgrid from "@sendgrid/mail";
 
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY!);
 
-// Server Action to handle form submission
-export async function handleContactSubmission(formData: FormData) {
-  const email = formData.get("email")?.toString();
-  const name = formData.get("name")?.toString();
-  const companySize = formData.get("companySize")?.toString();
-  const message = formData.get("message")?.toString();
+export interface ContactSubmissionData {
+  email: string;
+  name: string;
+  website: string;
+  companySize: string;
+  message: string;
+}
+
+export async function handleContactSubmission(
+  data: ContactSubmissionData
+): Promise<{ success: boolean; error?: string }> {
+  const { email, name, website, companySize, message } = data;
 
   if (!email || !message) {
-    return { error: "Email and message are required." };
+    return { success: false, error: "Email and message are required." };
   }
 
   try {
@@ -21,11 +29,11 @@ export async function handleContactSubmission(formData: FormData) {
       to: "support@tofupilot.com",
       from: "hello@tofupilot.com",
       subject: "New Contact Request from TofuPilot",
-      text: `From: ${email}\nName: ${name || "N/A"}\nCompany Size: ${companySize || "N/A"}\n\n${message}`,
-      html: `<p><strong>From:</strong> ${email}</p><p><strong>Name:</strong> ${name || "N/A"}</p><p><strong>Company Size:</strong> ${companySize || "N/A"}</p><p>${message}</p>`,
+      text: `From: ${email}\nName: ${name || "N/A"}\nCompany Size: ${companySize || "N/A"}\nWebsite (protected by SendGrid): ${website || "N/A"}\n\n${message}`,
     });
+    return { success: true };
   } catch (error) {
     console.error(getErrorMessage(error));
-    return { error: "Failed to send email" };
+    return { success: false, error: "Failed to send email." };
   }
 }

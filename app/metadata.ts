@@ -8,6 +8,8 @@ export const defaultKeywords = [
   "factory test",
   "open source",
   "python",
+  "openhtf",
+  "testbench",
   "test framework",
   "test automation",
   "hardware testing",

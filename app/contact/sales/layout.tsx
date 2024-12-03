@@ -1,18 +1,19 @@
 import { defaultKeywords } from "../../metadata";
 
-// TODO:
 export const metadata = {
-  title: "Pricing",
+  title: "Contact TofuPilot",
   description:
-    "Find a plan to power your factory. From early-stage startups to growing enterprises, TofuPilot has you covered.",
+    "Get in touch with TofuPilot to learn more about our plans, request a demo, or explore how we can help power your factory with high-performance production test systems.",
   keywords: [
     ...defaultKeywords,
-    "pricing",
-    "cost",
-    "business model",
-    "economics",
-    "free",
-    "plans",
+    "contact",
+    "demo",
+    "enterprise trial",
+    "TofuPilot support",
+    "factory optimization",
+    "hardware quality assurance",
+    "production test systems",
+    "traceability",
   ],
 };
 
@@ -25,7 +26,7 @@ export default function Layout({
     // same as container landing without the title and px-5
     <main
       role="main"
-      className="mx-auto mt-36 animate-slide-up-fade max-w-5xl"
+      className="mx-auto mt-28 animate-slide-up-fade max-w-5xl"
       style={{
         animationDuration: "600ms",
         animationFillMode: "backwards",
