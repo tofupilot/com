@@ -1,6 +1,7 @@
 "use client";
 
 import { siteConfig } from "@/app/siteConfig";
+import Link from "next/link";
 import Balancer from "react-wrap-balancer";
 import { Button } from "./catalyst/button";
 
@@ -56,13 +57,12 @@ export default function Cta() {
             </div>
             <p className="mt-4 text-xs text-zinc-600 sm:text-sm dark:text-zinc-400">
               Not sure where to start?{" "}
-              <a
-                target="_blank"
-                href="https://outlook.office.com/bookwithme/user/b07c0ff908f44c3bb2e1f33eef07fc64@tofupilot.com?anonymous&ep=plink"
+              <Link
+                href={siteConfig.baseLinks.contact}
                 className="font-semibold text-lime-600 hover:text-lime-500 dark:text-lime-500 dark:hover:text-lime-400"
               >
-                Talk to sales
-              </a>
+                Talk to our team
+              </Link>
             </p>
           </div>
         </div>
