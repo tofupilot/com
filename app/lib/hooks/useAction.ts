@@ -10,7 +10,9 @@ export function useAction(serverAction: ServerAction, onSuccess?: () => void) {
       return;
     }
     setError("");
-    onSuccess && onSuccess();
+    if (onSuccess) {
+      onSuccess();
+    }
   };
   return { action, error };
 }

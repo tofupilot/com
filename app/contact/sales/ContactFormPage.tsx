@@ -112,7 +112,7 @@ export default function ContactFormPage({
 
       {/* Form or Success Panel */}
       <div className="pb-24 pt-20 sm:pb-32 lg:py-24">
-        {formSubmitted ? (
+        {!formSubmitted ? (
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg bg-zinc-100 dark:bg-zinc-900/40 p-8 lg:p-10 rounded-md">
               <Fieldset>

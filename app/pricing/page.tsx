@@ -69,7 +69,7 @@ const plans: Plan[] = [
     ],
     isRecommended: false,
     buttonText: "Request Trial",
-    buttonLink: siteConfig.baseLinks.signup,
+    buttonLink: siteConfig.baseLinks.contact,
   },
 ];
 
