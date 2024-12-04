@@ -46,7 +46,7 @@ export default function Features() {
         className="mt-2 inline-block bg-gradient-to-br from-zinc-900 to-zinc-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-zinc-50 dark:to-zinc-300"
       >
         Leverage real-time analytics <br />
-        to fix product and test issues faster
+        to fix products and tests faster
       </h2>
       <p className="mt-6 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
         From test data collection to real-time analytics, TofuPilot offers
