@@ -12,9 +12,16 @@ export const siteConfig = {
     guides: "/guides",
     blog: "/blog",
     changelog: "/changelog",
+    contact: "/contact/sales",
 
-    // internal redirect
+    // docs
     docs: "/docs",
+    selfhosting: "/docs/self-hosting",
+    offlineupload: "/docs/offline-upload",
+
+    // legal
+    privacy: "/docs/legal/privacy-policy",
+    terms: "/docs/legal/terms-and-conditions",
 
     // external
     login: `${process.env.NEXT_PUBLIC_APP_URL}/runs`,
