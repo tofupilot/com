@@ -1,7 +1,7 @@
 import { defaultKeywords } from "../../metadata";
 
 export const metadata = {
-  title: "Contact TofuPilot",
+  title: "Contact Us",
   description:
     "Get in touch with TofuPilot to learn more about our plans, request a demo, or explore how we can help power your factory with high-performance production test systems.",
   keywords: [
