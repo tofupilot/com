@@ -36,13 +36,13 @@ const navigation = {
     { name: "About", href: siteConfig.baseLinks.about, external: false },
     { name: "Blog", href: siteConfig.baseLinks.blog, external: false },
     {
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/company/tofupilot",
-      external: true,
+      name: "Contact",
+      href: siteConfig.baseLinks.contact,
+      external: false,
     },
     {
-      name: "Careers",
-      href: "https://www.linkedin.com/company/tofupilot/jobs/",
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/tofupilot",
       external: true,
     },
   ],
