@@ -40,13 +40,13 @@ export default function Features() {
       aria-labelledby="code-example-title"
       className="mx-auto mt-28 w-full max-w-6xl px-3"
     >
-      <HeaderBadge>Features</HeaderBadge>
+      <HeaderBadge>real-time analytics</HeaderBadge>
       <h2
         id="code-example-title"
         className="mt-2 inline-block bg-gradient-to-br from-zinc-900 to-zinc-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-zinc-50 dark:to-zinc-300"
       >
-        Get the analytics you need <br />
-        to ramp up production testing
+        Leverage real-time analytics <br />
+        to fix product and test issues faster
       </h2>
       <p className="mt-6 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
         From test data collection to real-time analytics, TofuPilot offers

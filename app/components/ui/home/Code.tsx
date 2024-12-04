@@ -1,11 +1,11 @@
-import type { BundledLanguage, BundledTheme } from "shiki";
-import { codeToHtml } from "shiki";
 import { cx } from "@/app/lib/utils";
-import CopyToClipboard from "./CopyToClipboard";
 import {
   transformerNotationHighlight,
   transformerNotationWordHighlight,
 } from "@shikijs/transformers";
+import type { BundledLanguage, BundledTheme } from "shiki";
+import { codeToHtml } from "shiki";
+import CopyToClipboard from "./CopyToClipboard";
 
 type Props = {
   code: string;
@@ -60,11 +60,11 @@ export default async function Code({
               .line.highlighted {
                 display: inline-block;
                 width: 100%;
-                background-color: #a3e63533;
+                background-color: #84cc1666; // lime-500, 40% opacity
               }
               .highlighted-word {
                 display: inline;
-                background-color: #a3e63533;
+                background-color: #84cc1666; // lime-500, 40% opacity// lime-500, 40% opacity
               }
             </style>
             ${html}

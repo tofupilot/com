@@ -1,7 +1,7 @@
 "use client";
 import * as Tabs from "@radix-ui/react-tabs";
-import Arrow from "./Arrow";
 import { IconBrandPython, IconSettingsCheck } from "@tabler/icons-react";
+import Arrow from "./Arrow";
 
 export default function CodeExampleTabs({
   tab1,
@@ -40,8 +40,8 @@ export default function CodeExampleTabs({
             </p>
           </div>
           <p className="mt-4 leading-7 text-zinc-600 dark:text-zinc-400">
-            Add one line to your OpenHTF scripts to stream test results live to
-            TofuPilot. See each step of your test as it happens, directly in
+            Add a single line to your OpenHTF scripts to stream test results
+            live to TofuPilot and view each test step in real-time right from
             your workspace.
           </p>
         </Tabs.Trigger>
@@ -65,9 +65,9 @@ export default function CodeExampleTabs({
             </p>
           </div>
           <p className="mt-4 leading-7 text-zinc-600 dark:text-zinc-400">
-            Already have custom scripts? Use a single function from TofuPilot’s
-            Python client or REST API to upload and organize test
-            results automatically.
+            Already have custom scripts? Use one function from TofuPilot’s
+            Python client or REST API to upload and organize test results
+            automatically.
           </p>
         </Tabs.Trigger>
       </Tabs.List>

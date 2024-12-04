@@ -1,59 +1,60 @@
-import CodeExampleTabs from "./CodeExampleTabs";
-import { HeaderBadge } from "../../HeaderBadge";
-import Code from "./Code";
 import {
   IconCircuitVoltmeter,
   IconEaseInOutControlPoints,
   IconLibraryPhoto,
   IconListCheck,
 } from "@tabler/icons-react";
+import { HeaderBadge } from "../../HeaderBadge";
+import Code from "./Code";
+import CodeExampleTabs from "./CodeExampleTabs";
 import FeaturesList from "./Features";
 
 const code = `import openhtf as htf
-from openhtf.plugs import plug
-from multimeter_plug import MultimeterPlug
 from tofupilot.openhtf import TofuPilot
 
 @plug(multimeter=MultimeterPlug)
 @htf.measures(
-  htf.Measurement('voltage')
-  .in_range(220.0, 240.0)
-  .with_units('V'),
+    htf.Measurement('voltage')
+    .in_range(3.1, 3.5)
+    .with_units('V'),
 )
 def test_power_supply(test, multimeter):
-  voltage = multimeter.measure_voltage()
-  test.measurements.voltage = voltage_phase
+    voltage = multimeter.measure_voltage()
+    test.measurements.voltage = voltage
 
 def main():
-  test = htf.Test(test_power_supply)
-  with TofuPilot(test) # [!code highlight]
-    test.execute(lambda: "PCB0001")
+    test = htf.Test(
+      test_power_supply,
+      part_number="PCBA01",
+      procedure_name="PCBA Test",
+    )
+    with TofuPilot(test): # [!code highlight]
+        test.execute(lambda: "07301")  # Mock operator S/N input
 `;
 
 const code2 = `from tofupilot import TofuPilotClient
-from multimeter import Multimeter
 
 def main():
-  client = TofuPilotClient()
+    client = TofuPilotClient()
 
-  # Your custom test logic
-  multimeter = Multimeter())
-  voltage = multimeter.measure_voltage()
-  current = multimeter.measure_current()
-  
-  # [!code word:create_run]
-  client.create_run(
-    procedure_id="FVT1",
-    unit_under_test={
-      "part_number": "PCBA01"
-      "serial_number": "07301"
-    },
-    steps=[
-      {"step_name": "Test Voltage", "value": voltage, "units": "V"},
-      {"step_name": "Test Current", "value": current, "units": "A"}
-    ],
-    run_passed=True,
-  )
+    voltage = Multimeter().measure_voltage()
+    limits = {"limit_low": 3.1, "limit_high": 3.5}
+    passed = limits["limit_low"] <= voltage <= limits["limit_high"]
+
+    # [!code word:create_run]
+    client.create_run(
+        unit_under_test={
+            "part_number": "PCBA01",
+            "serial_number": "07301"
+        },
+        procedure_name="PCBA Test",
+        steps=[{**limits,
+            "step_name": "Test Voltage",
+            "value": voltage,
+            "units": "V",
+            "step_passed": passed}],
+        run_passed=passed,
+    )
 `;
 
 const features = [
@@ -90,12 +91,12 @@ export default function CodeExample() {
       aria-labelledby="code-example-title"
       className="mx-auto mt-28 w-full max-w-6xl px-3"
     >
-      <HeaderBadge>Developer-First</HeaderBadge>
+      <HeaderBadge>fast integration</HeaderBadge>
       <h2
         id="code-example-title"
         className="mt-2 inline-block bg-gradient-to-br from-zinc-900 to-zinc-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-zinc-50 dark:to-zinc-300"
       >
-        Connect your test scripts <br /> with a single line
+        Connect your test scripts <br /> with a single line of Python
       </h2>
       <p className="mt-6 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
         With TofuPilot’s open-source Python client and REST API, you can quickly

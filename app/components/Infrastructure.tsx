@@ -44,14 +44,14 @@ export default function Infrastructure() {
         "Best-in-class security practices keep your manufacturing data safe.",
     },
     {
-      name: "TofuPilot Graph Pipeline",
-      description:
-        "Designed for high volume real-time relational data processing.",
-    },
-    {
       name: "Self-Hosting Option",
       description:
         "Host TofuPilot in your infrastructure for when cloud is not an option.",
+    },
+    {
+      name: "TofuPilot Graph Pipeline",
+      description:
+        "Designed for high volume real-time relational data processing.",
     },
   ];
 
