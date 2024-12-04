@@ -4,6 +4,7 @@ import { Select } from "@/app/components/catalyst/select";
 import { ButtonSubmitForm } from "@/app/components/utils/button-submit-form";
 import { siteConfig } from "@/app/siteConfig";
 import { ClockIcon, PhoneIcon } from "@heroicons/react/16/solid";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Balancer from "react-wrap-balancer";
@@ -139,64 +140,72 @@ export default function ContactFormPage({
                     )}
                   </Field>
                   {showFields && (
-                    <FieldGroup>
-                      <Field>
-                        <Label>Your name</Label>
-                        <Input
-                          id="name"
-                          {...register("name", {
-                            required: "Please enter your name.",
-                          })}
-                          invalid={!!errors.name}
-                          type="text"
-                          autoComplete="name"
-                          placeholder="Jane Doe"
-                        />
-                        {errors.name && (
-                          <ErrorMessage>{errors.name.message}</ErrorMessage>
-                        )}
-                      </Field>
-                      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4">
+                    <motion.div
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <FieldGroup>
                         <Field>
-                          <Label>Company website</Label>
+                          <Label>Your name</Label>
                           <Input
-                            id="website"
-                            {...register("website", {
-                              required: "Please enter the website.",
+                            id="name"
+                            {...register("name", {
+                              required: "Please enter your name.",
                             })}
-                            invalid={!!errors.website}
-                            type="url"
-                            autoComplete="url"
-                            placeholder="https://example.com"
+                            invalid={!!errors.name}
+                            type="text"
+                            autoComplete="name"
+                            placeholder="Jane Doe"
                           />
-                          {errors.website && (
-                            <ErrorMessage>
-                              {errors.website.message}
-                            </ErrorMessage>
+                          {errors.name && (
+                            <ErrorMessage>{errors.name.message}</ErrorMessage>
                           )}
                         </Field>
-                        <Field>
-                          <Label>Company Size</Label>
-                          <Select
-                            {...register("companySize", {
-                              required: "Please select the size.",
-                            })}
-                            invalid={!!errors.companySize}
-                          >
-                            <option value="">Select company size...</option>
-                            <option value="1-100">1-100 employees</option>
-                            <option value="100-500">100-500 employees</option>
-                            <option value="500-1000">500-1000 employees</option>
-                            <option value="1000+">1000+ employees</option>
-                          </Select>
-                          {errors.companySize && (
-                            <ErrorMessage>
-                              {errors.companySize.message}
-                            </ErrorMessage>
-                          )}
-                        </Field>
-                      </div>
-                    </FieldGroup>
+                        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4">
+                          <Field>
+                            <Label>Company website</Label>
+                            <Input
+                              id="website"
+                              {...register("website", {
+                                required: "Please enter the website.",
+                              })}
+                              invalid={!!errors.website}
+                              type="url"
+                              autoComplete="url"
+                              placeholder="https://example.com"
+                            />
+                            {errors.website && (
+                              <ErrorMessage>
+                                {errors.website.message}
+                              </ErrorMessage>
+                            )}
+                          </Field>
+                          <Field>
+                            <Label>Company Size</Label>
+                            <Select
+                              {...register("companySize", {
+                                required: "Please select the size.",
+                              })}
+                              invalid={!!errors.companySize}
+                            >
+                              <option value="">Select company size...</option>
+                              <option value="1-100">1-100 employees</option>
+                              <option value="100-500">100-500 employees</option>
+                              <option value="500-1000">
+                                500-1000 employees
+                              </option>
+                              <option value="1000+">1000+ employees</option>
+                            </Select>
+                            {errors.companySize && (
+                              <ErrorMessage>
+                                {errors.companySize.message}
+                              </ErrorMessage>
+                            )}
+                          </Field>
+                        </div>
+                      </FieldGroup>
+                    </motion.div>
                   )}
                   <Field>
                     <Label>How can we help you?</Label>
