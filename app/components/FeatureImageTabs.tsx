@@ -6,7 +6,7 @@ import {
   IconChartHistogram,
   IconGauge,
 } from "@tabler/icons-react";
-import Arrow from "./Arrow";
+import Arrow from "./ui/home/Arrow";
 
 interface TabInfo {
   label: string;

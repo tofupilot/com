@@ -78,12 +78,12 @@ export default function UserStories() {
         id="features-title"
         className="mt-2 inline-block bg-gradient-to-br from-zinc-900 to-zinc-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-zinc-50 dark:to-zinc-300"
       >
-        Trusted by top-level hardware teams
+        Trusted by fast-moving teams
       </h2>
       <p className="mt-6 max-w-3xl text-lg leading-7 text-zinc-600 dark:text-zinc-400">
-        TofuPilot helps manufacturing test teams worldwide improve testing
-        efficiency and quality, from drones and medical devices to photonics
-        sensors and beyond.
+        TofuPilot helps engineering teams worldwide build faster,
+        high-performance tests for drones, medical devices, photonic sensors,
+        and more.
       </p>
       <div className="mx-auto mt-12 grid max-w-2xl auto-rows-fr grid-cols-1 gap-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
         {cards.map((post, index) => (
