@@ -1,8 +1,8 @@
 // Tremor Accordion [v0.0.1]
 
 import { cx } from "@/app/lib/utils"
+import { PlusIcon } from "@heroicons/react/16/solid"
 import * as AccordionPrimitives from "@radix-ui/react-accordion"
-import { RiAddLine } from "@remixicon/react"
 import React from "react"
 
 
@@ -24,14 +24,14 @@ const AccordionTrigger = React.forwardRef<
         // disabled
         "data-[disabled]:cursor-default data-[disabled]:text-zinc-400 dark:data-[disabled]:text-zinc-600",
         //focus
-        "focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-lime      -500",
+        "focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-lime-500",
         className,
       )}
       {...props}
       ref={forwardedRef}
     >
       {children}
-      <RiAddLine
+      <PlusIcon
         className={cx(
           // base
           "size-5 shrink-0 transition-transform duration-150 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:-rotate-45",
