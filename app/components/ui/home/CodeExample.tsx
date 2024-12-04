@@ -1,8 +1,8 @@
 import {
   IconCircuitVoltmeter,
-  IconEaseInControlPoint,
   IconLibraryPhoto,
   IconListCheck,
+  IconMathMaxMin,
 } from "@tabler/icons-react";
 import { HeaderBadge } from "../../HeaderBadge";
 import Code from "./Code";
@@ -69,7 +69,7 @@ const features = [
     description:
       "Capture numeric measurements for each test step and their validation criteria.",
 
-    icon: IconEaseInControlPoint,
+    icon: IconMathMaxMin,
   },
   {
     name: "Plugs",
