@@ -1,6 +1,6 @@
 import {
   IconCircuitVoltmeter,
-  IconEaseInOutControlPoints,
+  IconEaseInControlPoint,
   IconLibraryPhoto,
   IconListCheck,
 } from "@tabler/icons-react";
@@ -36,7 +36,6 @@ const code2 = `from tofupilot import TofuPilotClient
 
 def main():
     client = TofuPilotClient()
-
     voltage = Multimeter().measure_voltage()
     limits = {"limit_low": 3.1, "limit_high": 3.5}
     passed = limits["limit_low"] <= voltage <= limits["limit_high"]
@@ -45,14 +44,15 @@ def main():
     client.create_run(
         unit_under_test={
             "part_number": "PCBA01",
-            "serial_number": "07301"
-        },
+            "serial_number": "07301"},
         procedure_name="PCBA Test",
         steps=[{**limits,
-            "step_name": "Test Voltage",
-            "value": voltage,
-            "units": "V",
-            "step_passed": passed}],
+            "name": "Test Voltage",
+            "measurement_value": voltage,
+            "measurement_unit": "V",
+            "step_passed": passed,
+            "duration": timedelta(seconds=2),
+            "started_at": datetime.now()}],
         run_passed=passed,
     )
 `;
@@ -69,7 +69,7 @@ const features = [
     description:
       "Capture numeric measurements for each test step and their validation criteria.",
 
-    icon: IconEaseInOutControlPoints,
+    icon: IconEaseInControlPoint,
   },
   {
     name: "Plugs",
