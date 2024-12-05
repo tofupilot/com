@@ -14,47 +14,47 @@ from tofupilot.openhtf import TofuPilot
 
 @plug(multimeter=MultimeterPlug)
 @htf.measures(
-    htf.Measurement('voltage')
-    .in_range(3.1, 3.5)
-    .with_units('V'),
+  htf.Measurement('voltage')
+  .in_range(3.1, 3.5)
+  .with_units('V'),
 )
-def test_power_supply(test, multimeter):
-    voltage = multimeter.measure_voltage()
-    test.measurements.voltage = voltage
+def test_voltage(test, multimeter):
+  voltage = multimeter.get_voltage()
+  test.measurements.voltage = voltage
 
 def main():
-    test = htf.Test(
-      test_power_supply,
-      part_number="PCBA01",
-      procedure_name="PCBA Test",
-    )
-    with TofuPilot(test): # [!code highlight]
-        test.execute(lambda: "07301")  # Mock operator S/N input
+  test = htf.Test(
+    test_voltage,
+    part_number="PCBA01",
+    procedure_name="PCBA Test",
+  )
+  with TofuPilot(test): # [!code highlight]
+    test.execute(lambda: "07301")  
 `;
 
 const code2 = `from tofupilot import TofuPilotClient
 
 def main():
-    client = TofuPilotClient()
-    voltage = Multimeter().measure_voltage()
-    limits = {"limit_low": 3.1, "limit_high": 3.5}
-    passed = limits["limit_low"] <= voltage <= limits["limit_high"]
+  client = TofuPilotClient()
+  voltage = Multimeter().get_voltage()
+  limits = {"limit_low": 3.1, "limit_high": 3.5}
+  passed = limits["limit_low"] <= voltage <= limits["limit_high"]
 
-    # [!code word:create_run]
-    client.create_run(
-        unit_under_test={
-            "part_number": "PCBA01",
-            "serial_number": "07301"},
-        procedure_name="PCBA Test",
-        steps=[{**limits,
-            "name": "Test Voltage",
-            "measurement_value": voltage,
-            "measurement_unit": "V",
-            "step_passed": passed,
-            "duration": timedelta(seconds=2),
-            "started_at": datetime.now()}],
-        run_passed=passed,
-    )
+  # [!code word:create_run]
+  client.create_run(
+    unit_under_test={
+      "part_number": "PCBA01",
+      "serial_number": "07301"},
+    procedure_name="PCBA Test",
+    steps=[{**limits,
+      "name": "test_voltage",
+      "measurement_value": voltage,
+      "measurement_unit": "V",
+      "step_passed": passed,
+      "duration": timedelta(seconds=2),
+      "started_at": datetime.now()}],
+    run_passed=passed,
+  )
 `;
 
 const features = [
