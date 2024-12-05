@@ -8,6 +8,7 @@ import { HeaderBadge } from "../../HeaderBadge";
 import Code from "./Code";
 import CodeExampleTabs from "./CodeExampleTabs";
 import FeaturesList from "./Features";
+import Balancer from "react-wrap-balancer";
 
 const code = `import openhtf as htf
 from tofupilot.openhtf import TofuPilot
@@ -96,7 +97,9 @@ export default function CodeExample() {
         id="code-example-title"
         className="mt-2 inline-block bg-gradient-to-br from-zinc-900 to-zinc-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-6xl md:text-6xl dark:from-zinc-50 dark:to-zinc-300"
       >
-        Connect your test scripts <br /> with a single line of Python
+        <Balancer>
+          Connect your test scripts with a single line of Python
+        </Balancer>
       </h2>
       <p className="mt-6 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
         With TofuPilot’s open-source Python client and REST API, you can quickly
