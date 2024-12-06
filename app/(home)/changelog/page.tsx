@@ -1,8 +1,8 @@
 import { getLastFiveReleases } from "@/app/(sanity)/lib/client";
 import { Release, ReleaseHighlight } from "@/app/(sanity)/schemas/release";
-import { ContainerLanding } from "../components/ContainerLanding";
-import { CardRelease } from "../components/ui/changelog/CardRelease";
-import { CardReleaseHighlight } from "../components/ui/changelog/CardReleaseHighlight";
+import { ContainerLanding } from "../../components/ContainerLanding";
+import { CardRelease } from "../../components/ui/changelog/CardRelease";
+import { CardReleaseHighlight } from "../../components/ui/changelog/CardReleaseHighlight";
 
 export default async function Page() {
   const releases = await getLastFiveReleases();

@@ -1,11 +1,11 @@
-import Benefits from "./components/Benefits";
-import Cta from "./components/Cta";
-import Features from "./components/Features";
-import Hero from "./components/Hero";
-import Infrastructure from "./components/Infrastructure";
-import LogoCloud from "./components/LogoCloud";
-import CodeExample from "./components/ui/home/CodeExample";
-import UserStories from "./components/UserStories";
+import Benefits from "../components/Benefits";
+import Cta from "../components/Cta";
+import Features from "../components/Features";
+import Hero from "../components/Hero";
+import Infrastructure from "../components/Infrastructure";
+import LogoCloud from "../components/LogoCloud";
+import CodeExample from "../components/ui/home/CodeExample";
+import UserStories from "../components/UserStories";
 
 export default function Page() {
   return (

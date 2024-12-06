@@ -1,6 +1,6 @@
 import { getAllPosts } from "@/app/(sanity)/lib/client";
 import { ContainerLanding } from "@/app/components/ContainerLanding";
-import ListBlogPosts from "../components/blog/ListBlogPosts";
+import ListBlogPosts from "../../components/blog/ListBlogPosts";
 
 export default async function Page() {
   const posts = await getAllPosts();
