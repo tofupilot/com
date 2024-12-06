@@ -1,7 +1,8 @@
+// Empty layout for landing page + Sanity studio
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return { children };
+  return <html lang="en">{children}</html>;
 }

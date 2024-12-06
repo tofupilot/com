@@ -9,13 +9,12 @@ import UserStories from "../components/UserStories";
 
 export default function Page() {
   return (
-    <div>
-      <main role="main" className="flex flex-col overflow-hidden">
-        <Hero />
-        <LogoCloud />
-        <CodeExample />
+    <main role="main" className="flex flex-col overflow-hidden">
+      <Hero />
+      <LogoCloud />
+      <CodeExample />
 
-        {/* <section
+      {/* <section
           id="testimonial"
           className="mx-auto py-24 sm:py-32 max-w-xl lg:max-w-6xl"
           aria-labelledby="testimonial"
@@ -28,13 +27,12 @@ export default function Page() {
           />
         </section> */}
 
-        <Features />
-        <Infrastructure />
+      <Features />
+      <Infrastructure />
 
-        {/* <Benefits /> */}
-        <UserStories />
-        <Cta />
-      </main>
-    </div>
+      {/* <Benefits /> */}
+      <UserStories />
+      <Cta />
+    </main>
   );
 }

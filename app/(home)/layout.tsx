@@ -22,17 +22,15 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.className} min-h-screen scroll-auto antialiased selection:bg-zinc-100 selection:text-lime-700 dark:bg-zinc-950`}
-      >
-        <ThemeProvider defaultTheme="dark" attribute="class">
-          <Navigation />
-          {children}
-          <Footer />
-        </ThemeProvider>
-        <Analytics />
-      </body>
-    </html>
+    <body
+      className={`${inter.className} min-h-screen scroll-auto antialiased selection:bg-zinc-100 selection:text-lime-700 dark:bg-zinc-950`}
+    >
+      <ThemeProvider defaultTheme="dark" attribute="class">
+        <Navigation />
+        {children}
+        <Footer />
+      </ThemeProvider>
+      <Analytics />
+    </body>
   );
 }
