@@ -14,10 +14,10 @@ import {
   FieldGroup,
   Fieldset,
   Label,
-} from "../../components/catalyst/fieldset";
-import { Input } from "../../components/catalyst/input";
-import { Text, TextLink } from "../../components/catalyst/text";
-import { Textarea } from "../../components/catalyst/textarea";
+} from "../../../components/catalyst/fieldset";
+import { Input } from "../../../components/catalyst/input";
+import { Text, TextLink } from "../../../components/catalyst/text";
+import { Textarea } from "../../../components/catalyst/textarea";
 import { handleContactSubmission } from "./_actions";
 
 const features = [

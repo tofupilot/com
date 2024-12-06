@@ -1,4 +1,4 @@
-import { defaultKeywords } from "../../(home)/metadata";
+import { defaultKeywords } from "../../metadata";
 
 export const metadata = {
   title: "Contact Us",

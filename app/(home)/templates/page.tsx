@@ -4,9 +4,9 @@ import { TemplateGrid } from "@/app/components/ui/TemplateGrid";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Templates › TofuPilot",
+  title: "Templates",
   description:
-    "Jumpstart your app development process with pre-built solutions from Vercel and our community.",
+    "Jumpstart your app development process with pre-built solutions from TofuPilot and our community.",
 };
 
 export default async function Page() {
