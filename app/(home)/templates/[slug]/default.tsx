@@ -23,7 +23,7 @@ import {
   NavbarItem,
   NavbarSection,
 } from "@/app/components/catalyst/navbar";
-import { TableOfContents } from "../../../components/templates/TableOfContent";
+import { TableOfContents } from "@/app/components/templates/TableOfContent";
 
 export async function TemplatePage(props: any) {
   const { loading, template } = props;

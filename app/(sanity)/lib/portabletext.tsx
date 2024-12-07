@@ -168,7 +168,7 @@ const components: PortableTextComponents = {
     highlight: (props: MarkProps) => (
       <span className="font-bold text-lime-500">{props.children}</span>
     ),
-    link: ({ children, value }: any) => {
+    link: ({ children, value }: MarkProps) => {
       const isExternal = value.href.startsWith("/");
       return (
         <Link
@@ -180,9 +180,6 @@ const components: PortableTextComponents = {
         </Link>
       );
     },
-    internalLink: ({ children, value }: any) => (
-      <Link href={`/post/${value.slug?.current}`}>{children}</Link>
-    ),
   },
   block: {
     h1: ({ children, value }) => {
@@ -191,14 +188,6 @@ const components: PortableTextComponents = {
         <h1 id={slug} className="scroll-mt-24">
           {children}
         </h1>
-      );
-    },
-    h2: ({ children, value }) => {
-      const slug = slugify(toPlainText(value), { lower: true, strict: true });
-      return (
-        <h2 id={slug} className="scroll-mt-24">
-          {children}
-        </h2>
       );
     },
   },

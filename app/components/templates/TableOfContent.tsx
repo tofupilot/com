@@ -55,47 +55,45 @@ export function TableOfContents({ headings }: { headings: Array<Heading> }) {
   };
 
   return (
-    <div className="mt-8">
-      <nav aria-labelledby="on-this-page-title" className="w-56">
-        {headings.length > 0 && (
-          <>
-            <h2
-              id="on-this-page-title"
-              className="font-display text-sm font-medium text-zinc-900 dark:text-white"
-            >
-              On this page
-            </h2>
-            <ol role="list" className="mt-4 space-y-3 text-sm">
-              {headings.map((heading, index) => {
-                const id = slugify(String(heading.text), {
-                  lower: true,
-                  strict: true,
-                });
-                return (
-                  <li
-                    key={index}
-                    style={{
-                      marginLeft: heading.level === "h2" ? "20px" : "0",
-                    }}
+    <nav aria-labelledby="on-this-page-title" className="w-56 mt-8">
+      {headings.length > 0 && (
+        <>
+          <h2
+            id="on-this-page-title"
+            className="font-display text-sm font-medium text-zinc-900 dark:text-white"
+          >
+            On this page
+          </h2>
+          <ol role="list" className="mt-4 space-y-3 text-sm">
+            {headings.map((heading, index) => {
+              const id = slugify(String(heading.text), {
+                lower: true,
+                strict: true,
+              });
+              return (
+                <li
+                  key={index}
+                  style={{
+                    marginLeft: heading.level === "h2" ? "20px" : "0",
+                  }}
+                >
+                  <a
+                    href={`#${id}`}
+                    onClick={() => handleNavigation(id)}
+                    className={clsx(
+                      currentSection === id
+                        ? "text-lime-500"
+                        : "font-normal text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-300"
+                    )}
                   >
-                    <a
-                      href={`#${id}`}
-                      onClick={() => handleNavigation(id)}
-                      className={clsx(
-                        currentSection === id
-                          ? "text-lime-500"
-                          : "font-normal text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-300"
-                      )}
-                    >
-                      {heading.text}
-                    </a>
-                  </li>
-                );
-              })}
-            </ol>
-          </>
-        )}
-      </nav>
-    </div>
+                    {heading.text}
+                  </a>
+                </li>
+              );
+            })}
+          </ol>
+        </>
+      )}
+    </nav>
   );
 }

@@ -76,7 +76,7 @@ export default function ContactFormPage({
         } else {
           setFormSubmitted(true); // Hide form and show success panel
         }
-      } catch (err) {
+      } catch {
         console.log(
           "An unexpected error occurred. Please check your details and try again."
         );
