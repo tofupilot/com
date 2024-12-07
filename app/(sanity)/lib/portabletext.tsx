@@ -128,15 +128,13 @@ const GithubComponent = async ({
     });
 
     return (
-      <div className="not-prose text-xs my-6 overflow-hidden rounded-lg bg-zinc-900 shadow-md dark:ring-1 dark:ring-white/10">
+      <div className="not-prose text-sm my-6 overflow-hidden rounded-lg bg-zinc-900 shadow-md dark:ring-1 dark:ring-white/10">
         <h3 className="px-4 py-4 border-b border-zinc-700 bg-zinc-800 text-xs font-semibold text-white">
           {fileName}
         </h3>
         <div className="relative group">
-          <div
-            className="text-xs p-0 overflow-x-auto [&>pre]:w-full [&>pre]:overflow-x-auto [&>pre]:!py-4 [&>pre]:px-4 [&>pre]:leading-snug
-                 [&_.highlighted]:block [&_.highlighted]:w-full [&_.highlighted]:bg-lime-500/40
-                 [&_.highlighted-word]:inline [&_.highlighted-word]:bg-lime-500/40"
+          <pre
+            className="text-sm p-0 overflow-x-auto [&>pre]:w-full [&>pre]:overflow-x-auto [&>pre]:!py-4 [&>pre]:px-4 [&>pre]:leading-snug"
             dangerouslySetInnerHTML={{ __html: html }}
           />
           <CopyButton code={code} />

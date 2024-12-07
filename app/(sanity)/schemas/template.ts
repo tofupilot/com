@@ -1,6 +1,5 @@
 import { Id, Image, Slug, TypedObject, defineField, defineType } from "sanity";
 import { Author } from "./author";
-import { Framework } from "./framework";
 
 export default defineType({
   name: "template",
@@ -53,11 +52,27 @@ export default defineType({
       validation: (Rule) => Rule.required().error("A main image is required"),
     }),
     defineField({
+      name: "language",
+      title: "Language",
+      type: "string",
+      options: {
+        list: [
+          { title: "Python", value: "Python" },
+          { title: "Matlab", value: "Matlab" },
+        ],
+      },
+      validation: (Rule) => Rule.required().error("Language is mandatory"),
+    }),
+    defineField({
       name: "framework",
       title: "Framework",
-      type: "reference",
-      to: { type: "framework" },
-      validation: (Rule) => Rule.required().error("A framework is required"),
+      type: "string",
+      options: {
+        list: [
+          { title: "Pytest", value: "PyTest" },
+          { title: "OpenHTF", value: "OpenHTF" },
+        ],
+      },
     }),
     defineField({
       name: "usecase",
@@ -66,15 +81,10 @@ export default defineType({
       options: {
         list: [
           { title: "Functional Testing", value: "Functional Testing" },
-          { title: "In-Circuit Testing", value: "In-Circuit Testing" },
-          {
-            title: "Environmental Stress Testing",
-            value: "Environmental Stress Testing",
-          },
-          { title: "Boundary Scan Testing", value: "Boundary Scan Testing" },
-          { title: "Burn-In Testing", value: "Burn-In Testing" },
+          { title: "Factory Calibration", value: "Factory Calibration" },
         ],
       },
+      validation: (Rule) => Rule.required().error("USe case is mandatory"),
     }),
     defineField({
       name: "body",
@@ -102,8 +112,9 @@ export interface Template {
   summary: string;
   author: Author;
   mainImage: Image;
-  framework: Framework;
   usecase: string;
+  language: string;
+  framework?: string;
   publishedAt: string; // ISO 8601 date string
   body: TypedObject[];
 }

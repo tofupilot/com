@@ -109,13 +109,17 @@ export async function TemplatePage(props: any) {
 
                 <DescriptionTerm>Language</DescriptionTerm>
                 <DescriptionDetails className="sm:text-right">
-                  {template.framework.language}
+                  {template.language}
                 </DescriptionDetails>
 
-                <DescriptionTerm>Framework</DescriptionTerm>
-                <DescriptionDetails className="sm:text-right">
-                  {template.framework.title}
-                </DescriptionDetails>
+                {template.framework && (
+                  <>
+                    <DescriptionTerm>Framework</DescriptionTerm>
+                    <DescriptionDetails className="sm:text-right">
+                      {template.framework}
+                    </DescriptionDetails>
+                  </>
+                )}
               </DescriptionList>
             </div>
             {/* TOC */}

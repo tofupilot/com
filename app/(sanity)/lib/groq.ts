@@ -244,10 +244,8 @@ export const templatequery = groq`
     }
   },
   author->,
-  framework-> {
-    title,
-    language,
-  },
+  framework,
+  language,
   usecase,
   "headings": body[style in ["h1"]]{ 
       "level": style, 
