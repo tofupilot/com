@@ -1,4 +1,8 @@
-import { PortableText as PortableTextComponent } from "@portabletext/react";
+import {
+  PortableText as PortableTextComponent,
+  PortableTextComponents,
+  toPlainText,
+} from "@portabletext/react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,6 +16,8 @@ import {
 import { BundledLanguage } from "shiki";
 import { User } from "../schemas/user";
 import { urlForImage } from "./image";
+
+import slugify from "slugify";
 
 // Barebones lazy-loaded image component
 const ImageComponent = ({
@@ -151,7 +157,7 @@ interface MarkProps {
   value?: any; // Define a more specific type if possible
 }
 
-const components = {
+const components: PortableTextComponents = {
   types: {
     image: ImageComponent,
     testimonial: TestimonialComponent,
@@ -179,6 +185,24 @@ const components = {
     internalLink: ({ children, value }: any) => (
       <Link href={`/post/${value.slug?.current}`}>{children}</Link>
     ),
+  },
+  block: {
+    h1: ({ children, value }) => {
+      const slug = slugify(toPlainText(value), { lower: true, strict: true });
+      return (
+        <h1 id={slug} className="scroll-mt-24">
+          {children}
+        </h1>
+      );
+    },
+    h2: ({ children, value }) => {
+      const slug = slugify(toPlainText(value), { lower: true, strict: true });
+      return (
+        <h2 id={slug} className="scroll-mt-24">
+          {children}
+        </h2>
+      );
+    },
   },
 };
 

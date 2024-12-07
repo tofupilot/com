@@ -15,6 +15,7 @@ import {
   DescriptionList,
   DescriptionTerm,
 } from "@/app/components/catalyst/description-list";
+import { TableOfContents } from "../../../components/templates/TableOfContent";
 
 export async function TemplatePage(props: any) {
   const { loading, template } = props;
@@ -73,7 +74,6 @@ export async function TemplatePage(props: any) {
                   />
                 </div>
               </div>
-
               <p className="mt-6 text-zinc-500 dark:text-zinc-300">
                 {template.summary}
               </p>
@@ -101,6 +101,8 @@ export async function TemplatePage(props: any) {
                   </DescriptionDetails>
                 </DescriptionList>
               </div>
+
+              <TableOfContents headings={template.headings} />
             </div>
 
             {/* Template content */}

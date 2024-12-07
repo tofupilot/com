@@ -249,6 +249,10 @@ export const templatequery = groq`
     language,
   },
   usecase,
+  "headings": body[style in ["h1", "h2"]]{ 
+      "level": style, 
+      "text": children[].text 
+  },
   "related": *[_type == "post" && count(categories[@._ref in ^.^.categories[]._ref]) > 0 ] | order(_createdAt desc) [0...5] {
     title,
     slug,
