@@ -214,11 +214,8 @@ export const templatesquery = groq`
     name,
     role
   },
-  framework-> {
-    title,
-    language
-  },
   usecase,
+  framework,
 }
 `;
 
@@ -244,9 +241,9 @@ export const templatequery = groq`
     }
   },
   author->,
+  usecase,
   framework,
   language,
-  usecase,
   "headings": body[style in ["h1"]]{ 
       "level": style, 
       "text": children[].text 
