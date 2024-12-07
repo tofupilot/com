@@ -55,7 +55,7 @@ export function TableOfContents({ headings }: { headings: Array<Heading> }) {
   };
 
   return (
-    <div className="hidden xl:sticky xl:top-[4.75rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.75rem)] xl:flex-none xl:overflow-y-auto xl:py-8 xl:pr-6 ">
+    <div className="mt-8">
       <nav aria-labelledby="on-this-page-title" className="w-56">
         {headings.length > 0 && (
           <>

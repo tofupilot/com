@@ -249,7 +249,7 @@ export const templatequery = groq`
     language,
   },
   usecase,
-  "headings": body[style in ["h1", "h2"]]{ 
+  "headings": body[style in ["h1"]]{ 
       "level": style, 
       "text": children[].text 
   },
