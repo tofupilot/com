@@ -10,9 +10,13 @@ import { notFound } from "next/navigation";
 
 import Cta from "@/app/components/Cta";
 import { Button } from "@/app/components/catalyst/button";
-import { DescriptionDetails, DescriptionList, DescriptionTerm } from "@/app/components/catalyst/description-list";
+import {
+  DescriptionDetails,
+  DescriptionList,
+  DescriptionTerm,
+} from "@/app/components/catalyst/description-list";
 
-export function TemplatePage(props: any) {
+export async function TemplatePage(props: any) {
   const { loading, template } = props;
   const slug = template?.slug;
   if (!loading && !slug) {

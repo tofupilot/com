@@ -46,31 +46,12 @@ export default async function Code({
           </div>
         </div>
       )}
-
       <div
-        className={cx(
-          "text-sm [&>pre]:w-full [&>pre]:overflow-x-auto [&>pre]:!bg-zinc-950 [&>pre]:py-6 [&>pre]:px-4 [&>pre]:leading-snug [&>pre]:dark:!bg-zinc-950"
-        )}
-        dangerouslySetInnerHTML={{
-          __html: `
-            <style>
-              pre.has-highlighted {
-                position: relative;
-              }
-              .line.highlighted {
-                display: inline-block;
-                width: 100%;
-                background-color: #84cc1666; // lime-500, 40% opacity
-              }
-              .highlighted-word {
-                display: inline;
-                background-color: #84cc1666; // lime-500, 40% opacity// lime-500, 40% opacity
-              }
-            </style>
-            ${html}
-          `,
-        }}
-      ></div>
+        className="text-sm [&>pre]:w-full [&>pre]:overflow-x-auto [&>pre]:!bg-zinc-950 [&>pre]:py-6 [&>pre]:px-4 [&>pre]:leading-snug [&>pre]:dark:!bg-zinc-950 
+             [&_.highlighted]:block [&_.highlighted]:w-full [&_.highlighted]:bg-lime-500/40 
+             [&_.highlighted-word]:inline [&_.highlighted-word]:bg-lime-500/40"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </div>
   );
 }
