@@ -10,14 +10,23 @@ type Heading = {
   level: string; // "h1", "h2", etc.
 };
 
-export function TableOfContents({ headings }: { headings: Array<Heading> }) {
+export function TableOfContents({
+  headings,
+}: {
+  headings: Array<Heading> | undefined;
+}) {
   const [currentSection, setCurrentSection] = useState<string | null>(null);
   const router = useRouter();
 
   useEffect(() => {
+    if (!headings || headings.length === 0) return;
+
     const headingElements = headings
       .map((heading) => {
-        const id = slugify(String(heading.text), { lower: true, strict: true });
+        const id = slugify(String(heading.text), {
+          lower: true,
+          strict: true,
+        });
         const el = document.getElementById(id);
         if (!el) return null;
 
@@ -56,7 +65,7 @@ export function TableOfContents({ headings }: { headings: Array<Heading> }) {
 
   return (
     <nav aria-labelledby="on-this-page-title" className="w-56 mt-8">
-      {headings.length > 0 && (
+      {headings && headings.length > 0 && (
         <>
           <h2
             id="on-this-page-title"
