@@ -6,7 +6,7 @@ import {
   DescriptionList,
   DescriptionTerm,
 } from "@/app/components/catalyst/description-list";
-import { TableOfContents } from "@/app/components/templates/TableOfContent";
+import { TableOfContents } from "@/app/components/ui/templates/TableOfContent";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 

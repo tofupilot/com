@@ -12,9 +12,9 @@ import { PortableText } from "@/app/(sanity)/lib/portabletext";
 import Link from "next/link";
 import Iframe from "react-iframe";
 
-import { BadgeBlogCategory } from "@/app/components/blog/BadgeBlogCategory";
 import { Button } from "@/app/components/catalyst/button";
 import Cta from "@/app/components/Cta";
+import { BadgeBlogCategory } from "@/app/components/ui/blog/BadgeBlogCategory";
 import { siteConfig } from "@/app/siteConfig";
 
 function getYoutubeNoCookieEmbedUrl(youtubeUrl: string) {

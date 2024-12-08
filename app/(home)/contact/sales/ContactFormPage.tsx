@@ -1,7 +1,7 @@
 "use client";
 
 import { Select } from "@/app/components/catalyst/select";
-import { ButtonSubmitForm } from "@/app/components/utils/button-submit-form";
+import { ButtonSubmitForm } from "@/app/components/ui/contact/button-submit-form";
 import { siteConfig } from "@/app/siteConfig";
 import { ClockIcon, PhoneIcon } from "@heroicons/react/16/solid";
 import { motion } from "framer-motion";
