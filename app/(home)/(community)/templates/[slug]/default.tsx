@@ -1,10 +1,5 @@
-import Image from "next/image";
-
 import { urlForImage } from "@/app/(sanity)/lib/image";
 import { PortableText } from "@/app/(sanity)/lib/portabletext";
-
-import { notFound } from "next/navigation";
-
 import { Button } from "@/app/components/catalyst/button";
 import {
   DescriptionDetails,
@@ -12,8 +7,10 @@ import {
   DescriptionTerm,
 } from "@/app/components/catalyst/description-list";
 import { TableOfContents } from "@/app/components/templates/TableOfContent";
+import Image from "next/image";
+import { notFound } from "next/navigation";
 
-export async function TemplatePage(props: any) {
+export function TemplatePage(props: any) {
   const { loading, template } = props;
   const slug = template?.slug;
   if (!loading && !slug) {
@@ -66,7 +63,7 @@ export async function TemplatePage(props: any) {
             <p className="mt-6 text-zinc-500 dark:text-zinc-300">
               {template.summary}
             </p>
-            {/* Deploy */}
+            {/* Buttons */}
             <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-1">
               {/* <Button className="h-11">Deploy</Button> */}
               <Button
@@ -80,18 +77,16 @@ export async function TemplatePage(props: any) {
               </Button>
             </div>
             {/* Properties */}
-            <div className="mt-6 border-zinc-200">
+            <div className="mt-6">
               <DescriptionList>
                 <DescriptionTerm>Use Case</DescriptionTerm>
                 <DescriptionDetails className="sm:text-right">
                   {template.usecase}
                 </DescriptionDetails>
-
                 <DescriptionTerm>Language</DescriptionTerm>
                 <DescriptionDetails className="sm:text-right">
                   {template.language}
                 </DescriptionDetails>
-
                 {template.framework && (
                   <>
                     <DescriptionTerm>Framework</DescriptionTerm>

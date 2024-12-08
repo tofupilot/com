@@ -28,11 +28,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function PostDefault({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function Page({ params }: { params: { slug: string } }) {
   const query = await getTemplateBySlug(params.slug);
   return <TemplatePage template={query} />;
 }

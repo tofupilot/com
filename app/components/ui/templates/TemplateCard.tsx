@@ -2,9 +2,9 @@ import { urlForImage } from "@/app/(sanity)/lib/image";
 import { Template } from "@/app/(sanity)/schemas/template";
 import Image from "next/image";
 import Link from "next/link";
-import { Card } from "../tremor/Card";
+import { Card } from "../../tremor/Card";
 
-export async function TemplateCard({ template }: { template: Template }) {
+export function TemplateCard({ template }: { template: Template }) {
   return (
     <Link href={"/templates/" + template.slug.current}>
       <Card

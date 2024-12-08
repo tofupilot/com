@@ -1,6 +1,6 @@
 import { getAllTemplates } from "@/app/(sanity)/lib/client";
 import { ContainerLanding } from "@/app/components/ContainerLanding";
-import { TemplateGrid } from "@/app/components/ui/TemplateGrid";
+import { TemplateGrid } from "@/app/components/ui/templates/TemplateGrid";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
