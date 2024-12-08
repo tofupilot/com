@@ -28,8 +28,8 @@ export default defineType({
       type: "string",
       validation: (Rule) =>
         Rule.required()
-          .max(70)
-          .error("Summary should not exceed 70 characters."),
+          .max(100)
+          .error("Summary should not exceed 100 characters."),
     }),
     defineField({
       name: "keywords",
