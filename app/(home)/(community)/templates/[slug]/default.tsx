@@ -73,7 +73,7 @@ export function TemplatePage(props: any) {
                 rel="noopener noreferrer"
                 className="h-10"
               >
-                View Code on GitHub
+                View on GitHub
               </Button>
             </div>
             {/* Properties */}
