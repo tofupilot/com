@@ -19,12 +19,11 @@ const navigation = {
   ],
   resources: [
     { name: "Docs", href: siteConfig.baseLinks.docs, external: false },
-    // {
-    //   name: "Templates",
-    //   href: siteConfig.baseLinks.templates,
-    //   external: false,
-    // },
-    // { name: "Plugs", href: siteConfig.baseLinks.plugs, external: false },
+    {
+      name: "Templates",
+      href: siteConfig.baseLinks.templates,
+      external: false,
+    },
     { name: "GitHub", href: "https://github.com/tofupilot", external: true },
     {
       name: "YouTube",

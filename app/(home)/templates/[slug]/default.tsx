@@ -6,6 +6,7 @@ import {
   DescriptionList,
   DescriptionTerm,
 } from "@/app/components/catalyst/description-list";
+import Cta from "@/app/components/Cta";
 import { TableOfContents } from "@/app/components/ui/templates/TableOfContent";
 import { siteConfig } from "@/app/siteConfig";
 import Image from "next/image";
@@ -24,8 +25,8 @@ export function TemplatePage(props: any) {
   return (
     <div>
       {/* Two column main content */}
-      <div className="mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div className="lg:grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-16">
+      <div className="mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-12">
+        <div className="lg:grid lg:grid-cols-7 lg:gap-x-12 xl:gap-x-16">
           {/* Left Column: Fixed Sidebar */}
           <div className="lg:sticky lg:top-0 pt-24 lg:h-[calc(100vh)] mx-auto max-w-2xl lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:max-w-none">
             {/* Header */}
@@ -127,7 +128,7 @@ export function TemplatePage(props: any) {
       </div>
 
       {/* Related Templates */}
-      <section aria-labelledby="related-templates-heading">
+      {/* <section aria-labelledby="related-templates-heading">
         <div className="mx-auto px-4 py-12 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2
             id="related-products-heading"
@@ -137,10 +138,11 @@ export function TemplatePage(props: any) {
           </h2>
 
           <div className="mt-6">
-            {/* <TemplateGrid templates={templates} /> */}
+            <TemplateGrid templates={templates} />
           </div>
         </div>
-      </section>
+      </section> */}
+      <Cta />
     </div>
   );
 }
