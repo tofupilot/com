@@ -7,7 +7,9 @@ import {
   DescriptionTerm,
 } from "@/app/components/catalyst/description-list";
 import { TableOfContents } from "@/app/components/ui/templates/TableOfContent";
+import { siteConfig } from "@/app/siteConfig";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export function TemplatePage(props: any) {
@@ -22,12 +24,18 @@ export function TemplatePage(props: any) {
   return (
     <div>
       {/* Two column main content */}
-      <div className="mt-8 mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="lg:grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-16">
           {/* Left Column: Fixed Sidebar */}
-          <div className="lg:sticky lg:top-0 lg:h-[calc(100vh)] mx-auto max-w-2xl lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:mt-0 lg:max-w-none">
+          <div className="lg:sticky lg:top-0 pt-24 lg:h-[calc(100vh)] mx-auto max-w-2xl lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:max-w-none">
             {/* Header */}
-            <div className="mt-8 flex flex-col-reverse">
+            <Link
+              href={siteConfig.baseLinks.templates}
+              className="text-zinc-500 dark:hover:text-white hover:text-zinc-700 text-sm tracking-tight"
+            >
+              ← Back to Templates
+            </Link>
+            <div className="mt-4 flex flex-col-reverse">
               <div className="mt-4">
                 {/* Author */}
                 <div className="mt-10 lg:mt-0 flex items-center gap-x-1.5 text-zinc-700 dark:text-zinc-400">
@@ -102,7 +110,7 @@ export function TemplatePage(props: any) {
           </div>
 
           {/* Right Column: Scrollable Content */}
-          <div className="overflow-y-auto lg:col-span-4 lg:row-end-1 hidden lg:block">
+          <div className="mt-36 overflow-y-auto lg:col-span-4 lg:row-end-1 hidden lg:block">
             <Image
               alt={template.mainImage.alt}
               src={urlForImage(template.mainImage)}

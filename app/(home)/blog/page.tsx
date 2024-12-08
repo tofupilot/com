@@ -8,6 +8,7 @@ export default async function Page() {
     <ContainerLanding
       title="Blog"
       description="Insights and updates from across the team"
+      wide
     >
       <div className="mb-64 py-12 sm:py-20">
         <ListBlogPosts posts={posts} />

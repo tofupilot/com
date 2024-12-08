@@ -32,5 +32,3 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const query = await getTemplateBySlug(params.slug);
   return <TemplatePage template={query} />;
 }
-
-export const revalidate = 60;

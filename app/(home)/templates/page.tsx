@@ -23,5 +23,3 @@ export default async function Page() {
     </ContainerLanding>
   );
 }
-
-export const revalidate = 60;

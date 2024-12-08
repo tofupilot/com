@@ -1,4 +1,4 @@
-import { defaultKeywords } from "../../metadata";
+import { defaultKeywords } from "../metadata";
 
 export const metadata = {
   title: "Blog",
