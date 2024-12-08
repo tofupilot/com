@@ -17,7 +17,7 @@ export function ContainerLanding({
       role="main"
       className={clsx(
         "mx-auto mt-36 animate-slide-up-fade px-5",
-        wide ? "max-w-7xl px-12" : "max-w-3xl"
+        wide ? "max-w-6xl" : "max-w-3xl"
       )}
       style={{
         animationDuration: "600ms",

@@ -8,7 +8,7 @@ import UserStories from "../components/UserStories";
 
 export default function Page() {
   return (
-    <main role="main" className="flex flex-col overflow-hidden">
+    <main role="main" className="flex flex-col">
       <Hero />
       <LogoCloud />
       <CodeExample />
