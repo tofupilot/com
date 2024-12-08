@@ -68,9 +68,32 @@ export default defineType({
       options: { hotspot: true },
       fields: [
         {
+          name: "caption",
+          type: "string",
+          title: "Caption",
+          description:
+            "Visible caption providing context or additional details about the image.",
+          validation: (Rule) =>
+            Rule.required()
+              .min(10)
+              .error(
+                "A caption is required and should be at least 10 characters long."
+              ),
+          placeholder: "The Eiffel Tower at sunset in Paris.",
+        },
+        {
           name: "alt",
           type: "string",
           title: "Alternative Text",
+          description:
+            "Accessible description for screen readers or when the image doesn't load.",
+          validation: (Rule) =>
+            Rule.required()
+              .max(150)
+              .error(
+                "Alternative text is required and should not exceed 150 characters."
+              ),
+          placeholder: "A photo of the Eiffel Tower taken during sunset.",
         },
       ],
     }),

@@ -52,6 +52,13 @@ export default defineType({
       validation: (Rule) => Rule.required().error("A main image is required"),
     }),
     defineField({
+      name: "github",
+      title: "GitHub Project Link",
+      type: "url",
+      validation: (Rule) =>
+        Rule.required().error("GitHub project URL is mandatory."),
+    }),
+    defineField({
       name: "language",
       title: "Language",
       type: "string",

@@ -1,28 +1,16 @@
 import Image from "next/image";
 
-import {
-  MapIcon,
-  PuzzlePieceIcon,
-  Squares2X2Icon,
-} from "@heroicons/react/16/solid";
-
 import { urlForImage } from "@/app/(sanity)/lib/image";
 import { PortableText } from "@/app/(sanity)/lib/portabletext";
 
 import { notFound } from "next/navigation";
 
-import Cta from "@/app/components/Cta";
 import { Button } from "@/app/components/catalyst/button";
 import {
   DescriptionDetails,
   DescriptionList,
   DescriptionTerm,
 } from "@/app/components/catalyst/description-list";
-import {
-  Navbar,
-  NavbarItem,
-  NavbarSection,
-} from "@/app/components/catalyst/navbar";
 import { TableOfContents } from "@/app/components/templates/TableOfContent";
 
 export async function TemplatePage(props: any) {
@@ -35,28 +23,12 @@ export async function TemplatePage(props: any) {
   // const templates = await getAllTemplates();
 
   return (
-    <div className="mb-64 y-12">
-      <div className="mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div>
+      {/* Two column main content */}
+      <div className="mt-8 mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="lg:grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-16">
           {/* Left Column: Fixed Sidebar */}
-          <div className="pt-32 lg:sticky lg:top-0 lg:h-[calc(100vh)] mx-auto max-w-2xl sm:mt-16 lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:mt-0 lg:max-w-none">
-            <Navbar>
-              <NavbarSection>
-                <NavbarItem href="/" current>
-                  <Squares2X2Icon />
-                  Templates
-                </NavbarItem>
-                <NavbarItem href="/events">
-                  <PuzzlePieceIcon />
-                  Plugs
-                </NavbarItem>
-                <NavbarItem href="/orders">
-                  <MapIcon />
-                  Guides
-                </NavbarItem>
-              </NavbarSection>
-            </Navbar>
-
+          <div className="lg:sticky lg:top-0 lg:h-[calc(100vh)] mx-auto max-w-2xl lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:mt-0 lg:max-w-none">
             {/* Header */}
             <div className="mt-8 flex flex-col-reverse">
               <div className="mt-4">
@@ -95,12 +67,20 @@ export async function TemplatePage(props: any) {
               {template.summary}
             </p>
             {/* Deploy */}
-            <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
-              <Button className="h-11">Deploy</Button>
-              <Button outline>View Code</Button>
+            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-1">
+              {/* <Button className="h-11">Deploy</Button> */}
+              <Button
+                outline
+                href={template.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-10"
+              >
+                View Code on GitHub
+              </Button>
             </div>
             {/* Properties */}
-            <div className="mt-8 border-zinc-200">
+            <div className="mt-6 border-zinc-200">
               <DescriptionList>
                 <DescriptionTerm>Use Case</DescriptionTerm>
                 <DescriptionDetails className="sm:text-right">
@@ -127,7 +107,7 @@ export async function TemplatePage(props: any) {
           </div>
 
           {/* Right Column: Scrollable Content */}
-          <div className="pt-32 overflow-y-auto lg:col-span-4 lg:row-end-1 hidden lg:block">
+          <div className="overflow-y-auto lg:col-span-4 lg:row-end-1 hidden lg:block">
             <Image
               alt={template.mainImage.alt}
               src={urlForImage(template.mainImage)}
@@ -158,8 +138,6 @@ export async function TemplatePage(props: any) {
           </div>
         </div>
       </section>
-
-      <Cta />
     </div>
   );
 }

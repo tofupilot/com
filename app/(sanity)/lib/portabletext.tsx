@@ -29,7 +29,8 @@ const ImageComponent = ({
 }: {
   value: {
     src: string;
-    alt?: string;
+    alt: string;
+    caption: string;
   };
 }) => {
   return (
@@ -37,18 +38,18 @@ const ImageComponent = ({
     <figure>
       <Image
         src={urlForImage(value)}
-        alt={value.alt || "Image"}
+        alt={value.alt}
         sizes="(max-width: 800px) 100vw, 800px"
         height={432}
         width={768}
-        className="aspect-video rounded-xl bg-zinc-50 object-cover shadow-xl shadow-black/40 dark:bg-zinc-950 dark:shadow-lime-900/30"
+        className="aspect-video rounded-xl bg-zinc-50 object-cover"
       />
       <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-zinc-500 dark:text-zinc-300">
         <InformationCircleIcon
-          className="mt-0.5 h-5 w-5 flex-none text-zinc-300 dark:text-zinc-500"
+          className="mt-0.5 size-5 flex-none text-zinc-300 dark:text-zinc-500"
           aria-hidden="true"
         />
-        {value.alt}
+        {value.caption}
       </figcaption>
     </figure>
   );
@@ -124,7 +125,7 @@ const GithubComponent = async ({
     const highlighter = await getHighlighter();
     const html = await highlighter.codeToHtml(code, {
       lang,
-      theme: "custom-tailwind-theme",
+      theme: "tofupilot-theme",
       transformers: [
         transformerNotationHighlight(),
         transformerNotationWordHighlight(),
@@ -137,6 +138,7 @@ const GithubComponent = async ({
       .replace("/main/", "/blob/main/");
 
     return (
+      // Out of "prose" for <pre> custom styling
       <div className="not-prose text-sm my-6 overflow-hidden rounded-lg bg-zinc-900 shadow-md dark:ring-1 dark:ring-white/10">
         <div className="flex justify-between items-center pl-4 pr-2 border-b border-zinc-700 bg-zinc-800">
           <h3 className="text-xs font-semibold py-4 text-white">{fileName}</h3>

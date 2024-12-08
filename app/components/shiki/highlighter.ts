@@ -1,4 +1,3 @@
-// highlighter.ts
 import { Highlighter, createHighlighter } from "shiki";
 import { tofupilotShikiTheme } from "./tofupilotShikiTheme";
 
@@ -8,7 +7,7 @@ export async function getHighlighter(): Promise<Highlighter> {
   if (!highlighterInstance) {
     highlighterInstance = await createHighlighter({
       themes: [tofupilotShikiTheme],
-      langs: ["python"], // Add other languages as needed
+      langs: ["python"], // add other languages as needed
     });
   }
   return highlighterInstance;

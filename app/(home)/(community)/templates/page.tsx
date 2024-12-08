@@ -17,7 +17,7 @@ export default async function Page() {
       description="Jumpstart your test development process with pre-built solutions from TofuPilot and our community."
       wide
     >
-      <div className="mb-64 py-12 sm:py-20">
+      <div className="py-12 sm:py-20">
         <TemplateGrid templates={templates} />
       </div>
     </ContainerLanding>

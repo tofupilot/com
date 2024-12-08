@@ -73,6 +73,10 @@ export const singlequery = groq`
         ..., // Retrieves all properties of the referenced user
         // Specify further fields you want from the user here
       }
+    },
+    _type == "image" => {
+      ...,
+      "caption": caption // Fetch the caption for images in body content
     }
   },
   author->,
@@ -163,7 +167,7 @@ export const releasequery = groq`
       ...,
       _type == "internalLink" => {
         "slug": @.reference->slug
-      }
+      },
     }
   },
   highlights[]{
@@ -238,9 +242,14 @@ export const templatequery = groq`
         ..., // Retrieves all properties of the referenced user
         // Specify further fields you want from the user here
       }
-    }
+    },
+    _type == "image" => {
+      ...,
+      "caption": caption // Fetch the caption for images in body content
+    },
   },
   author->,
+  github,
   usecase,
   framework,
   language,

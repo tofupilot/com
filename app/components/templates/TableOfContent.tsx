@@ -64,7 +64,7 @@ export function TableOfContents({
   };
 
   return (
-    <nav aria-labelledby="on-this-page-title" className="w-56 mt-8">
+    <nav aria-labelledby="on-this-page-title" className="mt-6">
       {headings && headings.length > 0 && (
         <>
           <h2
