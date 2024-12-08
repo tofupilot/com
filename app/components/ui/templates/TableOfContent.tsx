@@ -1,14 +1,10 @@
 "use client";
 
+import { Heading } from "@/app/(sanity)/schemas/template";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import slugify from "slugify";
-
-type Heading = {
-  text: string;
-  level: string; // "h1", "h2", etc.
-};
 
 export function TableOfContents({
   headings,

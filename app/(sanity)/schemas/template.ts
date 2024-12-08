@@ -1,4 +1,4 @@
-import { Id, Image, Slug, TypedObject, defineField, defineType } from "sanity";
+import { Id, Slug, TypedObject, defineField, defineType } from "sanity";
 import { Author } from "./author";
 
 export default defineType({
@@ -32,6 +32,12 @@ export default defineType({
           .error("Summary should not exceed 70 characters."),
     }),
     defineField({
+      name: "keywords",
+      title: "Keywords",
+      type: "array",
+      of: [{ type: "string" }],
+    }),
+    defineField({
       name: "author",
       title: "Author",
       type: "reference",
@@ -53,7 +59,7 @@ export default defineType({
     }),
     defineField({
       name: "githubProject",
-      title: "GitHub Project Link",
+      title: "GitHub Project",
       type: "url",
       validation: (Rule) =>
         Rule.required().error("GitHub project URL is mandatory."),
@@ -112,17 +118,27 @@ export default defineType({
   },
 });
 
-export interface Template {
+export type Heading = {
+  text: string;
+  level: string; // "h1", "h2", etc.
+};
+
+export type Template = {
   _id: Id;
   slug: Slug;
   title: string;
   summary: string;
   author: Author;
-  mainImage: Image;
+  mainImage: {
+    alt: string;
+    url: string;
+  };
   githubProject: string;
   usecase: string;
   language: string;
   framework?: string;
   publishedAt: string; // ISO 8601 date string
   body: TypedObject[];
-}
+  headings?: Array<Heading>;
+  keywords: string[];
+};

@@ -1,5 +1,6 @@
 import { urlForImage } from "@/app/(sanity)/lib/image";
 import { PortableText } from "@/app/(sanity)/lib/portabletext";
+import { Template } from "@/app/(sanity)/schemas/template";
 import { Button } from "@/app/components/catalyst/button";
 import {
   DescriptionDetails,
@@ -11,17 +12,8 @@ import { TableOfContents } from "@/app/components/ui/templates/TableOfContent";
 import { siteConfig } from "@/app/siteConfig";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 
-export function TemplatePage(props: any) {
-  const { loading, template } = props;
-  const slug = template?.slug;
-  if (!loading && !slug) {
-    notFound();
-  }
-  // TODO: move to template query with related field
-  // const templates = await getAllTemplates();
-
+export function TemplatePage({ template }: { template: Template }) {
   return (
     <div>
       {/* Two column main content */}
@@ -48,6 +40,7 @@ export function TemplatePage(props: any) {
                       alt={template.author.name}
                       width={20}
                       height={20}
+                      priority
                     />
                   </div>
                   <p>{template.author.name}</p>

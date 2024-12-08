@@ -220,6 +220,7 @@ export const templatesquery = groq`
   },
   usecase,
   framework,
+  keywords,
 }
 `;
 

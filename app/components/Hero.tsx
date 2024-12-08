@@ -1,7 +1,7 @@
 import { siteConfig } from "@/app/siteConfig";
 import { ChevronRightIcon, SparklesIcon } from "@heroicons/react/16/solid";
+import Image from "next/image";
 import Balancer from "react-wrap-balancer";
-import { ThemedImage } from "./ThemedImage";
 import { Button } from "./catalyst/button";
 
 export default function Hero() {
@@ -49,13 +49,13 @@ export default function Hero() {
         style={{ animationDuration: "1400ms" }}
       >
         <section aria-label="Hero Image of the website" className="flow-root">
-          <ThemedImage
-            lightSrc="/home/screenshot-hero-light.png"
-            darkSrc="/home/screenshot-hero-dark.png"
+          <Image
+            src="/home/screenshot-hero-dark.png"
             alt="A preview of the TofuPilot web app"
             width={2400}
             height={1600}
             className="rounded-md shadow-2xl ring-1 ring-zinc-900/10 dark:shadow-lime-600/40"
+            priority
           />
         </section>
       </div>
