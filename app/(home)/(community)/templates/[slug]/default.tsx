@@ -68,7 +68,7 @@ export function TemplatePage(props: any) {
               {/* <Button className="h-11">Deploy</Button> */}
               <Button
                 outline
-                href={template.github}
+                href={template.githubProject}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="h-10"

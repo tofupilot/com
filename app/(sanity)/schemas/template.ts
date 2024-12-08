@@ -52,11 +52,23 @@ export default defineType({
       validation: (Rule) => Rule.required().error("A main image is required"),
     }),
     defineField({
-      name: "github",
+      name: "githubProject",
       title: "GitHub Project Link",
       type: "url",
       validation: (Rule) =>
         Rule.required().error("GitHub project URL is mandatory."),
+    }),
+    defineField({
+      name: "usecase",
+      title: "Use Case",
+      type: "string",
+      options: {
+        list: [
+          { title: "Functional Testing", value: "Functional Testing" },
+          { title: "Factory Calibration", value: "Factory Calibration" },
+        ],
+      },
+      validation: (Rule) => Rule.required().error("USe case is mandatory"),
     }),
     defineField({
       name: "language",
@@ -80,18 +92,6 @@ export default defineType({
           { title: "OpenHTF", value: "OpenHTF" },
         ],
       },
-    }),
-    defineField({
-      name: "usecase",
-      title: "Use Case",
-      type: "string",
-      options: {
-        list: [
-          { title: "Functional Testing", value: "Functional Testing" },
-          { title: "Factory Calibration", value: "Factory Calibration" },
-        ],
-      },
-      validation: (Rule) => Rule.required().error("USe case is mandatory"),
     }),
     defineField({
       name: "body",
@@ -119,6 +119,7 @@ export interface Template {
   summary: string;
   author: Author;
   mainImage: Image;
+  githubProject: string;
   usecase: string;
   language: string;
   framework?: string;

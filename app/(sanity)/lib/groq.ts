@@ -249,7 +249,7 @@ export const templatequery = groq`
     },
   },
   author->,
-  github,
+  githubProject,
   usecase,
   framework,
   language,
