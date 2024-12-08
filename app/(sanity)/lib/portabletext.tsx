@@ -8,7 +8,10 @@ import Link from "next/link";
 
 import CopyButton from "@/app/components/shiki/CopyButton";
 import { getHighlighter } from "@/app/components/shiki/highlighter";
-import { InformationCircleIcon } from "@heroicons/react/16/solid";
+import {
+  ArrowUpRightIcon,
+  InformationCircleIcon,
+} from "@heroicons/react/16/solid";
 import {
   transformerNotationHighlight,
   transformerNotationWordHighlight,
@@ -17,6 +20,7 @@ import { BundledLanguage } from "shiki";
 import { User } from "../schemas/user";
 import { urlForImage } from "./image";
 
+import { Button } from "@/app/components/catalyst/button";
 import slugify from "slugify";
 
 // Barebones lazy-loaded image component
@@ -127,11 +131,25 @@ const GithubComponent = async ({
       ],
     });
 
+    // Get GitHub public URL from raw one
+    const publicUrl = value.url
+      .replace("raw.githubusercontent.com", "github.com")
+      .replace("/main/", "/blob/main/");
+
     return (
       <div className="not-prose text-sm my-6 overflow-hidden rounded-lg bg-zinc-900 shadow-md dark:ring-1 dark:ring-white/10">
-        <h3 className="px-4 py-4 border-b border-zinc-700 bg-zinc-800 text-xs font-semibold text-white">
-          {fileName}
-        </h3>
+        <div className="flex justify-between items-center pl-4 pr-2 border-b border-zinc-700 bg-zinc-800">
+          <h3 className="text-xs font-semibold py-4 text-white">{fileName}</h3>
+          <Button
+            href={publicUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            plain
+            className="shrink-0"
+          >
+            <ArrowUpRightIcon />
+          </Button>
+        </div>
         <div className="relative group">
           <pre
             className="text-sm p-0 overflow-x-auto [&>pre]:w-full [&>pre]:overflow-x-auto [&>pre]:!py-4 [&>pre]:px-4 [&>pre]:leading-snug"
