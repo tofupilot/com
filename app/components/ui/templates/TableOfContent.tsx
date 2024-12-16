@@ -65,11 +65,11 @@ export function TableOfContents({
         <>
           <h2
             id="on-this-page-title"
-            className="font-display text-sm font-medium text-zinc-900 dark:text-white"
+            className="font-display font-medium text-zinc-900 dark:text-white sm:text-sm/6 text-base/6"
           >
             On this page
           </h2>
-          <ol role="list" className="mt-4 space-y-3 text-sm">
+          <ol role="list" className="mt-4 space-y-3 sm:text-sm/6 text-base/6">
             {headings.map((heading, index) => {
               const id = slugify(String(heading.text), {
                 lower: true,
@@ -88,7 +88,7 @@ export function TableOfContents({
                     className={clsx(
                       currentSection === id
                         ? "text-lime-500"
-                        : "font-normal text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-300"
+                        : "text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-300"
                     )}
                   >
                     {heading.text}
