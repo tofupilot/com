@@ -6,6 +6,9 @@ import { urlForImage } from "@/app/(sanity)/lib/image";
 import { notFound } from "next/navigation";
 import { TemplatePage } from "./default";
 
+export const revalidate = 60
+export const dynamicParams = true
+
 export async function generateStaticParams() {
   return await getAllTemplatesSlug();
 }

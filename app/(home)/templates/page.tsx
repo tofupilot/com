@@ -3,6 +3,8 @@ import { ContainerLanding } from "@/app/components/ContainerLanding";
 import { TemplateGrid } from "@/app/components/ui/templates/TemplateGrid";
 import { Metadata } from "next";
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
   title: "Templates",
   description:
