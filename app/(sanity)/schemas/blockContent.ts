@@ -137,7 +137,7 @@ export default defineType({
               }
               // Branch validation
               const branchMatch = url.match(
-                /^https:\/\/raw\.githubusercontent\.com\/[^/]+\/[^/]+\/([^/]+)\//
+                /^https:\/\/raw\.githubusercontent\.com\/[^/]+\/[^/]+\/(?:refs\/heads\/)?([^/]+)\//
               );
               const branch = branchMatch ? branchMatch[1] : null;
               if (branch && branch !== "main") {
