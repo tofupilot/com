@@ -1,7 +1,7 @@
 "use client";
 
 import { Select } from "@/app/components/catalyst/select";
-import { ButtonSubmitForm } from "@/app/components/utils/button-submit-form";
+import { ButtonSubmitForm } from "@/app/components/ui/contact/button-submit-form";
 import { siteConfig } from "@/app/siteConfig";
 import { ClockIcon, PhoneIcon } from "@heroicons/react/16/solid";
 import { motion } from "framer-motion";
@@ -14,10 +14,10 @@ import {
   FieldGroup,
   Fieldset,
   Label,
-} from "../../components/catalyst/fieldset";
-import { Input } from "../../components/catalyst/input";
-import { Text, TextLink } from "../../components/catalyst/text";
-import { Textarea } from "../../components/catalyst/textarea";
+} from "../../../components/catalyst/fieldset";
+import { Input } from "../../../components/catalyst/input";
+import { Text, TextLink } from "../../../components/catalyst/text";
+import { Textarea } from "../../../components/catalyst/textarea";
 import { handleContactSubmission } from "./_actions";
 
 const features = [
@@ -76,7 +76,7 @@ export default function ContactFormPage({
         } else {
           setFormSubmitted(true); // Hide form and show success panel
         }
-      } catch (err) {
+      } catch {
         console.log(
           "An unexpected error occurred. Please check your details and try again."
         );

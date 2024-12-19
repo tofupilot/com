@@ -37,7 +37,7 @@ const team = [
 
 export default async function About() {
   return (
-    <div className="my-36 flex flex-col overflow-hidden px-3">
+    <div className="my-36 flex flex-col px-3">
       <section
         aria-labelledby="about-overview"
         className="animate-slide-up-fade"

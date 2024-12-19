@@ -1,5 +1,5 @@
-import clsx from 'clsx';
-import Image from 'next/image';
+import clsx from "clsx";
+import Image from "next/image";
 
 export function ThemedImage({
   lightSrc,
@@ -23,16 +23,14 @@ export function ThemedImage({
         alt={alt}
         width={width}
         height={height}
-        className={clsx('block dark:hidden', className)}
-        priority
+        className={clsx("block dark:hidden", className)}
       />
       <Image
         src={darkSrc}
         alt={alt}
         width={width}
         height={height}
-        className={clsx('hidden dark:block', className)}
-        priority
+        className={clsx("hidden dark:block", className)}
       />
     </>
   );

@@ -1,5 +1,4 @@
-const title =
-  "TofuPilot: Build and deploy high-performance hardware tests faster.";
+const title = "TofuPilot: Build and deploy hardware tests faster.";
 const description = "Plug-and-play manufacturing test analytics.";
 
 export const defaultKeywords = [

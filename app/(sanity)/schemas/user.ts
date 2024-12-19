@@ -1,70 +1,71 @@
-import { Image, TypedObject, defineField, defineType } from 'sanity'
+import { Image, TypedObject, defineField, defineType } from "sanity";
 
 export default defineType({
-  name: 'user',
-  title: 'User',
-  type: 'document',
+  name: "user",
+  title: "User",
+  type: "document",
   fields: [
     defineField({
-      name: 'name',
-      title: 'Name',
-      type: 'string'
+      name: "name",
+      title: "Name",
+      type: "string",
     }),
     defineField({
-      name: 'role',
-      title: 'Role',
-      type: 'string'
+      name: "role",
+      title: "Role",
+      type: "string",
     }),
     defineField({
-      name: 'company',
-      title: 'Company',
-      type: 'string'
+      name: "company",
+      title: "Company",
+      type: "string",
     }),
     defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
+      name: "image",
+      title: "Image",
+      type: "image",
       options: {
-        hotspot: true
+        hotspot: true,
       },
       fields: [
         {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative Text'
-        }
-      ]
+          name: "alt",
+          type: "string",
+          title: "Alternative Text",
+        },
+      ],
     }),
     defineField({
-      name: 'bio',
-      title: 'Bio',
-      type: 'array',
+      name: "bio",
+      title: "Bio",
+      type: "array",
       of: [
         {
-          title: 'Block',
-          type: 'block',
-          styles: [{ title: 'Normal', value: 'normal' }],
-          lists: []
-        }
-      ]
-    })
+          title: "Block",
+          type: "block",
+          styles: [{ title: "Normal", value: "normal" }],
+          lists: [],
+        },
+      ],
+    }),
   ],
   preview: {
     select: {
-      title: 'name',
-      media: 'image'
-    }
-  }
-})
+      title: "name",
+      media: "image",
+    },
+  },
+});
 
 export interface User {
-  _id: string
-  name: string
+  _id: string;
+  name: string;
   slug: {
-    _type: 'slug'
-    current: string
-  }
-  role: string
-  image: Image
-  bio: TypedObject[]
+    _type: "slug";
+    current: string;
+  };
+  role: string;
+  company: string;
+  image: Image;
+  bio: TypedObject[];
 }

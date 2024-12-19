@@ -1,6 +1,5 @@
-import { Id, Image, Slug, TypedObject, defineField, defineType } from "sanity";
+import { Id, Slug, TypedObject, defineField, defineType } from "sanity";
 import { Author } from "./author";
-import { Framework } from "./framework";
 
 export default defineType({
   name: "template",
@@ -29,8 +28,14 @@ export default defineType({
       type: "string",
       validation: (Rule) =>
         Rule.required()
-          .max(70)
-          .error("Summary should not exceed 70 characters."),
+          .max(100)
+          .error("Summary should not exceed 100 characters."),
+    }),
+    defineField({
+      name: "keywords",
+      title: "Keywords",
+      type: "array",
+      of: [{ type: "string" }],
     }),
     defineField({
       name: "author",
@@ -53,11 +58,11 @@ export default defineType({
       validation: (Rule) => Rule.required().error("A main image is required"),
     }),
     defineField({
-      name: "framework",
-      title: "Framework",
-      type: "reference",
-      to: { type: "framework" },
-      validation: (Rule) => Rule.required().error("A framework is required"),
+      name: "githubProject",
+      title: "GitHub Project",
+      type: "url",
+      validation: (Rule) =>
+        Rule.required().error("GitHub project URL is mandatory."),
     }),
     defineField({
       name: "usecase",
@@ -66,13 +71,31 @@ export default defineType({
       options: {
         list: [
           { title: "Functional Testing", value: "Functional Testing" },
-          { title: "In-Circuit Testing", value: "In-Circuit Testing" },
-          {
-            title: "Environmental Stress Testing",
-            value: "Environmental Stress Testing",
-          },
-          { title: "Boundary Scan Testing", value: "Boundary Scan Testing" },
-          { title: "Burn-In Testing", value: "Burn-In Testing" },
+          { title: "Factory Calibration", value: "Factory Calibration" },
+        ],
+      },
+      validation: (Rule) => Rule.required().error("USe case is mandatory"),
+    }),
+    defineField({
+      name: "language",
+      title: "Language",
+      type: "string",
+      options: {
+        list: [
+          { title: "Python", value: "Python" },
+          { title: "Matlab", value: "Matlab" },
+        ],
+      },
+      validation: (Rule) => Rule.required().error("Language is mandatory"),
+    }),
+    defineField({
+      name: "framework",
+      title: "Framework",
+      type: "string",
+      options: {
+        list: [
+          { title: "Pytest", value: "PyTest" },
+          { title: "OpenHTF", value: "OpenHTF" },
         ],
       },
     }),
@@ -95,15 +118,27 @@ export default defineType({
   },
 });
 
-export interface Template {
+export type Heading = {
+  text: string;
+  level: string; // "h1", "h2", etc.
+};
+
+export type Template = {
   _id: Id;
   slug: Slug;
   title: string;
   summary: string;
   author: Author;
-  mainImage: Image;
-  framework: Framework;
+  mainImage: {
+    alt: string;
+    url: string;
+  };
+  githubProject: string;
   usecase: string;
+  language: string;
+  framework?: string;
   publishedAt: string; // ISO 8601 date string
   body: TypedObject[];
-}
+  headings?: Array<Heading>;
+  keywords: string[];
+};

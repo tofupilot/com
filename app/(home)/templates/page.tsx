@@ -1,12 +1,14 @@
 import { getAllTemplates } from "@/app/(sanity)/lib/client";
 import { ContainerLanding } from "@/app/components/ContainerLanding";
-import { TemplateGrid } from "@/app/components/ui/TemplateGrid";
+import { TemplateGrid } from "@/app/components/ui/templates/TemplateGrid";
 import { Metadata } from "next";
 
+export const revalidate = 60
+
 export const metadata: Metadata = {
-  title: "Templates › TofuPilot",
+  title: "Templates",
   description:
-    "Jumpstart your app development process with pre-built solutions from Vercel and our community.",
+    "Jumpstart your app development process with pre-built solutions from TofuPilot and our community.",
 };
 
 export default async function Page() {
@@ -17,11 +19,9 @@ export default async function Page() {
       description="Jumpstart your test development process with pre-built solutions from TofuPilot and our community."
       wide
     >
-      <div className="mb-64 py-12 sm:py-20">
+      <div className="py-12 sm:py-20">
         <TemplateGrid templates={templates} />
       </div>
     </ContainerLanding>
   );
 }
-
-export const revalidate = 60;

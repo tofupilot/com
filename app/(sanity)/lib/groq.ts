@@ -73,6 +73,10 @@ export const singlequery = groq`
         ..., // Retrieves all properties of the referenced user
         // Specify further fields you want from the user here
       }
+    },
+    _type == "image" => {
+      ...,
+      "caption": caption // Fetch the caption for images in body content
     }
   },
   author->,
@@ -163,7 +167,7 @@ export const releasequery = groq`
       ...,
       _type == "internalLink" => {
         "slug": @.reference->slug
-      }
+      },
     }
   },
   highlights[]{
@@ -214,11 +218,9 @@ export const templatesquery = groq`
     name,
     role
   },
-  framework-> {
-    title,
-    language
-  },
   usecase,
+  framework,
+  keywords,
 }
 `;
 
@@ -241,14 +243,21 @@ export const templatequery = groq`
         ..., // Retrieves all properties of the referenced user
         // Specify further fields you want from the user here
       }
-    }
+    },
+    _type == "image" => {
+      ...,
+      "caption": caption // Fetch the caption for images in body content
+    },
   },
   author->,
-  framework-> {
-    title,
-    language,
-  },
+  githubProject,
   usecase,
+  framework,
+  language,
+  "headings": body[style in ["h1"]]{ 
+      "level": style, 
+      "text": children[].text 
+  },
   "related": *[_type == "post" && count(categories[@._ref in ^.^.categories[]._ref]) > 0 ] | order(_createdAt desc) [0...5] {
     title,
     slug,

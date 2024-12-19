@@ -2,7 +2,6 @@ import { type SchemaTypeDefinition } from "sanity";
 
 import author from "./schemas/author";
 import blockContent from "./schemas/blockContent";
-import framework from "./schemas/framework";
 import post from "./schemas/post";
 import postCategory from "./schemas/postCategory";
 import release from "./schemas/release";
@@ -23,6 +22,5 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     releaseCategory,
     // templates
     template,
-    framework,
   ],
 };
