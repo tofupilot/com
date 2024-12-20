@@ -40,7 +40,7 @@ export default function Hero() {
         </Button>
         <Button plain href={siteConfig.baseLinks.changelog} className="h-10">
           <SparklesIcon />
-          New: OpenHTF Support
+          New: Multi-measurement
           <ChevronRightIcon />
         </Button>
       </div>
