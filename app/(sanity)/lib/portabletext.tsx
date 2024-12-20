@@ -135,7 +135,8 @@ const GithubComponent = async ({
     // Get GitHub public URL from raw one
     const publicUrl = value.url
       .replace("raw.githubusercontent.com", "github.com")
-      .replace("/main/", "/blob/main/");
+      .replace("/refs/heads/", "/blob/")
+      .replace("/main/", "/main/");
 
     return (
       // Out of "prose" for <pre> custom styling
