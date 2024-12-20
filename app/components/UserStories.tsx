@@ -82,9 +82,8 @@ export default function UserStories() {
         <Balancer>Trusted by fast-moving engineering teams</Balancer>
       </h2>
       <p className="mt-6 max-w-3xl text-lg leading-7 text-zinc-600 dark:text-zinc-400">
-        TofuPilot helps engineering teams worldwide build faster,
-        high-performance tests for drones, medical devices, photonic sensors,
-        and more.
+        TofuPilot helps engineering teams worldwide build tests faster for
+        drones, medical devices, photonic sensors, and more.
       </p>
       <div className="mx-auto mt-12 grid max-w-2xl auto-rows-fr grid-cols-1 gap-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
         {cards.map((post, index) => (

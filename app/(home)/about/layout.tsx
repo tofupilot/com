@@ -3,7 +3,7 @@ import { defaultKeywords } from "../metadata";
 export const metadata = {
   title: "About",
   description:
-    "TofuPilot is a Swiss-based startup founded by robotics test engineers. Our mission is to help engineers build high-performance hardware test systems faster.",
+    "TofuPilot is a Swiss-based startup founded by robotics test engineers. Our mission is to help engineers build hardware test systems faster.",
   keywords: [
     ...defaultKeywords,
     "about tofupilot",
