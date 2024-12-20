@@ -2,6 +2,7 @@ import "@/styles/tailwind.css";
 
 import Footer from "../components/Footer";
 import { Navigation } from "../components/Navigation";
+import { Analytics } from '@vercel/analytics/next';
 
 export default function Layout({
   children,
@@ -13,6 +14,7 @@ export default function Layout({
       <Navigation />
       {children}
       <Footer />
+      <Analytics />
     </>
   );
 }
