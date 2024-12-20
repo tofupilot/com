@@ -1,3 +1,5 @@
+import "@/styles/tailwind.css";
+
 import { ThemeProvider } from "next-themes";
 import { Inter } from "next/font/google";
 import { defaultMetadata } from "./(home)/metadata";

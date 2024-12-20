@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { Button } from "./components/catalyst/button";
 
 export const metadata: Metadata = {
-  title: "Not Found | TofuPilot",
+  title: "Not Found",
   description: "The requested page could not be found.",
 };
 
