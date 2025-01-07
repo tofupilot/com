@@ -29,6 +29,10 @@ const nextConfig = {
         source: "/api/:path*",
         destination: `${process.env.NEXT_PUBLIC_APP_URL}/api/:path*`,
       },
+      {
+        source: "/auth/:path*",
+        destination: `${process.env.NEXT_PUBLIC_APP_URL}/auth/:path*`,
+      },
     ];
   },
 };
