@@ -5,7 +5,7 @@ import Script from 'next/script';
 export function HotJar() {
   if (process.env.NODE_ENV === 'production') {
     return (
-      <Script id="hotjar">
+      <Script id="hotjar" strategy="afterInteractive">
         {`
           (function (c, s, q, u, a, r, e) {
               c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
