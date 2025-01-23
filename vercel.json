@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/docs/asynchronous-upload",
+      "destination": "/docs/offline-upload",
+      "permanent": true
+    },
+    {
+      "source": "/docs/steps",
+      "destination": "/docs/phases",
+      "permanent": true
+    },
+    {
+      "source": "/docs/report",
+      "destination": "/docs/phases",
+      "permanent": true
+    }
+  ]
+}
