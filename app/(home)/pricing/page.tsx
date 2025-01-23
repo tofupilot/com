@@ -226,7 +226,7 @@ const sections: Section[] = [
       },
       {
         name: "Process Capability",
-        tooltip: "Real-time Cpk computation at the step level.",
+        tooltip: "Real-time Cpk computation at test step level.",
         plans: {
           Lab: true,
           Pro: true,
