@@ -31,7 +31,7 @@ export default function NewsletterSubscribeCard() {
             </button>
           </div>
           <p className="mt-1 text-xs/6">
-            We'll share your email with Mailchimp.
+            We&apos;ll share your email with Mailchimp.
           </p>
         </form>
       </div>

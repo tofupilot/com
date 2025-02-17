@@ -10,11 +10,9 @@ import {
 import { urlForImage } from "@/app/(sanity)/lib/image";
 import { PortableText } from "@/app/(sanity)/lib/portabletext";
 import Link from "next/link";
-import Iframe from "react-iframe";
 
 import { Button } from "@/app/components/catalyst/button";
 import Cta from "@/app/components/Cta";
-import { BadgeBlogCategory } from "@/app/components/ui/blog/BadgeBlogCategory";
 import { siteConfig } from "@/app/siteConfig";
 
 export default function Newsletter(props: any) {
@@ -28,7 +26,7 @@ export default function Newsletter(props: any) {
     <>
       <article className="px-6 pt-32 lg:px-8">
         <div className="mx-auto max-w-2xl text-base leading-7 text-zinc-700 dark:text-zinc-300">
-          {/* Navbar + post category */}
+          {/* Navbar and title */}
           <nav className="flex" aria-label="Breadcrumb">
             <ol role="list" className="flex items-center space-x-4">
               <li>
@@ -52,19 +50,11 @@ export default function Newsletter(props: any) {
                     aria-hidden="true"
                   />
                   <Link
-                    href="/"
+                    href={siteConfig.baseLinks.newsletter}
                     className="ml-4 text-sm font-medium text-zinc-500 hover:text-zinc-700 hover:dark:text-zinc-300"
                   >
-                    Blog
+                    Newsletters
                   </Link>
-                </div>
-              </li>
-              <li key={"categories"}>
-                <div className="flex items-center gap-x-4">
-                  <ChevronRightIcon
-                    className="h-5 w-5 flex-shrink-0 text-zinc-400 dark:text-zinc-600"
-                    aria-hidden="true"
-                  />
                 </div>
               </li>
             </ol>

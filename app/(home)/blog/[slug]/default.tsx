@@ -66,7 +66,7 @@ export default function Post(props: any) {
                     aria-hidden="true"
                   />
                   <Link
-                    href="/"
+                    href={siteConfig.baseLinks.blog}
                     className="ml-4 text-sm font-medium text-zinc-500 hover:text-zinc-700 hover:dark:text-zinc-300"
                   >
                     Blog

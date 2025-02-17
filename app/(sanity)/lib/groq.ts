@@ -196,7 +196,7 @@ export const releasequery = groq`
 `;
 
 // ====== Newsletters ======
-// Get all posts
+// Get all newsletters for list view
 export const newsletterquery = groq`
 *[_type == "newsletter"] | order(publishedAt desc, _createdAt desc) {
   _id,
@@ -222,7 +222,7 @@ export const newsletterquery = groq`
 }
 `;
 
-// Newsletter single page query
+// Get one newsletter for single page
 export const newslettersinglequery = groq`
 *[_type == "newsletter" && slug.current == $slug][0] {
   ...,
@@ -250,7 +250,7 @@ export const newslettersinglequery = groq`
 }
 `;
 
-// Newwsletter all path query
+// Get all slugs of newsletters for SSR
 export const newsletterpathquery = groq`
 *[_type == "newsletter" && defined(slug.current)][].slug.current
 `;
