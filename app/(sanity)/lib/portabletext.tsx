@@ -10,6 +10,7 @@ import CopyButton from "@/app/components/shiki/CopyButton";
 import { getHighlighter } from "@/app/components/shiki/highlighter";
 import {
   ArrowUpRightIcon,
+  ChevronRightIcon,
   InformationCircleIcon,
 } from "@heroicons/react/16/solid";
 import {
@@ -176,11 +177,37 @@ interface MarkProps {
   value?: any; // Define a more specific type if possible
 }
 
+const CtaButton = ({
+  value,
+}: {
+  value: {
+    url: string;
+    text: string;
+    newTab: boolean;
+  };
+}) => {
+  return (
+    <div className="not-prose pt-4 pb-8 align-middle flex justify-center">
+      <Button
+        color="lime"
+        href={value.url}
+        target={value.newTab ? "_blank" : "_self"}
+        rel={value.newTab ? "noopener noreferrer" : undefined}
+        className="h-12"
+      >
+        {value.text}
+        {value.newTab ? <ArrowUpRightIcon /> : <ChevronRightIcon />}
+      </Button>
+    </div>
+  );
+};
+
 const components: PortableTextComponents = {
   types: {
     image: ImageComponent,
     testimonial: TestimonialComponent,
     github: GithubComponent,
+    ctaButton: CtaButton,
   },
   marks: {
     center: (props: MarkProps) => (

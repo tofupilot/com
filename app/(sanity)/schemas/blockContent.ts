@@ -170,5 +170,35 @@ export default defineType({
         },
       },
     }),
+    defineArrayMember({
+      type: "object",
+      name: "ctaButton",
+      title: "CTA Button",
+      fields: [
+        {
+          name: "text",
+          type: "string",
+          title: "Button Text",
+          validation: (Rule) => Rule.required().min(2).max(50),
+          description: "The text displayed on the button.",
+          placeholder: "Get Started",
+        },
+        {
+          name: "url",
+          type: "url",
+          title: "Button URL",
+          validation: (Rule) => Rule.required().uri({ allowRelative: true }),
+          description: "The URL the button links to.",
+          placeholder: "https://example.com",
+        },
+        {
+          name: "newTab",
+          type: "boolean",
+          title: "Open in New Tab",
+          initialValue: false,
+          description: "If checked, the link will open in a new tab.",
+        },
+      ],
+    }),
   ],
 });

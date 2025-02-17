@@ -95,6 +95,7 @@ export const singlequery = groq`
 export const pathquery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
 `;
+
 export const catpathquery = groq`
 *[_type == "category" && defined(slug.current)][].slug.current
 `;
@@ -192,6 +193,66 @@ export const releasequery = groq`
     },
   }
 }
+`;
+
+// ====== Newsletters ======
+// Get all newsletters for list view
+export const newsletterquery = groq`
+*[_type == "newsletter"] | order(publishedAt desc, _createdAt desc) {
+  _id,
+  _createdAt,
+  publishedAt,
+  mainImage {
+    ...,
+    "blurDataURL":asset->metadata.lqip,
+    "ImageColor": asset->metadata.palette.dominant.background,
+  },
+  featured,
+  excerpt,
+  slug,
+  title,
+  preview,
+  author-> {
+    _id,
+    image,
+    slug,
+    name,
+    role
+  },
+}
+`;
+
+// Get one newsletter for single page
+export const newslettersinglequery = groq`
+*[_type == "newsletter" && slug.current == $slug][0] {
+  ...,
+  body[]{
+    ...,
+    markDefs[]{
+      ...,
+      _type == "internalLink" => {
+        "slug": @.reference->slug
+      }
+    },
+    _type == "image" => {
+      ...,
+      "caption": caption // Fetch the caption for images in body content
+    }
+  },
+  author->,
+  "estReadingTime": round(length(pt::text(body)) / 5 / 180 ),
+  "related": *[_type == "post" && count(categories[@._ref in ^.^.categories[]._ref]) > 0 ] | order(publishedAt desc, _createdAt desc) [0...5] {
+    title,
+    slug,
+    "date": coalesce(publishedAt,_createdAt),
+    "image": mainImage
+  },
+}
+`;
+
+// Get all slugs of newsletters for SSR
+export const newsletterpathquery = groq`
+*[_type == "newsletter" && defined(slug.current)][].slug.current
 `;
 
 // ====== Templates ======
