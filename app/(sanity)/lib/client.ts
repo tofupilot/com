@@ -7,6 +7,9 @@ import {
   catpathquery,
   catquery,
   configQuery,
+  newsletterpathquery,
+  newsletterquery,
+  newslettersinglequery,
   paginatedquery,
   pathquery,
   postquery,
@@ -16,7 +19,7 @@ import {
   singlequery,
   templatepathquery,
   templatequery,
-  templatesquery,
+  templatesquery
 } from "./groq";
 
 export const client = createClient({
@@ -140,6 +143,31 @@ export async function getPaginatedPosts({
   return [];
 }
 
+
+// ====== Newsletter ======
+
+export async function getAllNewsletters() {
+  if (client) {
+    return (await client.fetch(newsletterquery)) || [];
+  }
+  return [];
+}
+
+
+export async function getNewsletterBySlug(slug: string) {
+  if (client) {
+    return (await client.fetch(newslettersinglequery, { slug })) || {};
+  }
+  return {};
+}
+
+export async function getAllNewslettersSlugs() {
+  if (client) {
+    const slugs = (await client.fetch(newsletterpathquery)) || [];
+    return slugs.map((slug: string) => ({ slug }));
+  }
+  return [];
+}
 
 // ====== Releases ======
 

@@ -17,21 +17,7 @@ import Cta from "@/app/components/Cta";
 import { BadgeBlogCategory } from "@/app/components/ui/blog/BadgeBlogCategory";
 import { siteConfig } from "@/app/siteConfig";
 
-function getYoutubeNoCookieEmbedUrl(youtubeUrl: string) {
-  // Regular expression to match YouTube URLs and extract the video ID
-  const youtubeRegExp =
-    /^.*(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/;
-  const match = youtubeUrl.match(youtubeRegExp);
-
-  // Construct the "youtube-nocookie" URL if a valid ID is found
-  if (match && match[2].length === 11) {
-    return `https://www.youtube-nocookie.com/embed/${match[2]}`;
-  } else {
-    return ""; // Return null if the URL does not contain a valid YouTube video ID
-  }
-}
-
-export default function Post(props: any) {
+export default function Newsletter(props: any) {
   const { loading, post } = props;
   const slug = post?.slug;
   if (!loading && !slug) {
@@ -79,7 +65,6 @@ export default function Post(props: any) {
                     className="h-5 w-5 flex-shrink-0 text-zinc-400 dark:text-zinc-600"
                     aria-hidden="true"
                   />
-                  <BadgeBlogCategory categories={post.categories} />
                 </div>
               </li>
             </ol>
@@ -94,33 +79,14 @@ export default function Post(props: any) {
           {/* Main Media */}
           <figure className="mt-10">
             <div className="relative z-0 mx-auto my-4 aspect-video max-w-screen-lg overflow-hidden rounded-lg shadow-xl shadow-black/40 dark:bg-zinc-950 dark:shadow-lime-900/30">
-              {post.mainVideo ? (
-                <Iframe
-                  url={getYoutubeNoCookieEmbedUrl(post.mainVideo)}
-                  width="100%"
-                  height="100%"
-                  className={
-                    "rounded-xl bg-zinc-50 object-cover dark:bg-zinc-950"
-                  }
-                  display="block"
-                  position="relative"
-                  frameBorder={0}
-                  allowFullScreen
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture"
-                />
-              ) : (
-                post.mainImage && (
-                  <Image
-                    src={urlForImage(post.mainImage)}
-                    alt={post.mainImage?.alt || "Thumbnail"}
-                    loading="eager"
-                    fill
-                    sizes="100vw"
-                    className="object-cover"
-                  />
-                )
-              )}
+              <Image
+                src={urlForImage(post.mainImage)}
+                alt={post.mainImage?.alt || "Thumbnail"}
+                loading="eager"
+                fill
+                sizes="100vw"
+                className="object-cover"
+              />
             </div>
           </figure>
 

@@ -1,17 +1,17 @@
-import { getAllPostsSlugs, getPostBySlug } from "@/app/(sanity)/lib/client";
-import PostPage from "./default";
+import { getAllNewslettersSlugs, getAllPostsSlugs, getNewsletterBySlug, getPostBySlug } from "@/app/(sanity)/lib/client";
+import Newsletter from "../default";
 
 export async function generateStaticParams() {
-  return await getAllPostsSlugs();
+  return await getAllNewslettersSlugs();
 }
 
-export default async function PostDefault({
+export default async function NewsletterDefault({
   params,
 }: {
   params: { slug: string };
 }) {
-  const post = await getPostBySlug(params.slug);
-  return <PostPage post={post} />;
+  const post = await getNewsletterBySlug(params.slug);
+  return <Newsletter post={post} />;
 }
 
 export const revalidate = 60;

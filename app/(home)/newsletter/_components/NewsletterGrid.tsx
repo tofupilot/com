@@ -8,7 +8,7 @@ export default function NewsletterGrid({ newsletters }: { newsletters: any }) {
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
         {newsletters.map((newsletter: any) => (
           <Link
-            href={siteConfig.baseLinks.blog + `/${newsletter.slug.current}`}
+            href={siteConfig.baseLinks.newsletter + `/${newsletter.slug.current}`}
             key={newsletters.id}
             className="flex flex-col items-start justify-between border border-transparent hover:border-gray-200 hover:border-transparent hover:shadow-lg focus:outline-none focus:border-transparent focus:shadow-lg transition duration-300 rounded-xl p-5 dark:border-neutral-700 dark:hover:border-transparent dark:hover:shadow-black/40 dark:focus:border-transparent dark:focus:shadow-black/40"
           >
@@ -42,7 +42,7 @@ export default function NewsletterGrid({ newsletters }: { newsletters: any }) {
                   {newsletter.title}
                 </h3>
                 <p className="mt-5 flex-1 line-clamp-3 text-base/6 dark:text-zinc-400 text-zinc-600">
-                  {newsletter.summary}
+                  {newsletter.preview}
                 </p>
               </div>
             </div>

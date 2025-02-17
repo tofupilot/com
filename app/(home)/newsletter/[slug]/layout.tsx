@@ -1,4 +1,4 @@
-import { getPostBySlug } from "@/app/(sanity)/lib/client";
+import { getNewsletterBySlug, getPostBySlug } from "@/app/(sanity)/lib/client";
 import { urlForImage } from "@/app/(sanity)/lib/image";
 import { notFound } from "next/navigation";
 
@@ -7,15 +7,15 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const post = await getPostBySlug(params.slug);
-  if (!post?.slug) {
+  const newsletter = await getNewsletterBySlug(params.slug);
+  if (!newsletter?.slug) {
     notFound();
   }
   return {
-    title: post.title,
-    description: post.summary,
+    title: newsletter.title,
+    description: newsletter.summary,
     openGraph: {
-      images: [urlForImage(post.mainImage)],
+      images: [urlForImage(newsletter.mainImage)],
     },
   };
 }

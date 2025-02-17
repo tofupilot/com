@@ -8,6 +8,7 @@ import release from "./schemas/release";
 import releaseCategory from "./schemas/releaseHighlightCategory";
 import template from "./schemas/template";
 import user from "./schemas/user";
+import newsletter from "./schemas/newsletter";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -17,6 +18,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     postCategory,
     blockContent,
     user,
+    // newsletter
+    newsletter,
     // changelog
     release,
     releaseCategory,

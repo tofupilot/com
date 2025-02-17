@@ -1,12 +1,11 @@
-import { getAllPosts } from "@/app/(sanity)/lib/client";
+import { getAllNewsletters } from "@/app/(sanity)/lib/client";
 import { ContainerLanding } from "@/app/components/ContainerLanding";
-import NewsletterHighlight from "./_components/NewsletterHighlight";
-import NewsletterList from "./_components/NewsletterGrid";
-import NewsletterSubscribeCard from "./_components/NewsletterSubscribeCard";
 import NewsletterGrid from "./_components/NewsletterGrid";
+import NewsletterHighlight from "./_components/NewsletterHighlight";
+import NewsletterSubscribeCard from "./_components/NewsletterSubscribeCard";
 
 export default async function Page() {
-  const posts = await getAllPosts();
+  const newsletters = await getAllNewsletters();
   return (
     <ContainerLanding
       title="Newsletter"
@@ -14,9 +13,9 @@ export default async function Page() {
       wide
     >
       <div className="mt-8 flex flex-col">
-        <NewsletterHighlight newsletter={posts[0]} />
+        <NewsletterHighlight newsletter={newsletters[0]} />
         <NewsletterSubscribeCard />
-        <NewsletterGrid newsletters={posts.slice(1)} />
+        <NewsletterGrid newsletters={newsletters.slice(1)} />
       </div>
     </ContainerLanding>
   );

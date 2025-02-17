@@ -9,7 +9,7 @@ export default function NewsletterHighlight({
 }) {
   return (
     <Link
-      href={siteConfig.baseLinks.blog + `/${newsletter.slug.current}`}
+      href={siteConfig.baseLinks.newsletter + `/${newsletter.slug.current}`}
       key={newsletter.id}
       className="relative isolate flex flex-col gap-8 lg:flex-row border border-zinc-900/5 hover:border-gray-200 hover:border-transparent hover:shadow-lg focus:outline-none focus:border-transparent focus:shadow-lg transition duration-300 rounded-xl p-5 dark:border-neutral-700 dark:hover:border-transparent dark:hover:shadow-black/40 dark:focus:border-transparent dark:focus:shadow-black/40"
     >
@@ -39,7 +39,7 @@ export default function NewsletterHighlight({
             </a>
           </h3>
           <p className="mt-5 text-base/6 text-zinc-600 dark:text-zinc-400">
-            {newsletter.summary}
+            {newsletter.preview}
           </p>
         </div>
         <div className="mt-6 flex pt-6">
