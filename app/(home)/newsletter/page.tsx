@@ -9,12 +9,11 @@ export default async function Page() {
   return (
     <ContainerLanding
       title="Newsletter"
-      description="Insights and updates from across the team."
+      description="Subscribe to get low-frequency updates on TofuPilot."
       wide
     >
       <div className="mt-8 flex flex-col">
         <NewsletterHighlight newsletter={newsletters[0]} />
-        <NewsletterSubscribeCard />
         <NewsletterGrid newsletters={newsletters.slice(1)} />
       </div>
     </ContainerLanding>

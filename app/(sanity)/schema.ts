@@ -9,21 +9,19 @@ import releaseCategory from "./schemas/releaseHighlightCategory";
 import template from "./schemas/template";
 import user from "./schemas/user";
 import newsletter from "./schemas/newsletter";
+import career from "./schemas/career";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
-    // blog
     post,
     author,
     postCategory,
     blockContent,
     user,
-    // newsletter
+    career,
     newsletter,
-    // changelog
     release,
     releaseCategory,
-    // templates
     template,
   ],
 };

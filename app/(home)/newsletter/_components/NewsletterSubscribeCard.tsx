@@ -1,39 +1,69 @@
+"use client";
+
+import { useState } from "react";
+import { Button } from "@/app/components/catalyst/button";
+import { toast } from "sonner";
+import posthog from "posthog-js";
+import { Input } from "@/app/components/catalyst/input";
+import { ErrorMessage } from "@/app/components/catalyst/fieldset";
+
 export default function NewsletterSubscribeCard() {
+  const [email, setEmail] = useState("");
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setErrors({});
+
+    try {
+      posthog.identify(email, { email });
+      posthog.capture("user signed up to newsletter", { email });
+      toast.success("Welcome in, yay!");
+    } catch (error) {
+      setErrors({ email: "Failed to subscribe" });
+      toast.error("Failed to subscribe. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="py-8 sm:py-12 lg:py-16 mx-auto">
+    <div className="py-10 sm:py-14 lg:py-18 mx-auto">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="text-sm">Subscribe to our newsletter.</h2>
-        <h2 className="text-xl font-semibold text-zinc-900">
+        <h2 className="text-base">Subscribe to our newsletter</h2>
+        <h2 className="mt-2 text-2xl font-bold text-zinc-900 dark:text-white">
           Test for Engineers
         </h2>
-        <h3 className="max-w-2xl text-balance text-sm tracking-tight text-zinc-900">
-          Read by 1,000+ hardware builders.
+        <h3 className="max-w-2xl text-balance text-base tracking-tight text-zinc-600 dark:text-zinc-400">
+          Read by 500+ hardware and test builders.
         </h3>
-        <form className="mt-2 max-w-md">
+        <form className="mt-4 max-w-md" onSubmit={handleSubmit}>
           <div className="flex gap-x-4">
             <label htmlFor="email-address" className="sr-only">
               Email address
             </label>
-            <input
-              id="email-address"
+            <Input
               name="email"
               type="email"
               required
               placeholder="Enter your email"
               autoComplete="email"
-              className="min-w-0 flex-auto rounded-md bg-white px-3.5 py-2 text-base text-zinc-900 outline outline-1 -outline-offset-1 outline-zinc-300 placeholder:text-zinc-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+              className="min-w-60"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              invalid={!!errors.email}
             />
-            <button
-              type="submit"
-              className="flex-none rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              Subscribe
-            </button>
+            {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
+            <Button color="lime" type="submit" disabled={loading}>
+              {loading ? "Submitting..." : "Subscribe"}
+            </Button>
           </div>
-          <p className="mt-1 text-xs/6">
-            We&apos;ll share your email with Mailchimp.
-          </p>
         </form>
+        <p className="mt-1 text-xs/6 text-zinc-600 dark:text-zinc-400">
+          We&apos;ll share your email with Mailchimp.
+        </p>
       </div>
     </div>
   );

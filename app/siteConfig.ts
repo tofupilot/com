@@ -14,6 +14,7 @@ export const siteConfig = {
     changelog: "/changelog",
     contact: "/contact/sales",
     newsletter: "/newsletter",
+    careers: "/careers",
 
     // docs
     docs: "/docs",
