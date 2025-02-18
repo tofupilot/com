@@ -11,7 +11,7 @@ export default async function Page() {
       description="Come build the future of manufacturing with us."
       wide
     >
-      <div className="mt-8 flex flex-col">
+      <div className="mt-16 pb-64 flex w-full items-center justify-center">
         <CareersList careers={careers} />
       </div>
     </ContainerLanding>

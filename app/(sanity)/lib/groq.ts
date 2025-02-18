@@ -265,6 +265,10 @@ export const careersquery = groq`
   slug,
   title,
   preview,
+  employmentType,
+  location,
+  salaryRange,
+  closingDate,
 }
 `;
 
