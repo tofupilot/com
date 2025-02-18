@@ -16,7 +16,7 @@ import {
   MapPinIcon,
   SunIcon,
   TrophyIcon,
-  UserGroupIcon
+  UserGroupIcon,
 } from "@heroicons/react/16/solid";
 
 import { PortableText } from "@/app/(sanity)/lib/portabletext";
@@ -26,6 +26,7 @@ import { Button } from "@/app/components/catalyst/button";
 import { cx } from "@/app/lib/utils";
 import { siteConfig } from "@/app/siteConfig";
 import Image from "next/image";
+import ApplyForm from "./_components/ApplyFormPage";
 
 const values = [
   {
@@ -84,31 +85,31 @@ const benefits = [
 const steps = [
   {
     name: "Application",
-    subtitle: "You are here",
+    subtitle: "(You are here)",
     description:
       "Our team will review your application. We're looking to see how your skills and experience align with our needs.",
   },
   {
     name: "Culture interview",
-    subtitle: "30-min video call",
+    subtitle: "(30-min video call)",
     description:
       "Our goal is to explore your motivations to join our team, learn why you’d be a great fit, and answer questions about us.",
   },
   {
     name: "Technical interview",
-    subtitle: "1 hour",
+    subtitle: "(1 hour)",
     description:
       "You'll meet the hiring team who will evaluate skills needed to be successful in your role. No live coding.",
   },
   {
     name: "TofuPilot Day",
-    subtitle: "1 day",
+    subtitle: "(1 day)",
     description:
       "You'll meet more team members and work on an independent project - it's challenging but fun! We’ll cover your accommodation, provide lunch, and you'll leave with some goodies.",
   },
   {
     name: "Offer",
-    subtitle: "yo",
+    subtitle: "",
     description:
       "If everyone’s happy, we’ll make you an offer to join us - yay! Pop the champagne (after you sign).",
   },
@@ -161,29 +162,29 @@ export default function Newsletter(props: any) {
           <h1 className="mt-4 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
             {post.title}
           </h1>
-          <div className="mt-2 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-8">
-            <div className="mt-2 flex items-center dark:text-zinc-400 text-zinc-500">
+          <div className="mt-2 flex flex-col sm:flex-row sm:flex-wrap sm:space-x-8">
+            <div className="mt-0.5 flex items-center text-sm dark:text-zinc-400 text-zinc-500">
               <BriefcaseIcon
                 aria-hidden="true"
                 className="mr-2 size-5 shrink-0 text-lime-500"
               />
               {post.employmentType}
             </div>
-            <div className="mt-2 flex items-center dark:text-zinc-400 text-zinc-500">
+            <div className="mt-0.5 flex items-center text-sm dark:text-zinc-400 text-zinc-500">
               <MapPinIcon
                 aria-hidden="true"
                 className="mr-2 size-5 shrink-0 text-lime-500"
               />
               {post.location}
             </div>
-            <div className="mt-2 flex items-center dark:text-zinc-400 text-zinc-500">
+            <div className="mt-0.5 flex items-center text-sm dark:text-zinc-400 text-zinc-500">
               <BanknotesIcon
                 aria-hidden="true"
                 className="mr-2 size-5 shrink-0 text-lime-500"
               />
               {post.salaryRange}
             </div>
-            <div className="mt-2 flex items-center dark:text-zinc-400 text-zinc-500">
+            <div className="mt-0.5 flex items-center text-sm dark:text-zinc-400 text-zinc-500">
               <CalendarIcon
                 aria-hidden="true"
                 className="mr-2 size-5 shrink-0 text-lime-500"
@@ -253,7 +254,7 @@ export default function Newsletter(props: any) {
               Who we&apos;re looking for
             </h2>
             <div className="mt-6 prose text-base leading-7 text-zinc-700 dark:prose-invert focus:outline-none dark:text-zinc-300 dark:prose-a:text-zinc-400">
-              {post.body && <PortableText value={post.who} />}
+              {post.who && <PortableText value={post.who} />}
             </div>
           </div>
 
@@ -263,7 +264,7 @@ export default function Newsletter(props: any) {
               What you&apos;ll be doing
             </h2>
             <div className="mt-6 prose text-base leading-7 text-zinc-700 dark:prose-invert focus:outline-none dark:text-zinc-300 dark:prose-a:text-zinc-400">
-              {post.body && <PortableText value={post.what} />}
+              {post.what && <PortableText value={post.what} />}
             </div>
           </div>
 
@@ -273,7 +274,7 @@ export default function Newsletter(props: any) {
               Requirements
             </h2>
             <div className="mt-6 prose text-base leading-7 text-zinc-700 dark:prose-invert focus:outline-none dark:text-zinc-300 dark:prose-a:text-zinc-400">
-              {post.body && <PortableText value={post.requirements} />}
+              {post.requirements && <PortableText value={post.requirements} />}
             </div>
           </div>
 
@@ -338,7 +339,7 @@ export default function Newsletter(props: any) {
         <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
           Process
         </h2>
-        <div className="mt-10 flex flex-col pb-24">
+        <div className="mt-10 flex flex-col">
           {steps.map((step, index) => (
             <div
               key={index}
@@ -356,7 +357,7 @@ export default function Newsletter(props: any) {
                     {step.name}
                   </h4>
                   <p className="mt-0 ml-1 text-base/7 text-zinc-600 dark:text-zinc-400">
-                    ({step.subtitle})
+                    {step.subtitle}
                   </p>
                 </div>
                 <p className=" dark:text-zinc-300 text-base text-zinc-800 mt-1">
@@ -368,8 +369,22 @@ export default function Newsletter(props: any) {
         </div>
       </div>
 
+      <div className="mx-auto mt-16 max-w-2xl sm:mt-20 md:mt-24">
+        <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+          Apply
+        </h2>
+        <Button
+          color="lime"
+          className="h-12 w-full mt-10"
+          href={"mailto:careers@tofupilot.com"}
+        >
+          Apply by email
+        </Button>
+        {/* <ApplyForm /> */}
+      </div>
+
       <div className="flex justify-center mt-16 pb-64">
-        <Button color="lime" href={siteConfig.baseLinks.careers}>
+        <Button plain href={siteConfig.baseLinks.careers}>
           <ArrowLeftIcon />
           View all open positions
         </Button>
