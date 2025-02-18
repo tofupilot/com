@@ -272,6 +272,10 @@ export const careersquery = groq`
 export const careersinglequery = groq`
 *[_type == "career" && slug.current == $slug][0] {
   ...,
+  employmentType,
+  location,
+  salaryRange,
+  closingDate,
   what[]{
     ...,
     markDefs[]{

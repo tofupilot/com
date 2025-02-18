@@ -5,12 +5,15 @@ import {
   ArrowLeftIcon,
   BanknotesIcon,
   BellSlashIcon,
+  BriefcaseIcon,
+  CalendarIcon,
   ChevronRightIcon,
   FaceSmileIcon,
   GlobeEuropeAfricaIcon,
   HomeIcon,
   HomeModernIcon,
   MagnifyingGlassIcon,
+  MapPinIcon,
   SunIcon,
   TrophyIcon,
   UserGroupIcon
@@ -158,6 +161,36 @@ export default function Newsletter(props: any) {
           <h1 className="mt-4 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
             {post.title}
           </h1>
+          <div className="mt-2 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-8">
+            <div className="mt-2 flex items-center dark:text-zinc-400 text-zinc-500">
+              <BriefcaseIcon
+                aria-hidden="true"
+                className="mr-2 size-5 shrink-0 text-lime-500"
+              />
+              {post.employmentType}
+            </div>
+            <div className="mt-2 flex items-center dark:text-zinc-400 text-zinc-500">
+              <MapPinIcon
+                aria-hidden="true"
+                className="mr-2 size-5 shrink-0 text-lime-500"
+              />
+              {post.location}
+            </div>
+            <div className="mt-2 flex items-center dark:text-zinc-400 text-zinc-500">
+              <BanknotesIcon
+                aria-hidden="true"
+                className="mr-2 size-5 shrink-0 text-lime-500"
+              />
+              {post.salaryRange}
+            </div>
+            <div className="mt-2 flex items-center dark:text-zinc-400 text-zinc-500">
+              <CalendarIcon
+                aria-hidden="true"
+                className="mr-2 size-5 shrink-0 text-lime-500"
+              />
+              Published on {new Date(post.closingDate).toLocaleDateString()}
+            </div>
+          </div>
 
           {/* About TofuPilot */}
           <div className="mt-16 max-w-2xl">
@@ -214,6 +247,7 @@ export default function Newsletter(props: any) {
             </ul>
           </div>
 
+          {/* Who we're looking for */}
           <div className="mt-16 max-w-2xl">
             <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
               Who we&apos;re looking for
@@ -223,6 +257,7 @@ export default function Newsletter(props: any) {
             </div>
           </div>
 
+          {/* What you'll be doing */}
           <div className="mt-16 max-w-2xl">
             <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
               What you&apos;ll be doing
@@ -232,6 +267,7 @@ export default function Newsletter(props: any) {
             </div>
           </div>
 
+          {/* Requirements */}
           <div className="mt-16 max-w-2xl">
             <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
               Requirements
