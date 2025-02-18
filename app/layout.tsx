@@ -2,8 +2,10 @@ import "@/styles/tailwind.css";
 
 import { ThemeProvider } from "next-themes";
 import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
 import { defaultMetadata } from "./(home)/metadata";
 import { CSPostHogProvider } from "./components/monitoring/posthog";
+
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -29,6 +31,7 @@ export default function RootLayout({
           <ThemeProvider defaultTheme="dark" attribute="class">
             {children}
           </ThemeProvider>
+          <Toaster />
         </body>
       </CSPostHogProvider>
     </html>
