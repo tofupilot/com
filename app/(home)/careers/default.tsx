@@ -6,7 +6,6 @@ import {
   BanknotesIcon,
   BellSlashIcon,
   BriefcaseIcon,
-  CalendarIcon,
   ChevronRightIcon,
   FaceSmileIcon,
   GlobeEuropeAfricaIcon,
@@ -16,7 +15,7 @@ import {
   MapPinIcon,
   SunIcon,
   TrophyIcon,
-  UserGroupIcon,
+  UserGroupIcon
 } from "@heroicons/react/16/solid";
 
 import { PortableText } from "@/app/(sanity)/lib/portabletext";
@@ -26,7 +25,6 @@ import { Button } from "@/app/components/catalyst/button";
 import { cx } from "@/app/lib/utils";
 import { siteConfig } from "@/app/siteConfig";
 import Image from "next/image";
-import ApplyForm from "./_components/ApplyFormPage";
 
 const values = [
   {
