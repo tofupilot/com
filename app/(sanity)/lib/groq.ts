@@ -268,7 +268,7 @@ export const careersquery = groq`
   employmentType,
   location,
   salaryRange,
-  closingDate,
+  publishedDate,
 }
 `;
 
@@ -279,7 +279,7 @@ export const careersinglequery = groq`
   employmentType,
   location,
   salaryRange,
-  closingDate,
+  publishedDate,
   what[]{
     ...,
     markDefs[]{

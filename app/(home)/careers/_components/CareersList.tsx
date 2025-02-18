@@ -56,7 +56,7 @@ export default function CareersList({ careers }: { careers: any }) {
                   >
                     <circle r={1} cx={1} cy={1} />
                   </svg>
-                  Published on {new Date(career.closingDate).toLocaleDateString()}
+                  Published on {new Date(career.publishedDate).toLocaleDateString()}
                 </dd>
               </dl>
             </Link>

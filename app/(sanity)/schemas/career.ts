@@ -44,8 +44,8 @@ export default defineType({
       description: "Example: $120k – $140k",
     },
     {
-      name: "closingDate",
-      title: "Closing Date",
+      name: "publishedDate",
+      title: "Publication Date",
       type: "date",
     },
     defineField({

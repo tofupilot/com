@@ -189,7 +189,7 @@ export default function Newsletter(props: any) {
                 aria-hidden="true"
                 className="mr-2 size-5 shrink-0 text-lime-500"
               />
-              Published on {new Date(post.closingDate).toLocaleDateString()}
+              Published on {new Date(post.publishedDate).toLocaleDateString()}
             </div>
           </div>
 
