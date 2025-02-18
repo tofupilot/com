@@ -15,9 +15,9 @@ export default function NewsletterGrid({ newsletters }: { newsletters: any }) {
             <img
               alt=""
               src={urlForImage(newsletter.mainImage)}
-              className="aspect-video w-full rounded-2xl bg-zinc-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+              className="aspect-video w-full rounded-lg bg-zinc-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
             />
-            <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-zinc-900/10" />
+            <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-zinc-900/10" />
           </div>
           <div className="flex flex-col flex-1 max-w-xl">
             <div className="mt-8 flex items-center gap-x-4 text-sm">
