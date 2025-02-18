@@ -18,10 +18,8 @@ export default function NewsletterSubscribeCard() {
     setErrors({});
 
     try {
-      posthog.identify(email, {
-        email,
-        newsletter_signup_intent: true,
-      });
+      posthog.identify(email, { email });
+      posthog.capture("user signed up to newsletter", { email });
       toast.success("Welcome in, yay!");
     } catch (error) {
       setErrors({ email: "Failed to subscribe" });
