@@ -5,12 +5,15 @@ import {
   ArrowLeftIcon,
   BanknotesIcon,
   BellSlashIcon,
-  CheckCircleIcon,
   ChevronRightIcon,
+  FaceSmileIcon,
   GlobeEuropeAfricaIcon,
   HomeIcon,
   HomeModernIcon,
+  MagnifyingGlassIcon,
   SunIcon,
+  TrophyIcon,
+  UserGroupIcon
 } from "@heroicons/react/16/solid";
 
 import { PortableText } from "@/app/(sanity)/lib/portabletext";
@@ -20,6 +23,33 @@ import { Button } from "@/app/components/catalyst/button";
 import { cx } from "@/app/lib/utils";
 import { siteConfig } from "@/app/siteConfig";
 import Image from "next/image";
+
+const values = [
+  {
+    name: "Open-source & community.",
+    description:
+      "We believe a strong community around a free-for-life product is key to our strategy.",
+    icon: UserGroupIcon,
+  },
+  {
+    name: "Long-term relationships.",
+    description:
+      "Our founders worked together for eight years before TofuPilot. We aim to build lasting relationships with our customers and team.",
+    icon: FaceSmileIcon,
+  },
+  {
+    name: "Solving big problems.",
+    description:
+      "Our defining feature is still ahead of us. We move fast, talk to users, and iterate constantly.",
+    icon: TrophyIcon,
+  },
+  {
+    name: "Attention to detail.",
+    description:
+      "Our Swiss engineering background makes us relentless about the quality of our products and obsessed with the details.",
+    icon: MagnifyingGlassIcon,
+  },
+];
 
 const benefits = [
   {
@@ -145,10 +175,10 @@ export default function Newsletter(props: any) {
             <p className="mt-8">
               TofuPilot was founded in 2024 by two robotics engineers who wanted
               to help hardware teams bring innovation to market faster. Since
-              then, over 200 companies worldwide have installed TofuPilot, we&apos;ve
-              won multiple startup awards in Switzerland, are backed by the
-              Swiss Innovation Agency, and are experiencing strong product-led
-              growth driven by word of mouth.
+              then, over 200 companies worldwide have installed TofuPilot,
+              we&apos;ve won multiple startup awards in Switzerland, are backed
+              by the Swiss Innovation Agency, and are experiencing strong
+              product-led growth driven by word of mouth.
             </p>
             <p className="mt-8">
               We&apos;re growing quickly but sustainably. We are default alive,
@@ -167,60 +197,20 @@ export default function Newsletter(props: any) {
               role="list"
               className="mt-8 space-y-8 text-zinc-600 dark:text-zinc-400"
             >
-              <li className="flex gap-x-3">
-                <CheckCircleIcon
-                  aria-hidden="true"
-                  className="mt-1 size-5 flex-none text-lime-600"
-                />
-                <span>
-                  <strong className="font-semibold text-zinc-900 dark:text-white">
-                    Open-source & community.
-                  </strong>{" "}
-                  We believe a strong community around a free-for-life product
-                  is key to TofuPilot's strategy.
-                </span>
-              </li>
-              <li className="flex gap-x-3">
-                <CheckCircleIcon
-                  aria-hidden="true"
-                  className="mt-1 size-5 flex-none text-lime-600"
-                />
-                <span>
-                  <strong className="font-semibold text-zinc-900 dark:text-white">
-                    Long-term relationships.
-                  </strong>{" "}
-                  Our founders worked together for eight years before TofuPilot,
-                  and we aim to build the lasting relationships with our
-                  customers and team.
-                </span>
-              </li>
-              <li className="flex gap-x-3">
-                <CheckCircleIcon
-                  aria-hidden="true"
-                  className="mt-1 size-5 flex-none text-lime-600"
-                />
-                <span>
-                  <strong className="font-semibold text-zinc-900 dark:text-white">
-                    Attention to detail.
-                  </strong>{" "}
-                  Our founders&apos; passion for detail led them to Swiss quality
-                  engineering. At TofuPilot, we stick to that standard—if pixel
-                  alignment keeps you up at night, you&apos;ll fit right in.
-                </span>
-              </li>
-              <li className="flex gap-x-3">
-                <CheckCircleIcon
-                  aria-hidden="true"
-                  className="mt-1 size-5 flex-none text-lime-600"
-                />
-                <span>
-                  <strong className="font-semibold text-zinc-900 dark:text-white">
-                    Solving big problems.
-                  </strong>{" "}
-                  Our defining feature is still ahead of us. We move fast, talk
-                  to users, and iterate constantly.
-                </span>
-              </li>
+              {values.map((value) => (
+                <li className="flex gap-x-3" key={value.name}>
+                  <value.icon
+                    aria-hidden="true"
+                    className="mt-1 size-5 flex-none text-lime-600"
+                  />
+                  <span>
+                    <strong className="font-semibold text-zinc-900 dark:text-white">
+                      {value.name}
+                    </strong>{" "}
+                    {value.description}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -265,8 +255,9 @@ export default function Newsletter(props: any) {
               <p>
                 “We believe people from diverse backgrounds, with different
                 identities and experiences, make our product and our company
-                better. No matter your background, we&apos;d love to hear from you!
-                Alignment with our values is just as important as experience!”
+                better. No matter your background, we&apos;d love to hear from
+                you! Alignment with our values is just as important as
+                experience!”
               </p>
             </blockquote>
             <figcaption className="mt-6 flex gap-x-4">
