@@ -1,4 +1,4 @@
-import { getAllNewslettersSlugs, getAllPostsSlugs, getNewsletterBySlug, getPostBySlug } from "@/app/(sanity)/lib/client";
+import { getAllNewslettersSlugs, getNewsletterBySlug } from "@/app/(sanity)/lib/client";
 import Newsletter from "../default";
 
 export async function generateStaticParams() {
