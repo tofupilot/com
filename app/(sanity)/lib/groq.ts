@@ -255,6 +255,58 @@ export const newsletterpathquery = groq`
 *[_type == "newsletter" && defined(slug.current)][].slug.current
 `;
 
+// ====== Careers ======
+// Get all newsletters for list view
+export const careersquery = groq`
+*[_type == "career"] | order(publishedAt desc, _createdAt desc) {
+  _id,
+  _createdAt,
+  publishedAt,
+  slug,
+  title,
+  preview,
+}
+`;
+
+// Get one newsletter for single page
+export const careersinglequery = groq`
+*[_type == "career" && slug.current == $slug][0] {
+  ...,
+  what[]{
+    ...,
+    markDefs[]{
+      ...,
+      _type == "internalLink" => {
+        "slug": @.reference->slug
+      }
+    },
+  },
+  who[]{
+    ...,
+    markDefs[]{
+      ...,
+      _type == "internalLink" => {
+        "slug": @.reference->slug
+      }
+    },
+  },
+  requirements[]{
+    ...,
+    markDefs[]{
+      ...,
+      _type == "internalLink" => {
+        "slug": @.reference->slug
+      }
+    },
+  },
+}
+`;
+
+// Get all slugs of newsletters for SSR
+export const careerpathquery = groq`
+*[_type == "career" && defined(slug.current)][].slug.current
+`;
+
 // ====== Templates ======
 
 // Get all templates

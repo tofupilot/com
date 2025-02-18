@@ -4,6 +4,9 @@ import { apiVersion, dataset, projectId, useCdn } from "../env";
 import {
   allauthorsquery,
   authorsquery,
+  careerpathquery,
+  careersinglequery,
+  careersquery,
   catpathquery,
   catquery,
   configQuery,
@@ -164,6 +167,31 @@ export async function getNewsletterBySlug(slug: string) {
 export async function getAllNewslettersSlugs() {
   if (client) {
     const slugs = (await client.fetch(newsletterpathquery)) || [];
+    return slugs.map((slug: string) => ({ slug }));
+  }
+  return [];
+}
+
+// ====== Careers ======
+
+export async function getAllCareers() {
+  if (client) {
+    return (await client.fetch(careersquery)) || [];
+  }
+  return [];
+}
+
+
+export async function getCareerBySlug(slug: string) {
+  if (client) {
+    return (await client.fetch(careersinglequery, { slug })) || {};
+  }
+  return {};
+}
+
+export async function getAllCareersSlugs() {
+  if (client) {
+    const slugs = (await client.fetch(careerpathquery)) || [];
     return slugs.map((slug: string) => ({ slug }));
   }
   return [];
