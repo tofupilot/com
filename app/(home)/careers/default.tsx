@@ -123,207 +123,198 @@ export default function Newsletter(props: any) {
   }
 
   return (
-    <>
-      <article className="px-6 pt-32 lg:px-8">
-        <div className="mx-auto max-w-2xl text-base leading-7 text-zinc-700 dark:text-zinc-300">
-          {/* Navbar and title */}
-          <nav className="flex" aria-label="Breadcrumb">
-            <ol role="list" className="flex items-center space-x-4">
-              <li>
-                <div>
-                  <a
-                    href={siteConfig.baseLinks.home}
-                    className="text-zinc-400 hover:text-zinc-500 dark:text-zinc-600"
-                  >
-                    <HomeIcon
-                      className="h-5 w-5 flex-shrink-0"
-                      aria-hidden="true"
-                    />
-                    <span className="sr-only">Home</span>
-                  </a>
-                </div>
-              </li>
-              <li key={"blog"}>
-                <div className="flex items-center">
-                  <ChevronRightIcon
-                    className="h-5 w-5 flex-shrink-0 text-zinc-400 dark:text-zinc-600"
+    <article className="px-6 pt-32 lg:px-8">
+      <div className="mx-auto max-w-2xl text-base leading-7 text-zinc-700 dark:text-zinc-300">
+        {/* Navbar and title */}
+        <nav className="flex" aria-label="Breadcrumb">
+          <ol role="list" className="flex items-center space-x-4">
+            <li>
+              <div>
+                <a
+                  href={siteConfig.baseLinks.home}
+                  className="text-zinc-400 hover:text-zinc-500 dark:text-zinc-600"
+                >
+                  <HomeIcon
+                    className="h-5 w-5 flex-shrink-0"
                     aria-hidden="true"
                   />
-                  <Link
-                    href={siteConfig.baseLinks.careers}
-                    className="ml-4 text-sm font-medium text-zinc-500 hover:text-zinc-700 hover:dark:text-zinc-300"
-                  >
-                    Careers
-                  </Link>
-                </div>
-              </li>
-            </ol>
-          </nav>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
-            {post.title}
-          </h1>
-          <div className="mt-2 flex flex-col sm:flex-row sm:flex-wrap sm:space-x-8">
-            <div className="mt-0.5 flex items-center text-sm dark:text-zinc-400 text-zinc-500">
-              <BriefcaseIcon
-                aria-hidden="true"
-                className="mr-2 size-5 shrink-0 text-lime-500"
-              />
-              {post.employmentType}
-            </div>
-            <div className="mt-0.5 flex items-center text-sm dark:text-zinc-400 text-zinc-500">
-              <MapPinIcon
-                aria-hidden="true"
-                className="mr-2 size-5 shrink-0 text-lime-500"
-              />
-              {post.location}
-            </div>
-            <div className="mt-0.5 flex items-center text-sm dark:text-zinc-400 text-zinc-500">
-              <BanknotesIcon
-                aria-hidden="true"
-                className="mr-2 size-5 shrink-0 text-lime-500"
-              />
-              {post.salaryRange}
-            </div>
-            <div className="mt-0.5 flex items-center text-sm dark:text-zinc-400 text-zinc-500">
-              <CalendarIcon
-                aria-hidden="true"
-                className="mr-2 size-5 shrink-0 text-lime-500"
-              />
-              Published on {new Date(post.publishedDate).toLocaleDateString()}
-            </div>
-          </div>
-
-          {/* About TofuPilot */}
-          <div className="mt-16 max-w-2xl">
-            <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
-              About TofuPilot
-            </h2>
-            <p className="mt-6">
-              TofuPilot helps hardware teams build successful products by
-              providing a suite of developer tools for automating, deploying,
-              observing, and optimizing manufacturing tests. We offer an
-              open-source library for faster test development, a plug-and-play
-              data pipeline, automatic unit traceability, and performance
-              analytics... and there&apos;s plenty more to come.
-            </p>
-            <p className="mt-8">
-              TofuPilot was founded in 2024 by two robotics engineers who wanted
-              to help hardware teams bring innovation to market faster. Since
-              then, over 200 companies worldwide have installed TofuPilot,
-              we&apos;ve won multiple startup awards in Switzerland, are backed
-              by the Swiss Innovation Agency, and are experiencing strong
-              product-led growth driven by word of mouth.
-            </p>
-            <p className="mt-8">
-              We&apos;re growing quickly but sustainably. We are default alive,
-              staying focused on building an awesome product for our users. We
-              are now hiring a few exceptional team members to help us push
-              things forward.
-            </p>
-          </div>
-
-          {/* What we value */}
-          <div className="mt-16 max-w-2xl">
-            <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
-              What we value
-            </h2>
-            <ul
-              role="list"
-              className="mt-8 space-y-8 text-zinc-600 dark:text-zinc-400"
-            >
-              {values.map((value) => (
-                <li className="flex gap-x-3" key={value.name}>
-                  <value.icon
-                    aria-hidden="true"
-                    className="mt-1 size-5 flex-none text-lime-600"
-                  />
-                  <span>
-                    <strong className="font-semibold text-zinc-900 dark:text-white">
-                      {value.name}
-                    </strong>{" "}
-                    {value.description}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Who we're looking for */}
-          <div className="mt-16 max-w-2xl">
-            <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
-              Who we&apos;re looking for
-            </h2>
-            <div className="mt-6 prose text-base leading-7 text-zinc-700 dark:prose-invert focus:outline-none dark:text-zinc-300 dark:prose-a:text-zinc-400">
-              {post.who && <PortableText value={post.who} />}
-            </div>
-          </div>
-
-          {/* What you'll be doing */}
-          <div className="mt-16 max-w-2xl">
-            <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
-              What you&apos;ll be doing
-            </h2>
-            <div className="mt-6 prose text-base leading-7 text-zinc-700 dark:prose-invert focus:outline-none dark:text-zinc-300 dark:prose-a:text-zinc-400">
-              {post.what && <PortableText value={post.what} />}
-            </div>
-          </div>
-
-          {/* Requirements */}
-          <div className="mt-16 max-w-2xl">
-            <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
-              Requirements
-            </h2>
-            <div className="mt-6 prose text-base leading-7 text-zinc-700 dark:prose-invert focus:outline-none dark:text-zinc-300 dark:prose-a:text-zinc-400">
-              {post.requirements && <PortableText value={post.requirements} />}
-            </div>
-          </div>
-
-          {/* Summary */}
-          <div className="mt-16 max-w-2xl">
-            <p className="mt-6 text-xl leading-8">{post.summary}</p>
-            <article className="mx-auto">
-              <div className="prose-headings:font-display prose mx-auto my-3 mt-8 max-w-none overflow-x-auto text-base leading-7 text-zinc-700 dark:prose-invert focus:outline-none prose-h1:sm:text-5xl prose-h1:text-4xl prose-h1:font-semibold prose-h1:tracking-tight prose-h1:text-zinc-900 prose-a:text-zinc-600 dark:text-zinc-300 dark:prose-h1:text-zinc-100 dark:prose-a:text-zinc-400"></div>
-            </article>
-          </div>
-
-          {/* Inclusion */}
-          <figure className="mt-10 border-l border-lime-600 pl-9">
-            <blockquote className="font-semibold text-zinc-900 dark:text-white">
-              <p>
-                “We believe people from diverse backgrounds, with different
-                identities and experiences, make our product and our company
-                better. No matter your background, we&apos;d love to hear from
-                you! Alignment with our values is just as important as
-                experience!”
-              </p>
-            </blockquote>
-            <figcaption className="mt-6 flex gap-x-4">
-              <Image
-                alt=""
-                src="/careers/charlottejulien.png"
-                height={24}
-                width={24}
-                className="size-6 flex-none rounded-full bg-zinc-50"
-              />
-              <div className="text-sm/6">
-                <strong className="font-semibold text-zinc-900 dark:text-white">
-                  Charlotte and Julien
-                </strong>{" "}
-                – TofuPilot co-founders
+                  <span className="sr-only">Home</span>
+                </a>
               </div>
-            </figcaption>
-          </figure>
+            </li>
+            <li key={"blog"}>
+              <div className="flex items-center">
+                <ChevronRightIcon
+                  className="h-5 w-5 flex-shrink-0 text-zinc-400 dark:text-zinc-600"
+                  aria-hidden="true"
+                />
+                <Link
+                  href={siteConfig.baseLinks.careers}
+                  className="ml-4 text-sm font-medium text-zinc-500 hover:text-zinc-700 hover:dark:text-zinc-300"
+                >
+                  Careers
+                </Link>
+              </div>
+            </li>
+          </ol>
+        </nav>
+        <h1 className="mt-4 text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
+          {post.title}
+        </h1>
+        <div className="mt-2 flex flex-col sm:flex-row sm:flex-wrap sm:space-x-8 gap-y-1">
+          <div className="mt-1 flex items-center text-base/7 dark:text-zinc-400 text-zinc-500">
+            <BanknotesIcon
+              aria-hidden="true"
+              className="mr-2 size-5 shrink-0  text-lime-500"
+            />
+            {post.salaryRange}
+          </div>
+          <div className="mt-1 flex items-center text-base/7 dark:text-zinc-400 text-zinc-500">
+            <MapPinIcon
+              aria-hidden="true"
+              className="mr-2 size-5 shrink-0  text-lime-500"
+            />
+            {post.location}
+          </div>
+          <div className="mt-1 flex items-center text-base/7 dark:text-zinc-400 text-zinc-500">
+            <BriefcaseIcon
+              aria-hidden="true"
+              className="mr-2 size-5 shrink-0  text-lime-500"
+            />
+            {post.employmentType}
+          </div>
         </div>
-      </article>
+
+        {/* About TofuPilot */}
+        <div className="mt-16 max-w-2xl">
+          <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+            About TofuPilot
+          </h2>
+          <p className="mt-6">
+            TofuPilot helps hardware teams build successful products by
+            providing a suite of developer tools for automating, deploying,
+            observing, and optimizing manufacturing tests. We offer an
+            open-source library for faster test development, a plug-and-play
+            data pipeline, automatic unit traceability, and performance
+            analytics... and there&apos;s plenty more to come.
+          </p>
+          <p className="mt-8">
+            TofuPilot was founded in 2024 by two robotics engineers who wanted
+            to help hardware teams bring innovation to market faster. Since
+            then, over 200 companies worldwide have installed TofuPilot,
+            we&apos;ve won multiple startup awards in Switzerland, are backed by
+            the Swiss Innovation Agency, and are experiencing strong product-led
+            growth driven by word of mouth.
+          </p>
+          <p className="mt-8">
+            We&apos;re growing quickly but sustainably. We are default alive,
+            staying focused on building an awesome product for our users. We are
+            now hiring a few exceptional team members to help us push things
+            forward.
+          </p>
+        </div>
+
+        {/* What we value */}
+        <div className="mt-16 max-w-2xl">
+          <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+            What we value
+          </h2>
+          <ul
+            role="list"
+            className="mt-8 space-y-8 text-zinc-600 dark:text-zinc-400"
+          >
+            {values.map((value) => (
+              <li className="flex gap-x-3" key={value.name}>
+                <value.icon
+                  aria-hidden="true"
+                  className="mt-1 size-5 flex-none text-lime-500"
+                />
+                <span>
+                  <strong className="font-semibold text-zinc-900 dark:text-white">
+                    {value.name}
+                  </strong>{" "}
+                  {value.description}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Who we're looking for */}
+        <div className="mt-16 max-w-2xl">
+          <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+            Who we&apos;re looking for
+          </h2>
+          <div className="mt-6 prose text-base leading-7 text-zinc-700 dark:prose-invert focus:outline-none dark:text-zinc-300 dark:prose-a:text-zinc-400">
+            {post.who && <PortableText value={post.who} />}
+          </div>
+        </div>
+
+        {/* What you'll be doing */}
+        <div className="mt-16 max-w-2xl">
+          <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+            What you&apos;ll be doing
+          </h2>
+          <div className="mt-6 prose text-base leading-7 text-zinc-700 dark:prose-invert focus:outline-none dark:text-zinc-300 dark:prose-a:text-zinc-400">
+            {post.what && <PortableText value={post.what} />}
+          </div>
+        </div>
+
+        {/* Requirements */}
+        <div className="mt-16 max-w-2xl">
+          <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+            Requirements
+          </h2>
+          <div className="mt-6 prose text-base leading-7 text-zinc-700 dark:prose-invert focus:outline-none dark:text-zinc-300 dark:prose-a:text-zinc-400">
+            {post.requirements && <PortableText value={post.requirements} />}
+          </div>
+        </div>
+
+        {/* Summary */}
+        <div className="mt-16 max-w-2xl">
+          <p className="mt-6 text-xl leading-8">{post.summary}</p>
+          <article className="mx-auto">
+            <div className="prose-headings:font-display prose mx-auto my-3 mt-8 max-w-none overflow-x-auto text-base leading-7 text-zinc-700 dark:prose-invert focus:outline-none prose-h1:sm:text-5xl prose-h1:text-4xl prose-h1:font-semibold prose-h1:tracking-tight prose-h1:text-zinc-900 prose-a:text-zinc-600 dark:text-zinc-300 dark:prose-h1:text-zinc-100 dark:prose-a:text-zinc-400"></div>
+          </article>
+        </div>
+
+        {/* Inclusion */}
+        <figure className="mt-10 border-l border-lime-600 pl-9">
+          <blockquote className="font-semibold text-zinc-900 dark:text-white">
+            <p>
+              “We believe people from diverse backgrounds, with different
+              identities and experiences, make our product and our company
+              better. No matter your background, we&apos;d love to hear from
+              you! Alignment with our values is just as important as
+              experience!”
+            </p>
+          </blockquote>
+          <figcaption className="mt-6 flex gap-x-4">
+            <Image
+              alt=""
+              src="/careers/charlottejulien.png"
+              height={24}
+              width={24}
+              className="size-6 flex-none rounded-full bg-zinc-50"
+            />
+            <div className="text-sm/6">
+              <strong className="font-semibold text-zinc-900 dark:text-white">
+                Charlotte and Julien
+              </strong>{" "}
+              – TofuPilot co-founders
+            </div>
+          </figcaption>
+        </figure>
+      </div>
 
       <div className="mx-auto mt-16 max-w-2xl sm:mt-20 md:mt-24">
         <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
           Benefits
         </h2>
-        <dl className="mt-10 max-w-xl space-y-6 text-base/7 text-gray-300 lg:max-w-none">
+        <dl className="mt-10 max-w-xl space-y-6 text-base/7 dark:text-white text-zinc-900 lg:max-w-none">
           {benefits.map((feature) => (
             <div key={feature.name} className="relative pl-9">
-              <dt className="inline  text-white">
+              <dt className="inline">
                 <feature.icon
                   aria-hidden="true"
                   className="absolute left-1 top-1 size-5 text-lime-500"
@@ -389,6 +380,6 @@ export default function Newsletter(props: any) {
           View all open positions
         </Button>
       </div>
-    </>
+    </article>
   );
 }
