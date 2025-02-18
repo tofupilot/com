@@ -1,10 +1,10 @@
 import { defaultKeywords } from "../metadata";
 
 export const metadata = {
-  title: "Newsletter",
+  title: "Careers",
   description:
-    "Thoughts on the future of hardware testing, from the people and teams creating it.",
-  keywords: [...defaultKeywords, "blog", "news", "press", "company updates"],
+    "Come build the future of manufacturing with us.",
+  keywords: [...defaultKeywords, "careers", "jobs", "jobs openings"],
 };
 
 export default function Layout({
