@@ -25,7 +25,7 @@ export default function CareersList({ careers }: { careers: any }) {
                 <dd className="mt-4 text-base/7 font-semibold text-zinc-900 dark:text-white">
                   {career.salaryRange}
                 </dd>
-                <dt className="sr-only">Location</dt>
+                <dt className="sr-only">Type</dt>
                 <dd className="mt-4 flex items-center gap-x-3 text-base/7 text-zinc-500 dark:text-zinc-400">
                   <svg
                     viewBox="0 0 2 2"
@@ -46,17 +46,6 @@ export default function CareersList({ careers }: { careers: any }) {
                     <circle r={1} cx={1} cy={1} />
                   </svg>
                   {career.location}
-                </dd>
-                <dt className="sr-only">Location</dt>
-                <dd className="mt-4 flex items-center gap-x-3 text-base/7 text-zinc-500 dark:text-zinc-400">
-                  <svg
-                    viewBox="0 0 2 2"
-                    aria-hidden="true"
-                    className="size-0.5 flex-none fill-zinc-300"
-                  >
-                    <circle r={1} cx={1} cy={1} />
-                  </svg>
-                  Published on {new Date(career.publishedDate).toLocaleDateString()}
                 </dd>
               </dl>
             </Link>

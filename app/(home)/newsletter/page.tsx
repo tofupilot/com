@@ -14,6 +14,7 @@ export default async function Page() {
     >
       <div className="mt-8 flex flex-col">
         <NewsletterHighlight newsletter={newsletters[0]} />
+        <NewsletterSubscribeCard />
         <NewsletterGrid newsletters={newsletters.slice(1)} />
       </div>
     </ContainerLanding>
