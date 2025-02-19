@@ -144,12 +144,12 @@ export default async function About() {
 
         <Button
           color="lime"
-          href="https://www.linkedin.com/company/tofupilot/jobs/"
           target="_blank"
+          href={siteConfig.baseLinks.careers}
           className="mx-auto mt-20 h-10 w-full max-w-2xl shadow-xl shadow-lime-500/20"
         >
-          View Open Roles
-          <ArrowUpRightIcon />
+          View open roles
+          <ChevronRightIcon />
         </Button>
       </section>
 
