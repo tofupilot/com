@@ -8,7 +8,7 @@ import { siteConfig } from "@/app/siteConfig";
 import profilePictureCharlotte from "@/public/about/charlotte-evequoz.jpeg";
 import profilePictureFelix from "@/public/about/felix-berthier.png";
 import profilePictureJulien from "@/public/about/julien-buteau.png";
-import { ArrowUpRightIcon, ChevronRightIcon } from "@heroicons/react/16/solid";
+import { ChevronRightIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
 
 const team = [
