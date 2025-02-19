@@ -41,7 +41,7 @@ export function CardReleaseHighlight({
 
       {/* Highlight title and content */}
       <div className="prose-headings:font-display prose mx-auto my-3 mt-8 max-w-none overflow-x-auto text-base leading-7 text-zinc-700 dark:prose-invert focus:outline-none prose-h1:text-2xl prose-h1:font-bold prose-a:text-zinc-600 dark:text-zinc-300 prose-a:dark:text-zinc-400">
-        <h1>{highlight.title}</h1>
+        <h2>{highlight.title}</h2>
         <PortableText value={highlight.body} />
       </div>
 

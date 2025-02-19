@@ -18,9 +18,9 @@ export function CardRelease({ release }: { release: Release }) {
           })}
         </time>
       </div>
-      <h1 className="mt-3 text-2xl font-bold leading-6 text-zinc-900 dark:text-zinc-100">
+      <h2 className="mt-3 text-2xl font-bold leading-6 text-zinc-900 dark:text-zinc-100">
         {release.title}
-      </h1>
+      </h2>
       <div className="prose-headings:font-display prose mx-auto my-3 mt-8 max-w-none overflow-x-auto text-base leading-7 text-zinc-700 dark:prose-invert focus:outline-none prose-h1:text-2xl prose-h1:font-semibold prose-a:text-zinc-600 dark:text-zinc-300 prose-a:dark:text-zinc-400">
         <PortableText value={release.body} />
       </div>
