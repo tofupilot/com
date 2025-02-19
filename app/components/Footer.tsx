@@ -79,9 +79,9 @@ export default function Footer() {
           <div className="mt-16 grid grid-cols-1 gap-14 sm:gap-8 md:grid-cols-2 xl:col-span-2 xl:mt-0">
             <div className="grid grid-cols-2 gap-8">
               <div>
-                <h1 className="text-sm font-semibold leading-6 text-zinc-900 dark:text-zinc-50">
+                <h2 className="text-sm font-semibold leading-6 text-zinc-900 dark:text-zinc-50">
                   Product
-                </h1>
+                </h2>
                 <ul
                   role="list"
                   className="mt-6 space-y-4"
@@ -110,9 +110,9 @@ export default function Footer() {
                 </ul>
               </div>
               <div>
-                <h1 className="text-sm font-semibold leading-6 text-zinc-900 dark:text-zinc-50">
+                <h2 className="text-sm font-semibold leading-6 text-zinc-900 dark:text-zinc-50">
                   Resources
-                </h1>
+                </h2>
                 <ul
                   role="list"
                   className="mt-6 space-y-4"
@@ -143,9 +143,9 @@ export default function Footer() {
             </div>
             <div className="grid grid-cols-2 gap-8">
               <div>
-                <h1 className="text-sm font-semibold leading-6 text-zinc-900 dark:text-zinc-50">
+                <h2 className="text-sm font-semibold leading-6 text-zinc-900 dark:text-zinc-50">
                   Company
-                </h1>
+                </h2>
                 <ul
                   role="list"
                   className="mt-6 space-y-4"
@@ -174,9 +174,9 @@ export default function Footer() {
                 </ul>
               </div>
               <div>
-                <h1 className="text-sm font-semibold leading-6 text-zinc-900 dark:text-zinc-50">
+                <h2 className="text-sm font-semibold leading-6 text-zinc-900 dark:text-zinc-50">
                   Legal
-                </h1>
+                </h2>
                 <ul
                   role="list"
                   className="mt-6 space-y-4"
