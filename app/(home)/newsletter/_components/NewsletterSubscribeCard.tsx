@@ -21,6 +21,7 @@ export default function NewsletterSubscribeCard() {
       posthog.identify(email, { email });
       posthog.capture("user signed up to newsletter", { email });
       toast.success("Welcome in, yay!");
+      setEmail("");
     } catch (error) {
       setErrors({ email: "Failed to subscribe" });
       toast.error("Failed to subscribe. Please try again.");
