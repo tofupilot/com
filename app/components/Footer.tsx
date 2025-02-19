@@ -49,12 +49,12 @@ const navigation = {
   legal: [
     {
       name: "Privacy",
-      href: "/docs/legal/privacy-policy",
+      href: siteConfig.baseLinks.privacy,
       external: false,
     },
     {
       name: "Terms",
-      href: "/docs/legal/terms-conditions",
+      href: siteConfig.baseLinks.terms,
       external: false,
     },
   ],

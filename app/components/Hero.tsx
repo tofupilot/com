@@ -36,7 +36,7 @@ export default function Hero() {
           href={siteConfig.baseLinks.signup}
           className="h-10"
         >
-          Get started
+          Get started - free
         </Button>
         <Button plain href={siteConfig.baseLinks.changelog} className="h-10">
           <SparklesIcon />
