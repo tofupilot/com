@@ -1,2 +1,10 @@
 User-Agent: *
+
+# Allow all pages from landing page
 Allow: /
+
+# Disallow CMS studio
+Disallow:
+Disallow: /studio
+
+Sitemap: https://tofupilot.com/sitemap.xml
