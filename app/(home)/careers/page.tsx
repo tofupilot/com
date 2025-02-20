@@ -1,6 +1,8 @@
 import { getAllCareers } from "@/app/(sanity)/lib/client";
 import { ContainerLanding } from "@/app/components/ContainerLanding";
 import CareersList from "./_components/CareersList";
+import ValuesList from "./_components/ValuesList";
+import BenefitsList from "./_components/BenefitsList";
 
 export default async function Page() {
   const careers = await getAllCareers();
@@ -11,8 +13,10 @@ export default async function Page() {
       description="Come build the future of manufacturing with us."
       wide
     >
-      <div className="mt-16 pb-64 flex w-full items-center justify-center">
+      <div className="pb-64 flex flex-col items-center justify-center">
+        <ValuesList />
         <CareersList careers={careers} />
+        <BenefitsList />
       </div>
     </ContainerLanding>
   );

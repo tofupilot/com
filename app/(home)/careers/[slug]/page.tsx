@@ -1,5 +1,5 @@
 import { getAllCareersSlugs, getCareerBySlug } from "@/app/(sanity)/lib/client";
-import Newsletter from "./default";
+import Career from "./default";
 
 export async function generateStaticParams() {
   return await getAllCareersSlugs();
@@ -11,7 +11,7 @@ export default async function NewsletterDefault({
   params: { slug: string };
 }) {
   const post = await getCareerBySlug(params.slug);
-  return <Newsletter post={post} />;
+  return <Career post={post} />;
 }
 
 export const revalidate = 60;
