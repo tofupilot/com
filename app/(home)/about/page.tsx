@@ -144,7 +144,6 @@ export default async function About() {
 
         <Button
           color="lime"
-          target="_blank"
           href={siteConfig.baseLinks.careers}
           className="mx-auto mt-20 h-10 w-full max-w-2xl shadow-xl shadow-lime-500/20"
         >
