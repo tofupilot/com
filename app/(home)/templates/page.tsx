@@ -1,8 +1,8 @@
 import { getAllTemplates } from "@/app/(sanity)/lib/client";
+import { defaultKeywords, defaultOpenGraph } from "../metadata";
 import { ContainerLanding } from "@/app/components/ContainerLanding";
 import { TemplateGrid } from "@/app/components/ui/templates/TemplateGrid";
 import { Metadata } from "next";
-import { defaultKeywords, defaultOpenGraph } from "../metadata";
 
 export const revalidate = 60;
 
