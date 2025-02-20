@@ -1,5 +1,4 @@
-import { getCareerBySlug, getNewsletterBySlug, getPostBySlug } from "@/app/(sanity)/lib/client";
-import { urlForImage } from "@/app/(sanity)/lib/image";
+import { getCareerBySlug } from "@/app/(sanity)/lib/client";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({
