@@ -18,49 +18,49 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const post = await getTemplateBySlug(params.slug);
-  if (!post?.slug) {
+  const template = await getTemplateBySlug(params.slug);
+  if (!template?.slug) {
     notFound();
   }
 
   // Generate additional keywords
   const additionalKeywords = [
-    post.language,
-    post.framework,
-    post.usecase,
-    post.author?.name,
+    template.language,
+    template.framework,
+    template.usecase,
+    template.author?.name,
   ].filter(Boolean); // Ensure no null/undefined values
 
   // Combine template keywords with generated ones
   const keywords = Array.from(
-    new Set([...(post.keywords || []), ...additionalKeywords])
+    new Set([...(template.keywords || []), ...additionalKeywords])
   );
 
   return {
-    title: post.title,
-    description: post.summary,
+    title: template.title,
+    description: template.summary,
     keywords: keywords.join(", "), // Metadata keywords as a comma-separated string
     openGraph: {
-      title: post.title,
-      description: post.summary,
+      title: template.title,
+      description: template.summary,
       images: [
         {
-          url: urlForImage(post.mainImage),
-          alt: post.mainImage?.alt || `${post.title} image`,
+          url: urlForImage(template.mainImage),
+          alt: template.mainImage?.alt || `${template.title} image`,
         },
       ],
       type: "article",
-      authors: [post.author?.name || "Unknown"], // Include the author
-      publishedTime: post.publishedAt, // Assuming `publishedAt` exists
+      authors: [template.author?.name || "Unknown"], // Include the author
+      publishedTime: template.publishedAt, // Assuming `publishedAt` exists
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.summary,
+      title: template.title,
+      description: template.summary,
       images: [
         {
-          url: urlForImage(post.mainImage),
-          alt: post.mainImage?.alt || `${post.title} image`,
+          url: urlForImage(template.mainImage),
+          alt: template.mainImage?.alt || `${template.title} image`,
         },
       ],
     },

@@ -1,21 +1,12 @@
 import { notFound } from "next/navigation";
 
 import {
-  AcademicCapIcon,
   ArrowLeftIcon,
   BanknotesIcon,
-  BellSlashIcon,
   BriefcaseIcon,
   ChevronRightIcon,
-  FaceSmileIcon,
-  GlobeEuropeAfricaIcon,
   HomeIcon,
-  HomeModernIcon,
-  MagnifyingGlassIcon,
   MapPinIcon,
-  SunIcon,
-  TrophyIcon,
-  UserGroupIcon
 } from "@heroicons/react/16/solid";
 
 import { PortableText } from "@/app/(sanity)/lib/portabletext";
@@ -24,61 +15,9 @@ import Link from "next/link";
 import { Button } from "@/app/components/catalyst/button";
 import { cx } from "@/app/lib/utils";
 import { siteConfig } from "@/app/siteConfig";
-import Image from "next/image";
-
-const values = [
-  {
-    name: "Open-source & community.",
-    description:
-      "We believe a strong community around a free-for-life product is key to our strategy.",
-    icon: UserGroupIcon,
-  },
-  {
-    name: "Long-term relationships.",
-    description:
-      "Our founders worked together for eight years before TofuPilot. We aim to build lasting relationships with our customers and team.",
-    icon: FaceSmileIcon,
-  },
-  {
-    name: "Solving big problems.",
-    description:
-      "Our defining feature is still ahead of us. We move fast, talk to users, and iterate constantly.",
-    icon: TrophyIcon,
-  },
-  {
-    name: "Attention to detail.",
-    description:
-      "Our Swiss engineering background makes us relentless about the quality of our products and obsessed with the details.",
-    icon: MagnifyingGlassIcon,
-  },
-];
-
-const benefits = [
-  {
-    name: "Transparent compensation & equity",
-    icon: BanknotesIcon,
-  },
-  {
-    name: "Two meeting-free days per week",
-    icon: BellSlashIcon,
-  },
-  {
-    name: "Home office with co-working credit",
-    icon: HomeModernIcon,
-  },
-  {
-    name: "On-site for Swiss/EU citizens at our Swiss HQ",
-    icon: GlobeEuropeAfricaIcon,
-  },
-  {
-    name: "Training budget",
-    icon: AcademicCapIcon,
-  },
-  {
-    name: "4 weeks of holidays per year",
-    icon: SunIcon,
-  },
-];
+import InclusionTestimonial from "../_components/InclusionTestimonial";
+import ValuesList from "../_components/ValuesList";
+import BenefitsList from "../_components/BenefitsList";
 
 const steps = [
   {
@@ -113,7 +52,7 @@ const steps = [
   },
 ];
 
-export default function Newsletter(props: any) {
+export default function Career(props: any) {
   const { loading, post } = props;
   const slug = post?.slug;
   if (!loading && !slug) {
@@ -212,31 +151,7 @@ export default function Newsletter(props: any) {
           </p>
         </div>
 
-        {/* What we value */}
-        <div className="mt-16 max-w-2xl">
-          <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
-            What we value
-          </h2>
-          <ul
-            role="list"
-            className="mt-8 space-y-8 text-zinc-600 dark:text-zinc-400"
-          >
-            {values.map((value) => (
-              <li className="flex gap-x-3" key={value.name}>
-                <value.icon
-                  aria-hidden="true"
-                  className="mt-1 size-5 flex-none text-lime-500"
-                />
-                <span>
-                  <strong className="font-semibold text-zinc-900 dark:text-white">
-                    {value.name}
-                  </strong>{" "}
-                  {value.description}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ValuesList />
 
         {/* Who we're looking for */}
         <div className="mt-16 max-w-2xl">
@@ -268,108 +183,56 @@ export default function Newsletter(props: any) {
           </div>
         </div>
 
-        {/* Summary */}
-        <div className="mt-16 max-w-2xl">
-          <p className="mt-6 text-xl leading-8">{post.summary}</p>
-          <article className="mx-auto">
-            <div className="prose-headings:font-display prose mx-auto my-3 mt-8 max-w-none overflow-x-auto text-base leading-7 text-zinc-700 dark:prose-invert focus:outline-none prose-h1:sm:text-5xl prose-h1:text-4xl prose-h1:font-semibold prose-h1:tracking-tight prose-h1:text-zinc-900 prose-a:text-zinc-600 dark:text-zinc-300 dark:prose-h1:text-zinc-100 dark:prose-a:text-zinc-400"></div>
-          </article>
-        </div>
+        <InclusionTestimonial />
+        <BenefitsList />
 
-        {/* Inclusion */}
-        <figure className="mt-10 border-l border-lime-600 pl-9">
-          <blockquote className="font-semibold text-zinc-900 dark:text-white">
-            <p>
-              “We believe people from diverse backgrounds, with different
-              identities and experiences, make our product and our company
-              better. No matter your background, we&apos;d love to hear from
-              you! Alignment with our values is just as important as
-              experience!”
-            </p>
-          </blockquote>
-          <figcaption className="mt-6 flex gap-x-4">
-            <Image
-              alt=""
-              src="/careers/charlottejulien.png"
-              height={24}
-              width={24}
-              className="size-6 flex-none rounded-full bg-zinc-50"
-            />
-            <div className="text-sm/6">
-              <strong className="font-semibold text-zinc-900 dark:text-white">
-                Charlotte and Julien
-              </strong>{" "}
-              – TofuPilot co-founders
-            </div>
-          </figcaption>
-        </figure>
-      </div>
-
-      <div className="mx-auto mt-16 max-w-2xl sm:mt-20 md:mt-24">
-        <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
-          Benefits
-        </h2>
-        <dl className="mt-10 max-w-xl space-y-6 text-base/7 dark:text-white text-zinc-900 lg:max-w-none">
-          {benefits.map((feature) => (
-            <div key={feature.name} className="relative pl-9">
-              <dt className="inline">
-                <feature.icon
-                  aria-hidden="true"
-                  className="absolute left-1 top-1 size-5 text-lime-500"
-                />
-                {feature.name}
-              </dt>
-            </div>
-          ))}
-        </dl>
-      </div>
-
-      <div className="mx-auto mt-16 max-w-2xl sm:mt-20 md:mt-24">
-        <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
-          Process
-        </h2>
-        <div className="mt-10 flex flex-col">
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              className={cx(
-                "relative ml-3 border-l border-zinc-200 pl-9 dark:border-zinc-800",
-                index < steps.length - 1 ? "pb-8" : "pb-0"
-              )}
-            >
-              <div className="font-code absolute -left-4 flex h-8 w-8 items-center justify-center rounded-md border border-zinc-200 bg-zinc-100 text-xs font-medium dark:border-zinc-800 dark:bg-zinc-800">
-                {index + 1}
-              </div>
-              <div className="pt-0.5 pl-1">
-                <div className="flex">
-                  <h4 className="mt-0 text-base/7 font-semibold text-zinc-900 dark:text-white">
-                    {step.name}
-                  </h4>
-                  <p className="mt-0 ml-1 text-base/7 text-zinc-600 dark:text-zinc-400">
-                    {step.subtitle}
+        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 md:mt-24">
+          <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+            Process
+          </h2>
+          <div className="mt-10 flex flex-col">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className={cx(
+                  "relative ml-3 border-l border-zinc-200 pl-9 dark:border-zinc-800",
+                  index < steps.length - 1 ? "pb-8" : "pb-0"
+                )}
+              >
+                <div className="font-code absolute -left-4 flex h-8 w-8 items-center justify-center rounded-md border border-zinc-200 bg-zinc-100 text-xs font-medium dark:border-zinc-800 dark:bg-zinc-800">
+                  {index + 1}
+                </div>
+                <div className="pt-0.5 pl-1">
+                  <div className="flex">
+                    <h4 className="mt-0 text-base/7 font-semibold text-zinc-900 dark:text-white">
+                      {step.name}
+                    </h4>
+                    <p className="mt-0 ml-1 text-base/7 text-zinc-600 dark:text-zinc-400">
+                      {step.subtitle}
+                    </p>
+                  </div>
+                  <p className=" dark:text-zinc-300 text-base text-zinc-800 mt-1">
+                    {step.description}
                   </p>
                 </div>
-                <p className=" dark:text-zinc-300 text-base text-zinc-800 mt-1">
-                  {step.description}
-                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className="mx-auto mt-16 max-w-2xl sm:mt-20 md:mt-24">
-        <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
-          Apply
-        </h2>
-        <Button
-          color="lime"
-          className="h-12 w-full mt-10"
-          href={"mailto:careers@tofupilot.com"}
-        >
-          Apply by email
-        </Button>
-        {/* <ApplyForm /> */}
+        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 md:mt-24">
+          <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+            Apply
+          </h2>
+          <Button
+            color="lime"
+            className="h-12 w-full mt-10"
+            href={"mailto:careers@tofupilot.com"}
+          >
+            Apply by email
+          </Button>
+          {/* <ApplyForm /> */}
+        </div>
       </div>
 
       <div className="flex justify-center mt-16 pb-64">

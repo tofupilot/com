@@ -1,5 +1,4 @@
-import { getCareerBySlug, getNewsletterBySlug, getPostBySlug } from "@/app/(sanity)/lib/client";
-import { urlForImage } from "@/app/(sanity)/lib/image";
+import { getCareerBySlug } from "@/app/(sanity)/lib/client";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({
@@ -7,13 +6,13 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }) {
-  const newsletter = await getCareerBySlug(params.slug);
-  if (!newsletter?.slug) {
+  const career = await getCareerBySlug(params.slug);
+  if (!career?.slug) {
     notFound();
   }
   return {
-    title: newsletter.title,
-    description: newsletter.summary,
+    title: career.title,
+    description: career.summary,
   };
 }
 

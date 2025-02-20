@@ -3,9 +3,11 @@ import Link from "next/link";
 
 export default function CareersList({ careers }: { careers: any }) {
   return (
-    <div className="w-full lg:max-w-xl lg:flex-auto">
-      <h3 className="sr-only">Job openings</h3>
-      <ul className="-my-8 divide-y divide-zinc-100 dark:divide-zinc-700">
+    <div className="mt-16 w-full lg:max-w-2xl lg:flex-auto">
+      <h2 className="text-pretty text-3xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+        Open positions
+      </h2>
+      <ul className="-mt-2 -mb-8 divide-y divide-zinc-100 dark:divide-zinc-700">
         {careers.map((career: any) => (
           <li key={career.slug} className="py-8">
             <Link
