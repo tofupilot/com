@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { useRef } from "react";
 import { HeaderBadge } from "./HeaderBadge";
 import Balancer from "react-wrap-balancer";
 
@@ -10,7 +7,6 @@ interface Card {
   category: string;
   title: JSX.Element | string;
   staticSrc: string;
-  videoSrc: string;
 }
 
 const cards: Card[] = [
@@ -23,7 +19,6 @@ const cards: Card[] = [
       </>
     ),
     staticSrc: "/home/card-enchanted-tools.png",
-    videoSrc: "/home/card-enchanted-tools.mp4",
   },
   {
     id: 2,
@@ -34,9 +29,7 @@ const cards: Card[] = [
       </>
     ),
     staticSrc: "/home/card-enlightra.png",
-    videoSrc: "/home/card-enlightra.mp4",
   },
-
   {
     id: 3,
     category: "Involi",
@@ -47,28 +40,10 @@ const cards: Card[] = [
       </>
     ),
     staticSrc: "/home/card-involi.png",
-    videoSrc: "/home/card-involi.mp4",
   },
 ];
 
 export default function UserStories() {
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-
-  const handleMouseEnter = (index: number) => {
-    if (videoRefs.current[index]) {
-      // Load the video when hovered
-      videoRefs.current[index]?.load();
-      videoRefs.current[index]?.play();
-    }
-  };
-
-  const handleMouseLeave = (index: number) => {
-    if (videoRefs.current[index]) {
-      videoRefs.current[index]?.pause();
-      videoRefs.current[index]!.currentTime = 0;
-    }
-  };
-
   return (
     <section
       aria-labelledby="community-title"
@@ -86,12 +61,10 @@ export default function UserStories() {
         drones, medical devices, photonic sensors, and more.
       </p>
       <div className="mx-auto mt-12 grid max-w-2xl auto-rows-fr grid-cols-1 gap-4 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-        {cards.map((post, index) => (
+        {cards.map((post) => (
           <article
             key={post.id}
             className="relative isolate flex flex-col items-start justify-start overflow-hidden rounded-3xl bg-zinc-900 px-8 pb-[26rem] pt-8 shadow-xl shadow-black/40 backdrop-blur-sm sm:pb-48 lg:pb-[26rem] dark:shadow-lime-900/30"
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={() => handleMouseLeave(index)}
           >
             <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/80 via-transparent to-transparent" />
             <div className="relative z-40">
@@ -111,19 +84,6 @@ export default function UserStories() {
               src={post.staticSrc}
               className="absolute inset-0 -z-10 h-full w-full object-cover"
             />
-            {/* Video */}
-            <video
-              ref={(el) => {
-                videoRefs.current[index] = el;
-              }}
-              className="absolute inset-0 -z-10 h-full w-full object-cover opacity-0 transition-opacity duration-300 hover:opacity-100"
-              muted
-              loop
-              preload="none"
-            >
-              <source src={post.videoSrc} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
           </article>
         ))}
       </div>

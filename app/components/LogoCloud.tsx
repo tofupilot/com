@@ -24,7 +24,7 @@ export default function LogoCloud() {
             with
             <span className="inline-block relative ml-1 lg:ml-2.5 top-1 w-10 size-10 lg:size-16">
               <Image
-                src="/logo.svg"
+                src="/icon.png"
                 alt="logo"
                 fill
                 className="object-contain"

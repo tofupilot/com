@@ -10,7 +10,7 @@ export default function CompanyLogo() {
         width={40}
         height={40}
       />
-      <h1 className="ml-2.5 mt-0.5 text-2xl font-bold">TofuPilot</h1>
+      <span className="ml-2.5 mt-0.5 text-2xl font-bold">TofuPilot</span>
     </div>
   );
 }
