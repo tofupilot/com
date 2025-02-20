@@ -15,7 +15,6 @@ export default function Layout({
       <body className="min-h-screen selection:bg-zinc-100 selection:text-lime-700 dark:bg-zinc-950">
         <ThemeProvider defaultTheme="dark" attribute="class">
           <Navigation />
-
           {children}
           <Footer />
           <Analytics />
