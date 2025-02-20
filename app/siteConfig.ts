@@ -23,7 +23,7 @@ export const siteConfig = {
 
     // legal
     privacy: "/docs/legal/privacy-policy",
-    terms: "/docs/legal/terms-and-conditions",
+    terms: "/docs/legal/terms-conditions",
 
     // external
     login: `${process.env.NEXT_PUBLIC_APP_URL}/runs`,
