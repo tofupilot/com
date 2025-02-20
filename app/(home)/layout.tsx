@@ -11,7 +11,7 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <CSPostHogProvider>
+    <>
       <ThemeProvider defaultTheme="dark" attribute="class">
         <Navigation />
         {children}
@@ -19,6 +19,6 @@ export default function Layout({
         <Analytics />
       </ThemeProvider>
       <Toaster />
-    </CSPostHogProvider>
+    </>
   );
 }
