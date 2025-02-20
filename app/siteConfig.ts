@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "TofuPilot",
-  url: "https://tofupilot.com",
+  url: "https://www.tofupilot.com",
   description: "Plug-and-play manufacturing test analytics.",
   baseLinks: {
     // internal
