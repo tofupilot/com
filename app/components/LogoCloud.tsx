@@ -1,7 +1,6 @@
-import Balancer from "react-wrap-balancer";
-import { HeaderBadge } from "./HeaderBadge";
-import { Logos } from "./LogosCustomers";
 import Image from "next/image";
+import Balancer from "react-wrap-balancer";
+import { Logos } from "./LogosCustomers";
 
 export default function LogoCloud() {
   return (
@@ -47,7 +46,7 @@ export default function LogoCloud() {
           <Logos.Sicpa className="max-h-11 sm:max-h-14 w-full object-contain" />
         </div>
         <div className="p-6 sm:p-14 bg-zinc-100 rounded-lg dark:bg-zinc-800">
-          <Logos.PowerElectronics className="max-h-11 sm:max-h-14 w-full object-contain" />
+          <Logos.FixturFab className="max-h-11 sm:max-h-14 w-full object-contain" />
         </div>
         <div className="p-6 sm:p-14 bg-zinc-100 rounded-lg dark:bg-zinc-800">
           <Logos.MoveInnovation className="max-h-11 sm:max-h-14 w-full object-contain" />
