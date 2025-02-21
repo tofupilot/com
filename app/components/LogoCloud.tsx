@@ -13,11 +13,11 @@ export default function LogoCloud() {
       <div className="flex gap-x-3">
         <h2
           id="features-title"
-          className="mt-2 inline-block bg-gradient-to-br from-zinc-900 to-zinc-800 bg-clip-text py-2 text-3xl font-bold tracking-tighter text-transparent dark:from-zinc-50 dark:to-zinc-300 lg:text-5xl"
+          className="mt-2 inline-block bg-gradient-to-br text-zinc-900 bg-clip-text py-2 text-3xl font-bold tracking-tighter text-transparent dark:text-white lg:text-5xl"
         >
           <Balancer>
             These folks{" "}
-            <span className="bg-gradient-to-b from-zinc-700 to-zinc-400 bg-clip-text dark:from-lime-300 dark:to-lime-600">
+            <span className="bg-gradient-to-b text-transparent from-lime-400  to-lime-600 bg-clip-text dark:from-lime-300 dark:to-lime-600">
               test their products faster
             </span>{" "}
             with
