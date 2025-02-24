@@ -1,3 +1,4 @@
+import { length } from "./../../../node_modules/@types/stylis/index.d";
 import { createClient } from "next-sanity";
 import { apiVersion, dataset, projectId, useCdn } from "../env";
 
@@ -18,11 +19,12 @@ import {
   postquery,
   postsbyauthorquery,
   postsbycatquery,
+  numberReleases,
   releasequery,
   singlequery,
   templatepathquery,
   templatequery,
-  templatesquery
+  templatesquery,
 } from "./groq";
 
 export const client = createClient({
@@ -146,7 +148,6 @@ export async function getPaginatedPosts({
   return [];
 }
 
-
 // ====== Newsletter ======
 
 export async function getAllNewsletters() {
@@ -155,7 +156,6 @@ export async function getAllNewsletters() {
   }
   return [];
 }
-
 
 export async function getNewsletterBySlug(slug: string) {
   if (client) {
@@ -181,7 +181,6 @@ export async function getAllCareers() {
   return [];
 }
 
-
 export async function getCareerBySlug(slug: string) {
   if (client) {
     return (await client.fetch(careersinglequery, { slug })) || {};
@@ -199,24 +198,24 @@ export async function getAllCareersSlugs() {
 
 // ====== Releases ======
 
-export async function getAllReleases() {
+export async function getNumberReleases() {
   if (client) {
-    return (await client.fetch(releasequery)) || [];
+    return await client.fetch(numberReleases);
+  }
+  return 0;
+}
+
+export async function getFromToReleases(
+  { start }: { start: number },
+  { numberReleaseByPage }: { numberReleaseByPage: number }
+) {
+  if (client) {
+    const end = start + numberReleaseByPage;
+    const query = `${releasequery} | order(_publishedAt desc)[${start}...${end}]`;
+    return (await client.fetch(query)) || [];
   }
   return [];
 }
-
-export async function getLastFiveReleases() {
-  if (client) {
-    return (
-      (await client.fetch(
-        `${releasequery} | order(_publishedAt desc)[0...5]`
-      )) || []
-    );
-  }
-  return [];
-}
-
 
 // ====== Templates ======
 
@@ -241,4 +240,3 @@ export async function getAllTemplatesSlug() {
   }
   return [];
 }
-

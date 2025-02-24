@@ -155,6 +155,8 @@ export const getAll = groq`*[]`;
 
 // ====== Releases ======
 
+export const numberReleases = groq`count(*[_type == "release"])`;
+
 // Get all releases
 export const releasequery = groq`
 *[_type == "release"] | order(publishedAt desc, _createdAt desc) {
