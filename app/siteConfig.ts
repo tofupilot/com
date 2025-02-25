@@ -13,6 +13,7 @@ export const siteConfig = {
     blog: "/blog",
     changelog: "/changelog",
     contact: "/contact/sales",
+    support: "/contact/support",
     newsletter: "/newsletter",
     careers: "/careers",
 
@@ -28,6 +29,7 @@ export const siteConfig = {
     // external
     login: `${process.env.NEXT_PUBLIC_APP_URL}/runs`,
     signup: `${process.env.NEXT_PUBLIC_APP_URL}/auth/signup`,
+    discord: "https://discord.gg/fK3AeTyngh",
   },
 };
 

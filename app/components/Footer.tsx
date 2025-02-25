@@ -21,6 +21,11 @@ const navigation = {
       href: siteConfig.baseLinks.contact,
       external: false,
     },
+    {
+      name: "Support",
+      href: siteConfig.baseLinks.support,
+      external: false,
+    },
   ],
   resources: [
     { name: "Docs", href: siteConfig.baseLinks.docs, external: false },
