@@ -1,5 +1,3 @@
-// app/contact/sales/_actions.ts
-
 "use server";
 
 import { getErrorMessage } from "@/app/lib/errors";

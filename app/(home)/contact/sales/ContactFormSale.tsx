@@ -9,16 +9,16 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Balancer from "react-wrap-balancer";
 import {
-  ErrorMessage,
-  Field,
-  FieldGroup,
-  Fieldset,
-  Label,
+    ErrorMessage,
+    Field,
+    FieldGroup,
+    Fieldset,
+    Label,
 } from "../../../components/catalyst/fieldset";
 import { Input } from "../../../components/catalyst/input";
 import { Text, TextLink } from "../../../components/catalyst/text";
 import { Textarea } from "../../../components/catalyst/textarea";
-import { handleContactSubmission } from "./_actions";
+import { handleContactSubmission } from "./actions";
 
 const features = [
   {
@@ -48,7 +48,7 @@ interface ContactFormProps {
   defaultMessage: string;
 }
 
-export default function ContactFormPage({
+export default function ContactFormSales({
   title,
   defaultMessage,
 }: ContactFormProps) {

@@ -16,7 +16,7 @@ import {
 import { Input } from "../../../components/catalyst/input";
 import { Text, TextLink } from "../../../components/catalyst/text";
 import { Textarea } from "../../../components/catalyst/textarea";
-import { handleContactSubmission } from "../../contact/sales/_actions";
+import { handleContactSubmission } from "../../contact/sales/actions";
 
 interface FormData {
   name: string;
