@@ -394,3 +394,17 @@ export const templatequery = groq`
 export const templatepathquery = groq`
 *[_type == "template" && defined(slug.current)][].slug.current
 `;
+
+// ====== Roadmap ======
+// Get all newsletters for list view
+export const roadmapquery = groq`
+*[_type == "roadmap"] | order(votes desc) {
+  _id,
+  title,
+  team,
+  status,
+  description,
+  githubUrl,
+  target,
+}
+`;

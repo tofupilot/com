@@ -10,6 +10,7 @@ import template from "./schemas/template";
 import user from "./schemas/user";
 import newsletter from "./schemas/newsletter";
 import career from "./schemas/career";
+import roadmap from "./schemas/roadmap";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -23,5 +24,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     release,
     releaseCategory,
     template,
+    roadmap,
   ],
 };
