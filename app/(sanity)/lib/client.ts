@@ -1,4 +1,3 @@
-import { length } from "./../../../node_modules/@types/stylis/index.d";
 import { createClient } from "next-sanity";
 import { apiVersion, dataset, projectId, useCdn } from "../env";
 
@@ -14,13 +13,14 @@ import {
   newsletterpathquery,
   newsletterquery,
   newslettersinglequery,
+  numberReleases,
   paginatedquery,
   pathquery,
   postquery,
   postsbyauthorquery,
   postsbycatquery,
-  numberReleases,
   releasequery,
+  roadmapquery,
   singlequery,
   templatepathquery,
   templatequery,
@@ -237,6 +237,15 @@ export async function getAllTemplatesSlug() {
   if (client) {
     const slugs = (await client.fetch(templatepathquery)) || [];
     return slugs.map((slug: string) => ({ slug }));
+  }
+  return [];
+}
+
+// ====== Roadmap ======
+
+export async function getAllRoadmap() {
+  if (client) {
+    return (await client.fetch(roadmapquery)) || [];
   }
   return [];
 }

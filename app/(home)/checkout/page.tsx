@@ -9,7 +9,6 @@ export default function Page() {
       <Script
         src="https://cdn.paddle.com/paddle/v2/paddle.js"
         onLoad={() => {
-          // Use Vercel environment state to determine sandbox or production
           const isSandbox =
             process.env.NEXT_PUBLIC_VERCEL_ENV === "preview" ||
             process.env.NEXT_PUBLIC_VERCEL_ENV === "development";
