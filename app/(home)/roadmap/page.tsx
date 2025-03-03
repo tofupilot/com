@@ -1,6 +1,7 @@
 import { getAllRoadmap } from "@/app/(sanity)/lib/client";
 import { ContainerLanding } from "@/app/components/ContainerLanding";
 import RoadmapList from "./_components/RoadmapList";
+import CtaRoadmap from "./_components/CtaRoadmap";
 
 export default async function Page() {
   const roadmaps = await getAllRoadmap();
@@ -13,6 +14,7 @@ export default async function Page() {
     >
       <div className="pb-64 flex flex-col items-center justify-center">
         <RoadmapList roadmaps={roadmaps} />
+        <CtaRoadmap />
       </div>
     </ContainerLanding>
   );
