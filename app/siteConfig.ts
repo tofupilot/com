@@ -16,6 +16,7 @@ export const siteConfig = {
     support: "/contact/support",
     newsletter: "/newsletter",
     careers: "/careers",
+    roadmap: "/roadmap",
 
     // docs
     docs: "/docs",
