@@ -1,23 +1,20 @@
 import { defaultKeywords, defaultOpenGraph } from "../metadata";
 
 export const metadata = {
-  title: "Careers",
+  title: "Roadmap",
   description:
-    "Join TofuPilot and help build the future of manufacturing. Explore our job openings and career opportunities.",
+    "See what’s next for TofuPilot. Track upcoming features and improvements.",
   keywords: [
     ...defaultKeywords,
-    "TofuPilot Careers",
-    "Job Openings",
-    "Manufacturing Jobs",
-    "Engineering Roles",
-    "Software Jobs",
-    "Startup Careers",
+    "tofupilot roadmap",
+    "upcoming features",
+    "product updates",
+    "product roadmap",
   ],
   openGraph: {
     ...defaultOpenGraph,
-    title: "Careers - Join TofuPilot & Build the Future",
-    description:
-      "Join TofuPilot and be part of a team shaping the future of manufacturing. Check out our open roles and career opportunities.",
+    title: "TofuPilot Roadmap",
+    description: "Track upcoming features and improvements for TofuPilot.",
   },
 };
 
