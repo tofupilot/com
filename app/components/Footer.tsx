@@ -12,19 +12,19 @@ const navigation = {
       external: false,
     },
     {
-      name: "Status",
-      href: "https://tofupilot.betteruptime.com/",
-      external: true,
-    },
-    {
-      name: "Contact",
-      href: siteConfig.baseLinks.contact,
+      name: "Roadmap",
+      href: siteConfig.baseLinks.roadmap,
       external: false,
     },
     {
       name: "Support",
       href: siteConfig.baseLinks.support,
       external: false,
+    },
+    {
+      name: "Status",
+      href: "https://tofupilot.betteruptime.com/",
+      external: true,
     },
   ],
   resources: [
@@ -43,13 +43,9 @@ const navigation = {
   ],
   company: [
     { name: "About", href: siteConfig.baseLinks.about, external: false },
-    { name: "Careers", href: siteConfig.baseLinks.careers, external: false },
     { name: "Blog", href: siteConfig.baseLinks.blog, external: false },
-    {
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/company/tofupilot",
-      external: true,
-    },
+    { name: "Careers", href: siteConfig.baseLinks.careers, external: false },
+    { name: "Contact", href: siteConfig.baseLinks.contact, external: false },
   ],
   legal: [
     {
