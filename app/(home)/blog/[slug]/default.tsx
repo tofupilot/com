@@ -167,7 +167,7 @@ export default function Post(props: any) {
 
       <Cta />
       <div className="flex justify-center pb-64">
-        <Button plain href="/">
+        <Button plain href={siteConfig.baseLinks.blog}>
           <ArrowLeftIcon />
           View all posts
         </Button>
