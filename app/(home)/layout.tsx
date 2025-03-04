@@ -1,9 +1,8 @@
-import { ThemeProvider } from "next-themes";
-import Footer from "../components/Footer";
-import { CSPostHogProvider } from "../components/monitoring/posthog";
-import { Navigation } from "../components/Navigation";
 import { Analytics } from "@vercel/analytics/next";
+import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
+import Footer from "../components/Footer";
+import { Navigation } from "../components/Navigation";
 
 export default function Layout({
   children,
