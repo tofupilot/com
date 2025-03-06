@@ -78,7 +78,7 @@ async function processReleaseNotes(body: string): Promise<string> {
   
   // If still no good start point, remove version lines and empty lines
   const bodyLines = body.split('\n');
-  let processedLines = [...bodyLines];
+  const processedLines = [...bodyLines];
   const versionLineRegex = /^v?\d+\.\d+\.\d+/;
   
   while (
@@ -133,7 +133,7 @@ async function fetchRepoReleases(repoConfig: typeof REPOSITORIES[0], page = 1, p
 async function getAllReleases(page = 1, perPage = 5): Promise<GitHubRelease[]> {
   try {
     // Always prioritize the "com" repository (website) for releases on first page
-    let repositories = [...REPOSITORIES];
+    const repositories = [...REPOSITORIES];
     
     // For the first page, we want to ensure website releases are prominently featured
     if (page === 1) {
@@ -295,7 +295,7 @@ const MarkdownComponents = {
     
     if (match && match[1]) {
       const commitHash = match[1];
-      const commitUrl = `https://github.com/${GITHUB_REPO}/commit/${commitHash}`;
+      const commitUrl = `https://github.com/${GITHUB_ORG}/commit/${commitHash}`;
       const textBeforeHash = text.substring(0, match.index);
       
       return (
