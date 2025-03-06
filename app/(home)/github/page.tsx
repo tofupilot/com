@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import { MarkdownComponents } from "./_components/MarkdownComponents";
 import { PaginationLinks } from "./_components/PaginationLinks";
 import { REPOSITORIES, RepositoryBadges } from "./_components/RepositoryBadges";
+import { CatalystColor } from "@/app/components/catalyst/types";
 
 // GitHub API configuration
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
@@ -22,7 +23,7 @@ interface GitHubRelease {
   // Added fields for multi-repo support
   repo: string;
   displayName: string;
-  color: string;
+  color: CatalystColor;
   repoUrl: string;
 }
 
