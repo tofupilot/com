@@ -1,3 +1,4 @@
+import { BadgeButton } from "@/app/components/catalyst/badge";
 import { ContainerLanding } from "@/app/components/ContainerLanding";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -5,11 +6,9 @@ import { MarkdownComponents } from "./_components/MarkdownComponents";
 import { PaginationLinks } from "./_components/PaginationLinks";
 import { RepositoryBadges, REPOSITORIES } from "./_components/RepositoryBadges";
 
-// Configuration for GitHub repositories
+// GitHub API configuration
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 const GITHUB_ORG = "tofupilot";
-
-// Repository configuration is now imported from ./_components/RepositoryBadges
 
 // Enhanced interface for GitHub release with repository info
 interface GitHubRelease {
@@ -172,9 +171,6 @@ async function getAllReleases(page = 1, perPage = 5): Promise<GitHubRelease[]> {
     if (now - lastFetchTime > CACHE_DURATION || allFetchedReleases.length === 0) {
       const repositories = [...REPOSITORIES];
       
-      // Keep the repository order as defined, no need to reorder
-      // The repositories are already sorted as we want them
-      
       // Fetch releases from all repositories in parallel
       const releasesArrays = await Promise.all(
         repositories.map(repo => fetchRepoReleases(repo, 1, 10))
@@ -207,8 +203,7 @@ function formatDate(dateString: string | undefined): string {
   });
 }
 
-// Custom components for markdown rendering
-// Markdown components are now imported from ./_components/MarkdownComponents
+// Page props interface
 
 interface PageProps {
   searchParams?: {
@@ -233,8 +228,6 @@ export default async function Page({ searchParams }: PageProps) {
   const totalPages = Math.ceil(allFetchedReleases.length / perPage);
   const hasMorePages = safePage < totalPages;
 
-  // Pagination component is now imported from ./_components/PaginationLinks
-
   return (
     <ContainerLanding
       title="Changelog"
@@ -256,7 +249,7 @@ export default async function Page({ searchParams }: PageProps) {
                         href={release.html_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        color={release.color as CatalystColor}
+                        color={release.color}
                       >
                         {release.displayName}
                       </BadgeButton>
