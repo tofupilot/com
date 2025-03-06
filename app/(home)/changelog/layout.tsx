@@ -25,7 +25,7 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <main role="main" className="">
+    <main role="main">
       {children}
     </main>
   );
