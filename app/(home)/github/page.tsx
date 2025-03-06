@@ -1,54 +1,15 @@
-import { BadgeButton } from "@/app/components/catalyst/badge";
-import { CatalystColor } from "@/app/components/catalyst/types";
 import { ContainerLanding } from "@/app/components/ContainerLanding";
-import {
-  Pagination,
-  PaginationGap,
-  PaginationList,
-  PaginationNext,
-  PaginationPage,
-  PaginationPrevious,
-} from '@/app/components/catalyst/pagination';
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { MarkdownComponents } from "./_components/MarkdownComponents";
+import { PaginationLinks } from "./_components/PaginationLinks";
+import { RepositoryBadges, REPOSITORIES } from "./_components/RepositoryBadges";
 
 // Configuration for GitHub repositories
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 const GITHUB_ORG = "tofupilot";
 
-// Repository configuration with display names and badge colors
-const REPOSITORIES = [
-  {
-    repo: "app",
-    displayName: "Application",
-    color: "lime" as const,
-    description: "Web application for test analytics",
-  },
-  {
-    repo: "python-client",
-    displayName: "Python SDK",
-    color: "indigo" as const,
-    description: "Python SDK for TofuPilot API",
-  },
-  {
-    repo: "tofupilot-docs",
-    displayName: "TofuPilot Docs",
-    color: "emerald" as const,
-    description: "Product documentation",
-  },
-  {
-    repo: "com",
-    displayName: "Landing Page",
-    color: "blue" as const,
-    description: "TofuPilot marketing website and documentation",
-  },
-  {
-    repo: "openhtf-docs",
-    displayName: "OpenHTF Docs",
-    color: "amber" as const,
-    description: "Documentation for OpenHTF test framework",
-  },
-];
+// Repository configuration is now imported from ./_components/RepositoryBadges
 
 // Enhanced interface for GitHub release with repository info
 interface GitHubRelease {
@@ -247,136 +208,7 @@ function formatDate(dateString: string | undefined): string {
 }
 
 // Custom components for markdown rendering
-const MarkdownComponents = {
-  // Simple code block rendering without syntax highlighting
-  code: ({ node, inline, className, children, ...props }: any) => {
-    const content = String(children).replace(/\n$/, "");
-
-    return inline ? (
-      <code
-        className="font-mono text-sm bg-zinc-100 dark:bg-zinc-800 px-1 py-0.5 rounded"
-        {...props}
-      >
-        {children}
-      </code>
-    ) : (
-      <pre className="overflow-x-auto p-4 rounded-lg bg-zinc-100 dark:bg-zinc-800">
-        <code className="font-mono text-sm" {...props}>
-          {children}
-        </code>
-      </pre>
-    );
-  },
-
-  // Custom rendering for links
-  a: ({ node, className, children, ...props }: any) => (
-    <a
-      className="text-lime-600 hover:text-lime-800 dark:text-lime-500 dark:hover:text-lime-400 hover:underline"
-      target="_blank"
-      rel="noopener noreferrer"
-      {...props}
-    >
-      {children}
-    </a>
-  ),
-
-  // Reduced size heading rendering
-  h1: ({ node, children, ...props }: any) => (
-    <h1
-      className="text-xl font-bold mt-6 mb-3 text-zinc-900 dark:text-zinc-100 pb-2 border-b border-zinc-200 dark:border-zinc-700"
-      {...props}
-    >
-      {children}
-    </h1>
-  ),
-
-  h2: ({ node, children, ...props }: any) => (
-    <h2
-      className="text-lg font-bold mt-5 mb-3 text-zinc-900 dark:text-zinc-100"
-      {...props}
-    >
-      {children}
-    </h2>
-  ),
-
-  h3: ({ node, children, ...props }: any) => (
-    <h3
-      className="text-base font-semibold mt-4 mb-2 text-zinc-800 dark:text-zinc-200"
-      {...props}
-    >
-      {children}
-    </h3>
-  ),
-
-  // Compact paragraph rendering
-  p: ({ node, children, ...props }: any) => (
-    <p className="my-2 text-zinc-700 dark:text-zinc-300" {...props}>
-      {children}
-    </p>
-  ),
-
-  // Compact lists
-  ul: ({ node, children, ...props }: any) => (
-    <ul
-      className="list-disc pl-6 my-4 space-y-2 text-zinc-700 dark:text-zinc-300"
-      {...props}
-    >
-      {children}
-    </ul>
-  ),
-
-  ol: ({ node, children, ...props }: any) => (
-    <ol
-      className="list-decimal pl-6 my-4 space-y-2 text-zinc-700 dark:text-zinc-300"
-      {...props}
-    >
-      {children}
-    </ol>
-  ),
-
-  // List items with commit hash linking
-  li: ({ node, children, ...props }: any) => {
-    const text = String(children);
-    const commitHashRegex = /\(([0-9a-f]{7,40})\)$/;
-    const match = commitHashRegex.exec(text);
-
-    if (match && match[1]) {
-      const commitHash = match[1];
-      const commitUrl = `https://github.com/${GITHUB_ORG}/commit/${commitHash}`;
-      const textBeforeHash = text.substring(0, match.index);
-
-      return (
-        <li className="text-zinc-700 dark:text-zinc-300" {...props}>
-          {textBeforeHash}(
-          <a
-            href={commitUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-lime-600 hover:text-lime-800 dark:text-lime-500 dark:hover:text-lime-400 hover:underline"
-          >
-            {commitHash}
-          </a>
-          )
-        </li>
-      );
-    }
-
-    return (
-      <li className="text-zinc-700 dark:text-zinc-300" {...props}>
-        {children}
-      </li>
-    );
-  },
-
-  blockquote: ({ node, children, ...props }: any) => (
-    <blockquote
-      className="border-l-4 border-zinc-300 dark:border-zinc-600 pl-4 italic my-4 text-zinc-600 dark:text-zinc-400"
-      {...props}
-    >
-      {children}
-    </blockquote>
-  ),
-};
+// Markdown components are now imported from ./_components/MarkdownComponents
 
 interface PageProps {
   searchParams?: {
@@ -401,81 +233,7 @@ export default async function Page({ searchParams }: PageProps) {
   const totalPages = Math.ceil(allFetchedReleases.length / perPage);
   const hasMorePages = safePage < totalPages;
 
-  /**
-   * Calculate and render pagination controls
-   * - Shows all page numbers for <= 5 total pages
-   * - For more pages, shows smart pagination with current page context
-   */
-  const PaginationLinks = () => {
-    const visiblePageNumbers = [];
-    
-    // Simple case: 5 or fewer pages - show all page numbers
-    if (totalPages <= 5) {
-      for (let i = 1; i <= totalPages; i++) {
-        visiblePageNumbers.push(i);
-      }
-    } 
-    // Complex case: more than 5 pages - show smart pagination
-    else {
-      // Always show page 1
-      visiblePageNumbers.push(1);
-      
-      // Case 1: Near the beginning (pages 1-3)
-      if (safePage <= 3) {
-        for (let i = 2; i <= 4; i++) {
-          visiblePageNumbers.push(i);
-        }
-        visiblePageNumbers.push(null); // Gap
-        visiblePageNumbers.push(totalPages); // Last page
-      } 
-      // Case 2: Near the end
-      else if (safePage >= totalPages - 2) {
-        visiblePageNumbers.push(null); // Gap
-        for (let i = totalPages - 3; i <= totalPages; i++) {
-          if (i > 1) visiblePageNumbers.push(i);
-        }
-      }
-      // Case 3: Somewhere in the middle
-      else {
-        visiblePageNumbers.push(null); // Gap
-        visiblePageNumbers.push(safePage - 1);
-        visiblePageNumbers.push(safePage);
-        visiblePageNumbers.push(safePage + 1);
-        visiblePageNumbers.push(null); // Gap
-        visiblePageNumbers.push(totalPages); // Last page
-      }
-    }
-    
-    return (
-      <div className="mt-16 flex justify-center w-full">
-        <Pagination className="w-full flex justify-between">
-          <PaginationPrevious 
-            href={safePage > 1 ? `/github?page=${safePage - 1}` : null} 
-          />
-          
-          <PaginationList className="flex-grow flex justify-center">
-            {visiblePageNumbers.map((pageNum, index) => 
-              pageNum === null ? (
-                <PaginationGap key={`gap-${index}`} />
-              ) : (
-                <PaginationPage 
-                  key={`page-${pageNum}`}
-                  href={`/github?page=${pageNum}`}
-                  current={safePage === pageNum}
-                >
-                  {pageNum}
-                </PaginationPage>
-              )
-            )}
-          </PaginationList>
-          
-          <PaginationNext 
-            href={hasMorePages ? `/github?page=${safePage + 1}` : null}
-          />
-        </Pagination>
-      </div>
-    );
-  };
+  // Pagination component is now imported from ./_components/PaginationLinks
 
   return (
     <ContainerLanding
@@ -485,19 +243,7 @@ export default async function Page({ searchParams }: PageProps) {
       <div className="px-6 lg:px-8 pb-32">
         <div className="mx-auto flex max-w-xl flex-col py-12 sm:py-20">
           <div className="mb-8">
-            <div className="flex flex-wrap gap-2 justify-center">
-              {REPOSITORIES.map((repo) => (
-                <BadgeButton
-                  key={repo.repo}
-                  href={`https://github.com/${GITHUB_ORG}/${repo.repo}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  color={repo.color as CatalystColor}
-                >
-                  {repo.displayName}
-                </BadgeButton>
-              ))}
-            </div>
+            <RepositoryBadges />
           </div>
 
           <div className="divide-y divide-zinc-200 dark:divide-zinc-800">
@@ -546,7 +292,7 @@ export default async function Page({ searchParams }: PageProps) {
             )}
           </div>
 
-          {releases.length > 0 && <PaginationLinks />}
+          {releases.length > 0 && <PaginationLinks currentPage={safePage} totalPages={totalPages} />}
         </div>
       </div>
     </ContainerLanding>
