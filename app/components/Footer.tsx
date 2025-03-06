@@ -12,6 +12,11 @@ const navigation = {
       external: false,
     },
     {
+      name: "GitHub Releases",
+      href: siteConfig.baseLinks.changeloggithub,
+      external: false,
+    },
+    {
       name: "Roadmap",
       href: siteConfig.baseLinks.roadmap,
       external: false,

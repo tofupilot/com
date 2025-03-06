@@ -13,34 +13,34 @@ const GITHUB_ORG = "tofupilot";
 // Repository configuration with display names and badge colors
 const REPOSITORIES = [
   { 
+    repo: "com", 
+    displayName: "Website", 
+    color: "blue" as const,
+    description: "TofuPilot marketing website and documentation"
+  },
+  { 
     repo: "app", 
-    displayName: "TofuPilot App", 
+    displayName: "Web App", 
     color: "lime" as const,
     description: "Web application for test analytics"
   },
   { 
-    repo: "com", 
-    displayName: "TofuPilot Website", 
-    color: "blue" as const,
-    description: "Marketing website and documentation"
+    repo: "python-client", 
+    displayName: "Python SDK", 
+    color: "indigo" as const,
+    description: "Python SDK for TofuPilot API"
+  },
+  { 
+    repo: "tofupilot-docs", 
+    displayName: "Product Docs", 
+    color: "emerald" as const,
+    description: "Product documentation"
   },
   { 
     repo: "openhtf-docs", 
     displayName: "OpenHTF Docs", 
     color: "amber" as const,
     description: "Documentation for OpenHTF test framework"
-  },
-  { 
-    repo: "tofupilot-docs", 
-    displayName: "TofuPilot Docs", 
-    color: "emerald" as const,
-    description: "Product documentation"
-  },
-  { 
-    repo: "python-client", 
-    displayName: "Python Client", 
-    color: "indigo" as const,
-    description: "Python SDK for TofuPilot API"
   }
 ];
 
@@ -132,18 +132,47 @@ async function fetchRepoReleases(repoConfig: typeof REPOSITORIES[0], page = 1, p
 
 async function getAllReleases(page = 1, perPage = 5): Promise<GitHubRelease[]> {
   try {
-    // Fetch releases from all repositories in parallel
-    const releasesArrays = await Promise.all(
-      REPOSITORIES.map(repo => fetchRepoReleases(repo, page, perPage))
-    );
+    // Always prioritize the "com" repository (website) for releases on first page
+    let repositories = [...REPOSITORIES];
     
-    // Flatten the array of arrays into a single array
-    const allReleases = releasesArrays.flat();
-    
-    // Sort all releases by date (newest first)
-    return allReleases.sort((a, b) => 
-      new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
-    );
+    // For the first page, we want to ensure website releases are prominently featured
+    if (page === 1) {
+      // Move the "com" repository to the beginning if it's not already there
+      const comIndex = repositories.findIndex(repo => repo.repo === "com");
+      if (comIndex > 0) {
+        const comRepo = repositories.splice(comIndex, 1)[0];
+        repositories.unshift(comRepo);
+      }
+      
+      // Request more releases from the website repo
+      const websiteReleases = await fetchRepoReleases(repositories[0], 1, perPage * 2);
+      
+      // And a smaller number from other repos
+      const otherReleasesArrays = await Promise.all(
+        repositories.slice(1).map(repo => fetchRepoReleases(repo, 1, 1))
+      );
+      
+      // Combine all releases
+      const allReleases = [...websiteReleases, ...otherReleasesArrays.flat()];
+      
+      // Sort and return them
+      return allReleases.sort((a, b) => 
+        new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
+      );
+    } else {
+      // For other pages, fetch evenly from all repositories
+      const releasesArrays = await Promise.all(
+        repositories.map(repo => fetchRepoReleases(repo, page, perPage))
+      );
+      
+      // Flatten the array of arrays into a single array
+      const allReleases = releasesArrays.flat();
+      
+      // Sort all releases by date (newest first)
+      return allReleases.sort((a, b) => 
+        new Date(b.published_at).getTime() - new Date(a.published_at).getTime()
+      );
+    }
   } catch (error) {
     console.error("Error fetching all releases:", error);
     return [];
@@ -310,10 +339,12 @@ interface PageProps {
 
 export default async function Page({ searchParams }: PageProps) {
   const currentPage = Number(searchParams?.page) || 1;
-  const perPage = 5; // Number of releases per page per repository
+  const perPage = 3; // Show fewer releases per page to ensure pagination works
   
   const releases = await getAllReleases(currentPage, perPage);
-  const hasMoreResults = releases.length >= REPOSITORIES.length * perPage;
+  // We'll show a "Next" button if we have the full number of requested releases
+  // This is a simple way to check if there might be more results
+  const hasMoreResults = releases.length >= perPage;
   
   // Pagination links component
   const PaginationLinks = () => (
@@ -326,6 +357,10 @@ export default async function Page({ searchParams }: PageProps) {
           Previous
         </a>
       )}
+      
+      <span className="text-sm text-zinc-500 dark:text-zinc-400">
+        Page {currentPage}
+      </span>
       
       {hasMoreResults && (
         <a 
