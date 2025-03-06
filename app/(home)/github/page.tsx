@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { MarkdownComponents } from "./_components/MarkdownComponents";
 import { PaginationLinks } from "./_components/PaginationLinks";
-import { RepositoryBadges, REPOSITORIES } from "./_components/RepositoryBadges";
+import { REPOSITORIES, RepositoryBadges } from "./_components/RepositoryBadges";
 
 // GitHub API configuration
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
@@ -16,7 +16,7 @@ interface GitHubRelease {
   name: string;
   body: string;
   published_at: string;
-  created_at: string; // Base creation date
+  created_at: string;
   html_url: string;
   tag_name: string;
   // Added fields for multi-repo support
@@ -24,8 +24,6 @@ interface GitHubRelease {
   displayName: string;
   color: string;
   repoUrl: string;
-  // Tag information
-  tag_date?: string; // Optional tag creation date (might not be available)
 }
 
 /**
@@ -85,63 +83,17 @@ async function fetchRepoReleases(
     // Process each release and add repo info
     return Promise.all(
       releases.map(async (release: any) => {
+        // Process release notes to clean up format
         const processedBody = await processReleaseNotes(release.body);
 
-        // Try to get tag date for this release tag, if we have a token
-        let tagDate = undefined;
-        if (GITHUB_TOKEN && release.tag_name) {
-          try {
-            const tagResponse = await fetch(
-              `https://api.github.com/repos/${GITHUB_ORG}/${repoConfig.repo}/git/refs/tags/${release.tag_name}`,
-              {
-                headers: {
-                  Accept: "application/vnd.github.v3+json",
-                  Authorization: `token ${GITHUB_TOKEN}`,
-                },
-                next: { revalidate: 3600 },
-              }
-            );
-
-            if (tagResponse.ok) {
-              const tagData = await tagResponse.json();
-              if (tagData.object && tagData.object.sha) {
-                // Now get the tag object to get its date
-                const tagObjectResponse = await fetch(
-                  `https://api.github.com/repos/${GITHUB_ORG}/${repoConfig.repo}/git/tags/${tagData.object.sha}`,
-                  {
-                    headers: {
-                      Accept: "application/vnd.github.v3+json",
-                      Authorization: `token ${GITHUB_TOKEN}`,
-                    },
-                    next: { revalidate: 3600 },
-                  }
-                );
-
-                if (tagObjectResponse.ok) {
-                  const tagObject = await tagObjectResponse.json();
-                  if (tagObject.tagger && tagObject.tagger.date) {
-                    tagDate = tagObject.tagger.date;
-                  }
-                }
-              }
-            }
-          } catch (tagError) {
-            console.error(
-              `Failed to fetch tag data for ${release.tag_name}:`,
-              tagError
-            );
-            // We'll fallback to using the release date
-          }
-        }
-
+        // Return release with additional metadata
         return {
           ...release,
           body: processedBody,
           repo: repoConfig.repo,
           displayName: repoConfig.displayName,
           color: repoConfig.color,
-          repoUrl: `https://github.com/${GITHUB_ORG}/${repoConfig.repo}`,
-          tag_date: tagDate,
+          repoUrl: `https://github.com/${GITHUB_ORG}/${repoConfig.repo}`
         };
       })
     );
@@ -255,12 +207,10 @@ export default async function Page({ searchParams }: PageProps) {
                       </BadgeButton>
                     </div>
                     <time
-                      dateTime={new Date(
-                        release.tag_date || release.published_at
-                      ).toISOString()}
+                      dateTime={new Date(release.published_at).toISOString()}
                       className="font-mono text-zinc-500 dark:text-zinc-400"
                     >
-                      {formatDate(release.tag_date || release.published_at)}
+                      {formatDate(release.published_at)}
                     </time>
                   </div>
                   <h2 className="mt-3 text-2xl font-bold leading-6 text-zinc-900 dark:text-zinc-100">
