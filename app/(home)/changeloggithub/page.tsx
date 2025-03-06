@@ -278,41 +278,41 @@ const MarkdownComponents = {
     </a>
   ),
   
-  // Simple heading rendering with consistent sizing
+  // Reduced size heading rendering
   h1: ({ node, children, ...props }: any) => (
-    <h1 className="text-3xl font-bold mt-10 mb-5 text-zinc-900 dark:text-zinc-100 pb-3 border-b-2 border-zinc-200 dark:border-zinc-700" {...props}>
+    <h1 className="text-xl font-bold mt-6 mb-3 text-zinc-900 dark:text-zinc-100 pb-2 border-b border-zinc-200 dark:border-zinc-700" {...props}>
       {children}
     </h1>
   ),
   
   h2: ({ node, children, ...props }: any) => (
-    <h2 className="text-2xl font-bold mt-8 mb-4 text-zinc-900 dark:text-zinc-100" {...props}>
+    <h2 className="text-lg font-bold mt-5 mb-3 text-zinc-900 dark:text-zinc-100" {...props}>
       {children}
     </h2>
   ),
   
   h3: ({ node, children, ...props }: any) => (
-    <h3 className="text-xl font-semibold mt-6 mb-3 text-zinc-800 dark:text-zinc-200" {...props}>
+    <h3 className="text-base font-semibold mt-4 mb-2 text-zinc-800 dark:text-zinc-200" {...props}>
       {children}
     </h3>
   ),
   
-  // Simple paragraph rendering (no special cases)
+  // Compact paragraph rendering
   p: ({ node, children, ...props }: any) => (
-    <p className="my-3 text-zinc-700 dark:text-zinc-300" {...props}>
+    <p className="my-2 text-zinc-700 dark:text-zinc-300" {...props}>
       {children}
     </p>
   ),
   
-  // Lists
+  // Compact lists
   ul: ({ node, children, ...props }: any) => (
-    <ul className="list-disc pl-6 my-6 space-y-3 text-zinc-700 dark:text-zinc-300" {...props}>
+    <ul className="list-disc pl-6 my-4 space-y-2 text-zinc-700 dark:text-zinc-300" {...props}>
       {children}
     </ul>
   ),
   
   ol: ({ node, children, ...props }: any) => (
-    <ol className="list-decimal pl-6 my-6 space-y-3 text-zinc-700 dark:text-zinc-300" {...props}>
+    <ol className="list-decimal pl-6 my-4 space-y-2 text-zinc-700 dark:text-zinc-300" {...props}>
       {children}
     </ol>
   ),
@@ -467,7 +467,7 @@ export default async function Page({ searchParams }: PageProps) {
                   <h2 className="mt-3 text-2xl font-bold leading-6 text-zinc-900 dark:text-zinc-100">
                     {release.name}
                   </h2>
-                  <div className="prose prose-zinc dark:prose-invert prose-headings:font-display my-3 mt-8 max-w-none overflow-x-auto text-base leading-7 text-zinc-700 dark:text-zinc-300 focus:outline-none">
+                  <div className="prose prose-zinc dark:prose-invert prose-headings:font-display my-3 mt-4 max-w-none overflow-x-auto text-base leading-7 text-zinc-700 dark:text-zinc-300 focus:outline-none">
                     <ReactMarkdown 
                       remarkPlugins={[remarkGfm]} 
                       components={MarkdownComponents}
