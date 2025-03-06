@@ -1,4 +1,4 @@
-import { Badge, BadgeButton } from "@/app/components/catalyst/badge";
+import { BadgeButton } from "@/app/components/catalyst/badge";
 import { CatalystColor } from "@/app/components/catalyst/types";
 import { ContainerLanding } from "@/app/components/ContainerLanding";
 import {
