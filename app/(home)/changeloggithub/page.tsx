@@ -63,13 +63,23 @@ interface GitHubRelease {
 }
 
 async function processReleaseNotes(body: string): Promise<string> {
-  // Simply remove empty lines at the beginning, but keep title headers and content
   const bodyLines = body.split('\n');
   const processedLines = [...bodyLines];
   
-  // Only remove empty lines at the beginning
+  // First, remove empty lines at the beginning
   while (processedLines.length > 0 && processedLines[0].trim() === '') {
     processedLines.shift();
+  }
+  
+  // Then, check if the first line is a level 1 heading (# title) and remove it
+  // This typically matches lines like "# TofuPilot Com v0.x.x"
+  if (processedLines.length > 0 && /^# .+/.test(processedLines[0])) {
+    processedLines.shift();
+    
+    // Also remove any blank lines following the heading
+    while (processedLines.length > 0 && processedLines[0].trim() === '') {
+      processedLines.shift();
+    }
   }
   
   return processedLines.join('\n').trim();
