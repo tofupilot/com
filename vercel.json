@@ -15,6 +15,5 @@
       "destination": "/docs/phases",
       "permanent": true
     }
-  ],
-  "packageManager": "npm"
+  ]
 }
