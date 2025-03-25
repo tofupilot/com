@@ -11,20 +11,21 @@ export default function Testimonial({ happyUser }: TestimonialProps) {
       quote:
         "It's clear, it's direct, it's simple. That's what I liked about TofuPilot. I like things to be simple and pragmatic.",
       name: "Quentin Lohri",
-      position: "Senior Embedded Software Engineer & R&D Sensor Lead, SICPA",
+      position: "Senior Embedded Software Engineer & R&D Sensor Lead",
+      company: "SICPA",
       imageSrc: "/testimonials/quentin-lohri-sicpa.png",
     },
     juliette: {
       quote:
         "TofuPilot offers, in a clean and well structured way, a great overview of our testing results. New features are regularly added to enhance the data analysis opportunities that are brought to us seamlessly",
       name: "Juliette Lansoy",
-      position:
-        "Integration Validation & Verification Manager, Enchanted Tools",
+      position: "Integration Validation & Verification Manager",
+      company: "Enchanted Tools",
       imageSrc: "/testimonials/juliette-lansoy-enchanted-tools.png",
     },
   };
 
-  const { quote, name, position, imageSrc } = testimonials[happyUser];
+  const { quote, name, position, company, imageSrc } = testimonials[happyUser];
 
   return (
     <section
@@ -46,14 +47,14 @@ export default function Testimonial({ happyUser }: TestimonialProps) {
                 width={200}
                 height={200}
                 src={imageSrc}
-                alt={`${name} from ${position.split(',')[1]?.trim() || 'their company'}`}
+                alt={`${name} from ${company}`}
               />
               <div>
                 <p className="font-semibold text-zinc-900 dark:text-zinc-50">
                   {name}
                 </p>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                  {position}
+                  {position}, {company}
                 </p>
               </div>
             </figcaption>
