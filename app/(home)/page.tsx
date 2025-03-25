@@ -3,6 +3,7 @@ import Features from "../components/Features";
 import Hero from "../components/Hero";
 import Infrastructure from "../components/Infrastructure";
 import LogoCloud from "../components/LogoCloud";
+import Testimonial from "../components/Testimonials";
 import CodeExample from "../components/ui/home/CodeExample";
 import UserStories from "../components/UserStories";
 
@@ -13,20 +14,22 @@ export default function Page() {
       <LogoCloud />
       <CodeExample />
 
-      {/* <section
-          id="testimonial"
-          className="mx-auto py-24 sm:py-32 max-w-xl lg:max-w-6xl"
-          aria-labelledby="testimonial"
-        >
-          <Testimonial
-            quote="It took us just 5 minutes to integrate TofuPilot into our  scripts and get all our test data cleaned and neatly ordered on the dashboard. Amazing!"
-            name="Juliette Lansoy"
-            position="Test Manager, Enchanted Tools"
-            imageSrc="/testimonials/juliette-lansoy.png"
-          />
-        </section> */}
+      <Testimonial
+        quote="It's clear, it's direct, it's simple. That's what I liked about TofuPilot. I like things to be simple and pragmatic."
+        name="Quentin Lohri"
+        position="Senior Embedded Software Engineer & R&D Sensor Lead, SICPA"
+        imageSrc="/testimonials/juliette-lansoy.png" // Temporary using existing image
+      />
 
       <Features />
+      
+      <Testimonial
+        quote="TofuPilot offers, in a clean and well structured way, a great overview of our testing results. New features are regularly added to enhance the data analysis opportunities that are brought to us seamlessly"
+        name="Juliette Lansoy"
+        position="Integration Validation & Verification Manager, Enchanted Tools"
+        imageSrc="/testimonials/juliette-lansoy.png"
+      />
+      
       <Infrastructure />
 
       {/* <Benefits /> */}
