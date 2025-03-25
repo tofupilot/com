@@ -12,7 +12,7 @@ export default function TestimonialJuliette() {
                 alt="Juliette Lansoy from Enchanted Tools"
                 src="/testimonials/juliette-lansoy-enchanted-tools.png"
                 fill
-                className="absolute object-top xl:object-center inset-0 size-full rounded-2xl object-cover shadow-xl shadow-yellow-500/30"
+                className="absolute object-top xl:object-center inset-0 size-full rounded-2xl object-cover shadow-xl shadow-lime-500/30"
               />
             </div>
           </div>
@@ -22,7 +22,7 @@ export default function TestimonialJuliette() {
                 fill="none"
                 viewBox="0 0 162 128"
                 aria-hidden="true"
-                className="absolute left-0 top-0 -z-10 h-32 stroke-yellow-500/20"
+                className="absolute left-0 top-0 -z-10 h-32 stroke-lime-500/20"
               >
                 <path
                   id="quote-path"
