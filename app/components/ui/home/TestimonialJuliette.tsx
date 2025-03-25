@@ -3,11 +3,7 @@ import Balancer from "react-wrap-balancer";
 
 export default function TestimonialJuliette() {
   return (
-    <section
-      id="testimonial-juliette"
-      aria-label="Testimonial by Juliette Lansoy"
-      className="mx-auto my-16 sm:my-24 w-full max-w-6xl px-3"
-    >
+    <section id="testimonial-juliette" aria-label="Testimonial by Juliette Lansoy" className="mx-auto my-16 sm:my-24 w-full max-w-6xl px-3">
       <div className="mx-auto">
         <figure className="mx-auto">
           <blockquote className="mx-auto max-w-2xl text-center text-xl font-semibold leading-8 text-zinc-900 sm:text-2xl sm:leading-9 dark:text-zinc-50">
