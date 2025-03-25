@@ -59,7 +59,7 @@ export default function Infrastructure() {
     <div className="px-3">
       <section
         aria-labelledby="global-database-title"
-        className="relative mx-auto mt-28 flex w-full max-w-6xl flex-col items-center justify-center overflow-hidden rounded-3xl bg-zinc-950 pt-24 shadow-xl dark:shadow-none shadow-black/30 md:mt-40"
+        className="relative mx-auto flex w-full max-w-6xl flex-col items-center justify-center overflow-hidden rounded-3xl bg-zinc-950 pt-24 shadow-xl dark:shadow-none shadow-black/30"
       >
         <div className="absolute top-[17rem] size-[40rem] rounded-full bg-lime-800 blur-3xl md:top-[20rem]" />
         <div className="z-10 inline-block rounded-lg border border-lime-400/20 bg-lime-800/20 px-3 py-1.5 font-semibold uppercase leading-4 tracking-tight sm:text-sm">
