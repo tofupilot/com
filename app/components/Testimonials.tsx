@@ -9,15 +9,15 @@ export default function Testimonial({ happyUser }: TestimonialProps) {
   const testimonials = {
     quentin: {
       quote:
-        "It's clear, it's direct, it's simple. That's what I liked about TofuPilot. I like things to be simple and pragmatic.",
+        "It's clear, it's direct, it's simple. That's what I like about TofuPilot. I like things to be simple and pragmatic.",
       name: "Quentin Lohri",
       position: "Senior Embedded Software Engineer & R&D Sensor Lead",
       company: "SICPA",
-      imageSrc: "/testimonials/quentin-lohri-sicpa.png",
+      imageSrc: "/testimonials/quentin-lohri-sicpa.jpg",
     },
     juliette: {
       quote:
-        "TofuPilot offers, in a clean and well structured way, a great overview of our testing results. New features are regularly added to enhance the data analysis opportunities that are brought to us seamlessly",
+        "TofuPilot offers a great overview of our testing results, in a clean and well structured way. New features are regularly added to enhance the data analysis opportunities that are brought to us seamlessly",
       name: "Juliette Lansoy",
       position: "Integration Validation & Verification Manager",
       company: "Enchanted Tools",
@@ -43,7 +43,9 @@ export default function Testimonial({ happyUser }: TestimonialProps) {
             </blockquote>
             <figcaption className="mt-10 flex items-center justify-center gap-x-5">
               <Image
-                className="h-11 w-11 rounded-full object-cover shadow-lg shadow-lime-500/50 ring-2 ring-white dark:ring-zinc-700"
+                className={`h-11 w-11 rounded-full object-cover shadow-lg ${
+                  happyUser === 'quentin' ? 'shadow-amber-500/50' : 'shadow-lime-500/50'
+                } ring-2 ring-white dark:ring-zinc-700`}
                 width={200}
                 height={200}
                 src={imageSrc}
