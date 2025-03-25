@@ -31,7 +31,7 @@ export default function Testimonial({ happyUser }: TestimonialProps) {
     <section
       id={`testimonial-${happyUser}`}
       aria-label={`Testimonial by ${name}`}
-      className="my-16 sm:my-24"
+      className="mt-28 mb-0"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-xl lg:max-w-6xl">
