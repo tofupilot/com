@@ -3,7 +3,7 @@ import Balancer from "react-wrap-balancer";
 
 export default function TestimonialJuliette() {
   return (
-    <div className="bg-white dark:bg-zinc-900 pb-16 pt-20 sm:pb-24 sm:pt-28 xl:pb-32 my-16 sm:my-24">
+    <div className="pt-20 pb-8 sm:pt-28 my-16 sm:my-24">
       <div className="bg-gradient-to-b from-zinc-100 to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 pb-20 sm:pb-24 xl:pb-0 rounded-2xl shadow-md">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
           <div className="-mt-8 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
@@ -12,7 +12,7 @@ export default function TestimonialJuliette() {
                 alt="Juliette Lansoy from Enchanted Tools"
                 src="/testimonials/juliette-lansoy-enchanted-tools.png"
                 fill
-                className="absolute inset-0 size-full rounded-2xl object-cover shadow-xl shadow-lime-500/30"
+                className="absolute inset-0 size-full rounded-2xl object-cover shadow-xl shadow-yellow-500/30"
               />
             </div>
           </div>
@@ -22,7 +22,7 @@ export default function TestimonialJuliette() {
                 fill="none"
                 viewBox="0 0 162 128"
                 aria-hidden="true"
-                className="absolute left-0 top-0 -z-10 h-32 stroke-lime-500/20"
+                className="absolute left-0 top-0 -z-10 h-32 stroke-yellow-500/20"
               >
                 <path
                   id="quote-path"
@@ -33,13 +33,17 @@ export default function TestimonialJuliette() {
               <blockquote className="text-xl/8 font-semibold text-zinc-900 dark:text-zinc-100 sm:text-2xl/9">
                 <p>
                   <Balancer>
-                    "TofuPilot offers a great overview of our testing results, in a clean and well structured way. New features are regularly added to enhance the data analysis opportunities that are brought to us seamlessly"
+                    "TofuPilot gives us a clear, well-organized view of our testing results. New features keep rolling in, making it even easier to explore and analyze our data."
                   </Balancer>
                 </p>
               </blockquote>
               <figcaption className="mt-8 text-base">
-                <div className="font-semibold text-zinc-900 dark:text-zinc-100">Juliette Lansoy</div>
-                <div className="mt-1 text-zinc-600 dark:text-zinc-400">Integration Validation & Verification Manager, Enchanted Tools</div>
+                <div className="font-semibold text-zinc-900 dark:text-zinc-100">
+                  Juliette Lansoy
+                </div>
+                <div className="mt-1 text-zinc-600 dark:text-zinc-400">
+                  Integration Validation & Verification Manager, Enchanted Tools
+                </div>
               </figcaption>
             </figure>
           </div>
@@ -48,4 +52,3 @@ export default function TestimonialJuliette() {
     </div>
   );
 }
-
