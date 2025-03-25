@@ -13,26 +13,10 @@ export default function Page() {
       <Hero />
       <LogoCloud />
       <CodeExample />
-
-      <Testimonial
-        quote="It's clear, it's direct, it's simple. That's what I liked about TofuPilot. I like things to be simple and pragmatic."
-        name="Quentin Lohri"
-        position="Senior Embedded Software Engineer & R&D Sensor Lead, SICPA"
-        imageSrc="/testimonials/juliette-lansoy.png" // Temporary using existing image
-      />
-
+      <Testimonial variant="quentin" />
       <Features />
-      
-      <Testimonial
-        quote="TofuPilot offers, in a clean and well structured way, a great overview of our testing results. New features are regularly added to enhance the data analysis opportunities that are brought to us seamlessly"
-        name="Juliette Lansoy"
-        position="Integration Validation & Verification Manager, Enchanted Tools"
-        imageSrc="/testimonials/juliette-lansoy.png"
-      />
-      
+      <Testimonial variant="juliette" />
       <Infrastructure />
-
-      {/* <Benefits /> */}
       <UserStories />
       <Cta />
     </main>
