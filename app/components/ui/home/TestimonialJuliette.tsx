@@ -33,7 +33,7 @@ export default function TestimonialJuliette() {
               <blockquote className="text-xl/8 font-semibold text-zinc-900 dark:text-zinc-100 sm:text-2xl/9">
                 <p>
                   <Balancer>
-                    "TofuPilot gives us a clear, well-organized view of our testing results. New features keep rolling in, making it even easier to explore and analyze our data."
+                    {`"TofuPilot gives us a clear, well-organized view of our testing results. New features keep rolling in, making it even easier to explore and analyze our data."`}
                   </Balancer>
                 </p>
               </blockquote>

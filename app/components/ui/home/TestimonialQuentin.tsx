@@ -8,7 +8,7 @@ export default function TestimonialQuentin() {
         <figure className="mx-auto">
           <blockquote className="mx-auto max-w-2xl text-center text-xl font-semibold leading-8 text-zinc-900 sm:text-2xl sm:leading-9 dark:text-zinc-50">
             <p>
-              <Balancer>"It's clear, it's direct, it's simple. That's what I like about TofuPilot. I like things to be simple and pragmatic."</Balancer>
+              <Balancer>{"\"It's clear, it's direct, it's simple. That's what I like about TofuPilot. I like things to be simple and pragmatic.\""}</Balancer>
             </p>
           </blockquote>
           <figcaption className="mt-10 flex items-center justify-center gap-x-5">
