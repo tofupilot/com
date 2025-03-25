@@ -43,7 +43,7 @@ export default function LogoCloud() {
           <Logos.PacificDefense className="max-h-11 sm:max-h-14 w-full object-contain" />
         </div>
         <div className="p-6 sm:p-14 bg-zinc-100 rounded-lg dark:bg-zinc-800">
-          <Logos.Sicpa className="max-h-11 sm:max-h-14 w-full object-contain" />
+          <Logos.PowerElectronics className="max-h-11 sm:max-h-14 w-full object-contain" />
         </div>
         <div className="p-6 sm:p-14 bg-zinc-100 rounded-lg dark:bg-zinc-800">
           <Logos.FixturFab className="max-h-11 sm:max-h-14 w-full object-contain" />
