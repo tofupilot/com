@@ -12,6 +12,7 @@ export const siteConfig = {
     guides: "/guides",
     blog: "/blog",
     changelog: "/changelog",
+    changeloggithub: "/changeloggithub",
     contact: "/contact/sales",
     support: "/contact/support",
     newsletter: "/newsletter",
