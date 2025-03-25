@@ -3,7 +3,8 @@ import Features from "../components/Features";
 import Hero from "../components/Hero";
 import Infrastructure from "../components/Infrastructure";
 import LogoCloud from "../components/LogoCloud";
-import Testimonial from "../components/Testimonials";
+import TestimonialJuliette from "../components/TestimonialJuliette";
+import TestimonialQuentin from "../components/TestimonialQuentin";
 import CodeExample from "../components/ui/home/CodeExample";
 import UserStories from "../components/UserStories";
 
@@ -13,9 +14,9 @@ export default function Page() {
       <Hero />
       <LogoCloud />
       <CodeExample />
-      <Testimonial variant="quentin" />
+      <TestimonialQuentin />
       <Features />
-      <Testimonial variant="juliette" />
+      <TestimonialJuliette />
       <Infrastructure />
       <UserStories />
       <Cta />
